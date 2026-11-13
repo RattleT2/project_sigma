@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://cr0tkonhutm4t"
+=======
+uid="uid://p4i4gy8yphbv"
+>>>>>>> eb53bfc (penambahan asset)
 path="res://.godot/imported/ice_rock2.png-f7be66d7c5f0e80a673f55b2da387e9f.ctex"
 metadata={
 "vram_texture": false

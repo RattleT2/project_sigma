@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://bvewecwq5eaj4"
+=======
+uid="uid://qn1mh14oysnx"
+>>>>>>> eb53bfc (penambahan asset)
 path="res://.godot/imported/canyon_rock1.png-9e1900219b372d27575c9d4c1abb3389.ctex"
 metadata={
 "vram_texture": false

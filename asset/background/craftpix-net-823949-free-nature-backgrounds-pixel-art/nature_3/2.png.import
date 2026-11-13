@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://ce7w8v6ahsvhl"
+=======
+uid="uid://82u2l1dly7ul"
+>>>>>>> eb53bfc (penambahan asset)
 path="res://.godot/imported/2.png-2d8a46b637531f8f38f4851d10369968.ctex"
 metadata={
 "vram_texture": false

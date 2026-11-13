@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://cqeqbpgleo2sd"
+=======
+uid="uid://b60ukh2jq7wso"
+>>>>>>> eb53bfc (penambahan asset)
 path="res://.godot/imported/Bush6_3.png-4066fcbd417d1dafc0af5aea129f6851.ctex"
 metadata={
 "vram_texture": false

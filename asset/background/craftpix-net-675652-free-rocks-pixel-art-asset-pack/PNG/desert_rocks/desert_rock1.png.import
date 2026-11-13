@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://bfjlg0njoq6dp"
+=======
+uid="uid://c07qt1gys4wqt"
+>>>>>>> eb53bfc (penambahan asset)
 path="res://.godot/imported/desert_rock1.png-80ae36dc8b95c4d56270ed39a25273e7.ctex"
 metadata={
 "vram_texture": false

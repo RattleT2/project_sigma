@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://c0dcf5t5agjvg"
+=======
+uid="uid://bjklp17rk7yoh"
+>>>>>>> eb53bfc (penambahan asset)
 valid=false
 
 [deps]

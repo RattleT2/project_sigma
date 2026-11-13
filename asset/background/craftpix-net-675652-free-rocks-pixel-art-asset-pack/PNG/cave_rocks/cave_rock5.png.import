@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://b2f1ljys3d24g"
+=======
+uid="uid://30afadgiwtka"
+>>>>>>> eb53bfc (penambahan asset)
 path="res://.godot/imported/cave_rock5.png-3f46ffde399d75968410656b1df0e136.ctex"
 metadata={
 "vram_texture": false

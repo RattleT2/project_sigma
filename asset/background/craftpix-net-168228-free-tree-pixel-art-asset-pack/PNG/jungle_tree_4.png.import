@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://b28accev6rdlg"
+=======
+uid="uid://bwymo2xvwu88r"
+>>>>>>> eb53bfc (penambahan asset)
 path="res://.godot/imported/jungle_tree_4.png-ed89007b63a85e17def7450564b1c9a0.ctex"
 metadata={
 "vram_texture": false

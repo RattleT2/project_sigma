@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://d324tn04ul2sk"
+=======
+uid="uid://w2hjsnya4p53"
+>>>>>>> eb53bfc (penambahan asset)
 path="res://.godot/imported/middle_lane_rock2_4.png-0905059e2a6b69b3e37169509ec42e7f.ctex"
 metadata={
 "vram_texture": false

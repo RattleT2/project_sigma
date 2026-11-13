@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://lg26h4q1iucc"
+=======
+uid="uid://cf1v27i5gmp4i"
+>>>>>>> eb53bfc (penambahan asset)
 path="res://.godot/imported/snowy_rock3.png-9ecd46522c9fbbd2d479c20370fe1d79.ctex"
 metadata={
 "vram_texture": false

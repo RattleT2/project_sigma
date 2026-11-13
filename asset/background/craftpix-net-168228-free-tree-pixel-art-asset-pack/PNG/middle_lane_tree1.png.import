@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://cu5omw27yhmn"
+=======
+uid="uid://d2dn3dpt8potm"
+>>>>>>> eb53bfc (penambahan asset)
 path="res://.godot/imported/middle_lane_tree1.png-e23c31233d2bb23922b9bbde002b3ab7.ctex"
 metadata={
 "vram_texture": false

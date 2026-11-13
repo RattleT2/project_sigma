@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://uy7ew6e75wml"
+=======
+uid="uid://drtnwuvlatbtx"
+>>>>>>> eb53bfc (penambahan asset)
 path="res://.godot/imported/birch_6.png-f61c5c4e7509196ce74fd1ca394ccc95.ctex"
 metadata={
 "vram_texture": false

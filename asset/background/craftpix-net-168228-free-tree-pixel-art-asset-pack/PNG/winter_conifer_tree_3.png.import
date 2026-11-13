@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://dgkn1unsvkiuo"
+=======
+uid="uid://mwm5p6mx05jl"
+>>>>>>> eb53bfc (penambahan asset)
 path="res://.godot/imported/winter_conifer_tree_3.png-755ce1a0770da87c2b303b869d8aa24b.ctex"
 metadata={
 "vram_texture": false
