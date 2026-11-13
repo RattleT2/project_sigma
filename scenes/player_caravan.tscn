@@ -1,4 +1,4 @@
-[gd_scene load_steps=223 format=3 uid="uid://d38t4xdb1wejk"]
+[gd_scene load_steps=224 format=3 uid="uid://d38t4xdb1wejk"]
 
 [ext_resource type="Texture2D" uid="uid://dfyos65j3eyuq" path="res://asset/caravan_sprites/gerobak_A_covered_wagon/A_kanopi_belang_merah.png" id="1_08xi1"]
 [ext_resource type="Texture2D" uid="uid://dtmxgmjisuxin" path="res://asset/caravan_sprites/gerobak_A_covered_wagon/A_kanopi_biru.png" id="2_6huml"]
@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://dr62issrelphy" path="res://asset/caravan_sprites/aksesoris/akses_sekop_beliung.png" id="19_lb17t"]
 [ext_resource type="Texture2D" uid="uid://du6o7lc67hgwc" path="res://asset/caravan_sprites/aksesoris/akses_lentera.png" id="28_o75u1"]
 [ext_resource type="Texture2D" uid="uid://dwynorxvfhiti" path="res://asset/caravan_sprites/aksesoris/akses_tali_gulung.png" id="29_gutrg"]
+[ext_resource type="AudioStream" uid="uid://bh7ottvwt1ka3" path="res://asset/audio/kudaberjalan_pCcJAhWM.wav" id="30_dhnmv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3d18f"]
 atlas = ExtResource("5_efuuo")
@@ -2027,3 +2028,6 @@ process_material = SubResource("ParticleProcessMaterial_lree0")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(19, 28)
 shape = SubResource("WorldBoundaryShape2D_5uerx")
+
+[node name="sound_horse_and_wagon_run_and_boost" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("30_dhnmv")
