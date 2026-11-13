@@ -1911,35 +1911,35 @@ animations = [{
 texture_filter = 1
 position = Vector2(37, -24)
 sprite_frames = SubResource("SpriteFrames_xicov")
-animation = &"driver2_giving_boost"
-frame_progress = 0.07940847
+animation = &"driver2_run"
+frame_progress = 0.6561832
 
 [node name="Cariagetentcostume" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(-8, -25)
 sprite_frames = SubResource("SpriteFrames_le6xx")
 animation = &"tent_costumeforwagon2only1_run"
-frame_progress = 0.22701843
+frame_progress = 0.03305447
 
 [node name="Wagon" type="AnimatedSprite2D" parent="Cariagetentcostume"]
 texture_filter = 1
 position = Vector2(1, 0)
 sprite_frames = SubResource("SpriteFrames_feirg")
-animation = &"wagon2_run_boost"
-frame_progress = 0.25259656
+animation = &"wagon2_run"
+frame_progress = 0.34088016
 
 [node name="accessory_capacity_for_wagon1" type="AnimatedSprite2D" parent="Cariagetentcostume/Wagon"]
 visible = false
 sprite_frames = SubResource("SpriteFrames_lree0")
 animation = &"accessory_capacity_run_boost"
-frame_progress = 0.30345923
+frame_progress = 0.6550942
 
 [node name="wheel_front" type="AnimatedSprite2D" parent="Cariagetentcostume/Wagon"]
 texture_filter = 1
 position = Vector2(28, 37)
 sprite_frames = SubResource("SpriteFrames_rfcos")
 animation = &"wheel2_level2_rotate_walk"
-frame_progress = 0.7258288
+frame_progress = 0.7238906
 
 [node name="wheelparticlefront" type="GPUParticles2D" parent="Cariagetentcostume/Wagon"]
 z_index = 1
@@ -1955,7 +1955,7 @@ texture_filter = 1
 position = Vector2(-36, 37)
 sprite_frames = SubResource("SpriteFrames_rfcos")
 animation = &"wheel2_level2_rotate_walk"
-frame_progress = 0.83319885
+frame_progress = 0.57832384
 
 [node name="wheelparticleback" type="GPUParticles2D" parent="Cariagetentcostume/Wagon"]
 z_index = 1
@@ -1997,7 +1997,7 @@ texture_filter = 1
 position = Vector2(105, 19)
 sprite_frames = SubResource("SpriteFrames_3sb6o")
 animation = &"horse_level2_run"
-frame_progress = 0.76933414
+frame_progress = 0.6730796
 
 [node name="horsewalkparticle" type="GPUParticles2D" parent="Cariagetentcostume/Horse"]
 z_index = 1
@@ -2013,7 +2013,7 @@ texture_filter = 1
 position = Vector2(-1, 0)
 sprite_frames = SubResource("SpriteFrames_ec1r5")
 animation = &"harness_walk"
-frame_progress = 0.5102312
+frame_progress = 0.2547245
 
 [node name="horsewalkparticle2" type="GPUParticles2D" parent="Cariagetentcostume/Horse"]
 z_index = 1
