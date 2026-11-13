@@ -1246,3 +1246,4 @@ Setelah repositori terbuat, kamu dan tim cukup menggunakan tombol-tombol ini di 
 (Tips: Kamu juga bisa memasang ekstensi GitLens di VS Code agar lebih mudah melihat riwayat perubahan
 
 atau siapa anggota tim yang terakhir mengubah file tertentu).
+
