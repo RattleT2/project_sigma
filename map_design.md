@@ -119,27 +119,27 @@ assets/
 │   ├── village/
 │   └── castle/
 └── environment/
-    ├── forest/
-    ├── snow/
-    ├── mountain/
-    ├── village/
-    └── castle/
+	├── forest/
+	├── snow/
+	├── mountain/
+	├── village/
+	└── castle/
 
 scenes/
 └── environment/
-    ├── chunks/
-    │   ├── forest_chunk.tscn
-    │   ├── snow_chunk.tscn
-    │   ├── mountain_chunk.tscn
-    │   └── village_chunk.tscn
-    ├── ground/
-    │   ├── forest_ground_chunk.tscn
-    │   ├── snow_ground_chunk.tscn
-    │   └── mountain_ground_chunk.tscn
-    └── landmarks/
-        ├── depot.tscn
-        ├── blacksmith.tscn
-        └── castle.tscn
+	├── chunks/
+	│   ├── forest_chunk.tscn
+	│   ├── snow_chunk.tscn
+	│   ├── mountain_chunk.tscn
+	│   └── village_chunk.tscn
+	├── ground/
+	│   ├── forest_ground_chunk.tscn
+	│   ├── snow_ground_chunk.tscn
+	│   └── mountain_ground_chunk.tscn
+	└── landmarks/
+		├── depot.tscn
+		├── blacksmith.tscn
+		└── castle.tscn
 ```
 
 ## 6. RNG Environment Berdasarkan Zona
@@ -151,10 +151,10 @@ active_zone = SNOW
 
 snow_environment_pool =
 [
-    pine_tree,
-    snow_pile,
-    ice_rock,
-    frozen_bush
+	pine_tree,
+	snow_pile,
+	ice_rock,
+	frozen_bush
 ]
 
 RNG hanya boleh memilih dari snow_environment_pool.
