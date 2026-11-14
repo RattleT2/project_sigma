@@ -1,4 +1,4 @@
-[gd_scene load_steps=224 format=3 uid="uid://d38t4xdb1wejk"]
+[gd_scene load_steps=229 format=3 uid="uid://d38t4xdb1wejk"]
 
 [ext_resource type="Texture2D" uid="uid://dfyos65j3eyuq" path="res://asset/caravan_sprites/gerobak_A_covered_wagon/A_kanopi_belang_merah.png" id="1_08xi1"]
 [ext_resource type="Texture2D" uid="uid://dtmxgmjisuxin" path="res://asset/caravan_sprites/gerobak_A_covered_wagon/A_kanopi_biru.png" id="2_6huml"]
@@ -30,6 +30,8 @@
 [ext_resource type="Texture2D" uid="uid://du6o7lc67hgwc" path="res://asset/caravan_sprites/aksesoris/akses_lentera.png" id="28_o75u1"]
 [ext_resource type="Texture2D" uid="uid://dwynorxvfhiti" path="res://asset/caravan_sprites/aksesoris/akses_tali_gulung.png" id="29_gutrg"]
 [ext_resource type="AudioStream" uid="uid://bh7ottvwt1ka3" path="res://asset/audio/kudaberjalan_pCcJAhWM.wav" id="30_dhnmv"]
+[ext_resource type="AudioStream" uid="uid://cj8ooxnjhldiw" path="res://asset/audio/freesound-community-horse-snort-95874_TkW04jFA.mp3" id="31_cf114"]
+[ext_resource type="Script" uid="uid://dnx7gp5dne2a" path="res://scripts/player_caravan.gd" id="32_caravan"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3d18f"]
 atlas = ExtResource("5_efuuo")
@@ -842,8 +844,6 @@ curve = SubResource("Curve_lree0")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lree0"]
 particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(4, 1, 0)
 direction = Vector3(-1, -0.4, 0)
 spread = 25.0
 initial_velocity_min = 15.0
@@ -977,6 +977,18 @@ animations = [{
 "name": &"accessory_speed_run_boost",
 "speed": 15.0
 }]
+
+[sub_resource type="Gradient" id="Gradient_cf114"]
+offsets = PackedFloat32Array(0.33460075, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_s4p0k"]
+gradient = SubResource("Gradient_cf114")
+width = 96
+height = 96
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xsp33"]
 atlas = ExtResource("29_gutrg")
@@ -1904,49 +1916,65 @@ animations = [{
 "speed": 20.0
 }]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5uerx"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cf114"]
+particle_flag_disable_z = true
+direction = Vector3(1, 0.5, 0)
+spread = 15.0
+initial_velocity_min = 12.0
+initial_velocity_max = 20.0
+gravity = Vector3(0, -10, 0)
+scale_max = 2.0
+
+[sub_resource type="RectangleShape2D" id="WorldBoundaryShape2D_5uerx"]
+size = Vector2(220, 60)
 
 [node name="Player_Caravan" type="CharacterBody2D"]
+script = ExtResource("32_caravan")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(50, 0)
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true
 
 [node name="Driver" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(37, -24)
 sprite_frames = SubResource("SpriteFrames_xicov")
-animation = &"driver2_run"
-frame_progress = 0.6561832
+animation = &"driver2_idle"
+frame_progress = 0.010726076
 
 [node name="Cariagetentcostume" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(-8, -25)
 sprite_frames = SubResource("SpriteFrames_le6xx")
-animation = &"tent_costumeforwagon2only1_run"
-frame_progress = 0.03305447
+animation = &"tent_costume4_level_1_idle"
+frame_progress = 0.116808675
 
 [node name="Wagon" type="AnimatedSprite2D" parent="Cariagetentcostume"]
 texture_filter = 1
 position = Vector2(1, 0)
 sprite_frames = SubResource("SpriteFrames_feirg")
-animation = &"wagon2_run"
-frame_progress = 0.34088016
+animation = &"wagon_idle"
+frame_progress = 0.2307371
 
 [node name="accessory_capacity_for_wagon1" type="AnimatedSprite2D" parent="Cariagetentcostume/Wagon"]
-visible = false
 sprite_frames = SubResource("SpriteFrames_lree0")
-animation = &"accessory_capacity_run_boost"
-frame_progress = 0.6550942
+animation = &"accessory_capacity_idle"
+frame_progress = 0.2876209
 
 [node name="wheel_front" type="AnimatedSprite2D" parent="Cariagetentcostume/Wagon"]
 texture_filter = 1
 position = Vector2(28, 37)
 sprite_frames = SubResource("SpriteFrames_rfcos")
-animation = &"wheel2_level2_rotate_walk"
-frame_progress = 0.7238906
+animation = &"wheel_level1_idle"
+frame_progress = 0.6189502
 
 [node name="wheelparticlefront" type="GPUParticles2D" parent="Cariagetentcostume/Wagon"]
 z_index = 1
 texture_filter = 1
-position = Vector2(-37, 51)
+position = Vector2(27, 51)
 scale = Vector2(2, 2)
+emitting = false
 lifetime = 0.45
 randomness = 0.04
 process_material = SubResource("ParticleProcessMaterial_lree0")
@@ -1955,56 +1983,73 @@ process_material = SubResource("ParticleProcessMaterial_lree0")
 texture_filter = 1
 position = Vector2(-36, 37)
 sprite_frames = SubResource("SpriteFrames_rfcos")
-animation = &"wheel2_level2_rotate_walk"
-frame_progress = 0.57832384
+animation = &"wheel_level1_idle"
+frame_progress = 0.52019453
 
 [node name="wheelparticleback" type="GPUParticles2D" parent="Cariagetentcostume/Wagon"]
 z_index = 1
 texture_filter = 1
-position = Vector2(27, 51)
+position = Vector2(-37, 51)
 scale = Vector2(2, 2)
+emitting = false
 lifetime = 0.45
 randomness = 0.04
 process_material = SubResource("ParticleProcessMaterial_lree0")
 
-[node name="accessory_buff_for_costume_tent_wagon1" type="AnimatedSprite2D" parent="Cariagetentcostume/Wagon"]
-visible = false
+[node name="accessory_chest_buff_capacity_for_costume_tent_wagon1" type="AnimatedSprite2D" parent="Cariagetentcostume/Wagon"]
 position = Vector2(-27, 1)
 sprite_frames = SubResource("SpriteFrames_laffs")
-animation = &"accessory_buff_run_boost"
-frame_progress = 0.30345923
+animation = &"accessory_buff_idle"
+frame_progress = 0.31102824
 
-[node name="accessory_stamina_for_costume_tent_wagon1" type="AnimatedSprite2D" parent="Cariagetentcostume/Wagon"]
-visible = false
+[node name="accessory_tools_buff_stamina_for_costume_tent_wagon1" type="AnimatedSprite2D" parent="Cariagetentcostume/Wagon"]
 position = Vector2(1, -12)
 sprite_frames = SubResource("SpriteFrames_c8hun")
-animation = &"accessory_stamina_run_boost"
-frame_progress = 0.05346
+animation = &"accessory_stamina_idle"
+frame_progress = 0.59306544
 
-[node name="accessory_speed_for_wagon2" type="AnimatedSprite2D" parent="Cariagetentcostume/Wagon"]
+[node name="accessory_lantern_buff_speed_for_wagon2" type="AnimatedSprite2D" parent="Cariagetentcostume/Wagon"]
 position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_1pg0x")
-animation = &"accessory_speed_run"
-frame_progress = 0.6137274
+animation = &"accessory_speed_idle"
+frame_progress = 0.37675405
 
-[node name="accessory_incomeearn_for_wagon2" type="AnimatedSprite2D" parent="Cariagetentcostume/Wagon"]
-position = Vector2(9, 9)
+[node name="lantern_light" type="PointLight2D" parent="Cariagetentcostume/Wagon"]
+position = Vector2(26, -2)
+color = Color(1, 0.8117647, 0.4, 1)
+energy = 1.74
+texture = SubResource("GradientTexture2D_s4p0k")
+texture_scale = 0.5
+
+[node name="accessory_sack_buff_income_earn_for_wagon2" type="AnimatedSprite2D" parent="Cariagetentcostume/Wagon"]
+position = Vector2(15, 11)
 sprite_frames = SubResource("SpriteFrames_aw06s")
-animation = &"accessory_income_run_boost"
+animation = &"accessory_income_idle"
 frame_progress = 0.5534595
 
 [node name="Horse" type="AnimatedSprite2D" parent="Cariagetentcostume"]
 texture_filter = 1
 position = Vector2(105, 19)
 sprite_frames = SubResource("SpriteFrames_3sb6o")
-animation = &"horse_level2_run"
-frame_progress = 0.6730796
+animation = &"horse_level1_idle"
+frame_progress = 0.41758013
 
-[node name="horsewalkparticle" type="GPUParticles2D" parent="Cariagetentcostume/Horse"]
+[node name="horsewalkparticleback" type="GPUParticles2D" parent="Cariagetentcostume/Horse"]
 z_index = 1
 texture_filter = 1
 position = Vector2(-23, 31.000002)
 scale = Vector2(3, 3)
+emitting = false
+lifetime = 0.45
+randomness = 0.04
+process_material = SubResource("ParticleProcessMaterial_lree0")
+
+[node name="horsewalkparticlefront" type="GPUParticles2D" parent="Cariagetentcostume/Horse"]
+z_index = 1
+texture_filter = 1
+position = Vector2(12, 31)
+scale = Vector2(3, 3)
+emitting = false
 lifetime = 0.45
 randomness = 0.04
 process_material = SubResource("ParticleProcessMaterial_lree0")
@@ -2013,21 +2058,33 @@ process_material = SubResource("ParticleProcessMaterial_lree0")
 texture_filter = 1
 position = Vector2(-1, 0)
 sprite_frames = SubResource("SpriteFrames_ec1r5")
-animation = &"harness_walk"
-frame_progress = 0.2547245
+animation = &"harnes_idle"
+frame_progress = 0.79173774
 
-[node name="horsewalkparticle2" type="GPUParticles2D" parent="Cariagetentcostume/Horse"]
+[node name="horsesnortparticle_sync_with_sound" type="GPUParticles2D" parent="Cariagetentcostume/Horse"]
 z_index = 1
 texture_filter = 1
-position = Vector2(12, 31)
+position = Vector2(42, -9)
 scale = Vector2(3, 3)
-lifetime = 0.45
+emitting = false
+amount = 7
+lifetime = 0.32
+one_shot = true
+explosiveness = 1.0
 randomness = 0.04
-process_material = SubResource("ParticleProcessMaterial_lree0")
+process_material = SubResource("ParticleProcessMaterial_cf114")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(19, 28)
+position = Vector2(40, 20)
 shape = SubResource("WorldBoundaryShape2D_5uerx")
 
 [node name="sound_horse_and_wagon_run_and_boost" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("30_dhnmv")
+volume_db = 24.0
+
+[node name="sound_horse_snort_random_when_idle" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("31_cf114")
+volume_db = 11.12
+
+[node name="SnortTimer" type="Timer" parent="."]
+one_shot = true
