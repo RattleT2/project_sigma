@@ -1,4 +1,4 @@
-[gd_scene load_steps=136 format=3 uid="uid://dk2fd32a8pgcu"]
+[gd_scene load_steps=137 format=3 uid="uid://dk2fd32a8pgcu"]
 
 [ext_resource type="Texture2D" uid="uid://duunmbtfc6dmk" path="res://asset/npc/npc_sprites/petani_pria/petani_pria_cangkul_36f.png" id="1_28kda"]
 [ext_resource type="Texture2D" uid="uid://vieum2bslyuu" path="res://asset/npc/npc_sprites/petani_pria/petani_pria_diam_60f.png" id="2_u4v7k"]
@@ -936,16 +936,20 @@ animations = [{
 "speed": 30.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_28kda"]
+size = Vector2(13, 40)
+
 [node name="npc_farmer_men" type="CharacterBody2D"]
 
 [node name="farmer_movement" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+position = Vector2(0, -25)
 sprite_frames = SubResource("SpriteFrames_fupih")
-animation = &"npc_farmer_planting_not_loop"
-frame = 22
-frame_progress = 1.0
+animation = &"npc_farmer_idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -20)
+shape = SubResource("RectangleShape2D_28kda")
 
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0

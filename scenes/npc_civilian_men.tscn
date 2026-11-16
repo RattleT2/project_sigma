@@ -1,4 +1,4 @@
-[gd_scene load_steps=128 format=3 uid="uid://c1oavkbqgkq2i"]
+[gd_scene load_steps=129 format=3 uid="uid://c1oavkbqgkq2i"]
 
 [ext_resource type="Texture2D" uid="uid://3sdx7dhsdf32" path="res://asset/npc/npc_sprites/warga_pria/warga_pria_bawa_karung_30f.png" id="1_rl40a"]
 [ext_resource type="Texture2D" uid="uid://ccih8g2dimyvr" path="res://asset/npc/npc_sprites/warga_pria/warga_pria_diam_60f.png" id="2_7wcac"]
@@ -881,15 +881,21 @@ animations = [{
 "speed": 30.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rl40a"]
+size = Vector2(10, 40)
+
 [node name="npc_civilian_men" type="CharacterBody2D"]
 
 [node name="civilian_movement" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+position = Vector2(0, -25)
 sprite_frames = SubResource("SpriteFrames_frqov")
 animation = &"npc_men_walk"
 frame_progress = 0.6390073
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -20)
+shape = SubResource("RectangleShape2D_rl40a")
 
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0

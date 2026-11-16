@@ -6,6 +6,7 @@
 
 [node name="Dough_on_a_table" type="Sprite2D" parent="."]
 texture_filter = 1
+position = Vector2(0, -8)
 texture = ExtResource("1_th2hs")
 
 [node name="WorkSpot_for_npc_standing_facing_right" type="Marker2D" parent="."]

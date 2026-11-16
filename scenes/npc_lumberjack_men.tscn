@@ -1,4 +1,4 @@
-[gd_scene load_steps=140 format=3 uid="uid://bjl8uhkikpul7"]
+[gd_scene load_steps=141 format=3 uid="uid://bjl8uhkikpul7"]
 
 [ext_resource type="Texture2D" uid="uid://dh0oauki6r2ol" path="res://asset/npc/npc_sprites/penebang_kayu/penebang_kayu_bawa_kayu_30f.png" id="1_8704m"]
 [ext_resource type="Texture2D" uid="uid://cgjtjr2npw80y" path="res://asset/npc/npc_sprites/penebang_kayu/penebang_kayu_menebang_36f.png" id="2_qb65v"]
@@ -964,15 +964,21 @@ animations = [{
 "speed": 30.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qb65v"]
+size = Vector2(14, 39)
+
 [node name="npc_lumberjack_men" type="CharacterBody2D"]
 
 [node name="lumberjack_movement" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+position = Vector2(0, -25)
 sprite_frames = SubResource("SpriteFrames_4vlp4")
 animation = &"npc_lumberjack_walk"
-frame_progress = 0.42401192
+frame_progress = 0.07972991
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -19.5)
+shape = SubResource("RectangleShape2D_qb65v")
 
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0

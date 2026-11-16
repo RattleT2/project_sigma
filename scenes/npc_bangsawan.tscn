@@ -1,4 +1,4 @@
-[gd_scene load_steps=113 format=3 uid="uid://bd2don5s473nd"]
+[gd_scene load_steps=114 format=3 uid="uid://bd2don5s473nd"]
 
 [ext_resource type="Texture2D" uid="uid://5cnorjrvqso6" path="res://asset/npc/npc_sprites/bangsawan/bangsawan_diam_60f.png" id="1_8ynmn"]
 [ext_resource type="Texture2D" uid="uid://doc7w601q6tmr" path="res://asset/npc/npc_sprites/bangsawan/bangsawan_lari_20f.png" id="2_umbo5"]
@@ -776,16 +776,21 @@ animations = [{
 "speed": 30.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ynmn"]
+size = Vector2(12, 42)
+
 [node name="npc_prince" type="CharacterBody2D"]
 
 [node name="prince_movement" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, 4)
+position = Vector2(0, -25)
 sprite_frames = SubResource("SpriteFrames_7qej7")
 animation = &"prince_npc_idle"
 frame_progress = 0.48647445
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -21)
+shape = SubResource("RectangleShape2D_8ynmn")
 
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0
