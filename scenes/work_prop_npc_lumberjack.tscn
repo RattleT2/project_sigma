@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbaxykic1cp52"]
+
+[ext_resource type="Texture2D" uid="uid://dggj4rgcgp37e" path="res://asset/npc/npc_sprites/props/prop_balok_kayu.png" id="1_7w4cg"]
+
+[node name="WorkProp_NPC_Lumberjack" type="Node2D"]
+
+[node name="Log" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_7w4cg")
+
+[node name="WorkSpot_for_npc_standing_facing_right" type="Marker2D" parent="."]
+position = Vector2(28, 0)
+
+[node name="WorkSpot_for_npc_standing_facing_left" type="Marker2D" parent="."]
+position = Vector2(-28, 0)
+
+[node name="log_chopped_sound" type="AudioStreamPlayer2D" parent="."]
