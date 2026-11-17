@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://b5nk7ecxccvil"]
+[gd_scene load_steps=23 format=4 uid="uid://b5nk7ecxccvil"]
 
 [ext_resource type="Texture2D" uid="uid://cxoocotnux6qn" path="res://asset/background/craftpix-net-823949-free-nature-backgrounds-pixel-art/nature_1/1.png" id="1_70rat"]
 [ext_resource type="Texture2D" uid="uid://bqg4tr30og0bh" path="res://asset/background/craftpix-net-823949-free-nature-backgrounds-pixel-art/nature_1/8.png" id="1_gh3u5"]
@@ -13,6 +13,13 @@
 [ext_resource type="Script" uid="uid://bspsfikb7878c" path="res://scripts/cloud_prop_spawner.gd" id="13_cloud"]
 [ext_resource type="Script" uid="uid://b6efecwlsfbg7" path="res://scripts/ground_prop_spawner.gd" id="14_ground"]
 [ext_resource type="Script" uid="uid://bmdu4qgtjpyq4" path="res://scripts/house_group_spawner.gd" id="15_house"]
+[ext_resource type="Texture2D" uid="uid://dhnk2p0xi0h5f" path="res://asset/Asset_Bangunan/bangunan_kota/rumah_manusia/kedai_penginapan.png" id="16_kedai"]
+[ext_resource type="Texture2D" uid="uid://doase7ehpuvlb" path="res://asset/Asset_Bangunan/bangunan_kota/rumah_manusia/penggergajian_kayu.png" id="17_gergaji"]
+[ext_resource type="Texture2D" uid="uid://c0ntp2ft7ouxj" path="res://asset/Asset_Bangunan/bangunan_kota/rumah_manusia/perpustakaan.png" id="18_pustaka"]
+[ext_resource type="Texture2D" uid="uid://biexwrrxk6owv" path="res://asset/Asset_Bangunan/bangunan_kota/rumah_manusia/pos_penjaga.png" id="19_pos"]
+[ext_resource type="Texture2D" uid="uid://bn72bxivtmset" path="res://asset/Asset_Bangunan/bangunan_kota/rumah_manusia/rumah_bangsawan.png" id="20_bangsawan"]
+[ext_resource type="Texture2D" uid="uid://v4vqvuq568el" path="res://asset/Asset_Bangunan/bangunan_kota/gerbang_pagar_tembok/pagar_kayu.png" id="21_pagar"]
+[ext_resource type="Texture2D" uid="uid://c6qiynoiq1kpa" path="res://asset/Asset_Bangunan/bangunan_kota/gerbang_pagar_tembok/pagar_kayu_gerbang.png" id="22_gerbang"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7csja"]
 texture = ExtResource("11_58d1n")
@@ -314,8 +321,8 @@ prop_textures = Array[Texture2D]([ExtResource("2_7jhvf"), ExtResource("3_xmflw")
 scroll_speed = 30.0
 spawn_x = 650.0
 despawn_x = -700.0
-min_y = -180.0
-max_y = -180.0
+min_y = -270.0
+max_y = -160.0
 prop_scale = 0.6
 
 [node name="GroundPropSpawner" type="Node2D" parent="."]
@@ -328,7 +335,9 @@ max_y = 16.0
 
 [node name="RumahSpawner" type="Node2D" parent="."]
 script = ExtResource("15_house")
-prop_textures = Array[Texture2D]([ExtResource("3_x3ww0"), ExtResource("4_v7kou"), ExtResource("5_7jhvf")])
+prop_textures = Array[Texture2D]([ExtResource("3_x3ww0"), ExtResource("4_v7kou"), ExtResource("5_7jhvf"), ExtResource("16_kedai"), ExtResource("17_gergaji"), ExtResource("18_pustaka"), ExtResource("19_pos"), ExtResource("20_bangsawan")])
+fence_texture = ExtResource("21_pagar")
+fence_gate_texture = ExtResource("22_gerbang")
 
 [node name="GroundLooper" type="Node2D" parent="."]
 script = ExtResource("12_looper")
