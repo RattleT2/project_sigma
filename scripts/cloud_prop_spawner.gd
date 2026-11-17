@@ -18,6 +18,8 @@ extends Node2D
 
 @export var random_flip_h: bool = true # Balik gambar kiri-kanan secara acak agar lebih variatif
 
+@export var prop_scale: float = 1.0 # Perkecil/perbesar sprite prop
+
 var _distance_traveled: float = 0.0
 var _next_spawn_distance: float = 0.0
 
@@ -52,6 +54,7 @@ func _spawn_random_prop() -> void:
 	# Posisikan titik tumpu (pivot) di bagian bawah-tengah gambar agar menapak pas di tanah
 	prop.centered = true
 	prop.offset.y = -prop.texture.get_height() / 2.0
+	prop.scale = Vector2.ONE * prop_scale
 	
 	if random_flip_h:
 		prop.flip_h = [true, false].pick_random()

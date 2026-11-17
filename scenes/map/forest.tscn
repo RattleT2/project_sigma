@@ -1,15 +1,17 @@
-[gd_scene load_steps=13 format=4 uid="uid://py660c4wbay1"]
+[gd_scene load_steps=15 format=4 uid="uid://py660c4wbay1"]
 
 [ext_resource type="Texture2D" uid="uid://cxoocotnux6qn" path="res://asset/background/craftpix-net-823949-free-nature-backgrounds-pixel-art/nature_1/1.png" id="1_78idh"]
 [ext_resource type="Texture2D" uid="uid://bovfy6sdbmcdk" path="res://asset/background/craftpix-net-823949-free-nature-backgrounds-pixel-art/nature_1/2.png" id="2_m1egj"]
 [ext_resource type="Script" uid="uid://bspsfikb7878c" path="res://scripts/cloud_prop_spawner.gd" id="2_uvsji"]
-[ext_resource type="Texture2D" uid="uid://bqg4tr30og0bh" path="res://asset/background/craftpix-net-823949-free-nature-backgrounds-pixel-art/nature_1/8.png" id="4_hf83x"]
+[ext_resource type="Texture2D" uid="uid://b85c1wsq6layq" path="res://asset/background/craftpix-net-672461-free-swamp-game-tileset-pixel-art/2 Background/Layers/1.png" id="4_0fenw"]
 [ext_resource type="Texture2D" uid="uid://d324tn04ul2sk" path="res://asset/background/craftpix-net-675652-free-rocks-pixel-art-asset-pack/PNG/middle_lane_rocks2/middle_lane_rock2_4.png" id="5_0fenw"]
 [ext_resource type="Script" uid="uid://b6efecwlsfbg7" path="res://scripts/ground_prop_spawner.gd" id="5_hf83x"]
-[ext_resource type="Texture2D" uid="uid://bl1tf8x1qvho8" path="res://asset/background/craftpix-net-823949-free-nature-backgrounds-pixel-art/nature_1/6.png" id="6_l7772"]
+[ext_resource type="Texture2D" uid="uid://pbrtnphgkmld" path="res://asset/background/craftpix-net-672461-free-swamp-game-tileset-pixel-art/2 Background/Layers/2.png" id="5_l7772"]
+[ext_resource type="Texture2D" uid="uid://cfyrlrkwi8evp" path="res://asset/background/craftpix-net-672461-free-swamp-game-tileset-pixel-art/2 Background/Layers/4.png" id="6_y2o20"]
 [ext_resource type="Texture2D" uid="uid://bg0vqkitgaohl" path="res://asset/background/craftpix-net-672461-free-swamp-game-tileset-pixel-art/1 Tiles/Tileset.png" id="7_y2o20"]
 [ext_resource type="Script" uid="uid://bu2bi3x743sfn" path="res://scripts/ground_looper.gd" id="9_0fenw"]
 [ext_resource type="PackedScene" uid="uid://d38t4xdb1wejk" path="res://scenes/player_caravan.tscn" id="10_hf83x"]
+[ext_resource type="Script" uid="uid://c35iq8atmlljw" path="res://scripts/forest_background_cycler.gd" id="11_cycler"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7aeu7"]
 texture = ExtResource("7_y2o20")
@@ -286,18 +288,49 @@ sources/0 = SubResource("TileSetAtlasSource_7aeu7")
 
 [node name="forest" type="Node2D"]
 
-[node name="Langit" type="Parallax2D" parent="."]
+[node name="BackgroundCycler" type="Node" parent="."]
+script = ExtResource("11_cycler")
+
+[node name="ForestSet" type="Node2D" parent="."]
+
+[node name="backgroundForest" type="Parallax2D" parent="ForestSet"]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(576, 0)
+autoscroll = Vector2(-40, 0)
+repeat_times = 3
+
+[node name="FlatBackground" type="Sprite2D" parent="ForestSet/backgroundForest"]
+scale = Vector2(1, 1.3425926)
+texture = ExtResource("4_0fenw")
+centered = false
+
+[node name="ForestBackground" type="Sprite2D" parent="ForestSet/backgroundForest"]
+position = Vector2(0, 111)
+texture = ExtResource("5_l7772")
+centered = false
+
+[node name="GroundPropSpawner" type="Node2D" parent="ForestSet"]
+script = ExtResource("5_hf83x")
+prop_textures = Array[Texture2D]([ExtResource("5_0fenw")])
+despawn_x = -250.0
+
+[node name="SwampSet" type="Node2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+
+[node name="Langit" type="Parallax2D" parent="SwampSet"]
 scroll_scale = Vector2(0, 0)
 repeat_size = Vector2(1152, 0)
 autoscroll = Vector2(-10, 0)
 repeat_times = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="Langit"]
+[node name="Sprite2D" type="Sprite2D" parent="SwampSet/Langit"]
 scale = Vector2(2, 1.3425926)
 texture = ExtResource("1_78idh")
 centered = false
 
-[node name="CloudPropSpawner" type="Node2D" parent="."]
+[node name="CloudPropSpawner" type="Node2D" parent="SwampSet"]
+visible = false
 script = ExtResource("2_uvsji")
 prop_textures = Array[Texture2D]([ExtResource("2_m1egj")])
 scroll_speed = 30.0
@@ -305,21 +338,16 @@ despawn_x = -250.0
 min_y = -180.0
 max_y = -180.0
 
-[node name="padangRumput" type="Parallax2D" parent="."]
-repeat_size = Vector2(606, 0)
-autoscroll = Vector2(-60, 0)
+[node name="backgroundSwamp" type="Parallax2D" parent="SwampSet"]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(576, 0)
+autoscroll = Vector2(-40, 0)
 repeat_times = 3
 
-[node name="Sprite2D" type="Sprite2D" parent="padangRumput"]
-position = Vector2(0, -357)
-scale = Vector2(1.0520834, 1)
-texture = ExtResource("4_hf83x")
+[node name="swampBackground" type="Sprite2D" parent="SwampSet/backgroundSwamp"]
+position = Vector2(0, 111)
+texture = ExtResource("6_y2o20")
 centered = false
-
-[node name="GroundPropSpawner" type="Node2D" parent="."]
-script = ExtResource("5_hf83x")
-prop_textures = Array[Texture2D]([ExtResource("6_l7772"), ExtResource("5_0fenw")])
-despawn_x = -250.0
 
 [node name="GroundLooper" type="Node2D" parent="."]
 script = ExtResource("9_0fenw")

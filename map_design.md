@@ -2,20 +2,23 @@
 
 ## 1. Konsep Utama
 
-Game menggunakan lima area tetap yang dipilih player pada awal setiap turn:
+Game menggunakan lima titik tetap pada peta:
 
-- Forest
-- Snow
-- Village
-- Desert
-- Castle
+- Depot (tengah peta)
+- Snow (timur laut)
+- Forest (timur)
+- Desert (selatan)
+- Village & Castle (barat, satu area dan satu scene)
 
-Karavan tidak mengikuti perjalanan linear. Player memilih satu area atau depot
-sebagai tujuan setiap turn. Perjalanan menggunakan jaringan node dan rute
-antar-node. Setiap rute memiliki jarak, biaya perjalanan, dan peluang encounter.
+Empat titik adalah area yang dapat distabilkan. Depot adalah pangkalan, bukan
+area yang perlu distabilkan.
 
-Tujuan utama player adalah menstabilkan sedikitnya tiga area sebelum jumlah turn
-habis.
+Karavan tidak mengikuti perjalanan linear. Player bebas memilih area mana pun
+atau depot sebagai tujuan setiap turn; tidak ada rute yang terkunci. Setiap
+tujuan memiliki jarak, biaya perjalanan, dan peluang encounter sendiri.
+
+Tujuan utama player adalah menstabilkan sedikitnya tiga dari empat area sebelum
+jumlah turn habis.
 
 ## 2. Fungsi Area
 
@@ -34,21 +37,21 @@ dekorasi lain dapat ditentukan menggunakan RNG dari pool area tersebut.
 
 ## 3. Struktur Map dan Rute
 
-Map menggunakan graph node, bukan koordinat jarak linear:
+Map menampilkan lima wilayah tetap. Player dapat memilih semua wilayah dari
+posisi karavan saat ini (bebas, tanpa jaringan rute tetap):
 
 ```text
-					Snow
-				   /    \
-			  Forest      Village
-				   \    /     \
-					Desert --- Castle
+	Village & Castle        Snow
+				 Depot
+			Desert          Forest
 ```
 
-Contoh struktur data rute:
+Posisi di atas hanya menggambarkan tata letak peta, bukan pembatas rute.
+
+Contoh struktur data per tujuan:
 
 ```text
 Route
-├── from_area
 ├── to_area
 ├── distance
 ├── travel_cost
@@ -57,12 +60,13 @@ Route
 
 Aturan rute:
 
-- Player hanya dapat memilih area yang terhubung dengan posisi karavan.
-- Perpindahan area memerlukan biaya.
-- Semakin jauh rute, semakin besar biaya perjalanan.
-- Semakin jauh rute, semakin tinggi peluang bertemu bandit.
-- Depot dapat ditempatkan sebagai node khusus yang dapat diakses dari rute
-  tertentu atau dari semua area, sesuai kebutuhan level.
+- Semua area dan depot selalu dapat dipilih selama biaya perjalanan tercukupi.
+- Perpindahan memerlukan biaya coin.
+- Semakin jauh tujuan dari posisi karavan, semakin besar biaya perjalanan.
+- Semakin jauh tujuan, semakin tinggi peluang bertemu bandit.
+- Jarak dapat dihitung dari jarak posisi wilayah pada peta (lalu dibulatkan)
+  atau disimpan sebagai angka tetap per tujuan.
+- Wilayah tempat karavan berada tidak dapat dipilih sebagai tujuan.
 
 Contoh perhitungan sederhana:
 
@@ -71,7 +75,7 @@ travel_cost = base_cost + (distance * cost_per_distance)
 bandit_risk = base_risk + (distance * risk_per_distance)
 ```
 
-Nilai tersebut sebaiknya disimpan pada data rute agar mudah diseimbangkan,
+Nilai tersebut sebaiknya disimpan sebagai data route agar mudah diseimbangkan,
 bukan ditulis terpisah di setiap scene area.
 
 ## 4. Struktur Scene Godot
@@ -91,15 +95,14 @@ GameScene (Node2D)
 └── UI (CanvasLayer)
 ```
 
-Scene area:
+Scene area (folder `scenes/map/`):
 
 ```text
-areas/
+scenes/map/
 ├── forest.tscn
 ├── snow.tscn
-├── village.tscn
-├── desert.tscn
-└── castle.tscn
+├── village.tscn   # Village & Castle, satu area
+└── desert.tscn
 ```
 
 Contoh struktur scene area:
@@ -131,33 +134,34 @@ disimpan oleh `ResourceManager`, bukan bergantung pada node visual scene.
 
 Menu map ditampilkan setiap kali turn baru dimulai. Menu ini menjadi layar
 pemilihan tujuan sebelum player melakukan perjalanan ke area atau depot.
+Player memilih wilayah langsung pada peta: tidak ada ikon atau tombol node.
+Wilayah yang diarahkan kursor akan ter-highlight.
+
+Implementasi saat ini: `scenes/map/map_menu.tscn` (root `Control`) dengan
+`scripts/map/region_button.gd` untuk hover dan klik wilayah.
 
 ### Informasi yang Ditampilkan
 
 Menu map menampilkan:
 
-- Lima area: Forest, Snow, Village, Desert, dan Castle.
-- Posisi karavan saat ini.
-- Rute yang tersedia dari posisi karavan.
-- Status area: stabil atau belum stabil.
-- Ringkasan resource utama yang tersisa pada setiap area.
-- Detail Iron, Diamond, dan Coin pada area yang dipilih.
-- Biaya perjalanan menuju area yang dipilih.
+- Lima wilayah: Depot, Snow, Forest, Desert, dan Village & Castle.
+- Posisi karavan saat ini (banner di atas wilayah).
+- Garis rute dari karavan ke setiap tujuan.
+- Status wilayah: stabil atau belum stabil.
+- Detail Iron, Diamond, dan Coin pada wilayah yang dipilih.
+- Biaya perjalanan menuju wilayah yang dipilih.
 - Risiko encounter bandit pada rute yang dipilih.
 - Jumlah turn yang tersisa.
 - Resource karavan saat ini dan kapasitas maksimumnya.
-- Tombol atau node depot sebagai tujuan alternatif.
+- Depot sebagai tujuan alternatif.
 
 Gunakan tampilan resource hybrid:
 
-- Setiap node area menampilkan ringkasan singkat, misalnya ikon resource atau
-  bar kebutuhan.
-- Panel detail menampilkan angka lengkap ketika player memilih atau mengarahkan
-  kursor ke area.
-
-Informasi yang belum relevan, seperti biaya dan risiko rute yang tidak
-terhubung, tidak perlu ditampilkan sebagai pilihan aktif. Node tersebut dapat
-ditampilkan redup atau diberi label tidak tersedia.
+- Peta menampilkan bentuk wilayah dan namanya. Hover memberi highlight dan
+  garis rute tujuan menjadi emas.
+- Panel detail menampilkan angka lengkap ketika player mengarahkan kursor atau
+  memilih wilayah: kebutuhan Iron/Diamond/Coin, status stabil, jarak, biaya,
+  risiko, dan alasan jika tujuan tidak dapat dipilih.
 
 ### Struktur Scene UI
 
@@ -165,24 +169,45 @@ Menu map dibuat sebagai `Control` di dalam `CanvasLayer`:
 
 ```text
 MapMenu (Control)
-├── MapBackground
-├── RouteLines (Node2D atau Control)
-├── AreaNodes (Control)
-│   ├── ForestNode (AreaNode)
-│   ├── SnowNode (AreaNode)
-│   ├── VillageNode (AreaNode)
-│   ├── DesertNode (AreaNode)
-│   └── CastleNode (AreaNode)
-├── DepotNode (AreaNode)
+├── SeaColor (ColorRect)
+├── MapBoard (Control, gambar peta 2048x2048 yang di-scale)
+│   ├── MapArt (TextureRect)
+│   ├── Regions (Control)
+│   │   ├── VillageCastle (RegionButton)
+│   │   │   ├── Highlight (Polygon2D)
+│   │   │   ├── Outline (Line2D)
+│   │   │   ├── NameLabel (Label)
+│   │   │   └── Anchor (Marker2D)
+│   │   ├── Desert (RegionButton)
+│   │   ├── Forest (RegionButton)
+│   │   ├── Snow (RegionButton)
+│   │   └── Depot (RegionButton)
+│   ├── RouteLines (Node2D)
+│   │   ├── ToVillage, ToSnow, ToForest, ToDesert, ToDepot (Line2D)
+│   └── CaravanMarker (TextureRect, banner_purple.png)
+├── TopBar (PanelContainer)
+│   └── TurnSummary (TurnLabel, TurnsLeftLabel)
 ├── AreaDetailPanel (PanelContainer)
-├── CaravanSummary (PanelContainer)
-├── TurnSummary (PanelContainer)
-└── ConfirmDestinationButton (Button)
+│   ├── AreaNameLabel, StableBadge
+│   ├── IronRow, DiamondRow, CoinRow
+│   ├── DistanceRow, CostRow, RiskRow
+│   ├── ReasonLabel
+│   └── ConfirmDestinationButton
+└── CaravanSummary (PanelContainer)
+	├── CaravanIron, CaravanDiamond, CaravanCoin
+	├── CaravanCapacity (ProgressBar)
+	└── CaravanEffect
 ```
 
-`AreaNode` adalah scene reusable yang menerima data area dan menampilkan nama,
-ikon, status stabilitas, serta ringkasan resource. Node tidak menyimpan state
-game sendiri.
+`RegionButton` adalah `Control` dengan poligon wilayah. `_has_point()` memakai
+`Geometry2D.is_point_in_polygon`, sehingga hover dan klik hanya aktif di dalam
+bentuk wilayah, bukan kotak pembatasnya. Scene ini tidak menyimpan state game;
+signal `region_hovered`, `region_unhovered`, dan `region_selected` diteruskan ke
+`MapMenu`.
+
+Poligon wilayah diambil dari bentuk daratan `Map.png`, lalu di-inset beberapa
+piksel agar highlight tidak tumpah ke laut atau wilayah tetangga. Poligon bisa
+disedit langsung di editor melalui node `Highlight` pada tiap wilayah.
 
 `AreaDetailPanel` menampilkan detail area yang sedang dipilih. Isinya minimal
 adalah jumlah Iron, Diamond, Coin, status stabilitas, biaya perjalanan, risiko
@@ -199,7 +224,9 @@ Turn dimulai
 	↓
 MapMenu mengambil state terbaru dari manager game
 	↓
-Player memilih node area atau depot
+Kursor masuk ke wilayah → highlight + detail
+	↓
+Player mengklik wilayah → wilayah terpilih
 	↓
 Panel detail menampilkan biaya, risiko, dan status tujuan
 	↓
@@ -218,7 +245,7 @@ atau efek sementara dapat berubah.
 
 Tujuan tidak dapat dikonfirmasi jika:
 
-- Tidak terhubung dengan posisi karavan.
+- Tujuan sama dengan posisi karavan saat ini.
 - Resource karavan tidak cukup untuk biaya perjalanan.
 - Tujuan sedang tidak tersedia menurut aturan turn.
 - Player belum memilih tujuan.
@@ -240,9 +267,9 @@ Game state
 	↓
 MapMenu.refresh()
 	↓
-AreaNode dan panel ringkasan diperbarui
+Wilayah dan panel ringkasan diperbarui
 	↓
-Player memilih node
+Player memilih wilayah
 	↓
 MapMenu menampilkan detail dan status validasi
 ```
@@ -252,25 +279,26 @@ data lama. Pada turn berikutnya menu dibuat atau di-refresh dari state terbaru.
 
 ### Langkah Implementasi di Godot
 
-1. Buat `MapMenu.tscn` dengan root `Control` dan letakkan di `CanvasLayer`.
-2. Buat `AreaNode.tscn` reusable dengan label nama, ikon area, indikator
-   stabilitas, dan ringkasan resource.
-3. Tempatkan lima `AreaNode` dan satu `DepotNode` sesuai layout jaringan map.
-4. Buat visual koneksi rute menggunakan `Line2D` atau `Control` khusus garis.
+1. Buat `map_menu.tscn` dengan root `Control` dan letakkan di `CanvasLayer`.
+2. Buat `RegionButton` (root `Control` + `region_button.gd`) dengan poligon
+   wilayah, highlight, outline, label nama, dan anchor.
+3. Tempatkan lima wilayah sesuai bentuk peta: Village & Castle di barat, Snow
+   di timur laut, Forest di timur, Desert di selatan, Depot di tengah.
+4. Buat visual garis rute dengan `Line2D` dari banner karavan ke setiap tujuan.
 5. Buat `AreaDetailPanel`, `CaravanSummary`, dan `TurnSummary`.
-6. Tambahkan state visual untuk node normal, terpilih, tersedia, tidak
-   terhubung, dan resource tidak cukup.
+6. Tambahkan state visual wilayah: normal, hover, terpilih, dan tujuan tidak
+   tersedia (misalnya coin kurang).
 7. Hubungkan `MapMenu` ke `TurnManager`, `RouteManager`, `ResourceManager`,
    `PlayerCaravan`, dan `Depot`.
-8. Implementasikan refresh saat menu dibuka dan saat node dipilih.
+8. Implementasikan refresh saat menu dibuka dan saat wilayah dipilih.
 9. Implementasikan validasi konfirmasi dan kirim tujuan valid ke
    `TravelController`.
 10. Uji perubahan posisi karavan, biaya rute, resource tidak cukup, depot,
 	area stabil, dan turn terakhir.
 
-Implementasi awal cukup menggunakan node UI, ikon, panel, dan garis rute.
-Animasi zoom, peta interaktif, atau efek dekoratif tambahan dapat ditambahkan
-setelah alur pemilihan tujuan terbukti berfungsi.
+Implementasi awal cukup menggunakan node UI, poligon wilayah, panel, dan garis
+rute. Animasi zoom, peta interaktif, atau efek dekoratif tambahan dapat
+ditambahkan setelah alur pemilihan tujuan terbukti berfungsi.
 
 ## 6. Alur Turn
 
@@ -298,7 +326,7 @@ Turn berikutnya
 
 Player memiliki dua jenis pilihan utama:
 
-1. Memilih salah satu dari lima area.
+1. Memilih salah satu dari empat area.
 2. Pergi ke depot.
 
 Biaya perjalanan dibayar saat perjalanan dimulai. Jika resource atau coin tidak
@@ -444,7 +472,7 @@ dikurangi. Efek dihapus saat `remaining_turns` mencapai nol.
 
 Jumlah turn terbatas. Pada akhir turn terakhir:
 
-- **Menang** jika jumlah area dengan status stabil minimal tiga.
+- **Menang** jika jumlah area dengan status stabil minimal tiga dari empat area.
 - **Kalah** jika jumlah area stabil kurang dari tiga.
 
 Pemeriksaan kondisi dilakukan setelah resource area diperbarui agar hasil turn
@@ -462,6 +490,7 @@ mengubah:
 
 - Layout utama.
 - Jaringan rute.
+- Posisi wilayah pada peta.
 - Posisi landmark penting.
 - Jalur aman karavan.
 - Status resource atau stabilitas tanpa melalui sistem game.
@@ -485,30 +514,26 @@ snow_environment_pool =
 ]
 ```
 
-Pool lain dibuat untuk Village, Desert, dan Castle. Setiap scene area dapat
+Pool lain dibuat untuk Village & Castle dan Desert. Setiap scene area dapat
 memiliki `SpawnPoints` agar dekorasi tidak menutup jalur karavan.
 
 ## 13. Struktur Folder yang Disarankan
 
 ```text
 scenes/
-├── game/
-│   ├── game_scene.tscn
+├── map/
 │   ├── map_menu.tscn
-│   ├── area_node.tscn
-│   ├── turn_manager.gd
-│   ├── area_manager.gd
-│   ├── route_manager.gd
-│   ├── resource_manager.gd
-│   └── travel_controller.gd
-├── areas/
 │   ├── forest.tscn
 │   ├── snow.tscn
-│   ├── village.tscn
-│   ├── desert.tscn
-│   └── castle.tscn
+│   ├── village.tscn   # Village & Castle
+│   └── desert.tscn
 └── depot/
 	└── depot.tscn
+
+scripts/
+└── map/
+	├── map_menu.gd
+	└── region_button.gd
 
 data/
 ├── areas/
@@ -516,13 +541,15 @@ data/
 ├── encounters/
 └── caravan/
 
-assets/
+asset/
+├── assetMenuMap/
+│   ├── Map.png
+│   └── banner_purple.png
 ├── background/
 │   ├── forest/
 │   ├── snow/
 │   ├── village/
-│   ├── desert/
-│   └── castle/
+│   └── desert/
 ├── ground/
 ├── environment/
 └── caravan/
@@ -534,16 +561,17 @@ biaya, jarak, risiko, dan reward tidak memerlukan perubahan layout.
 ## 14. Checklist Map Designer
 
 - [ ] Menu map muncul pada awal setiap turn.
-- [ ] Lima node area dan node depot terlihat pada menu map.
-- [ ] Resource area diringkas pada node dan detail lengkap tersedia saat dipilih.
-- [ ] Biaya perjalanan dan risiko bandit ditampilkan untuk rute terpilih.
-- [ ] Posisi karavan, resource karavan, kapasitas, dan turn tersisa terlihat.
-- [ ] Node rute yang tidak tersedia memiliki state visual yang jelas.
-- [ ] Lima scene area tersedia: Forest, Snow, Village, Desert, Castle.
+- [ ] Lima wilayah terlihat: Depot, Snow, Forest, Desert, Village & Castle.
+- [ ] Hover kursor menghighlight wilayah dan menampilkan detailnya.
+- [ ] Klik wilayah memilih tujuan dan garis rutenya menjadi emas.
+- [ ] Detail Iron, Diamond, Coin, jarak, biaya, dan risiko tampil di panel.
+- [ ] Posisi karavan (banner), resource karavan, kapasitas, dan turn tersisa terlihat.
+- [ ] Wilayah yang tidak bisa dipilih (coin kurang / sudah di sini) punya alasan di panel.
+- [ ] Empat scene area tersedia: Forest, Snow, Village & Castle, Desert.
 - [ ] Setiap area memiliki layout tetap dan collision yang aman.
 - [ ] Setiap area memiliki pool dekorasi RNG sendiri.
-- [ ] Jaringan node dan rute antar-area sudah ditentukan.
-- [ ] Setiap rute memiliki jarak, biaya, dan risiko bandit.
+- [ ] Semua wilayah bisa dipilih dari mana saja tanpa rute terkunci.
+- [ ] Setiap tujuan memiliki jarak, biaya, dan risiko bandit.
 - [ ] Transisi area menampilkan perjalanan singkat dari area asal.
 - [ ] Scene area tidak menyimpan progres resource secara langsung.
 - [ ] Resource area dapat berkurang setiap turn setelah masa perlindungan dua turn.
@@ -557,8 +585,9 @@ biaya, jarak, risiko, dan reward tidak memerlukan perubahan layout.
 
 Gunakan satu `GameScene` sebagai pengatur turn, state, karavan, depot, dan
 perpindahan. Gunakan satu scene mandiri untuk setiap area. Player memilih
-tujuan setiap turn melalui jaringan rute, membayar biaya berdasarkan jarak, lalu
-melalui transisi sebelum tiba di area tujuan.
+wilayah langsung pada peta (hover memberi highlight, klik memilih tujuan),
+membayar biaya berdasarkan jarak, lalu melalui transisi sebelum tiba di area
+tujuan.
 
 Layout area tetap membuat navigasi mudah dipahami, sedangkan RNG dekorasi
 memberikan variasi visual. State resource dan stabilitas disimpan secara
