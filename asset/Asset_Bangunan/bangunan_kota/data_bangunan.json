@@ -1,0 +1,703 @@
+{
+ "rumah_petani": {
+  "folder": "rumah_manusia",
+  "npc": "petani_pria, petani_wanita",
+  "desc": "pondok beratap jerami, tumpukan jerami, garpu",
+  "size": [
+   128,
+   121
+  ],
+  "doors": [
+   [
+    35,
+    69,
+    26,
+    44
+   ]
+  ],
+  "chimneys": [
+   [
+    34,
+    14
+   ]
+  ],
+  "ground_y": 120,
+  "asap": "animasi/rumah_petani_asap_30f.png (kanvas 128x165, taruh di (0,-44))"
+ },
+ "rumah_warga_kayu": {
+  "folder": "rumah_manusia",
+  "npc": "warga_pria",
+  "desc": "rumah kayu 2 lantai atap genteng merah",
+  "size": [
+   120,
+   169
+  ],
+  "doors": [
+   [
+    58,
+    117,
+    26,
+    44
+   ]
+  ],
+  "chimneys": [
+   [
+    83,
+    6
+   ]
+  ],
+  "ground_y": 168,
+  "asap": "animasi/rumah_warga_kayu_asap_30f.png (kanvas 120x213, taruh di (0,-44))"
+ },
+ "rumah_warga_plester": {
+  "folder": "rumah_manusia",
+  "npc": "warga_wanita",
+  "desc": "rumah plester + kayu, atap batu tulis biru",
+  "size": [
+   128,
+   165
+  ],
+  "doors": [
+   [
+    62,
+    113,
+    26,
+    44
+   ]
+  ],
+  "chimneys": [
+   [
+    35,
+    6
+   ]
+  ],
+  "ground_y": 164,
+  "asap": "animasi/rumah_warga_plester_asap_30f.png (kanvas 128x209, taruh di (0,-44))"
+ },
+ "rumah_warga_bata": {
+  "folder": "rumah_manusia",
+  "npc": "warga (umum)",
+  "desc": "rumah bata, atap sirap",
+  "size": [
+   122,
+   163
+  ],
+  "doors": [
+   [
+    50,
+    111,
+    26,
+    44
+   ]
+  ],
+  "chimneys": [
+   [
+    71,
+    6
+   ]
+  ],
+  "ground_y": 162,
+  "asap": "animasi/rumah_warga_bata_asap_30f.png (kanvas 122x207, taruh di (0,-44))"
+ },
+ "pos_penjaga": {
+  "folder": "rumah_manusia",
+  "npc": "penjaga_gerbang",
+  "desc": "pos jaga batu dengan benteng dan panji",
+  "size": [
+   100,
+   159
+  ],
+  "doors": [],
+  "chimneys": [],
+  "ground_y": 158
+ },
+ "bengkel_pandai_besi": {
+  "folder": "rumah_manusia",
+  "npc": "pandai_besi, beruang_pandai_besi",
+  "desc": "bengkel tempa dengan tungku, landasan, cerobong besar",
+  "size": [
+   150,
+   143
+  ],
+  "doors": [
+   [
+    89,
+    91,
+    26,
+    44
+   ]
+  ],
+  "chimneys": [],
+  "ground_y": 142,
+  "asap": "animasi/bengkel_pandai_besi_asap_30f.png (kanvas 150x187, taruh di (0,-44))",
+  "api": "animasi/bengkel_pandai_besi_api_30f.png (ukuran sama dengan sprite, taruh di (0,0))"
+ },
+ "perpustakaan": {
+  "folder": "rumah_manusia",
+  "npc": "pustakawan",
+  "desc": "perpustakaan batu bertiang dengan pedimen buku",
+  "size": [
+   164,
+   177
+  ],
+  "doors": [
+   [
+    82,
+    123,
+    30,
+    46
+   ]
+  ],
+  "chimneys": [],
+  "ground_y": 176
+ },
+ "toko_pedagang": {
+  "folder": "rumah_manusia",
+  "npc": "pedagang",
+  "desc": "toko dengan etalase, kanopi belang, peti dagangan",
+  "size": [
+   146,
+   169
+  ],
+  "doors": [
+   [
+    62,
+    117,
+    26,
+    44
+   ]
+  ],
+  "chimneys": [
+   [
+    89,
+    6
+   ]
+  ],
+  "ground_y": 168,
+  "asap": "animasi/toko_pedagang_asap_30f.png (kanvas 146x213, taruh di (0,-44))"
+ },
+ "gereja_kapel": {
+  "folder": "rumah_manusia",
+  "npc": "pendeta",
+  "desc": "kapel batu dengan menara lonceng dan jendela mawar",
+  "size": [
+   140,
+   209
+  ],
+  "doors": [
+   [
+    70,
+    155,
+    28,
+    46
+   ]
+  ],
+  "chimneys": [],
+  "ground_y": 208
+ },
+ "toko_roti": {
+  "folder": "rumah_manusia",
+  "npc": "tukang_roti",
+  "desc": "toko roti dengan oven bata dan kanopi",
+  "size": [
+   134,
+   169
+  ],
+  "doors": [
+   [
+    56,
+    117,
+    26,
+    44
+   ]
+  ],
+  "chimneys": [
+   [
+    80,
+    6
+   ]
+  ],
+  "ground_y": 168,
+  "asap": "animasi/toko_roti_asap_30f.png (kanvas 134x213, taruh di (0,-44))"
+ },
+ "penggergajian_kayu": {
+  "folder": "rumah_manusia",
+  "npc": "penebang_kayu",
+  "desc": "pondok kayu gelondongan dengan tumpukan kayu",
+  "size": [
+   152,
+   121
+  ],
+  "doors": [
+   [
+    35,
+    69,
+    26,
+    44
+   ]
+  ],
+  "chimneys": [
+   [
+    34,
+    14
+   ]
+  ],
+  "ground_y": 120,
+  "asap": "animasi/penggergajian_kayu_asap_30f.png (kanvas 152x165, taruh di (0,-44))"
+ },
+ "pondok_pemburu": {
+  "folder": "rumah_manusia",
+  "npc": "pemanah, elf_pemanah",
+  "desc": "pondok pemburu dengan tanduk, kulit, sasaran panah",
+  "size": [
+   142,
+   121
+  ],
+  "doors": [
+   [
+    35,
+    69,
+    26,
+    44
+   ]
+  ],
+  "chimneys": [
+   [
+    34,
+    14
+   ]
+  ],
+  "ground_y": 120,
+  "asap": "animasi/pondok_pemburu_asap_30f.png (kanvas 142x165, taruh di (0,-44))"
+ },
+ "rumah_bangsawan": {
+  "folder": "rumah_manusia",
+  "npc": "bangsawan",
+  "desc": "rumah besar dengan dua menara, balkon, dan lambang",
+  "size": [
+   214,
+   225
+  ],
+  "doors": [
+   [
+    107,
+    167,
+    36,
+    50
+   ]
+  ],
+  "chimneys": [],
+  "ground_y": 224
+ },
+ "kedai_penginapan": {
+  "folder": "rumah_manusia",
+  "npc": "kucing_bard, kelinci_pelayan",
+  "desc": "kedai dan penginapan, pintu ganda lebar, papan cangkir",
+  "size": [
+   178,
+   167
+  ],
+  "doors": [
+   [
+    78,
+    115,
+    34,
+    44
+   ]
+  ],
+  "chimneys": [
+   [
+    43,
+    6
+   ]
+  ],
+  "ground_y": 166,
+  "asap": "animasi/kedai_penginapan_asap_30f.png (kanvas 178x211, taruh di (0,-44))"
+ },
+ "barak_serigala": {
+  "folder": "rumah_manusia",
+  "npc": "serigala_penjaga",
+  "desc": "barak penjaga besar, panji ungu",
+  "size": [
+   170,
+   159
+  ],
+  "doors": [],
+  "chimneys": [],
+  "ground_y": 158
+ },
+ "rumah_pencuri": {
+  "folder": "rumah_manusia",
+  "npc": "rubah_pencuri",
+  "desc": "rumah sempit gelap tempat persembunyian",
+  "size": [
+   104,
+   161
+  ],
+  "doors": [
+   [
+    50,
+    109,
+    26,
+    44
+   ]
+  ],
+  "chimneys": [
+   [
+    71,
+    6
+   ]
+  ],
+  "ground_y": 160,
+  "asap": "animasi/rumah_pencuri_asap_30f.png (kanvas 104x205, taruh di (0,-44))"
+ },
+ "rumah_pohon_elf": {
+  "folder": "rumah_fantasi",
+  "npc": "elf_pemanah, elf_tabib",
+  "desc": "rumah pohon raksasa dengan tangga tali",
+  "size": [
+   156,
+   256
+  ],
+  "doors": [
+   [
+    78,
+    99,
+    20,
+    37
+   ],
+   [
+    78,
+    207,
+    26,
+    46
+   ]
+  ],
+  "chimneys": [],
+  "ground_y": 255
+ },
+ "pondok_tabib": {
+  "folder": "rumah_fantasi",
+  "npc": "elf_tabib",
+  "desc": "pondok herbal dengan tanaman obat digantung",
+  "size": [
+   128,
+   121
+  ],
+  "doors": [
+   [
+    35,
+    69,
+    26,
+    44
+   ]
+  ],
+  "chimneys": [
+   [
+    34,
+    14
+   ]
+  ],
+  "ground_y": 120,
+  "asap": "animasi/pondok_tabib_asap_30f.png (kanvas 128x165, taruh di (0,-44))"
+ },
+ "menara_penyihir": {
+  "folder": "rumah_fantasi",
+  "npc": "elf_penyihir",
+  "desc": "menara batu biru bertabur bintang dan bola cahaya",
+  "size": [
+   84,
+   233
+  ],
+  "doors": [
+   [
+    42,
+    181,
+    26,
+    44
+   ]
+  ],
+  "chimneys": [],
+  "ground_y": 232
+ },
+ "kuil_peramal": {
+  "folder": "rumah_fantasi",
+  "npc": "rubah_peramal",
+  "desc": "kuil merah dengan patung rubah dan bola kristal",
+  "size": [
+   150,
+   150
+  ],
+  "doors": [
+   [
+    75,
+    99,
+    26,
+    42
+   ]
+  ],
+  "chimneys": [],
+  "ground_y": 149
+ },
+ "tambang_kurcaci": {
+  "folder": "rumah_fantasi",
+  "npc": "kurcaci_penambang",
+  "desc": "pintu tambang di bukit batu, rel dan gerobak",
+  "size": [
+   170,
+   172
+  ],
+  "doors": [],
+  "chimneys": [],
+  "ground_y": 171
+ },
+ "pondok_orc": {
+  "folder": "rumah_fantasi",
+  "npc": "orc_prajurit",
+  "desc": "tenda kulit dengan pagar kayu runcing dan panji",
+  "size": [
+   190,
+   150
+  ],
+  "doors": [],
+  "chimneys": [],
+  "ground_y": 149
+ },
+ "menara_alkemis": {
+  "folder": "rumah_fantasi",
+  "npc": "kadal_alkemis",
+  "desc": "menara alkemis dengan balkon kuali dan atap ungu",
+  "size": [
+   84,
+   233
+  ],
+  "doors": [
+   [
+    42,
+    181,
+    26,
+    44
+   ]
+  ],
+  "chimneys": [
+   [
+    68,
+    23
+   ]
+  ],
+  "ground_y": 232,
+  "asap": "animasi/menara_alkemis_asap_30f.png (kanvas 84x277, taruh di (0,-44))"
+ },
+ "depot_gudang": {
+  "folder": "depot_karavan",
+  "npc": "MC karavan (muat/bongkar barang)",
+  "desc": "gudang besar dengan pintu muat, katrol, panji peti",
+  "size": [
+   226,
+   179
+  ],
+  "doors": [
+   [
+    154,
+    127,
+    24,
+    44
+   ]
+  ],
+  "chimneys": [],
+  "ground_y": 178
+ },
+ "depot_kantor_tukar": {
+  "folder": "depot_karavan",
+  "npc": "MC karavan (pertukaran barang/koin)",
+  "desc": "kantor pertukaran dengan loket berjeruji dan papan tukar",
+  "size": [
+   142,
+   167
+  ],
+  "doors": [
+   [
+    91,
+    115,
+    26,
+    44
+   ]
+  ],
+  "chimneys": [
+   [
+    96,
+    16
+   ]
+  ],
+  "ground_y": 166,
+  "asap": "animasi/depot_kantor_tukar_asap_30f.png (kanvas 142x211, taruh di (0,-44))"
+ },
+ "depot_dermaga_muat": {
+  "folder": "depot_karavan",
+  "npc": "MC karavan",
+  "desc": "dermaga muat setinggi dasar gerobak (32 px)",
+  "size": [
+   116,
+   44
+  ],
+  "doors": [],
+  "chimneys": [],
+  "ground_y": 43
+ },
+ "depot_tumpukan_a": {
+  "folder": "depot_karavan",
+  "npc": "-",
+  "desc": "tumpukan peti dan tong",
+  "size": [
+   76,
+   58
+  ],
+  "doors": [],
+  "chimneys": [],
+  "ground_y": 57
+ },
+ "depot_tumpukan_b": {
+  "folder": "depot_karavan",
+  "npc": "-",
+  "desc": "tumpukan karung dan peti",
+  "size": [
+   76,
+   58
+  ],
+  "doors": [],
+  "chimneys": [],
+  "ground_y": 57
+ },
+ "depot_tumpukan_c": {
+  "folder": "depot_karavan",
+  "npc": "-",
+  "desc": "campuran peti, tong, karung",
+  "size": [
+   76,
+   58
+  ],
+  "doors": [],
+  "chimneys": [],
+  "ground_y": 57
+ },
+ "depot_timbangan": {
+  "folder": "depot_karavan",
+  "npc": "-",
+  "desc": "timbangan dagang",
+  "size": [
+   52,
+   50
+  ],
+  "doors": [],
+  "chimneys": [],
+  "ground_y": 49
+ },
+ "depot_papan_harga": {
+  "folder": "depot_karavan",
+  "npc": "-",
+  "desc": "papan harga barang",
+  "size": [
+   70,
+   70
+  ],
+  "doors": [],
+  "chimneys": [],
+  "ground_y": 69
+ },
+ "depot_tanda_arah": {
+  "folder": "depot_karavan",
+  "npc": "-",
+  "desc": "tiang penunjuk arah ke depot dan pertukaran",
+  "size": [
+   48,
+   74
+  ],
+  "doors": [],
+  "chimneys": [],
+  "ground_y": 73
+ },
+ "gerbang_kota": {
+  "folder": "gerbang_pagar_tembok",
+  "npc": "-",
+  "desc": "gerbang kota, lubang 90x118 px (karavan bisa lewat)",
+  "size": [
+   250,
+   214
+  ],
+  "doors": [],
+  "chimneys": [],
+  "ground_y": 213
+ },
+ "pagar_kayu": {
+  "folder": "gerbang_pagar_tembok",
+  "npc": "-",
+  "desc": "pagar kayu 32 px (ubin sambung ke kanan)",
+  "size": [
+   36,
+   38
+  ],
+  "doors": [],
+  "chimneys": [],
+  "ground_y": 37
+ },
+ "pagar_kayu_gerbang": {
+  "folder": "gerbang_pagar_tembok",
+  "npc": "-",
+  "desc": "pintu pagar kayu",
+  "size": [
+   50,
+   44
+  ],
+  "doors": [],
+  "chimneys": [],
+  "ground_y": 43
+ },
+ "pagar_batu": {
+  "folder": "gerbang_pagar_tembok",
+  "npc": "-",
+  "desc": "pagar batu rendah 32 px",
+  "size": [
+   36,
+   30
+  ],
+  "doors": [],
+  "chimneys": [],
+  "ground_y": 29
+ },
+ "pagar_besi": {
+  "folder": "gerbang_pagar_tembok",
+  "npc": "-",
+  "desc": "pagar besi 32 px",
+  "size": [
+   36,
+   46
+  ],
+  "doors": [],
+  "chimneys": [],
+  "ground_y": 45
+ },
+ "tembok_kota": {
+  "folder": "gerbang_pagar_tembok",
+  "npc": "-",
+  "desc": "segmen tembok kota 64 px",
+  "size": [
+   68,
+   124
+  ],
+  "doors": [],
+  "chimneys": [],
+  "ground_y": 123
+ },
+ "depot_derek": {
+  "folder": "depot_karavan",
+  "npc": "-",
+  "desc": "derek kayu dengan peti berayun (30 frame)",
+  "size": [
+   96,
+   156
+  ],
+  "doors": [],
+  "chimneys": [],
+  "ground_y": 155
+ }
+}

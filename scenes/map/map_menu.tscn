@@ -1,0 +1,673 @@
+[gd_scene load_steps=14 format=3 uid="uid://cn2xun2l2rkmr"]
+
+[ext_resource type="Script" uid="uid://bol1uvhjchab0" path="res://scripts/map/map_menu.gd" id="1_menu"]
+[ext_resource type="Script" uid="uid://cp7ue35vmeu2y" path="res://scripts/map/region_button.gd" id="2_region"]
+[ext_resource type="Texture2D" uid="uid://cseltoyhfiail" path="res://asset/assetMenuMap/Map.png" id="3_map"]
+[ext_resource type="Texture2D" uid="uid://1j60fqahs7s5" path="res://asset/assetMenuMap/banner_purple.png" id="4_banner"]
+[ext_resource type="Texture2D" uid="uid://dxwpue4ir2j76" path="res://asset/horse_caravan_ui_parts/icons/icon_iron_ingot.png" id="5_iron"]
+[ext_resource type="Texture2D" uid="uid://doy42b1ehtigi" path="res://asset/horse_caravan_ui_parts/icons/icon_gem.png" id="6_gem"]
+[ext_resource type="Texture2D" uid="uid://d4b6gof8b2q72" path="res://asset/horse_caravan_ui_parts/icons/icon_coin.png" id="7_coin"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bar"]
+content_margin_left = 20.0
+content_margin_top = 6.0
+content_margin_right = 20.0
+content_margin_bottom = 6.0
+bg_color = Color(0.13, 0.09, 0.06, 0.88)
+border_width_bottom = 3
+border_color = Color(0.45, 0.32, 0.18, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+content_margin_left = 14.0
+content_margin_top = 14.0
+content_margin_right = 14.0
+content_margin_bottom = 14.0
+bg_color = Color(0.12, 0.08, 0.06, 0.93)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.45, 0.32, 0.18, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_normal"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.36, 0.23, 0.11, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.6, 0.43, 0.22, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_pressed"]
+content_margin_left = 10.0
+content_margin_top = 9.0
+content_margin_right = 10.0
+content_margin_bottom = 7.0
+bg_color = Color(0.28, 0.17, 0.08, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.55, 0.38, 0.19, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.48, 0.31, 0.14, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.85, 0.64, 0.32, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_disabled"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.2, 0.18, 0.16, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.33, 0.3, 0.27, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="MapMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_menu")
+
+[node name="SeaColor" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.239, 0.459, 0.831, 1)
+
+[node name="MapBoard" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 150.0
+offset_right = 2198.0
+offset_bottom = 2048.0
+scale = Vector2(0.31640625, 0.31640625)
+mouse_filter = 2
+
+[node name="MapArt" type="TextureRect" parent="MapBoard"]
+texture_filter = 2
+layout_mode = 0
+offset_right = 2048.0
+offset_bottom = 2048.0
+mouse_filter = 2
+texture = ExtResource("3_map")
+expand_mode = 1
+
+[node name="Regions" type="Control" parent="MapBoard"]
+anchors_preset = 0
+offset_right = 2048.0
+offset_bottom = 2048.0
+mouse_filter = 2
+
+[node name="VillageCastle" type="Control" parent="MapBoard/Regions"]
+anchors_preset = 0
+offset_right = 2048.0
+offset_bottom = 2048.0
+script = ExtResource("2_region")
+area_id = &"village"
+display_name = "Village & Castle"
+
+[node name="Highlight" type="Polygon2D" parent="MapBoard/Regions/VillageCastle"]
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(616, 590, 568, 582, 544, 566, 470, 566, 458, 580, 446, 582, 442, 596, 420, 604, 416, 616, 358, 670, 358, 680, 338, 700, 302, 718, 290, 742, 262, 754, 254, 784, 230, 790, 222, 798, 222, 808, 198, 830, 198, 848, 182, 862, 184, 882, 198, 900, 190, 970, 182, 986, 182, 1100, 190, 1116, 190, 1156, 198, 1166, 206, 1228, 222, 1268, 222, 1324, 246, 1372, 248, 1418, 262, 1436, 298, 1438, 326, 1408, 370, 1406, 424, 1388, 480, 1348, 570, 1258, 576, 1236, 602, 1218, 622, 1174, 658, 1138, 664, 1118, 656, 1112, 656, 1070, 664, 1064, 664, 1054, 684, 1034, 704, 1028, 730, 998, 784, 988, 800, 968, 816, 964, 830, 946, 832, 906, 818, 852, 788, 852, 776, 840, 776, 830, 760, 816, 760, 806, 744, 792, 736, 702, 750, 696, 746, 684, 736, 674, 716, 670, 706, 644, 692, 630, 652, 614)
+
+[node name="Outline" type="Line2D" parent="MapBoard/Regions/VillageCastle"]
+visible = false
+closed = true
+default_color = Color(1, 0.82, 0.35, 0.95)
+joint_mode = 2
+antialiased = true
+
+[node name="NameLabel" type="Label" parent="MapBoard/Regions/VillageCastle"]
+layout_mode = 0
+offset_left = 188.0
+offset_top = 1010.0
+offset_right = 688.0
+offset_bottom = 1070.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.06, 0.05, 0.08, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 44
+text = "Village & Castle"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Anchor" type="Marker2D" parent="MapBoard/Regions/VillageCastle"]
+position = Vector2(438, 950)
+
+[node name="Desert" type="Control" parent="MapBoard/Regions"]
+anchors_preset = 0
+offset_right = 2048.0
+offset_bottom = 2048.0
+script = ExtResource("2_region")
+area_id = &"desert"
+display_name = "Desert"
+
+[node name="Highlight" type="Polygon2D" parent="MapBoard/Regions/Desert"]
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(1040, 1054, 1028, 1052, 1016, 1038, 996, 1036, 984, 1022, 960, 1022, 880, 990, 838, 990, 796, 1014, 760, 1020, 718, 1062, 710, 1088, 694, 1102, 688, 1144, 710, 1150, 710, 1168, 688, 1174, 680, 1158, 662, 1176, 662, 1192, 646, 1198, 662, 1206, 662, 1224, 640, 1230, 632, 1222, 628, 1234, 602, 1254, 596, 1274, 500, 1370, 436, 1414, 358, 1438, 342, 1436, 316, 1462, 268, 1466, 246, 1460, 246, 1472, 262, 1486, 270, 1528, 286, 1542, 286, 1568, 310, 1606, 310, 1624, 326, 1638, 350, 1688, 362, 1690, 366, 1704, 378, 1706, 398, 1728, 438, 1752, 462, 1752, 486, 1768, 534, 1776, 542, 1784, 656, 1794, 648, 1758, 632, 1752, 632, 1734, 648, 1728, 648, 1694, 660, 1674, 672, 1672, 672, 1630, 688, 1624, 692, 1610, 720, 1600, 720, 1558, 736, 1552, 736, 1540, 712, 1542, 704, 1536, 704, 1518, 720, 1504, 734, 1504, 742, 1510, 742, 1530, 752, 1520, 752, 1502, 792, 1480, 792, 1462, 812, 1442, 864, 1432, 872, 1424, 896, 1424, 880, 1416, 880, 1398, 906, 1394, 912, 1416, 912, 1398, 944, 1376, 952, 1360, 952, 1334, 976, 1320, 976, 1278, 984, 1272, 976, 1132, 956, 1132, 952, 1110, 976, 1106, 976, 1094, 996, 1074, 1008, 1072, 1012, 1058)
+
+[node name="Outline" type="Line2D" parent="MapBoard/Regions/Desert"]
+visible = false
+closed = true
+default_color = Color(1, 0.82, 0.35, 0.95)
+joint_mode = 2
+antialiased = true
+
+[node name="NameLabel" type="Label" parent="MapBoard/Regions/Desert"]
+layout_mode = 0
+offset_left = 550.0
+offset_top = 1310.0
+offset_right = 1050.0
+offset_bottom = 1370.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.06, 0.05, 0.08, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 44
+text = "Desert"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Anchor" type="Marker2D" parent="MapBoard/Regions/Desert"]
+position = Vector2(834, 1246)
+
+[node name="Forest" type="Control" parent="MapBoard/Regions"]
+anchors_preset = 0
+offset_right = 2048.0
+offset_bottom = 2048.0
+script = ExtResource("2_region")
+area_id = &"forest"
+display_name = "Forest"
+
+[node name="Highlight" type="Polygon2D" parent="MapBoard/Regions/Forest"]
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(1568, 686, 1544, 686, 1534, 678, 1522, 700, 1496, 700, 1462, 726, 1446, 726, 1422, 742, 1398, 742, 1366, 758, 1346, 780, 1318, 790, 1318, 800, 1294, 814, 1294, 840, 1270, 886, 1270, 920, 1254, 934, 1254, 944, 1234, 964, 1182, 990, 1158, 980, 1166, 1136, 1182, 1166, 1182, 1312, 1158, 1358, 1142, 1424, 1118, 1430, 1114, 1444, 1094, 1446, 1086, 1464, 1070, 1470, 1070, 1480, 1046, 1502, 1046, 1528, 1030, 1550, 1022, 1784, 1058, 1802, 1062, 1816, 1086, 1824, 1192, 1816, 1252, 1770, 1272, 1768, 1290, 1748, 1288, 1734, 1328, 1704, 1520, 1680, 1576, 1648, 1632, 1632, 1632, 1622, 1648, 1608, 1664, 1542, 1696, 1520, 1712, 1488, 1712, 1470, 1736, 1424, 1736, 1374, 1746, 1364, 1744, 1302, 1728, 1288, 1728, 1278, 1708, 1268, 1704, 1254, 1664, 1222, 1640, 1214, 1584, 1214, 1548, 1196, 1488, 1128, 1488, 1006, 1496, 1000, 1504, 958, 1520, 952, 1520, 926, 1568, 832, 1568, 814, 1560, 808, 1560, 758, 1568, 752, 1568, 710, 1576, 704)
+
+[node name="Outline" type="Line2D" parent="MapBoard/Regions/Forest"]
+visible = false
+closed = true
+default_color = Color(1, 0.82, 0.35, 0.95)
+joint_mode = 2
+antialiased = true
+
+[node name="NameLabel" type="Label" parent="MapBoard/Regions/Forest"]
+layout_mode = 0
+offset_left = 1170.0
+offset_top = 1490.0
+offset_right = 1670.0
+offset_bottom = 1550.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.06, 0.05, 0.08, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 44
+text = "Forest"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Anchor" type="Marker2D" parent="MapBoard/Regions/Forest"]
+position = Vector2(1420, 1430)
+
+[node name="Snow" type="Control" parent="MapBoard/Regions"]
+anchors_preset = 0
+offset_right = 2048.0
+offset_bottom = 2048.0
+script = ExtResource("2_region")
+area_id = &"snow"
+display_name = "Snow"
+
+[node name="Highlight" type="Polygon2D" parent="MapBoard/Regions/Snow"]
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(1374, 94, 1350, 110, 1346, 124, 1334, 126, 1342, 134, 1338, 156, 1320, 158, 1312, 140, 1238, 182, 1174, 190, 1126, 230, 1122, 244, 1110, 246, 1126, 254, 1126, 288, 1070, 326, 1086, 334, 1082, 356, 1046, 350, 1038, 366, 1038, 440, 1006, 494, 1014, 520, 992, 526, 984, 516, 982, 528, 994, 530, 1014, 560, 1082, 586, 1110, 616, 1122, 618, 1126, 648, 1154, 658, 1158, 672, 1190, 694, 1190, 704, 1218, 706, 1262, 744, 1290, 738, 1294, 760, 1278, 784, 1296, 794, 1352, 752, 1336, 744, 1344, 720, 1362, 722, 1368, 744, 1392, 728, 1416, 728, 1440, 712, 1456, 712, 1496, 680, 1512, 688, 1528, 664, 1574, 672, 1590, 686, 1582, 760, 1574, 766, 1582, 840, 1566, 888, 1534, 934, 1534, 968, 1518, 972, 1502, 1014, 1504, 1064, 1528, 1024, 1512, 1016, 1512, 998, 1534, 992, 1542, 1010, 1584, 960, 1576, 926, 1608, 920, 1616, 896, 1608, 878, 1632, 840, 1632, 806, 1608, 792, 1608, 774, 1638, 768, 1648, 784, 1656, 760, 1648, 734, 1664, 720, 1680, 672, 1664, 566, 1652, 564, 1616, 520, 1616, 422, 1640, 368, 1640, 278, 1616, 240, 1616, 222, 1536, 126, 1440, 94)
+
+[node name="Outline" type="Line2D" parent="MapBoard/Regions/Snow"]
+visible = false
+closed = true
+default_color = Color(1, 0.82, 0.35, 0.95)
+joint_mode = 2
+antialiased = true
+
+[node name="NameLabel" type="Label" parent="MapBoard/Regions/Snow"]
+layout_mode = 0
+offset_left = 1094.0
+offset_top = 510.0
+offset_right = 1594.0
+offset_bottom = 570.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.06, 0.05, 0.08, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 44
+text = "Snow"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Anchor" type="Marker2D" parent="MapBoard/Regions/Snow"]
+position = Vector2(1344, 450)
+
+[node name="Depot" type="Control" parent="MapBoard/Regions"]
+anchors_preset = 0
+offset_right = 2048.0
+offset_bottom = 2048.0
+script = ExtResource("2_region")
+area_id = &"depot"
+display_name = "Depot"
+
+[node name="Highlight" type="Polygon2D" parent="MapBoard/Regions/Depot"]
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(742, 606, 742, 640, 734, 646, 734, 720, 726, 726, 726, 752, 734, 758, 734, 808, 750, 824, 776, 834, 744, 792, 744, 750, 736, 744, 736, 702, 758, 696, 778, 706, 806, 734, 806, 744, 830, 774, 830, 800, 838, 806, 838, 832, 810, 860, 790, 860, 798, 870, 798, 904, 806, 914, 862, 928, 872, 938, 904, 936, 920, 920, 934, 926, 934, 936, 910, 958, 864, 958, 856, 950, 816, 942, 806, 932, 798, 942, 774, 942, 774, 968, 790, 968, 822, 984, 832, 976, 894, 976, 926, 992, 1078, 992, 1086, 1000, 1120, 1008, 1144, 992, 1144, 974, 1136, 968, 1140, 954, 1200, 928, 1228, 898, 1242, 898, 1246, 912, 1210, 948, 1166, 966, 1192, 968, 1224, 952, 1256, 912, 1256, 878, 1280, 832, 1272, 798, 1270, 824, 1258, 836, 1204, 836, 1184, 808, 1184, 734, 1176, 728, 1176, 702, 1164, 700, 1144, 680, 1144, 670, 1116, 660, 1112, 630, 1100, 628, 1072, 598, 1004, 572, 968, 542, 902, 542, 838, 574, 766, 582)
+
+[node name="Outline" type="Line2D" parent="MapBoard/Regions/Depot"]
+visible = false
+closed = true
+default_color = Color(1, 0.82, 0.35, 0.95)
+joint_mode = 2
+antialiased = true
+
+[node name="NameLabel" type="Label" parent="MapBoard/Regions/Depot"]
+layout_mode = 0
+offset_left = 744.0
+offset_top = 828.0
+offset_right = 1244.0
+offset_bottom = 888.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.06, 0.05, 0.08, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 44
+text = "Depot"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Anchor" type="Marker2D" parent="MapBoard/Regions/Depot"]
+position = Vector2(994, 768)
+
+[node name="RouteLines" type="Node2D" parent="MapBoard"]
+
+[node name="ToVillage" type="Line2D" parent="MapBoard/RouteLines"]
+width = 6.0
+default_color = Color(1, 1, 1, 0.22)
+joint_mode = 2
+antialiased = true
+
+[node name="ToSnow" type="Line2D" parent="MapBoard/RouteLines"]
+width = 6.0
+default_color = Color(1, 1, 1, 0.22)
+joint_mode = 2
+antialiased = true
+
+[node name="ToForest" type="Line2D" parent="MapBoard/RouteLines"]
+width = 6.0
+default_color = Color(1, 1, 1, 0.22)
+joint_mode = 2
+antialiased = true
+
+[node name="ToDesert" type="Line2D" parent="MapBoard/RouteLines"]
+width = 6.0
+default_color = Color(1, 1, 1, 0.22)
+joint_mode = 2
+antialiased = true
+
+[node name="ToDepot" type="Line2D" parent="MapBoard/RouteLines"]
+width = 6.0
+default_color = Color(1, 1, 1, 0.22)
+joint_mode = 2
+antialiased = true
+
+[node name="CaravanMarker" type="TextureRect" parent="MapBoard"]
+layout_mode = 0
+offset_left = 978.0
+offset_top = 704.0
+offset_right = 1010.0
+offset_bottom = 768.0
+scale = Vector2(2.5, 2.5)
+pivot_offset = Vector2(16, 64)
+mouse_filter = 2
+texture = ExtResource("4_banner")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TopBar" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 56.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bar")
+
+[node name="BarRow" type="HBoxContainer" parent="TopBar"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="TurnSummary" type="VBoxContainer" parent="TopBar/BarRow"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TurnLabel" type="Label" parent="TopBar/BarRow/TurnSummary"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.98, 0.94, 0.86, 1)
+theme_override_font_sizes/font_size = 20
+text = "Turn 1"
+
+[node name="TurnsLeftLabel" type="Label" parent="TopBar/BarRow/TurnSummary"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.78, 0.64, 1)
+theme_override_font_sizes/font_size = 13
+text = "12 turn tersisa"
+
+[node name="SpacerLeft" type="Control" parent="TopBar/BarRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TitleLabel" type="Label" parent="TopBar/BarRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.88, 0.62, 1)
+theme_override_font_sizes/font_size = 22
+text = "PILIH TUJUAN"
+vertical_alignment = 1
+
+[node name="SpacerRight" type="Control" parent="TopBar/BarRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AreaDetailPanel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -316.0
+offset_top = 64.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="PanelBox" type="VBoxContainer" parent="AreaDetailPanel"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="AreaNameLabel" type="Label" parent="AreaDetailPanel/PanelBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9, 0.68, 1)
+theme_override_font_sizes/font_size = 26
+text = "Depot"
+autowrap_mode = 2
+
+[node name="StableBadge" type="Label" parent="AreaDetailPanel/PanelBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "BELUM STABIL"
+
+[node name="SeparatorTop" type="HSeparator" parent="AreaDetailPanel/PanelBox"]
+layout_mode = 2
+
+[node name="ResourceRows" type="VBoxContainer" parent="AreaDetailPanel/PanelBox"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="IronRow" type="HBoxContainer" parent="AreaDetailPanel/PanelBox/ResourceRows"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="IronIcon" type="TextureRect" parent="AreaDetailPanel/PanelBox/ResourceRows/IronRow"]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("5_iron")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="IronLabel" type="Label" parent="AreaDetailPanel/PanelBox/ResourceRows/IronRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.88, 0.82, 1)
+theme_override_font_sizes/font_size = 16
+text = "Iron"
+
+[node name="IronValue" type="Label" parent="AreaDetailPanel/PanelBox/ResourceRows/IronRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+text = "0 / 0"
+horizontal_alignment = 2
+
+[node name="DiamondRow" type="HBoxContainer" parent="AreaDetailPanel/PanelBox/ResourceRows"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="DiamondIcon" type="TextureRect" parent="AreaDetailPanel/PanelBox/ResourceRows/DiamondRow"]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("6_gem")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="DiamondLabel" type="Label" parent="AreaDetailPanel/PanelBox/ResourceRows/DiamondRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.88, 0.82, 1)
+theme_override_font_sizes/font_size = 16
+text = "Diamond"
+
+[node name="DiamondValue" type="Label" parent="AreaDetailPanel/PanelBox/ResourceRows/DiamondRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+text = "0 / 0"
+horizontal_alignment = 2
+
+[node name="CoinRow" type="HBoxContainer" parent="AreaDetailPanel/PanelBox/ResourceRows"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="CoinIcon" type="TextureRect" parent="AreaDetailPanel/PanelBox/ResourceRows/CoinRow"]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("7_coin")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CoinLabel" type="Label" parent="AreaDetailPanel/PanelBox/ResourceRows/CoinRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.88, 0.82, 1)
+theme_override_font_sizes/font_size = 16
+text = "Coin"
+
+[node name="CoinValue" type="Label" parent="AreaDetailPanel/PanelBox/ResourceRows/CoinRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+text = "0 / 0"
+horizontal_alignment = 2
+
+[node name="SeparatorMiddle" type="HSeparator" parent="AreaDetailPanel/PanelBox"]
+layout_mode = 2
+
+[node name="TravelRows" type="VBoxContainer" parent="AreaDetailPanel/PanelBox"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="DistanceRow" type="Label" parent="AreaDetailPanel/PanelBox/TravelRows"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.88, 0.86, 0.8, 1)
+theme_override_font_sizes/font_size = 15
+text = "Jarak: 0"
+
+[node name="CostRow" type="Label" parent="AreaDetailPanel/PanelBox/TravelRows"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.88, 0.86, 0.8, 1)
+theme_override_font_sizes/font_size = 15
+text = "Biaya perjalanan: 0 coin"
+
+[node name="RiskRow" type="Label" parent="AreaDetailPanel/PanelBox/TravelRows"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.88, 0.86, 0.8, 1)
+theme_override_font_sizes/font_size = 15
+text = "Risiko bandit: 0%"
+
+[node name="ReasonLabel" type="Label" parent="AreaDetailPanel/PanelBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.98, 0.72, 0.45, 1)
+theme_override_font_sizes/font_size = 14
+text = "Pilih wilayah tujuan dulu."
+autowrap_mode = 2
+
+[node name="Spacer" type="Control" parent="AreaDetailPanel/PanelBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ConfirmDestinationButton" type="Button" parent="AreaDetailPanel/PanelBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.98, 0.94, 0.86, 1)
+theme_override_colors/font_hover_color = Color(1, 0.97, 0.9, 1)
+theme_override_colors/font_disabled_color = Color(0.6, 0.56, 0.5, 1)
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_btn_disabled")
+text = "KONFIRMASI TUJUAN"
+
+[node name="CaravanSummary" type="PanelContainer" parent="."]
+layout_mode = 1
+offset_left = 16.0
+offset_top = 64.0
+offset_right = 316.0
+offset_bottom = 176.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="PanelBox" type="VBoxContainer" parent="CaravanSummary"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="ResourceRow" type="HBoxContainer" parent="CaravanSummary/PanelBox"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="IronIcon" type="TextureRect" parent="CaravanSummary/PanelBox/ResourceRow"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("5_iron")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CaravanIron" type="Label" parent="CaravanSummary/PanelBox/ResourceRow"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "0"
+
+[node name="DiamondIcon" type="TextureRect" parent="CaravanSummary/PanelBox/ResourceRow"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("6_gem")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CaravanDiamond" type="Label" parent="CaravanSummary/PanelBox/ResourceRow"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "0"
+
+[node name="CoinIcon" type="TextureRect" parent="CaravanSummary/PanelBox/ResourceRow"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("7_coin")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CaravanCoin" type="Label" parent="CaravanSummary/PanelBox/ResourceRow"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "0"
+
+[node name="CapacityRow" type="HBoxContainer" parent="CaravanSummary/PanelBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="CapacityLabel" type="Label" parent="CaravanSummary/PanelBox/CapacityRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.78, 0.64, 1)
+theme_override_font_sizes/font_size = 13
+text = "Kapasitas"
+
+[node name="CaravanCapacity" type="ProgressBar" parent="CaravanSummary/PanelBox/CapacityRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 12)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 10
+max_value = 30.0
+value = 18.0
+show_percentage = false
+
+[node name="CaravanCapacityValue" type="Label" parent="CaravanSummary/PanelBox/CapacityRow"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "0 / 0"
+
+[node name="CaravanEffect" type="Label" parent="CaravanSummary/PanelBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72, 0.68, 0.6, 1)
+theme_override_font_sizes/font_size = 12
+text = "Tanpa efek aktif"

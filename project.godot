@@ -11,10 +11,14 @@ config_version=5
 [application]
 
 config/name="Caravan Explore"
-run/main_scene="uid://d38t4xdb1wejk"
+run/main_scene="res://scenes/game.tscn"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
 [dotnet]
 
 project/assembly_name="Caravan Explore"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
