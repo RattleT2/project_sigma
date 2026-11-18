@@ -1,4 +1,6 @@
-[gd_scene load_steps=141 format=3 uid="uid://bjl8uhkikpul7"]
+[gd_scene load_steps=143 format=3 uid="uid://bjl8uhkikpul7"]
+
+[ext_resource type="Script" path="res://scripts/npc_controller.gd" id="99_npc_controller"]
 
 [ext_resource type="Texture2D" uid="uid://dh0oauki6r2ol" path="res://asset/npc/npc_sprites/penebang_kayu/penebang_kayu_bawa_kayu_30f.png" id="1_8704m"]
 [ext_resource type="Texture2D" uid="uid://cgjtjr2npw80y" path="res://asset/npc/npc_sprites/penebang_kayu/penebang_kayu_menebang_36f.png" id="2_qb65v"]
@@ -967,7 +969,13 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qb65v"]
 size = Vector2(14, 39)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction"]
+size = Vector2(120, 40)
+
 [node name="npc_lumberjack_men" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 1
+script = ExtResource("99_npc_controller")
 
 [node name="lumberjack_movement" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -979,6 +987,14 @@ frame_progress = 0.07972991
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -19.5)
 shape = SubResource("RectangleShape2D_qb65v")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, -20)
+shape = SubResource("RectangleShape2D_interaction")
 
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0

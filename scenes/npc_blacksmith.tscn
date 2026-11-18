@@ -1,4 +1,6 @@
-[gd_scene load_steps=150 format=3 uid="uid://drcwwskvq1nwp"]
+[gd_scene load_steps=152 format=3 uid="uid://drcwwskvq1nwp"]
+
+[ext_resource type="Script" path="res://scripts/npc_controller.gd" id="99_npc_controller"]
 
 [ext_resource type="Texture2D" uid="uid://4d06viw7m7e3" path="res://asset/npc/npc_sprites/pandai_besi/pandai_besi_menempa_30f.png" id="1_k4ens"]
 [ext_resource type="Texture2D" uid="uid://bjdmxbr4o6ake" path="res://asset/npc/npc_sprites/pandai_besi/pandai_besi_diam_60f.png" id="2_3dond"]
@@ -1030,7 +1032,13 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k4ens"]
 size = Vector2(15, 34)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction"]
+size = Vector2(120, 40)
+
 [node name="npc_blacksmith" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 1
+script = ExtResource("99_npc_controller")
 
 [node name="blacksmith_movement" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -1042,6 +1050,14 @@ frame_progress = 0.45593965
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -17)
 shape = SubResource("RectangleShape2D_k4ens")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, -20)
+shape = SubResource("RectangleShape2D_interaction")
 
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0

@@ -1,4 +1,6 @@
-[gd_scene load_steps=142 format=3 uid="uid://web1gqllj17a"]
+[gd_scene load_steps=144 format=3 uid="uid://web1gqllj17a"]
+
+[ext_resource type="Script" path="res://scripts/npc_controller.gd" id="99_npc_controller"]
 
 [ext_resource type="Texture2D" uid="uid://b37xa5mb41f3w" path="res://asset/npc/npc_sprites/tukang_roti/tukang_roti_diam_60f.png" id="1_msuaq"]
 [ext_resource type="Texture2D" uid="uid://by4de1lj54ybv" path="res://asset/npc/npc_sprites/tukang_roti/tukang_roti_bawa_nampan_30f.png" id="1_rcaj6"]
@@ -974,7 +976,13 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rcaj6"]
 size = Vector2(13, 41)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction"]
+size = Vector2(120, 40)
+
 [node name="npc_bakery" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 1
+script = ExtResource("99_npc_controller")
 
 [node name="bakery_movement" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -986,6 +994,14 @@ frame_progress = 0.11366955
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -20.5)
 shape = SubResource("RectangleShape2D_rcaj6")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, -20)
+shape = SubResource("RectangleShape2D_interaction")
 
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0

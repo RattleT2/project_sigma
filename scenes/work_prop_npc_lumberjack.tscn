@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://dbaxykic1cp52"]
+[gd_scene load_steps=3 format=3 uid="uid://dbaxykic1cp52"]
+
+[ext_resource type="Script" path="res://scripts/work_prop.gd" id="99_work_prop"]
 
 [ext_resource type="Texture2D" uid="uid://dggj4rgcgp37e" path="res://asset/npc/npc_sprites/props/prop_balok_kayu.png" id="1_7w4cg"]
 
 [node name="WorkProp_NPC_Lumberjack" type="Node2D"]
+script = ExtResource("99_work_prop")
 
 [node name="Log" type="Sprite2D" parent="."]
 texture_filter = 1

@@ -1,4 +1,6 @@
-[gd_scene load_steps=141 format=3 uid="uid://oaxwe1i7qis"]
+[gd_scene load_steps=143 format=3 uid="uid://oaxwe1i7qis"]
+
+[ext_resource type="Script" path="res://scripts/npc_controller.gd" id="99_npc_controller"]
 
 [ext_resource type="Texture2D" uid="uid://ca8bbi76s0f5i" path="res://asset/npc/npc_sprites/warga_wanita/warga_wanita_menyapu_40f.png" id="1_sow0d"]
 [ext_resource type="Texture2D" uid="uid://b643d4ejadk21" path="res://asset/npc/npc_sprites/warga_wanita/warga_wanita_diam_60f.png" id="2_13ijy"]
@@ -967,7 +969,13 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sow0d"]
 size = Vector2(10, 38)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction"]
+size = Vector2(120, 40)
+
 [node name="npc_civilian_women" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 1
+script = ExtResource("99_npc_controller")
 
 [node name="civilian_women" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -979,6 +987,14 @@ frame_progress = 0.8331465
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -19)
 shape = SubResource("RectangleShape2D_sow0d")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, -20)
+shape = SubResource("RectangleShape2D_interaction")
 
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0

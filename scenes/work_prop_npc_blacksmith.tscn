@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cee0ruu2oweqv"]
+[gd_scene load_steps=3 format=3 uid="uid://cee0ruu2oweqv"]
+
+[ext_resource type="Script" path="res://scripts/work_prop.gd" id="99_work_prop"]
 
 [ext_resource type="Texture2D" uid="uid://colekdcueyi4s" path="res://asset/npc/npc_sprites/props/prop_landasan.png" id="1_4j5hj"]
 
 [node name="WorkProp_NPC_Blacksmith" type="Node2D"]
+script = ExtResource("99_work_prop")
 
 [node name="prop_anvil" type="Sprite2D" parent="."]
 texture_filter = 1
