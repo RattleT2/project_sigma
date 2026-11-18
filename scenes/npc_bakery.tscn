@@ -981,7 +981,7 @@ texture_filter = 1
 position = Vector2(0, -25)
 sprite_frames = SubResource("SpriteFrames_286c4")
 animation = &"bakery_npc_carry_tray"
-frame_progress = 0.95833325
+frame_progress = 0.11366955
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -20.5)

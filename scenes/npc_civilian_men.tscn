@@ -890,8 +890,8 @@ size = Vector2(10, 40)
 texture_filter = 1
 position = Vector2(0, -25)
 sprite_frames = SubResource("SpriteFrames_frqov")
-animation = &"npc_men_walk"
-frame_progress = 0.6390073
+animation = &"npc_men_carry_sack"
+frame_progress = 0.62098444
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -20)
