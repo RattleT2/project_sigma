@@ -18,12 +18,16 @@ extends Node2D
 
 @export var random_flip_h: bool = true # Balik gambar kiri-kanan secara acak agar lebih variatif
 
+# Jumlah prop yang langsung tampil saat scene dimuat (disebar di layar).
+@export var initial_props: int = 3
+
 var _distance_traveled: float = 0.0
 var _next_spawn_distance: float = 0.0
 
 func _ready() -> void:
 	# Tentukan jarak acak pertama saat scene mulai
 	_next_spawn_distance = randf_range(min_distance, max_distance)
+	_spawn_initial_props()
 
 func _process(delta: float) -> void:
 	var step: float = scroll_speed * delta
@@ -42,7 +46,18 @@ func _process(delta: float) -> void:
 			if child.position.x < despawn_x:
 				child.queue_free()
 
-func _spawn_random_prop() -> void:
+func _spawn_initial_props() -> void:
+	var slots: Array[float] = [-430.0, -270.0, 250.0, 410.0, 550.0]
+	var usable: Array[float] = []
+	for x in slots:
+		if x >= despawn_x + 40.0:
+			usable.append(x)
+	usable.shuffle()
+	for i in mini(initial_props, usable.size()):
+		_spawn_random_prop(usable[i])
+
+
+func _spawn_random_prop(at_x: float = spawn_x) -> void:
 	if prop_textures.is_empty():
 		return
 
@@ -56,5 +71,5 @@ func _spawn_random_prop() -> void:
 	if random_flip_h:
 		prop.flip_h = [true, false].pick_random()
 
-	prop.position = Vector2(spawn_x, randf_range(min_y, max_y))
+	prop.position = Vector2(at_x, randf_range(min_y, max_y))
 	add_child(prop)

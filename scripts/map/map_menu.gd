@@ -45,9 +45,16 @@ func _ready() -> void:
 		region.region_unhovered.connect(_on_region_unhovered)
 		region.region_selected.connect(_on_region_selected)
 	%ConfirmDestinationButton.pressed.connect(_on_confirm_pressed)
+	refresh(current_area_id, 1, 10)
 
-	%TurnLabel.text = "Turn 1"
-	%TurnsLeftLabel.text = "12 turn tersisa"
+
+func refresh(area_id: StringName, current_turn: int, turns_left: int) -> void:
+	current_area_id = area_id
+	_selected_id = &""
+	for id in _regions:
+		_regions[id].selected = false
+	%TurnLabel.text = "Turn %d" % current_turn
+	%TurnsLeftLabel.text = "%d turn tersisa" % turns_left
 	_update_caravan_summary()
 	_update_marker()
 	_update_lines()

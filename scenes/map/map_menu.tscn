@@ -1,7 +1,7 @@
-[gd_scene load_steps=14 format=3]
+[gd_scene load_steps=14 format=3 uid="uid://cn2xun2l2rkmr"]
 
-[ext_resource type="Script" path="res://scripts/map/map_menu.gd" id="1_menu"]
-[ext_resource type="Script" path="res://scripts/map/region_button.gd" id="2_region"]
+[ext_resource type="Script" uid="uid://bol1uvhjchab0" path="res://scripts/map/map_menu.gd" id="1_menu"]
+[ext_resource type="Script" uid="uid://cp7ue35vmeu2y" path="res://scripts/map/region_button.gd" id="2_region"]
 [ext_resource type="Texture2D" uid="uid://cseltoyhfiail" path="res://asset/assetMenuMap/Map.png" id="3_map"]
 [ext_resource type="Texture2D" uid="uid://1j60fqahs7s5" path="res://asset/assetMenuMap/banner_purple.png" id="4_banner"]
 [ext_resource type="Texture2D" uid="uid://dxwpue4ir2j76" path="res://asset/horse_caravan_ui_parts/icons/icon_iron_ingot.png" id="5_iron"]
@@ -49,22 +49,6 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
-content_margin_left = 10.0
-content_margin_top = 8.0
-content_margin_right = 10.0
-content_margin_bottom = 8.0
-bg_color = Color(0.48, 0.31, 0.14, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.85, 0.64, 0.32, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_pressed"]
 content_margin_left = 10.0
 content_margin_top = 9.0
@@ -76,6 +60,22 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0.55, 0.38, 0.19, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.48, 0.31, 0.14, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.85, 0.64, 0.32, 1)
 corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
@@ -117,9 +117,8 @@ mouse_filter = 2
 color = Color(0.239, 0.459, 0.831, 1)
 
 [node name="MapBoard" type="Control" parent="."]
-layout_mode = 0
+anchors_preset = 0
 offset_left = 150.0
-offset_top = 0.0
 offset_right = 2198.0
 offset_bottom = 2048.0
 scale = Vector2(0.31640625, 0.31640625)
@@ -133,16 +132,15 @@ offset_bottom = 2048.0
 mouse_filter = 2
 texture = ExtResource("3_map")
 expand_mode = 1
-stretch_mode = 0
 
 [node name="Regions" type="Control" parent="MapBoard"]
-layout_mode = 0
+anchors_preset = 0
 offset_right = 2048.0
 offset_bottom = 2048.0
 mouse_filter = 2
 
 [node name="VillageCastle" type="Control" parent="MapBoard/Regions"]
-layout_mode = 0
+anchors_preset = 0
 offset_right = 2048.0
 offset_bottom = 2048.0
 script = ExtResource("2_region")
@@ -155,10 +153,9 @@ polygon = PackedVector2Array(616, 590, 568, 582, 544, 566, 470, 566, 458, 580, 4
 
 [node name="Outline" type="Line2D" parent="MapBoard/Regions/VillageCastle"]
 visible = false
-width = 10.0
+closed = true
 default_color = Color(1, 0.82, 0.35, 0.95)
 joint_mode = 2
-closed = true
 antialiased = true
 
 [node name="NameLabel" type="Label" parent="MapBoard/Regions/VillageCastle"]
@@ -179,7 +176,7 @@ vertical_alignment = 1
 position = Vector2(438, 950)
 
 [node name="Desert" type="Control" parent="MapBoard/Regions"]
-layout_mode = 0
+anchors_preset = 0
 offset_right = 2048.0
 offset_bottom = 2048.0
 script = ExtResource("2_region")
@@ -192,10 +189,9 @@ polygon = PackedVector2Array(1040, 1054, 1028, 1052, 1016, 1038, 996, 1036, 984,
 
 [node name="Outline" type="Line2D" parent="MapBoard/Regions/Desert"]
 visible = false
-width = 10.0
+closed = true
 default_color = Color(1, 0.82, 0.35, 0.95)
 joint_mode = 2
-closed = true
 antialiased = true
 
 [node name="NameLabel" type="Label" parent="MapBoard/Regions/Desert"]
@@ -216,7 +212,7 @@ vertical_alignment = 1
 position = Vector2(834, 1246)
 
 [node name="Forest" type="Control" parent="MapBoard/Regions"]
-layout_mode = 0
+anchors_preset = 0
 offset_right = 2048.0
 offset_bottom = 2048.0
 script = ExtResource("2_region")
@@ -229,10 +225,9 @@ polygon = PackedVector2Array(1568, 686, 1544, 686, 1534, 678, 1522, 700, 1496, 7
 
 [node name="Outline" type="Line2D" parent="MapBoard/Regions/Forest"]
 visible = false
-width = 10.0
+closed = true
 default_color = Color(1, 0.82, 0.35, 0.95)
 joint_mode = 2
-closed = true
 antialiased = true
 
 [node name="NameLabel" type="Label" parent="MapBoard/Regions/Forest"]
@@ -253,7 +248,7 @@ vertical_alignment = 1
 position = Vector2(1420, 1430)
 
 [node name="Snow" type="Control" parent="MapBoard/Regions"]
-layout_mode = 0
+anchors_preset = 0
 offset_right = 2048.0
 offset_bottom = 2048.0
 script = ExtResource("2_region")
@@ -266,10 +261,9 @@ polygon = PackedVector2Array(1374, 94, 1350, 110, 1346, 124, 1334, 126, 1342, 13
 
 [node name="Outline" type="Line2D" parent="MapBoard/Regions/Snow"]
 visible = false
-width = 10.0
+closed = true
 default_color = Color(1, 0.82, 0.35, 0.95)
 joint_mode = 2
-closed = true
 antialiased = true
 
 [node name="NameLabel" type="Label" parent="MapBoard/Regions/Snow"]
@@ -290,7 +284,7 @@ vertical_alignment = 1
 position = Vector2(1344, 450)
 
 [node name="Depot" type="Control" parent="MapBoard/Regions"]
-layout_mode = 0
+anchors_preset = 0
 offset_right = 2048.0
 offset_bottom = 2048.0
 script = ExtResource("2_region")
@@ -303,10 +297,9 @@ polygon = PackedVector2Array(742, 606, 742, 640, 734, 646, 734, 720, 726, 726, 7
 
 [node name="Outline" type="Line2D" parent="MapBoard/Regions/Depot"]
 visible = false
-width = 10.0
+closed = true
 default_color = Color(1, 0.82, 0.35, 0.95)
 joint_mode = 2
-closed = true
 antialiased = true
 
 [node name="NameLabel" type="Label" parent="MapBoard/Regions/Depot"]
@@ -364,8 +357,8 @@ offset_left = 978.0
 offset_top = 704.0
 offset_right = 1010.0
 offset_bottom = 768.0
-pivot_offset = Vector2(16, 64)
 scale = Vector2(2.5, 2.5)
+pivot_offset = Vector2(16, 64)
 mouse_filter = 2
 texture = ExtResource("4_banner")
 expand_mode = 1
@@ -427,6 +420,7 @@ offset_top = 64.0
 offset_right = -16.0
 offset_bottom = -16.0
 grow_horizontal = 0
+grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
 
 [node name="PanelBox" type="VBoxContainer" parent="AreaDetailPanel"]
@@ -581,14 +575,13 @@ theme_override_colors/font_hover_color = Color(1, 0.97, 0.9, 1)
 theme_override_colors/font_disabled_color = Color(0.6, 0.56, 0.5, 1)
 theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
-theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_btn_disabled")
 text = "KONFIRMASI TUJUAN"
 
 [node name="CaravanSummary" type="PanelContainer" parent="."]
 layout_mode = 1
-anchors_preset = 0
 offset_left = 16.0
 offset_top = 64.0
 offset_right = 316.0

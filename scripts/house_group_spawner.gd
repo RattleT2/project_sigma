@@ -18,6 +18,7 @@ var _delay_left: float = 0.0
 
 func _ready() -> void:
 	_delay_left = randf_range(1.0, 3.0)
+	_spawn_group(200.0)
 
 func _process(delta: float) -> void:
 	var step: float = scroll_speed * delta
@@ -32,8 +33,8 @@ func _process(delta: float) -> void:
 		var last_x := _spawn_group()
 		_delay_left = (last_x - despawn_x) / scroll_speed + randf_range(0.5, 2.0)
 
-func _spawn_group() -> float:
-	var x: float = spawn_x
+func _spawn_group(from_x: float = spawn_x) -> float:
+	var x: float = from_x
 	if prop_textures.is_empty():
 		return x
 	var pool := prop_textures.duplicate()
