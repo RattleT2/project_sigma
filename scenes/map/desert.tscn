@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://bnv6bdejarv5o"]
+[gd_scene load_steps=19 format=4 uid="uid://bnv6bdejarv5o"]
 
 [ext_resource type="Texture2D" uid="uid://deot0g0j24wt7" path="res://asset/background/Desert Tiles-v2/Desert_/Tiles/Tiles.png" id="1_502h4"]
 [ext_resource type="Texture2D" uid="uid://b6u6kuvlk7i4y" path="res://asset/background/craftpix-net-995711-free-pixel-art-cloud-and-sky-backgrounds/1. NEW CLOUDS/1.png" id="1_uue3q"]
@@ -11,6 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://cvdeexndcbi2w" path="res://asset/background/craftpix-net-995711-free-pixel-art-cloud-and-sky-backgrounds/1. NEW CLOUDS/2.png" id="9_llf1e"]
 [ext_resource type="Texture2D" uid="uid://b8fw5ymfd6twh" path="res://asset/background/craftpix-net-995711-free-pixel-art-cloud-and-sky-backgrounds/1. NEW CLOUDS/3.png" id="10_fncu6"]
 [ext_resource type="Script" uid="uid://bu2bi3x743sfn" path="res://scripts/ground_looper.gd" id="11_looper"]
+[ext_resource type="Texture2D" uid="uid://ulvt304sgubw" path="res://asset/background/assets-mountain-backgrounds/m2/2.png" id="13_m2_2"]
+[ext_resource type="Texture2D" uid="uid://m3tqc0hdh3s3" path="res://asset/background/assets-mountain-backgrounds/m2/3.png" id="14_m2_3"]
+[ext_resource type="Texture2D" uid="uid://c7q8q6kv8hmqq" path="res://asset/background/assets-mountain-backgrounds/m2/4.png" id="15_m2_4"]
+[ext_resource type="Texture2D" uid="uid://b7s12j7nrfib7" path="res://asset/background/assets-mountain-backgrounds/m2/5.png" id="16_m2_5"]
 
 [ext_resource type="PackedScene" uid="uid://d38t4xdb1wejk" path="res://scenes/player_caravan.tscn" id="12_karavan"]
 
@@ -211,6 +215,51 @@ repeat_times = 3
 [node name="Sprite2D" type="Sprite2D" parent="langit"]
 scale = Vector2(1, 1.3425926)
 texture = ExtResource("1_uue3q")
+centered = false
+
+[node name="GunungJauh" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(576, 0)
+autoscroll = Vector2(-32, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="GunungJauh"]
+position = Vector2(0, 126)
+texture = ExtResource("13_m2_2")
+centered = false
+
+[node name="AwanDebu" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(576, 0)
+autoscroll = Vector2(-34, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="AwanDebu"]
+position = Vector2(0, 100)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("14_m2_3")
+centered = false
+
+[node name="GunungBesar" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(576, 0)
+autoscroll = Vector2(-38, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="GunungBesar"]
+position = Vector2(0, 126)
+texture = ExtResource("15_m2_4")
+centered = false
+
+[node name="GunungDekat" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(576, 0)
+autoscroll = Vector2(-42, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="GunungDekat"]
+position = Vector2(0, 126)
+texture = ExtResource("16_m2_5")
 centered = false
 
 [node name="Parallax2D" type="Parallax2D" parent="."]

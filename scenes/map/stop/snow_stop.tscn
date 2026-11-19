@@ -1,19 +1,13 @@
-[gd_scene load_steps=18 format=4]
+[gd_scene load_steps=13 format=4 uid="uid://rxecb8leylwb"]
 
 [ext_resource type="Texture2D" uid="uid://dr657qnmqmqhx" path="res://asset/background/craftpix-net-823949-free-nature-backgrounds-pixel-art/nature_6/1.png" id="1_fai1k"]
 [ext_resource type="Texture2D" uid="uid://dt7e34f7s0jur" path="res://asset/background/Pixel_Art_Snow_And_Ice_Tileset_Pack/Pixel Art Snow and Ice Tileset/snowy_rock_block.png" id="1_pevrq"]
 [ext_resource type="Texture2D" uid="uid://5x1qb5tl4fn2" path="res://asset/background/Pixel_Art_Snow_And_Ice_Tileset_Pack/Pixel Art Snow and Ice Tileset/snow_block.png" id="2_0tftv"]
 [ext_resource type="Texture2D" uid="uid://dr1xcirrbofad" path="res://asset/background/craftpix-net-823949-free-nature-backgrounds-pixel-art/nature_6/3.png" id="2_5v2a2"]
-[ext_resource type="Script" uid="uid://k34nklt8upxf" path="res://scripts/ground_prop_spawner_snow.gd" id="5_5v2a2"]
 [ext_resource type="Texture2D" uid="uid://cyucqwqaw3nwl" path="res://asset/background/craftpix-net-675652-free-rocks-pixel-art-asset-pack/PNG/snowy_rocks1/snowy_rock4.png" id="7_nl27b"]
 [ext_resource type="Texture2D" uid="uid://lg26h4q1iucc" path="res://asset/background/craftpix-net-675652-free-rocks-pixel-art-asset-pack/PNG/snowy_rocks1/snowy_rock3.png" id="8_bgvsd"]
 [ext_resource type="Texture2D" uid="uid://dg7nlss4kbc78" path="res://asset/background/craftpix-net-168228-free-tree-pixel-art-asset-pack/PNG/winter_conifer_tree_4.png" id="9_bgvsd"]
 [ext_resource type="Texture2D" uid="uid://btvvfm4t0kmyy" path="res://asset/background/craftpix-net-168228-free-tree-pixel-art-asset-pack/PNG/winter_conifer_tree_5.png" id="10_fr047"]
-[ext_resource type="Script" uid="uid://c28heocra7ucc" path="res://scripts/cloud_prop_spawner_snow.gd" id="11_d8hvq"]
-[ext_resource type="Texture2D" uid="uid://cq5p417opnh7h" path="res://asset/background/craftpix-net-995711-free-pixel-art-cloud-and-sky-backgrounds/3. NEW CLOUDS/4.png" id="12_d8hvq"]
-[ext_resource type="Texture2D" uid="uid://6yd6188fhio6" path="res://asset/background/craftpix-net-995711-free-pixel-art-cloud-and-sky-backgrounds/3. NEW CLOUDS/3.png" id="13_0duhq"]
-[ext_resource type="Script" uid="uid://bu2bi3x743sfn" path="res://scripts/ground_looper.gd" id="14_looper"]
-
 [ext_resource type="PackedScene" uid="uid://d38t4xdb1wejk" path="res://scenes/player_caravan.tscn" id="16_karavan"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qdyvf"]
@@ -291,7 +285,6 @@ position = Vector2(0, -111)
 [node name="aurora" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0, 0)
 repeat_size = Vector2(576, 0)
-autoscroll = Vector2(0, 0)
 repeat_times = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="aurora"]
@@ -302,7 +295,6 @@ centered = false
 [node name="Gunung" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0, 0)
 repeat_size = Vector2(576, 0)
-autoscroll = Vector2(0, 0)
 repeat_times = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="Gunung"]
@@ -311,7 +303,6 @@ texture = ExtResource("2_5v2a2")
 centered = false
 
 [node name="GroundLooper" type="Node2D" parent="."]
-tilemap_width = 608.0
 
 [node name="TileMapLayer" type="TileMapLayer" parent="GroundLooper"]
 position = Vector2(0, -1)
@@ -337,54 +328,21 @@ tile_set = SubResource("TileSet_ia5h3")
 position = Vector2(-84, -12)
 
 [node name="PropSnowConiferLeft" type="Sprite2D" parent="."]
-texture = ExtResource("10_fr047")
 position = Vector2(-470, 15)
+texture = ExtResource("10_fr047")
 offset = Vector2(0, -89.5)
 
 [node name="PropSnowConiferRight" type="Sprite2D" parent="."]
-texture = ExtResource("9_bgvsd")
 position = Vector2(390, 15)
+texture = ExtResource("9_bgvsd")
 offset = Vector2(0, -94)
 
 [node name="PropSnowRockLeft" type="Sprite2D" parent="."]
-texture = ExtResource("8_bgvsd")
 position = Vector2(-280, 15)
+texture = ExtResource("8_bgvsd")
 offset = Vector2(0, -30.5)
 
 [node name="PropSnowRockRight" type="Sprite2D" parent="."]
-texture = ExtResource("7_nl27b")
 position = Vector2(-170, 15)
+texture = ExtResource("7_nl27b")
 offset = Vector2(0, -19)
-
-[node name="Driver" parent="Player_Caravan" index="0"]
-animation = &"driver2_idle"
-
-[node name="Cariagetentcostume" parent="Player_Caravan" index="1"]
-animation = &"tent_costumeforwagon2only1_idle"
-
-[node name="Wagon" parent="Player_Caravan/Cariagetentcostume" index="0"]
-animation = &"wagon2_idle"
-
-[node name="wheel_front" parent="Player_Caravan/Cariagetentcostume/Wagon" index="1"]
-animation = &"wheel2_level2_idle"
-
-[node name="wheelparticlefront" parent="Player_Caravan/Cariagetentcostume/Wagon" index="2"]
-emitting = false
-
-[node name="wheel_back" parent="Player_Caravan/Cariagetentcostume/Wagon" index="3"]
-animation = &"wheel2_level2_idle"
-
-[node name="wheelparticleback" parent="Player_Caravan/Cariagetentcostume/Wagon" index="4"]
-emitting = false
-
-[node name="Horse" parent="Player_Caravan/Cariagetentcostume" index="1"]
-animation = &"horse_level2_idle"
-
-[node name="horsewalkparticle" parent="Player_Caravan/Cariagetentcostume/Horse" index="0"]
-emitting = false
-
-[node name="Harness" parent="Player_Caravan/Cariagetentcostume/Horse" index="1"]
-animation = &"harnes_idle"
-
-[node name="horsewalkparticle2" parent="Player_Caravan/Cariagetentcostume/Horse" index="2"]
-emitting = false

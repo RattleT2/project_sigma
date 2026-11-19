@@ -357,8 +357,7 @@ tile_set = SubResource("TileSet_2atm2")
 [node name="Player_Caravan" parent="." instance=ExtResource("10_hf83x")]
 position = Vector2(-84, -58)
 
-[node name="Camera2D" type="Camera2D" parent="Player_Caravan"]
-position = Vector2(84, 58)
+[node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(100, -144)
 
 [node name="PropRockA" type="Sprite2D" parent="."]
