@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=4 uid="uid://c0dep0tkarav1"]
+[gd_scene load_steps=17 format=4 uid="uid://c0dep0tkarav1"]
 
-[ext_resource type="Texture2D" uid="uid://cxoocotnux6qn" path="res://asset/background/craftpix-net-823949-free-nature-backgrounds-pixel-art/nature_1/1.png" id="1_sky"]
-[ext_resource type="Texture2D" uid="uid://bpliy1pve2p2e" path="res://asset/background/craftpix-net-995711-free-pixel-art-cloud-and-sky-backgrounds/4. NEW CLOUDS/2.png" id="2_cloud"]
-[ext_resource type="Texture2D" uid="uid://cdl7ylaruc4lf" path="res://asset/background/craftpix-net-995711-free-pixel-art-cloud-and-sky-backgrounds/4. NEW CLOUDS/3.png" id="3_cloud"]
+[ext_resource type="Texture2D" uid="uid://bhpt3vuc0oamh" path="res://asset/background/assets-mountain-backgrounds/m5/2.png" id="1_sky"]
+[ext_resource type="Texture2D" uid="uid://be26wwmjga4i3" path="res://asset/background/assets-mountain-backgrounds/m5/3.png" id="2_awan"]
+[ext_resource type="Texture2D" uid="uid://cavo4u57ucoo1" path="res://asset/background/assets-mountain-backgrounds/m5/4.png" id="3_gunung_jauh"]
+[ext_resource type="Texture2D" uid="uid://dj0ve26gpp8st" path="res://asset/background/assets-mountain-backgrounds/m5/5.png" id="4_gunung_dekat"]
 [ext_resource type="Texture2D" uid="uid://dvwtt1cjvdhyw" path="res://asset/Asset_Bangunan/bangunan_kota/animasi/depot_derek_30f.png" id="4_derek"]
 [ext_resource type="Texture2D" uid="uid://swxduep514t3" path="res://asset/Asset_Bangunan/bangunan_kota/depot_karavan/depot_dermaga_muat.png" id="5_dermaga"]
 [ext_resource type="Texture2D" uid="uid://brim5bfk2k5ds" path="res://asset/Asset_Bangunan/bangunan_kota/depot_karavan/depot_gudang.png" id="6_gudang"]
@@ -27,21 +28,29 @@ position = Vector2(0, -111)
 scale = Vector2(2, 2)
 texture = ExtResource("1_sky")
 
-[node name="Awan1" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.9)
-z_index = -95
-position = Vector2(-430, -340)
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("2_cloud")
+[node name="Awan" type="Parallax2D" parent="."]
+z_index = -99
+scale = Vector2(2, 2)
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(576, 0)
+autoscroll = Vector2(-12, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Awan"]
+texture = ExtResource("2_awan")
 centered = false
 
-[node name="Awan2" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.9)
-z_index = -95
-position = Vector2(190, -300)
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("3_cloud")
-centered = false
+[node name="GunungJauh" type="Sprite2D" parent="."]
+z_index = -98
+position = Vector2(0, -111)
+scale = Vector2(2, 2)
+texture = ExtResource("3_gunung_jauh")
+
+[node name="GunungDekat" type="Sprite2D" parent="."]
+z_index = -97
+position = Vector2(0, -111)
+scale = Vector2(2, 2)
+texture = ExtResource("4_gunung_dekat")
 
 [node name="Tanah" type="ColorRect" parent="."]
 z_index = -50
