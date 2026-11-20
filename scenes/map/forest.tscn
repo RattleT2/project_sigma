@@ -301,7 +301,9 @@ centered = false
 
 [node name="AwanJauh" type="Parallax2D" parent="ForestSet"]
 scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(576, 0)
 autoscroll = Vector2(-6, 0)
+repeat_times = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="ForestSet/AwanJauh"]
 position = Vector2(0, -125)
@@ -315,7 +317,9 @@ centered = false
 
 [node name="AwanDekat" type="Parallax2D" parent="ForestSet"]
 scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(576, 0)
 autoscroll = Vector2(-12, 0)
+repeat_times = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="ForestSet/AwanDekat"]
 position = Vector2(160, -35)

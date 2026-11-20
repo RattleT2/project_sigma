@@ -1,11 +1,13 @@
-[gd_scene load_steps=12 format=4 uid="uid://bop2y22w8lkt4"]
+[gd_scene load_steps=14 format=4 uid="uid://bop2y22w8lkt4"]
 
+[ext_resource type="Texture2D" uid="uid://bf86ojx2b32vp" path="res://asset/background/asset-forest-backgrounds/1/1.png" id="1_langit"]
+[ext_resource type="Texture2D" uid="uid://c31lworb8owok" path="res://asset/background/asset-forest-backgrounds/1/2.png" id="2_pohonjauh"]
+[ext_resource type="Texture2D" uid="uid://dnwsosk2cnleb" path="res://asset/background/asset-forest-backgrounds/1/3.png" id="3_pohondekat"]
+[ext_resource type="Texture2D" uid="uid://dux7je6ok62ps" path="res://asset/background/asset-forest-backgrounds/1/4.png" id="4_rumput"]
 [ext_resource type="Texture2D" uid="uid://bpliy1pve2p2e" path="res://asset/background/craftpix-net-995711-free-pixel-art-cloud-and-sky-backgrounds/4. NEW CLOUDS/2.png" id="1_awan2"]
 [ext_resource type="Texture2D" uid="uid://cdl7ylaruc4lf" path="res://asset/background/craftpix-net-995711-free-pixel-art-cloud-and-sky-backgrounds/4. NEW CLOUDS/3.png" id="2_awan3"]
 
 [ext_resource type="Texture2D" uid="uid://cxoocotnux6qn" path="res://asset/background/craftpix-net-823949-free-nature-backgrounds-pixel-art/nature_1/1.png" id="1_78idh"]
-[ext_resource type="Texture2D" uid="uid://y3bggk7t7v17" path="res://asset/background/asset-forest-backgrounds/1/5.png" id="2_5vn8f"]
-[ext_resource type="Texture2D" uid="uid://b85c1wsq6layq" path="res://asset/background/craftpix-net-672461-free-swamp-game-tileset-pixel-art/2 Background/Layers/1.png" id="4_0fenw"]
 [ext_resource type="Texture2D" uid="uid://d324tn04ul2sk" path="res://asset/background/craftpix-net-675652-free-rocks-pixel-art-asset-pack/PNG/middle_lane_rocks2/middle_lane_rock2_4.png" id="5_0fenw"]
 [ext_resource type="Texture2D" uid="uid://cfyrlrkwi8evp" path="res://asset/background/craftpix-net-672461-free-swamp-game-tileset-pixel-art/2 Background/Layers/4.png" id="6_y2o20"]
 [ext_resource type="Texture2D" uid="uid://bg0vqkitgaohl" path="res://asset/background/craftpix-net-672461-free-swamp-game-tileset-pixel-art/1 Tiles/Tileset.png" id="7_y2o20"]
@@ -288,19 +290,20 @@ sources/0 = SubResource("TileSetAtlasSource_7aeu7")
 
 [node name="ForestSet" type="Node2D" parent="."]
 
-[node name="backgroundForest" type="Parallax2D" parent="ForestSet"]
+[node name="Langit" type="Parallax2D" parent="ForestSet"]
 scroll_scale = Vector2(0, 0)
 repeat_size = Vector2(576, 0)
 repeat_times = 3
 
-[node name="FlatBackground" type="Sprite2D" parent="ForestSet/backgroundForest"]
-scale = Vector2(1, 1.3425926)
-texture = ExtResource("4_0fenw")
+[node name="Sprite2D" type="Sprite2D" parent="ForestSet/Langit"]
+texture = ExtResource("1_langit")
 centered = false
 
 [node name="AwanJauh" type="Parallax2D" parent="ForestSet"]
 scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(576, 0)
 autoscroll = Vector2(-6, 0)
+repeat_times = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="ForestSet/AwanJauh"]
 position = Vector2(0, -125)
@@ -314,7 +317,9 @@ centered = false
 
 [node name="AwanDekat" type="Parallax2D" parent="ForestSet"]
 scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(576, 0)
 autoscroll = Vector2(-12, 0)
+repeat_times = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="ForestSet/AwanDekat"]
 position = Vector2(160, -35)
@@ -326,14 +331,34 @@ position = Vector2(820, -75)
 texture = ExtResource("2_awan3")
 centered = false
 
-[node name="backgroundTrees" type="Parallax2D" parent="ForestSet"]
+[node name="PohonJauh" type="Parallax2D" parent="ForestSet"]
 scroll_scale = Vector2(0, 0)
 repeat_size = Vector2(576, 0)
 repeat_times = 3
 
-[node name="Sprite2D" type="Sprite2D" parent="ForestSet/backgroundTrees"]
+[node name="Sprite2D" type="Sprite2D" parent="ForestSet/PohonJauh"]
 position = Vector2(0, 111)
-texture = ExtResource("2_5vn8f")
+texture = ExtResource("2_pohonjauh")
+centered = false
+
+[node name="PohonDekat" type="Parallax2D" parent="ForestSet"]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(576, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="ForestSet/PohonDekat"]
+position = Vector2(0, 111)
+texture = ExtResource("3_pohondekat")
+centered = false
+
+[node name="Rumput" type="Parallax2D" parent="ForestSet"]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(576, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="ForestSet/Rumput"]
+position = Vector2(0, 111)
+texture = ExtResource("4_rumput")
 centered = false
 
 [node name="SwampSet" type="Node2D" parent="."]
