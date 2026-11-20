@@ -45,6 +45,7 @@ func _ready() -> void:
 		region.region_unhovered.connect(_on_region_unhovered)
 		region.region_selected.connect(_on_region_selected)
 	%ConfirmDestinationButton.pressed.connect(_on_confirm_pressed)
+	%ConfirmDestinationButton.hide()
 	refresh(current_area_id, 1, 10)
 
 
@@ -77,6 +78,7 @@ func _on_region_selected(region: Control) -> void:
 		_regions[id].selected = id == _selected_id
 	_set_detail(_selected_id)
 	_update_lines()
+	_on_confirm_pressed()
 
 
 func _set_detail(id: StringName) -> void:

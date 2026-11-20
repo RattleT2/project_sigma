@@ -1926,7 +1926,7 @@ gravity = Vector3(0, -10, 0)
 scale_max = 2.0
 
 [sub_resource type="RectangleShape2D" id="WorldBoundaryShape2D_5uerx"]
-size = Vector2(220, 60)
+size = Vector2(220, 33)
 
 [node name="Player_Caravan" type="CharacterBody2D"]
 script = ExtResource("32_caravan")
@@ -2075,7 +2075,7 @@ randomness = 0.04
 process_material = SubResource("ParticleProcessMaterial_cf114")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(40, 20)
+position = Vector2(40, 6.5)
 shape = SubResource("WorldBoundaryShape2D_5uerx")
 
 [node name="sound_horse_and_wagon_run_and_boost" type="AudioStreamPlayer2D" parent="."]

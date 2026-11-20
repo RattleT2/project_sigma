@@ -2,11 +2,9 @@ extends CharacterBody2D
 
 enum State { IDLE, WALK, BOOST, STOPPING }
 
-const HORSE_PREFIX := "horse_level1_"
-const WHEEL_PREFIX := "wheel_level1_"
-const COSTUME_PREFIX := "tent_costume4_level_1"
-
 @export var input_enabled := true
+@export_enum("Auto", "Level 1", "Level 2") var visual_level: int = 0
+@export var external_travel := false
 @export var walk_speed := 90.0
 @export var boost_speed := 220.0
 @export var acceleration := 400.0
@@ -45,17 +43,24 @@ var _boost_requested := false
 var _input_right_held := false
 var _accessory_sprites: Array[AnimatedSprite2D] = []
 var _accessory_bases: Array[String] = []
+var _costume_prefix := "tent_costume4_level_1"
+var _costume_boost := "tent_costume4_level_1run_boost"
+var _horse_prefix := "horse_level1_"
+var _wheel_prefix := "wheel_level1_"
+var _wagon_prefix := "wagon"
 var _lantern_base_energy := 0.0
 var _lantern_time := 0.0
 var _lantern_noise := FastNoiseLite.new()
 
 
 func _ready() -> void:
+	add_to_group("player_caravan")
 	_collect_accessories()
 	_setup_move_sound()
 	snort_timer.one_shot = true
 	snort_timer.timeout.connect(_on_snort_timer_timeout)
 	horse.animation_finished.connect(_on_horse_animation_finished)
+	_set_visual_profile(_resolve_visual_level())
 	_apply_state_animations()
 	_schedule_next_snort()
 	_lantern_base_energy = lantern_light.energy
@@ -80,7 +85,8 @@ func _update_lantern(delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	_update_test_input()
+	if not external_travel:
+		_update_test_input()
 	_update_movement(delta)
 	velocity.y = 0.0
 	move_and_slide()
@@ -94,6 +100,12 @@ func start_move(boost := false) -> void:
 func stop_move() -> void:
 	_move_requested = false
 	_boost_requested = false
+
+
+func set_traveling(traveling: bool) -> void:
+	_move_requested = false
+	_boost_requested = false
+	_set_state(State.WALK if traveling else State.IDLE)
 
 
 func set_boost(enabled: bool) -> void:
@@ -114,6 +126,9 @@ func _update_test_input() -> void:
 
 
 func _update_movement(delta: float) -> void:
+	if external_travel:
+		velocity.x = 0.0
+		return
 	if _move_requested:
 		var target_speed := boost_speed if _boost_requested else walk_speed
 		velocity.x = move_toward(velocity.x, target_speed, acceleration * delta)
@@ -134,52 +149,76 @@ func _set_state(new_state: State) -> void:
 		_schedule_next_snort()
 
 
+func _resolve_visual_level() -> int:
+	if visual_level == 1 or visual_level == 2:
+		return visual_level
+	# shortcut: auto-deteksi dari animasi awal scene; set visual_level 1/2 untuk override.
+	if String(costume.animation).contains("wagon2only") or String(horse.animation).contains("level2"):
+		return 2
+	return 1
+
+
+func _set_visual_profile(level: int) -> void:
+	if level == 2:
+		_costume_prefix = "tent_costumeforwagon2only1"
+		_costume_boost = "tent_costumeforwagon2only1_run_boost"
+		_horse_prefix = "horse_level2_"
+		_wheel_prefix = "wheel2_level2_"
+		_wagon_prefix = "wagon2"
+	else:
+		_costume_prefix = "tent_costume4_level_1"
+		_costume_boost = "tent_costume4_level_1run_boost"
+		_horse_prefix = "horse_level1_"
+		_wheel_prefix = "wheel_level1_"
+		_wagon_prefix = "wagon"
+
+
 func _apply_state_animations() -> void:
 	match state:
 		State.IDLE:
 			_play(driver, "driver2_idle")
-			_play(costume, COSTUME_PREFIX + "_idle")
-			_play(wagon, "wagon_idle")
-			_play(horse, HORSE_PREFIX + "idle")
+			_play(costume, _costume_prefix + "_idle")
+			_play(wagon, _wagon_prefix + "_idle")
+			_play(horse, _horse_prefix + "idle")
 			_play(harness, "harnes_idle")
-			_play(wheel_front, WHEEL_PREFIX + "idle")
-			_play(wheel_back, WHEEL_PREFIX + "idle")
+			_play(wheel_front, _wheel_prefix + "idle")
+			_play(wheel_back, _wheel_prefix + "idle")
 			horse.speed_scale = 0.6
 			harness.speed_scale = 0.6
 			_play_accessories("_idle")
 			_set_dust(false)
 		State.WALK:
 			_play(driver, "driver2_run")
-			_play(costume, COSTUME_PREFIX + "_run")
-			_play(wagon, "wagon_run")
-			_play(horse, HORSE_PREFIX + "run")
+			_play(costume, _costume_prefix + "_run")
+			_play(wagon, _wagon_prefix + "_run")
+			_play(horse, _horse_prefix + "run")
 			_play(harness, "harness_walk")
-			_play(wheel_front, WHEEL_PREFIX + "rotate_walk")
-			_play(wheel_back, WHEEL_PREFIX + "rotate_walk")
+			_play(wheel_front, _wheel_prefix + "rotate_walk")
+			_play(wheel_back, _wheel_prefix + "rotate_walk")
 			horse.speed_scale = 1.0
 			harness.speed_scale = 1.0
 			_play_accessories("_run")
 			_set_dust(true)
 		State.BOOST:
 			_play(driver, "driver2_giving_boost")
-			_play(costume, COSTUME_PREFIX + "run_boost")
-			_play(wagon, "wagon_run_boost")
-			_play(horse, HORSE_PREFIX + "run_boost")
+			_play(costume, _costume_boost)
+			_play(wagon, _wagon_prefix + "_run_boost")
+			_play(horse, _horse_prefix + "run_boost")
 			_play(harness, "harness_run_boost")
-			_play(wheel_front, WHEEL_PREFIX + "rotate_boost")
-			_play(wheel_back, WHEEL_PREFIX + "rotate_boost")
+			_play(wheel_front, _wheel_prefix + "rotate_boost")
+			_play(wheel_back, _wheel_prefix + "rotate_boost")
 			horse.speed_scale = 1.0
 			harness.speed_scale = 1.0
 			_play_accessories("_run_boost")
 			_set_dust(true)
 		State.STOPPING:
 			_play(driver, "driver2_idle")
-			_play(costume, COSTUME_PREFIX + "_idle")
-			_play(wagon, "wagon_idle")
-			_play(horse, HORSE_PREFIX + "stop")
+			_play(costume, _costume_prefix + "_idle")
+			_play(wagon, _wagon_prefix + "_idle")
+			_play(horse, _horse_prefix + "stop")
 			_play(harness, "harness_stop")
-			_play(wheel_front, WHEEL_PREFIX + "idle")
-			_play(wheel_back, WHEEL_PREFIX + "idle")
+			_play(wheel_front, _wheel_prefix + "idle")
+			_play(wheel_back, _wheel_prefix + "idle")
 			horse.speed_scale = 1.0
 			harness.speed_scale = 1.0
 			_play_accessories("_idle")

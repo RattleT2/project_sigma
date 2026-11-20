@@ -1,4 +1,14 @@
-[gd_scene load_steps=16 format=4 uid="uid://c0dep0tkarav1"]
+[gd_scene load_steps=25 format=4 uid="uid://c0dep0tkarav1"]
+
+[ext_resource type="PackedScene" path="res://scenes/npc_blacksmith.tscn" id="30_npc_blacksmith"]
+[ext_resource type="PackedScene" path="res://scenes/npc_bakery.tscn" id="31_npc_bakery"]
+[ext_resource type="PackedScene" path="res://scenes/npc_farmer_men.tscn" id="32_npc_farmer"]
+[ext_resource type="PackedScene" path="res://scenes/npc_civilian_men.tscn" id="33_npc_civilian_men"]
+[ext_resource type="PackedScene" path="res://scenes/npc_civilian_women.tscn" id="34_npc_civilian_women"]
+[ext_resource type="PackedScene" path="res://scenes/npc_bangsawan.tscn" id="35_npc_bangsawan"]
+[ext_resource type="PackedScene" path="res://scenes/work_prop_npc_blacksmith.tscn" id="36_prop_blacksmith"]
+[ext_resource type="PackedScene" path="res://scenes/work_prop_npc_bakery.tscn" id="37_prop_bakery"]
+[ext_resource type="PackedScene" path="res://scenes/work_prop_npc_farmer.tscn" id="38_prop_farmer"]
 
 [ext_resource type="Texture2D" uid="uid://cxoocotnux6qn" path="res://asset/background/craftpix-net-823949-free-nature-backgrounds-pixel-art/nature_1/1.png" id="1_sky"]
 [ext_resource type="Texture2D" uid="uid://bpliy1pve2p2e" path="res://asset/background/craftpix-net-995711-free-pixel-art-cloud-and-sky-backgrounds/4. NEW CLOUDS/2.png" id="2_cloud"]
@@ -132,6 +142,7 @@ centered = false
 [node name="Karavan" parent="DepotProps" instance=ExtResource("15_karavan")]
 z_index = 4
 position = Vector2(-31, -28)
+visual_level = 2
 
 [node name="Driver" parent="DepotProps/Karavan" index="0"]
 animation = &"driver2_idle"
@@ -153,3 +164,45 @@ animation = &"horse_level2_idle"
 
 [node name="Harness" parent="DepotProps/Karavan/Cariagetentcostume/Horse" index="1"]
 animation = &"harnes_idle"
+
+[node name="HubNPCs" type="Node2D" parent="."]
+z_index = 3
+
+[node name="Blacksmith" parent="HubNPCs" instance=ExtResource("30_npc_blacksmith")]
+position = Vector2(-300, 0)
+apply_gravity = false
+target_prop_path = NodePath("../../WorkProps/Anvil")
+
+[node name="Baker" parent="HubNPCs" instance=ExtResource("31_npc_bakery")]
+position = Vector2(100, 0)
+apply_gravity = false
+target_prop_path = NodePath("../../WorkProps/DoughTable")
+
+[node name="Farmer" parent="HubNPCs" instance=ExtResource("32_npc_farmer")]
+position = Vector2(330, 0)
+apply_gravity = false
+target_prop_path = NodePath("../../WorkProps/Soil")
+
+[node name="CivilianMen" parent="HubNPCs" instance=ExtResource("33_npc_civilian_men")]
+position = Vector2(-450, 0)
+apply_gravity = false
+
+[node name="CivilianWomen" parent="HubNPCs" instance=ExtResource("34_npc_civilian_women")]
+position = Vector2(450, 0)
+apply_gravity = false
+
+[node name="Bangsawan" parent="HubNPCs" instance=ExtResource("35_npc_bangsawan")]
+position = Vector2(-120, 0)
+apply_gravity = false
+
+[node name="WorkProps" type="Node2D" parent="."]
+z_index = 2
+
+[node name="Anvil" parent="WorkProps" instance=ExtResource("36_prop_blacksmith")]
+position = Vector2(-300, 0)
+
+[node name="DoughTable" parent="WorkProps" instance=ExtResource("37_prop_bakery")]
+position = Vector2(100, 0)
+
+[node name="Soil" parent="WorkProps" instance=ExtResource("38_prop_farmer")]
+position = Vector2(330, 0)

@@ -1,0 +1,232 @@
+[gd_scene load_steps=18 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_menu"]
+[ext_resource type="Texture2D" path="res://asset/horse_caravan_ui_parts/menu/title_sign.png" id="2_title"]
+[ext_resource type="PackedScene" path="res://scenes/map/forest.tscn" id="3_map"]
+[ext_resource type="Texture2D" path="res://asset/horse_caravan_ui_parts/menu/btn_play_sheet.png" id="4_play"]
+[ext_resource type="Texture2D" path="res://asset/horse_caravan_ui_parts/menu/btn_settings_sheet.png" id="5_settings"]
+[ext_resource type="Texture2D" path="res://asset/horse_caravan_ui_parts/menu/btn_quit_sheet.png" id="6_quit"]
+[ext_resource type="AudioStream" path="res://asset/audio/bgm-mainMenu.wav" id="7_bgm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_play_normal"]
+atlas = ExtResource("4_play")
+region = Rect2(0, 0, 1176, 332)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_play_hover"]
+atlas = ExtResource("4_play")
+region = Rect2(1176, 0, 1176, 332)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_play_pressed"]
+atlas = ExtResource("4_play")
+region = Rect2(2352, 0, 1176, 332)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_settings_normal"]
+atlas = ExtResource("5_settings")
+region = Rect2(0, 0, 1178, 312)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_settings_hover"]
+atlas = ExtResource("5_settings")
+region = Rect2(1178, 0, 1178, 312)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_settings_pressed"]
+atlas = ExtResource("5_settings")
+region = Rect2(2356, 0, 1178, 312)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_quit_normal"]
+atlas = ExtResource("6_quit")
+region = Rect2(0, 0, 1176, 326)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_quit_hover"]
+atlas = ExtResource("6_quit")
+region = Rect2(1176, 0, 1176, 326)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_quit_pressed"]
+atlas = ExtResource("6_quit")
+region = Rect2(2352, 0, 1176, 326)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_settings"]
+bg_color = Color(0.13, 0.09, 0.06, 0.97)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.62, 0.47, 0.3, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_menu")
+
+[node name="LiveMap" type="SubViewportContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+mouse_filter = 2
+
+[node name="SubViewport" type="SubViewport" parent="LiveMap"]
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="ForestMap" parent="LiveMap/SubViewport" instance=ExtResource("3_map")]
+
+[node name="Dim" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.22)
+
+[node name="TitleSign" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -240.0
+offset_top = 20.0
+offset_right = 240.0
+offset_bottom = 210.0
+grow_horizontal = 2
+mouse_filter = 2
+texture = ExtResource("2_title")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="BottomBar" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -104.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MenuButtons" type="HBoxContainer" parent="BottomBar"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="BtnPlay" type="TextureButton" parent="BottomBar/MenuButtons"]
+custom_minimum_size = Vector2(240, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = SubResource("AtlasTexture_play_normal")
+texture_hover = SubResource("AtlasTexture_play_hover")
+texture_pressed = SubResource("AtlasTexture_play_pressed")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="BtnSettings" type="TextureButton" parent="BottomBar/MenuButtons"]
+custom_minimum_size = Vector2(240, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = SubResource("AtlasTexture_settings_normal")
+texture_hover = SubResource("AtlasTexture_settings_hover")
+texture_pressed = SubResource("AtlasTexture_settings_pressed")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="BtnQuit" type="TextureButton" parent="BottomBar/MenuButtons"]
+custom_minimum_size = Vector2(240, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = SubResource("AtlasTexture_quit_normal")
+texture_hover = SubResource("AtlasTexture_quit_hover")
+texture_pressed = SubResource("AtlasTexture_quit_pressed")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="SettingsOverlay" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+
+[node name="SettingsDim" type="ColorRect" parent="SettingsOverlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.6)
+
+[node name="SettingsCenter" type="CenterContainer" parent="SettingsOverlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SettingsPanel" type="PanelContainer" parent="SettingsOverlay/SettingsCenter"]
+custom_minimum_size = Vector2(360, 320)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_settings")
+
+[node name="Margin" type="MarginContainer" parent="SettingsOverlay/SettingsCenter/SettingsPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBox" type="VBoxContainer" parent="SettingsOverlay/SettingsCenter/SettingsPanel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Title" type="Label" parent="SettingsOverlay/SettingsCenter/SettingsPanel/Margin/VBox"]
+layout_mode = 2
+text = "SETTINGS"
+horizontal_alignment = 1
+
+[node name="VolumeLabel" type="Label" parent="SettingsOverlay/SettingsCenter/SettingsPanel/Margin/VBox"]
+layout_mode = 2
+text = "Volume"
+
+[node name="VolumeSlider" type="HSlider" parent="SettingsOverlay/SettingsCenter/SettingsPanel/Margin/VBox"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+value = 80.0
+
+[node name="FullscreenCheck" type="CheckButton" parent="SettingsOverlay/SettingsCenter/SettingsPanel/Margin/VBox"]
+layout_mode = 2
+text = "Fullscreen"
+
+[node name="Close" type="Button" parent="SettingsOverlay/SettingsCenter/SettingsPanel/Margin/VBox"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+text = "CLOSE"
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="BGM_Menu" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("7_bgm")
+volume_db = -6.0
+
+[node name="SFX_Click" type="AudioStreamPlayer" parent="Audio"]

@@ -367,3 +367,4 @@ tile_set = SubResource("TileSet_qiowp")
 
 [node name="Player_Caravan" parent="." instance=ExtResource("23_karavan")]
 position = Vector2(-84, -12)
+visual_level = 2

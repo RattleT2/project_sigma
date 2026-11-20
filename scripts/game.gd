@@ -17,13 +17,13 @@ const WALK_SCENES := {
 const WALK_SECONDS := 4.0
 const FADE_SECONDS := 0.35
 const STOP_FADE_SECONDS := 0.2
+const STOP_VIEW_SECONDS := 2.5
 const MAX_TURNS := 10
 
 var current_area_id: StringName = &"depot"
 var turn := 1
 
 var _travelling := false
-var _can_open_map := true
 
 @onready var _host: Node2D = $AreaHost
 @onready var _map = $UI/MapMenu
@@ -34,52 +34,78 @@ func _ready() -> void:
 	_map.hide()
 	_fade.modulate.a = 0.0
 	_map.destination_confirmed.connect(_on_destination_confirmed)
-	_show_scene(STOP_SCENES[&"depot"])
-
-
-func _unhandled_input(event: InputEvent) -> void:
-	if not (event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_M):
-		return
-	if not _can_open_map:
-		return
-	if _map.visible:
-		_map.hide()
-	else:
-		_map.refresh(current_area_id, turn, maxi(MAX_TURNS - turn + 1, 0))
-		_map.show()
-	get_viewport().set_input_as_handled()
+	_show_scene(STOP_SCENES[&"depot"], false)
+	await get_tree().create_timer(STOP_VIEW_SECONDS).timeout
+	_open_map()
 
 
 func _on_destination_confirmed(area_id: StringName) -> void:
 	if _travelling or area_id == current_area_id:
 		return
 	_travelling = true
-	_can_open_map = false
 	_map.hide()
 	turn += 1
 
 	await _fade_to(1.0, FADE_SECONDS)
 	if WALK_SCENES.has(area_id):
-		# Fase perjalanan: scene area live dengan RNG aktif.
-		_show_scene(WALK_SCENES[area_id])
+		var walk_area := _show_scene(WALK_SCENES[area_id], true)
 		await _fade_to(0.0, FADE_SECONDS)
 		await get_tree().create_timer(WALK_SECONDS).timeout
+		var walk_player = _find_player(walk_area)
+		if walk_player != null:
+			walk_player.call("set_traveling", false)
 		await _fade_to(1.0, STOP_FADE_SECONDS)
-		_show_scene(STOP_SCENES[area_id])
+		_show_scene(STOP_SCENES[area_id], false)
 		await _fade_to(0.0, STOP_FADE_SECONDS)
 	else:
-		_show_scene(STOP_SCENES[area_id])
+		_show_scene(STOP_SCENES[area_id], false)
 		await _fade_to(0.0, FADE_SECONDS)
 
 	current_area_id = area_id
 	_travelling = false
-	_can_open_map = true
+	await get_tree().create_timer(STOP_VIEW_SECONDS).timeout
+	_open_map()
 
 
-func _show_scene(scene: PackedScene) -> void:
+func _open_map() -> void:
+	if _travelling:
+		return
+	_map.refresh(current_area_id, turn, maxi(MAX_TURNS - turn + 1, 0))
+	_map.show()
+
+
+func _show_scene(scene: PackedScene, traveling: bool) -> Node:
 	for child in _host.get_children():
 		child.queue_free()
-	_host.add_child(scene.instantiate())
+	var area := scene.instantiate()
+	_host.add_child(area)
+	_configure_player(area, traveling)
+	return area
+
+
+func _find_player(area: Node) -> Node:
+	if area == null:
+		return null
+	var grouped := get_tree().get_first_node_in_group("player_caravan")
+	if grouped != null and area.is_ancestor_of(grouped):
+		return grouped
+	for node in area.find_children("*", "", true, false):
+		if node.has_method("set_traveling"):
+			return node
+	return null
+
+
+func _configure_player(area: Node, traveling: bool) -> void:
+	var player = _find_player(area)
+	if player == null or not player.has_method("set_traveling"):
+		return
+	player.set("input_enabled", false)
+	player.set("external_travel", true)
+	player.call("set_traveling", traveling)
+	var area_camera := area.get_node_or_null("Camera2D") as Camera2D
+	var player_camera := player.get_node_or_null("Camera2D") as Camera2D
+	if area_camera != null and player_camera != null:
+		player_camera.enabled = false
 
 
 func _fade_to(alpha: float, duration: float) -> void:

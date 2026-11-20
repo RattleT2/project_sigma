@@ -1,6 +1,6 @@
 extends CharacterBody2D
 ## Tempel ke root CharacterBody2D scene npc_*.tscn.
-## Assign target_prop (WorkProp_NPC_*) di Inspector jika NPC punya rutinitas kerja.
+## Assign target_prop (WorkProp_NPC_*) di Inspector, atau isi target_prop_path (NodePath) dari scene hub.
 ## Player dideteksi lewat group "player_caravan" atau nama node "Player_Caravan".
 ## Scene NPC perlu punya node InteractionArea (Area2D) + CollisionShape2D.
 ## Layer yang diasumsikan: 1 = tanah/player, 3 = NPC (collision_layer = 4).
@@ -32,6 +32,7 @@ const ARRIVE_DISTANCE := 2.0
 
 @export var npc_data: NPCData
 @export var target_prop: Node2D
+@export var target_prop_path: NodePath
 @export var walk_speed := 35.0
 @export var patrol_range := 60.0
 @export var sprite_faces_right_by_default := true
@@ -39,6 +40,7 @@ const ARRIVE_DISTANCE := 2.0
 @export var idle_duration_max := 5.0
 @export var work_duration := 5.0
 @export_range(0.0, 1.0) var work_chance := 0.5
+@export var apply_gravity := true
 
 var state: State = State.IDLE
 
@@ -57,11 +59,15 @@ var _greet_player: Node2D
 
 func _ready() -> void:
 	_start_x = global_position.x
+	if not apply_gravity:
+		floor_snap_length = 0.0
 	_sprite = _find_sprite()
 	_label = get_node_or_null("Label") as Label
 	_audio = _find_audio()
 	_state_timer = _find_state_timer()
 	_interaction_area = find_child("InteractionArea", true, false) as Area2D
+	if target_prop == null and not target_prop_path.is_empty():
+		target_prop = get_node_or_null(target_prop_path) as Node2D
 	_work_animation = _resolve_work_animation()
 	_setup_label()
 	_setup_timer()
@@ -71,6 +77,9 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	_ensure_player_exception()
+	if not apply_gravity:
+		_update_anchored(delta)
+		return
 	velocity.y += get_gravity().y * delta
 
 	match state:
@@ -85,6 +94,26 @@ func _physics_process(delta: float) -> void:
 			velocity.x = 0.0
 
 	move_and_slide()
+
+
+func _update_anchored(delta: float) -> void:
+	velocity = Vector2.ZERO
+	match state:
+		State.PATROL, State.WALK_TO_PROP:
+			var distance := _target_x - global_position.x
+			if absf(distance) <= ARRIVE_DISTANCE:
+				global_position.x = _target_x
+				if state == State.WALK_TO_PROP:
+					_enter_working()
+				else:
+					_enter_idle()
+			else:
+				global_position.x = move_toward(global_position.x, _target_x, walk_speed * delta)
+				_face_x(_target_x)
+		State.WORKING:
+			_work_time_left -= delta
+			if _work_time_left <= 0.0:
+				_enter_idle()
 
 
 func _find_sprite() -> AnimatedSprite2D:
@@ -144,7 +173,7 @@ func _enter_idle() -> void:
 	state = State.IDLE
 	velocity.x = 0.0
 	_play_anim_safe(IDLE_ANIMS)
-	if _state_timer != null:
+	if _state_timer != null and _state_timer.is_inside_tree():
 		_state_timer.start(randf_range(idle_duration_min, idle_duration_max))
 
 
@@ -270,7 +299,8 @@ func _on_interaction_body_exited(body: Node2D) -> void:
 		return
 	_greet_player = null
 	_hide_label()
-	_enter_idle()
+	if is_inside_tree():
+		_enter_idle()
 
 
 func _enter_greet() -> void:
