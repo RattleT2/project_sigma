@@ -1,17 +1,15 @@
-[gd_scene load_steps=15 format=4]
+[gd_scene load_steps=12 format=4 uid="uid://bop2y22w8lkt4"]
+
+[ext_resource type="Texture2D" uid="uid://bpliy1pve2p2e" path="res://asset/background/craftpix-net-995711-free-pixel-art-cloud-and-sky-backgrounds/4. NEW CLOUDS/2.png" id="1_awan2"]
+[ext_resource type="Texture2D" uid="uid://cdl7ylaruc4lf" path="res://asset/background/craftpix-net-995711-free-pixel-art-cloud-and-sky-backgrounds/4. NEW CLOUDS/3.png" id="2_awan3"]
 
 [ext_resource type="Texture2D" uid="uid://cxoocotnux6qn" path="res://asset/background/craftpix-net-823949-free-nature-backgrounds-pixel-art/nature_1/1.png" id="1_78idh"]
-[ext_resource type="Texture2D" uid="uid://bovfy6sdbmcdk" path="res://asset/background/craftpix-net-823949-free-nature-backgrounds-pixel-art/nature_1/2.png" id="2_m1egj"]
-[ext_resource type="Script" uid="uid://bspsfikb7878c" path="res://scripts/cloud_prop_spawner.gd" id="2_uvsji"]
+[ext_resource type="Texture2D" uid="uid://y3bggk7t7v17" path="res://asset/background/asset-forest-backgrounds/1/5.png" id="2_5vn8f"]
 [ext_resource type="Texture2D" uid="uid://b85c1wsq6layq" path="res://asset/background/craftpix-net-672461-free-swamp-game-tileset-pixel-art/2 Background/Layers/1.png" id="4_0fenw"]
 [ext_resource type="Texture2D" uid="uid://d324tn04ul2sk" path="res://asset/background/craftpix-net-675652-free-rocks-pixel-art-asset-pack/PNG/middle_lane_rocks2/middle_lane_rock2_4.png" id="5_0fenw"]
-[ext_resource type="Script" uid="uid://b6efecwlsfbg7" path="res://scripts/ground_prop_spawner.gd" id="5_hf83x"]
-[ext_resource type="Texture2D" uid="uid://pbrtnphgkmld" path="res://asset/background/craftpix-net-672461-free-swamp-game-tileset-pixel-art/2 Background/Layers/2.png" id="5_l7772"]
 [ext_resource type="Texture2D" uid="uid://cfyrlrkwi8evp" path="res://asset/background/craftpix-net-672461-free-swamp-game-tileset-pixel-art/2 Background/Layers/4.png" id="6_y2o20"]
 [ext_resource type="Texture2D" uid="uid://bg0vqkitgaohl" path="res://asset/background/craftpix-net-672461-free-swamp-game-tileset-pixel-art/1 Tiles/Tileset.png" id="7_y2o20"]
-[ext_resource type="Script" uid="uid://bu2bi3x743sfn" path="res://scripts/ground_looper.gd" id="9_0fenw"]
 [ext_resource type="PackedScene" uid="uid://d38t4xdb1wejk" path="res://scenes/player_caravan.tscn" id="10_hf83x"]
-[ext_resource type="Script" uid="uid://c35iq8atmlljw" path="res://scripts/forest_background_cycler.gd" id="11_cycler"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7aeu7"]
 texture = ExtResource("7_y2o20")
@@ -293,7 +291,6 @@ sources/0 = SubResource("TileSetAtlasSource_7aeu7")
 [node name="backgroundForest" type="Parallax2D" parent="ForestSet"]
 scroll_scale = Vector2(0, 0)
 repeat_size = Vector2(576, 0)
-autoscroll = Vector2(0, 0)
 repeat_times = 3
 
 [node name="FlatBackground" type="Sprite2D" parent="ForestSet/backgroundForest"]
@@ -301,9 +298,42 @@ scale = Vector2(1, 1.3425926)
 texture = ExtResource("4_0fenw")
 centered = false
 
-[node name="ForestBackground" type="Sprite2D" parent="ForestSet/backgroundForest"]
+[node name="AwanJauh" type="Parallax2D" parent="ForestSet"]
+scroll_scale = Vector2(0, 0)
+autoscroll = Vector2(-6, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ForestSet/AwanJauh"]
+position = Vector2(0, -125)
+texture = ExtResource("1_awan2")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="ForestSet/AwanJauh"]
+position = Vector2(600, -100)
+texture = ExtResource("1_awan2")
+centered = false
+
+[node name="AwanDekat" type="Parallax2D" parent="ForestSet"]
+scroll_scale = Vector2(0, 0)
+autoscroll = Vector2(-12, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ForestSet/AwanDekat"]
+position = Vector2(160, -35)
+texture = ExtResource("2_awan3")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="ForestSet/AwanDekat"]
+position = Vector2(820, -75)
+texture = ExtResource("2_awan3")
+centered = false
+
+[node name="backgroundTrees" type="Parallax2D" parent="ForestSet"]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(576, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="ForestSet/backgroundTrees"]
 position = Vector2(0, 111)
-texture = ExtResource("5_l7772")
+texture = ExtResource("2_5vn8f")
 centered = false
 
 [node name="SwampSet" type="Node2D" parent="."]
@@ -313,7 +343,6 @@ modulate = Color(1, 1, 1, 0)
 [node name="Langit" type="Parallax2D" parent="SwampSet"]
 scroll_scale = Vector2(0, 0)
 repeat_size = Vector2(1152, 0)
-autoscroll = Vector2(0, 0)
 repeat_times = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="SwampSet/Langit"]
@@ -324,7 +353,6 @@ centered = false
 [node name="backgroundSwamp" type="Parallax2D" parent="SwampSet"]
 scroll_scale = Vector2(0, 0)
 repeat_size = Vector2(576, 0)
-autoscroll = Vector2(0, 0)
 repeat_times = 3
 
 [node name="swampBackground" type="Sprite2D" parent="SwampSet/backgroundSwamp"]
@@ -333,7 +361,6 @@ texture = ExtResource("6_y2o20")
 centered = false
 
 [node name="GroundLooper" type="Node2D" parent="."]
-tilemap_width = 608.0
 
 [node name="TileMapLayer" type="TileMapLayer" parent="GroundLooper"]
 tile_map_data = PackedByteArray("AAD7//7/AAAAAAgAAAD7////AAACAAIAAAD7/wAAAAACAAIAAAD7/wEAAAACAAIAAAD8//7/AAAAAAgAAAD8////AAACAAIAAAD8/wAAAAACAAIAAAD8/wEAAAACAAIAAAD9//7/AAAAAAgAAAD9////AAACAAIAAAD9/wAAAAACAAIAAAD9/wEAAAACAAIAAAD+//7/AAAAAAgAAAD+////AAACAAIAAAD+/wAAAAACAAIAAAD+/wEAAAACAAIAAAD///7/AAAAAAgAAAD/////AAACAAIAAAD//wAAAAACAAIAAAD//wEAAAACAAIAAAAAAP7/AAAAAAgAAAAAAP//AAACAAIAAAAAAAAAAAACAAIAAAAAAAEAAAACAAIAAAABAP7/AAAAAAgAAAABAP//AAACAAIAAAABAAAAAAACAAIAAAABAAEAAAACAAIAAAACAP7/AAAAAAgAAAACAP//AAACAAIAAAACAAAAAAACAAIAAAACAAEAAAACAAIAAAADAP7/AAAAAAgAAAADAP//AAACAAIAAAADAAAAAAACAAIAAAADAAEAAAACAAIAAAAEAP7/AAAAAAgAAAAEAP//AAACAAIAAAAEAAAAAAACAAIAAAAEAAEAAAACAAIAAAAFAP7/AAAAAAgAAAAFAP//AAACAAIAAAAFAAAAAAACAAIAAAAFAAEAAAACAAIAAAAGAP7/AAAAAAgAAAAGAP//AAACAAIAAAAGAAAAAAACAAIAAAAGAAEAAAACAAIAAADy//7/AAAAAAgAAADy////AAACAAIAAADy/wAAAAACAAIAAADy/wEAAAACAAIAAADz//7/AAAAAAgAAADz////AAACAAIAAADz/wAAAAACAAIAAADz/wEAAAACAAIAAAD0//7/AAAAAAgAAAD0////AAACAAIAAAD0/wAAAAACAAIAAAD0/wEAAAACAAIAAAD1//7/AAAAAAgAAAD1////AAACAAIAAAD1/wAAAAACAAIAAAD1/wEAAAACAAIAAAD2//7/AAAAAAgAAAD2////AAACAAIAAAD2/wAAAAACAAIAAAD2/wEAAAACAAIAAAD3//7/AAAAAAgAAAD3////AAACAAIAAAD3/wAAAAACAAIAAAD3/wEAAAACAAIAAAD4//7/AAAAAAgAAAD4////AAACAAIAAAD4/wAAAAACAAIAAAD4/wEAAAACAAIAAAD5//7/AAAAAAgAAAD5////AAACAAIAAAD5/wAAAAACAAIAAAD5/wEAAAACAAIAAAD6//7/AAAAAAgAAAD6////AAACAAIAAAD6/wAAAAACAAIAAAD6/wEAAAACAAIAAAAHAP7/AAAAAAgAAAAHAP//AAACAAIAAAAHAAAAAAACAAIAAAAHAAEAAAACAAIAAAAIAP7/AAAAAAgAAAAIAP//AAACAAIAAAAIAAAAAAACAAIAAAAIAAEAAAACAAIAAAAJAP7/AAAAAAgAAAAJAP//AAACAAIAAAAJAAAAAAACAAIAAAAJAAEAAAACAAIAAAAKAP7/AAAAAAgAAAAKAP//AAACAAIAAAAKAAAAAAACAAIAAAAKAAEAAAACAAIAAAALAP7/AAAAAAgAAAALAP//AAACAAIAAAALAAAAAAACAAIAAAALAAEAAAACAAIAAAAMAP7/AAAAAAgAAAAMAP//AAACAAIAAAAMAAAAAAACAAIAAAAMAAEAAAACAAIAAAANAP7/AAAAAAgAAAANAP//AAACAAIAAAANAAAAAAACAAIAAAANAAEAAAACAAIAAAAOAP7/AAAAAAgAAAAOAP//AAACAAIAAAAOAAAAAAACAAIAAAAOAAEAAAACAAIAAAAPAP7/AAAAAAgAAAAPAP//AAACAAIAAAAPAAAAAAACAAIAAAAPAAEAAAACAAIAAAAQAP7/AAAAAAgAAAAQAP//AAACAAIAAAAQAAAAAAACAAIAAAAQAAEAAAACAAIAAAARAP7/AAAAAAgAAAARAP//AAACAAIAAAARAAAAAAACAAIAAAARAAEAAAACAAIAAAASAP7/AAAAAAgAAAASAP//AAACAAIAAAASAAAAAAACAAIAAAASAAEAAAACAAIAAAATAP7/AAAAAAgAAAATAP//AAACAAIAAAATAAAAAAACAAIAAAATAAEAAAACAAIAAAAUAP7/AAAAAAgAAAAUAP//AAACAAIAAAAUAAAAAAACAAIAAAAUAAEAAAACAAIAAAAVAP7/AAAAAAgAAAAVAP//AAACAAIAAAAVAAAAAAACAAIAAAAVAAEAAAACAAIAAAAWAP7/AAAAAAgAAAAWAP//AAACAAIAAAAWAAAAAAACAAIAAAAWAAEAAAACAAIAAAAXAP7/AAAAAAgAAAAXAP//AAACAAIAAAAXAAAAAAACAAIAAAAXAAEAAAACAAIAAAA=")
@@ -361,55 +388,23 @@ position = Vector2(-84, -58)
 offset = Vector2(100, -144)
 
 [node name="PropRockA" type="Sprite2D" parent="."]
-texture = ExtResource("5_0fenw")
 position = Vector2(-380, -16)
+texture = ExtResource("5_0fenw")
 offset = Vector2(0, -19)
 
 [node name="PropRockB" type="Sprite2D" parent="."]
-texture = ExtResource("5_0fenw")
 position = Vector2(-250, -16)
+texture = ExtResource("5_0fenw")
 offset = Vector2(0, -19)
 flip_h = true
 
 [node name="PropRockC" type="Sprite2D" parent="."]
-texture = ExtResource("5_0fenw")
 position = Vector2(250, -16)
+texture = ExtResource("5_0fenw")
 offset = Vector2(0, -19)
 
 [node name="PropRockD" type="Sprite2D" parent="."]
-texture = ExtResource("5_0fenw")
 position = Vector2(430, -16)
+texture = ExtResource("5_0fenw")
 offset = Vector2(0, -19)
 flip_h = true
-[node name="Driver" parent="Player_Caravan" index="0"]
-animation = &"driver2_idle"
-
-[node name="Cariagetentcostume" parent="Player_Caravan" index="1"]
-animation = &"tent_costumeforwagon2only1_idle"
-
-[node name="Wagon" parent="Player_Caravan/Cariagetentcostume" index="0"]
-animation = &"wagon2_idle"
-
-[node name="wheel_front" parent="Player_Caravan/Cariagetentcostume/Wagon" index="1"]
-animation = &"wheel2_level2_idle"
-
-[node name="wheelparticlefront" parent="Player_Caravan/Cariagetentcostume/Wagon" index="2"]
-emitting = false
-
-[node name="wheel_back" parent="Player_Caravan/Cariagetentcostume/Wagon" index="3"]
-animation = &"wheel2_level2_idle"
-
-[node name="wheelparticleback" parent="Player_Caravan/Cariagetentcostume/Wagon" index="4"]
-emitting = false
-
-[node name="Horse" parent="Player_Caravan/Cariagetentcostume" index="1"]
-animation = &"horse_level2_idle"
-
-[node name="horsewalkparticle" parent="Player_Caravan/Cariagetentcostume/Horse" index="0"]
-emitting = false
-
-[node name="Harness" parent="Player_Caravan/Cariagetentcostume/Horse" index="1"]
-animation = &"harnes_idle"
-
-[node name="horsewalkparticle2" parent="Player_Caravan/Cariagetentcostume/Horse" index="2"]
-emitting = false

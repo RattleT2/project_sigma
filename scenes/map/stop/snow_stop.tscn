@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://rxecb8leylwb"]
+[gd_scene load_steps=17 format=4 uid="uid://rxecb8leylwb"]
 
 [ext_resource type="Texture2D" uid="uid://dr657qnmqmqhx" path="res://asset/background/craftpix-net-823949-free-nature-backgrounds-pixel-art/nature_6/1.png" id="1_fai1k"]
 [ext_resource type="Texture2D" uid="uid://dt7e34f7s0jur" path="res://asset/background/Pixel_Art_Snow_And_Ice_Tileset_Pack/Pixel Art Snow and Ice Tileset/snowy_rock_block.png" id="1_pevrq"]
@@ -9,6 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://dg7nlss4kbc78" path="res://asset/background/craftpix-net-168228-free-tree-pixel-art-asset-pack/PNG/winter_conifer_tree_4.png" id="9_bgvsd"]
 [ext_resource type="Texture2D" uid="uid://btvvfm4t0kmyy" path="res://asset/background/craftpix-net-168228-free-tree-pixel-art-asset-pack/PNG/winter_conifer_tree_5.png" id="10_fr047"]
 [ext_resource type="PackedScene" uid="uid://d38t4xdb1wejk" path="res://scenes/player_caravan.tscn" id="16_karavan"]
+[ext_resource type="Texture2D" uid="uid://cy5rl1stcj8sp" path="res://asset/background/Asset-ocean-and-clouds-backgrounds/Ocean_6/2.png" id="15_bulan"]
+[ext_resource type="Script" uid="uid://c28heocra7ucc" path="res://scripts/cloud_prop_spawner_snow.gd" id="17_cloudsnow"]
+[ext_resource type="Texture2D" uid="uid://cq5p417opnh7h" path="res://asset/background/craftpix-net-995711-free-pixel-art-cloud-and-sky-backgrounds/3. NEW CLOUDS/4.png" id="18_awan4"]
+[ext_resource type="Texture2D" uid="uid://6yd6188fhio6" path="res://asset/background/craftpix-net-995711-free-pixel-art-cloud-and-sky-backgrounds/3. NEW CLOUDS/3.png" id="19_awan3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qdyvf"]
 texture = ExtResource("1_pevrq")
@@ -292,6 +296,15 @@ scale = Vector2(1, 1.3425926)
 texture = ExtResource("1_fai1k")
 centered = false
 
+[node name="Bulan" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Bulan"]
+position = Vector2(800, 85)
+offset = Vector2(-317, -85)
+texture = ExtResource("15_bulan")
+centered = false
+
 [node name="Gunung" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0, 0)
 repeat_size = Vector2(576, 0)
@@ -346,3 +359,10 @@ offset = Vector2(0, -30.5)
 position = Vector2(-170, 15)
 texture = ExtResource("7_nl27b")
 offset = Vector2(0, -19)
+
+[node name="CloudPropSpawnerSnow" type="Node2D" parent="."]
+script = ExtResource("17_cloudsnow")
+prop_textures = Array[Texture2D]([ExtResource("18_awan4"), ExtResource("19_awan3")])
+scroll_speed = 30.0
+min_y = -180.0
+max_y = -180.0

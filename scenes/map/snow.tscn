@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://dbc1rymt5qvq2"]
+[gd_scene load_steps=19 format=4 uid="uid://dbc1rymt5qvq2"]
 
 [ext_resource type="Texture2D" uid="uid://dr657qnmqmqhx" path="res://asset/background/craftpix-net-823949-free-nature-backgrounds-pixel-art/nature_6/1.png" id="1_fai1k"]
 [ext_resource type="Texture2D" uid="uid://dt7e34f7s0jur" path="res://asset/background/Pixel_Art_Snow_And_Ice_Tileset_Pack/Pixel Art Snow and Ice Tileset/snowy_rock_block.png" id="1_pevrq"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://6yd6188fhio6" path="res://asset/background/craftpix-net-995711-free-pixel-art-cloud-and-sky-backgrounds/3. NEW CLOUDS/3.png" id="13_0duhq"]
 [ext_resource type="Script" uid="uid://bu2bi3x743sfn" path="res://scripts/ground_looper.gd" id="14_looper"]
 [ext_resource type="PackedScene" uid="uid://d38t4xdb1wejk" path="res://scenes/player_caravan.tscn" id="16_karavan"]
+[ext_resource type="Texture2D" uid="uid://cy5rl1stcj8sp" path="res://asset/background/Asset-ocean-and-clouds-backgrounds/Ocean_6/2.png" id="15_bulan"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qdyvf"]
 texture = ExtResource("1_pevrq")
@@ -296,6 +297,16 @@ repeat_times = 3
 [node name="Sprite2D" type="Sprite2D" parent="aurora"]
 scale = Vector2(1, 1.3425926)
 texture = ExtResource("1_fai1k")
+centered = false
+
+[node name="Bulan" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0, 0)
+autoscroll = Vector2(-4, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Bulan"]
+position = Vector2(800, 85)
+offset = Vector2(-317, -85)
+texture = ExtResource("15_bulan")
 centered = false
 
 [node name="Gunung" type="Parallax2D" parent="."]

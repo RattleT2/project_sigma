@@ -1,17 +1,16 @@
-[gd_scene load_steps=15 format=4 uid="uid://py660c4wbay1"]
+[gd_scene load_steps=14 format=4 uid="uid://py660c4wbay1"]
 
-[ext_resource type="Texture2D" uid="uid://cxoocotnux6qn" path="res://asset/background/craftpix-net-823949-free-nature-backgrounds-pixel-art/nature_1/1.png" id="1_78idh"]
-[ext_resource type="Texture2D" uid="uid://bovfy6sdbmcdk" path="res://asset/background/craftpix-net-823949-free-nature-backgrounds-pixel-art/nature_1/2.png" id="2_m1egj"]
-[ext_resource type="Script" uid="uid://bspsfikb7878c" path="res://scripts/cloud_prop_spawner.gd" id="2_uvsji"]
-[ext_resource type="Texture2D" uid="uid://b85c1wsq6layq" path="res://asset/background/craftpix-net-672461-free-swamp-game-tileset-pixel-art/2 Background/Layers/1.png" id="4_0fenw"]
+[ext_resource type="Texture2D" uid="uid://bf86ojx2b32vp" path="res://asset/background/asset-forest-backgrounds/1/1.png" id="1_langit"]
+[ext_resource type="Texture2D" uid="uid://bpliy1pve2p2e" path="res://asset/background/craftpix-net-995711-free-pixel-art-cloud-and-sky-backgrounds/4. NEW CLOUDS/2.png" id="2_awan"]
+[ext_resource type="Texture2D" uid="uid://cdl7ylaruc4lf" path="res://asset/background/craftpix-net-995711-free-pixel-art-cloud-and-sky-backgrounds/4. NEW CLOUDS/3.png" id="3_awan"]
+[ext_resource type="Texture2D" uid="uid://c31lworb8owok" path="res://asset/background/asset-forest-backgrounds/1/2.png" id="2_pohonjauh"]
+[ext_resource type="Texture2D" uid="uid://dnwsosk2cnleb" path="res://asset/background/asset-forest-backgrounds/1/3.png" id="3_pohondekat"]
+[ext_resource type="Texture2D" uid="uid://dux7je6ok62ps" path="res://asset/background/asset-forest-backgrounds/1/4.png" id="4_rumput"]
 [ext_resource type="Texture2D" uid="uid://d324tn04ul2sk" path="res://asset/background/craftpix-net-675652-free-rocks-pixel-art-asset-pack/PNG/middle_lane_rocks2/middle_lane_rock2_4.png" id="5_0fenw"]
 [ext_resource type="Script" uid="uid://b6efecwlsfbg7" path="res://scripts/ground_prop_spawner.gd" id="5_hf83x"]
-[ext_resource type="Texture2D" uid="uid://pbrtnphgkmld" path="res://asset/background/craftpix-net-672461-free-swamp-game-tileset-pixel-art/2 Background/Layers/2.png" id="5_l7772"]
-[ext_resource type="Texture2D" uid="uid://cfyrlrkwi8evp" path="res://asset/background/craftpix-net-672461-free-swamp-game-tileset-pixel-art/2 Background/Layers/4.png" id="6_y2o20"]
 [ext_resource type="Texture2D" uid="uid://bg0vqkitgaohl" path="res://asset/background/craftpix-net-672461-free-swamp-game-tileset-pixel-art/1 Tiles/Tileset.png" id="7_y2o20"]
 [ext_resource type="Script" uid="uid://bu2bi3x743sfn" path="res://scripts/ground_looper.gd" id="9_0fenw"]
 [ext_resource type="PackedScene" uid="uid://d38t4xdb1wejk" path="res://scenes/player_caravan.tscn" id="10_hf83x"]
-[ext_resource type="Script" uid="uid://c35iq8atmlljw" path="res://scripts/forest_background_cycler.gd" id="11_cycler"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7aeu7"]
 texture = ExtResource("7_y2o20")
@@ -288,66 +287,83 @@ sources/0 = SubResource("TileSetAtlasSource_7aeu7")
 
 [node name="forest" type="Node2D"]
 
-[node name="BackgroundCycler" type="Node" parent="."]
-script = ExtResource("11_cycler")
-
 [node name="ForestSet" type="Node2D" parent="."]
 
-[node name="backgroundForest" type="Parallax2D" parent="ForestSet"]
+[node name="Langit" type="Parallax2D" parent="ForestSet"]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(576, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="ForestSet/Langit"]
+scale = Vector2(1, 1.3425926)
+texture = ExtResource("1_langit")
+centered = false
+
+[node name="AwanJauh" type="Parallax2D" parent="ForestSet"]
+scroll_scale = Vector2(0, 0)
+autoscroll = Vector2(-6, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ForestSet/AwanJauh"]
+position = Vector2(0, -125)
+texture = ExtResource("2_awan")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="ForestSet/AwanJauh"]
+position = Vector2(600, -100)
+texture = ExtResource("2_awan")
+centered = false
+
+[node name="AwanDekat" type="Parallax2D" parent="ForestSet"]
+scroll_scale = Vector2(0, 0)
+autoscroll = Vector2(-12, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ForestSet/AwanDekat"]
+position = Vector2(160, -35)
+texture = ExtResource("3_awan")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="ForestSet/AwanDekat"]
+position = Vector2(820, -75)
+texture = ExtResource("3_awan")
+centered = false
+
+[node name="PohonJauh" type="Parallax2D" parent="ForestSet"]
 scroll_scale = Vector2(0, 0)
 repeat_size = Vector2(576, 0)
 autoscroll = Vector2(-40, 0)
 repeat_times = 3
 
-[node name="FlatBackground" type="Sprite2D" parent="ForestSet/backgroundForest"]
-scale = Vector2(1, 1.3425926)
-texture = ExtResource("4_0fenw")
+[node name="Sprite2D" type="Sprite2D" parent="ForestSet/PohonJauh"]
+position = Vector2(0, 111)
+texture = ExtResource("2_pohonjauh")
 centered = false
 
-[node name="ForestBackground" type="Sprite2D" parent="ForestSet/backgroundForest"]
+[node name="PohonDekat" type="Parallax2D" parent="ForestSet"]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(576, 0)
+autoscroll = Vector2(-40, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="ForestSet/PohonDekat"]
 position = Vector2(0, 111)
-texture = ExtResource("5_l7772")
+texture = ExtResource("3_pohondekat")
+centered = false
+
+[node name="Rumput" type="Parallax2D" parent="ForestSet"]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(576, 0)
+autoscroll = Vector2(-40, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="ForestSet/Rumput"]
+position = Vector2(0, 111)
+texture = ExtResource("4_rumput")
 centered = false
 
 [node name="GroundPropSpawner" type="Node2D" parent="ForestSet"]
 script = ExtResource("5_hf83x")
 prop_textures = Array[Texture2D]([ExtResource("5_0fenw")])
 despawn_x = -250.0
-
-[node name="SwampSet" type="Node2D" parent="."]
-visible = false
-modulate = Color(1, 1, 1, 0)
-
-[node name="Langit" type="Parallax2D" parent="SwampSet"]
-scroll_scale = Vector2(0, 0)
-repeat_size = Vector2(1152, 0)
-autoscroll = Vector2(-10, 0)
-repeat_times = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="SwampSet/Langit"]
-scale = Vector2(2, 1.3425926)
-texture = ExtResource("1_78idh")
-centered = false
-
-[node name="CloudPropSpawner" type="Node2D" parent="SwampSet"]
-visible = false
-script = ExtResource("2_uvsji")
-prop_textures = Array[Texture2D]([ExtResource("2_m1egj")])
-scroll_speed = 30.0
-despawn_x = -250.0
-min_y = -180.0
-max_y = -180.0
-
-[node name="backgroundSwamp" type="Parallax2D" parent="SwampSet"]
-scroll_scale = Vector2(0, 0)
-repeat_size = Vector2(576, 0)
-autoscroll = Vector2(-40, 0)
-repeat_times = 3
-
-[node name="swampBackground" type="Sprite2D" parent="SwampSet/backgroundSwamp"]
-position = Vector2(0, 111)
-texture = ExtResource("6_y2o20")
-centered = false
 
 [node name="GroundLooper" type="Node2D" parent="."]
 script = ExtResource("9_0fenw")
