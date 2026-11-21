@@ -18,13 +18,21 @@ extends Node2D
 
 @export var random_flip_h: bool = true # Balik gambar kiri-kanan secara acak agar lebih variatif
 
+# Parent berisi rumah yang tidak boleh ditimpa (mis. RumahSpawner).
+@export var avoid_parent_path: NodePath = ^""
+
 # Jumlah prop yang langsung tampil saat scene dimuat (disebar di layar).
 @export var initial_props: int = 3
 
+const HOUSE_CLEARANCE := 24.0 # Jarak aman kiri/kanan antara prop dan rumah
+
 var _distance_traveled: float = 0.0
 var _next_spawn_distance: float = 0.0
+var _avoid_parent: Node = null
 
 func _ready() -> void:
+	if not avoid_parent_path.is_empty():
+		_avoid_parent = get_node_or_null(avoid_parent_path)
 	# Tentukan jarak acak pertama saat scene mulai
 	_next_spawn_distance = randf_range(min_distance, max_distance)
 	_spawn_initial_props()
@@ -49,20 +57,31 @@ func _process(delta: float) -> void:
 func _spawn_initial_props() -> void:
 	var slots: Array[float] = [-430.0, -270.0, 250.0, 410.0, 550.0]
 	var usable: Array[float] = []
+	var max_width: float = _max_prop_width()
 	for x in slots:
-		if x >= despawn_x + 40.0:
+		if x >= despawn_x + 40.0 and not _overlaps_house(x, max_width):
 			usable.append(x)
 	usable.shuffle()
 	for i in mini(initial_props, usable.size()):
 		_spawn_random_prop(usable[i])
+
+func _max_prop_width() -> float:
+	var width := 0.0
+	for texture in prop_textures:
+		width = maxf(width, texture.get_width())
+	return width
 
 
 func _spawn_random_prop(at_x: float = spawn_x) -> void:
 	if prop_textures.is_empty():
 		return
 
+	var texture: Texture2D = prop_textures.pick_random()
+	if _overlaps_house(at_x, texture.get_width()):
+		return
+
 	var prop := Sprite2D.new()
-	prop.texture = prop_textures.pick_random()
+	prop.texture = texture
 	
 	# Posisikan titik tumpu (pivot) di bagian bawah-tengah gambar agar menapak pas di tanah
 	prop.centered = true
@@ -73,3 +92,18 @@ func _spawn_random_prop(at_x: float = spawn_x) -> void:
 
 	prop.position = Vector2(at_x, randf_range(min_y, max_y))
 	add_child(prop)
+
+# Cek tabrakan horizontal dengan rumah; keduanya bergerak dengan kecepatan sama.
+func _overlaps_house(at_x: float, prop_width: float) -> bool:
+	if _avoid_parent == null:
+		return false
+	var prop_center: float = global_position.x + at_x
+	for child in _avoid_parent.get_children():
+		var house := child as Sprite2D
+		if house == null or house.texture == null:
+			continue
+		var house_width: float = house.texture.get_width() * absf(house.global_scale.x)
+		var min_gap: float = (prop_width + house_width) * 0.5 + HOUSE_CLEARANCE
+		if absf(prop_center - house.global_position.x) < min_gap:
+			return true
+	return false
