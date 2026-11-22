@@ -1,17 +1,21 @@
-[gd_scene load_steps=14 format=4 uid="uid://bop2y22w8lkt4"]
+[gd_scene load_steps=19 format=4 uid="uid://bop2y22w8lkt4"]
 
+[ext_resource type="Texture2D" uid="uid://cxoocotnux6qn" path="res://asset/background/craftpix-net-823949-free-nature-backgrounds-pixel-art/nature_1/1.png" id="1_78idh"]
+[ext_resource type="Texture2D" uid="uid://bpliy1pve2p2e" path="res://asset/background/craftpix-net-995711-free-pixel-art-cloud-and-sky-backgrounds/4. NEW CLOUDS/2.png" id="1_awan2"]
 [ext_resource type="Texture2D" uid="uid://bf86ojx2b32vp" path="res://asset/background/asset-forest-backgrounds/1/1.png" id="1_langit"]
+[ext_resource type="Texture2D" uid="uid://cdl7ylaruc4lf" path="res://asset/background/craftpix-net-995711-free-pixel-art-cloud-and-sky-backgrounds/4. NEW CLOUDS/3.png" id="2_awan3"]
 [ext_resource type="Texture2D" uid="uid://c31lworb8owok" path="res://asset/background/asset-forest-backgrounds/1/2.png" id="2_pohonjauh"]
 [ext_resource type="Texture2D" uid="uid://dnwsosk2cnleb" path="res://asset/background/asset-forest-backgrounds/1/3.png" id="3_pohondekat"]
 [ext_resource type="Texture2D" uid="uid://dux7je6ok62ps" path="res://asset/background/asset-forest-backgrounds/1/4.png" id="4_rumput"]
-[ext_resource type="Texture2D" uid="uid://bpliy1pve2p2e" path="res://asset/background/craftpix-net-995711-free-pixel-art-cloud-and-sky-backgrounds/4. NEW CLOUDS/2.png" id="1_awan2"]
-[ext_resource type="Texture2D" uid="uid://cdl7ylaruc4lf" path="res://asset/background/craftpix-net-995711-free-pixel-art-cloud-and-sky-backgrounds/4. NEW CLOUDS/3.png" id="2_awan3"]
-
-[ext_resource type="Texture2D" uid="uid://cxoocotnux6qn" path="res://asset/background/craftpix-net-823949-free-nature-backgrounds-pixel-art/nature_1/1.png" id="1_78idh"]
 [ext_resource type="Texture2D" uid="uid://d324tn04ul2sk" path="res://asset/background/craftpix-net-675652-free-rocks-pixel-art-asset-pack/PNG/middle_lane_rocks2/middle_lane_rock2_4.png" id="5_0fenw"]
 [ext_resource type="Texture2D" uid="uid://cfyrlrkwi8evp" path="res://asset/background/craftpix-net-672461-free-swamp-game-tileset-pixel-art/2 Background/Layers/4.png" id="6_y2o20"]
 [ext_resource type="Texture2D" uid="uid://bg0vqkitgaohl" path="res://asset/background/craftpix-net-672461-free-swamp-game-tileset-pixel-art/1 Tiles/Tileset.png" id="7_y2o20"]
 [ext_resource type="PackedScene" uid="uid://d38t4xdb1wejk" path="res://scenes/player_caravan.tscn" id="10_hf83x"]
+[ext_resource type="Texture2D" uid="uid://c184lqi734xnm" path="res://asset/assetRumahHutan/depot_gudang_hutan.png" id="11_gudang"]
+[ext_resource type="Texture2D" uid="uid://cnj5u7b7gsy4c" path="res://asset/assetRumahHutan/depot_kantor_pertukaran_hutan.png" id="12_kantor"]
+[ext_resource type="Texture2D" uid="uid://0tdbvxwogqkf" path="res://asset/assetRumahHutan/kedai_hutan.png" id="13_kedai"]
+[ext_resource type="Texture2D" uid="uid://060n018lfi2h" path="res://asset/assetRumahHutan/rumah_pedagang_hutan.png" id="14_pedagang"]
+[ext_resource type="Texture2D" uid="uid://bk338ve6tvptr" path="res://asset/assetRumahHutan/rumah_tabib_hutan.png" id="15_tabib"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7aeu7"]
 texture = ExtResource("7_y2o20")
@@ -405,6 +409,33 @@ tile_set = SubResource("TileSet_2atm2")
 position = Vector2(1216, 0)
 tile_map_data = PackedByteArray("AAD7//7/AAAAAAgAAAD7////AAACAAIAAAD7/wAAAAACAAIAAAD7/wEAAAACAAIAAAD8//7/AAAAAAgAAAD8////AAACAAIAAAD8/wAAAAACAAIAAAD8/wEAAAACAAIAAAD9//7/AAAAAAgAAAD9////AAACAAIAAAD9/wAAAAACAAIAAAD9/wEAAAACAAIAAAD+//7/AAAAAAgAAAD+////AAACAAIAAAD+/wAAAAACAAIAAAD+/wEAAAACAAIAAAD///7/AAAAAAgAAAD/////AAACAAIAAAD//wAAAAACAAIAAAD//wEAAAACAAIAAAAAAP7/AAAAAAgAAAAAAP//AAACAAIAAAAAAAAAAAACAAIAAAAAAAEAAAACAAIAAAABAP7/AAAAAAgAAAABAP//AAACAAIAAAABAAAAAAACAAIAAAABAAEAAAACAAIAAAACAP7/AAAAAAgAAAACAP//AAACAAIAAAACAAAAAAACAAIAAAACAAEAAAACAAIAAAADAP7/AAAAAAgAAAADAP//AAACAAIAAAADAAAAAAACAAIAAAADAAEAAAACAAIAAAAEAP7/AAAAAAgAAAAEAP//AAACAAIAAAAEAAAAAAACAAIAAAAEAAEAAAACAAIAAAAFAP7/AAAAAAgAAAAFAP//AAACAAIAAAAFAAAAAAACAAIAAAAFAAEAAAACAAIAAAAGAP7/AAAAAAgAAAAGAP//AAACAAIAAAAGAAAAAAACAAIAAAAGAAEAAAACAAIAAADy//7/AAAAAAgAAADy////AAACAAIAAADy/wAAAAACAAIAAADy/wEAAAACAAIAAADz//7/AAAAAAgAAADz////AAACAAIAAADz/wAAAAACAAIAAADz/wEAAAACAAIAAAD0//7/AAAAAAgAAAD0////AAACAAIAAAD0/wAAAAACAAIAAAD0/wEAAAACAAIAAAD1//7/AAAAAAgAAAD1////AAACAAIAAAD1/wAAAAACAAIAAAD1/wEAAAACAAIAAAD2//7/AAAAAAgAAAD2////AAACAAIAAAD2/wAAAAACAAIAAAD2/wEAAAACAAIAAAD3//7/AAAAAAgAAAD3////AAACAAIAAAD3/wAAAAACAAIAAAD3/wEAAAACAAIAAAD4//7/AAAAAAgAAAD4////AAACAAIAAAD4/wAAAAACAAIAAAD4/wEAAAACAAIAAAD5//7/AAAAAAgAAAD5////AAACAAIAAAD5/wAAAAACAAIAAAD5/wEAAAACAAIAAAD6//7/AAAAAAgAAAD6////AAACAAIAAAD6/wAAAAACAAIAAAD6/wEAAAACAAIAAAAHAP7/AAAAAAgAAAAHAP//AAACAAIAAAAHAAAAAAACAAIAAAAHAAEAAAACAAIAAAAIAP7/AAAAAAgAAAAIAP//AAACAAIAAAAIAAAAAAACAAIAAAAIAAEAAAACAAIAAAAJAP7/AAAAAAgAAAAJAP//AAACAAIAAAAJAAAAAAACAAIAAAAJAAEAAAACAAIAAAAKAP7/AAAAAAgAAAAKAP//AAACAAIAAAAKAAAAAAACAAIAAAAKAAEAAAACAAIAAAALAP7/AAAAAAgAAAALAP//AAACAAIAAAALAAAAAAACAAIAAAALAAEAAAACAAIAAAAMAP7/AAAAAAgAAAAMAP//AAACAAIAAAAMAAAAAAACAAIAAAAMAAEAAAACAAIAAAANAP7/AAAAAAgAAAANAP//AAACAAIAAAANAAAAAAACAAIAAAANAAEAAAACAAIAAAAOAP7/AAAAAAgAAAAOAP//AAACAAIAAAAOAAAAAAACAAIAAAAOAAEAAAACAAIAAAAPAP7/AAAAAAgAAAAPAP//AAACAAIAAAAPAAAAAAACAAIAAAAPAAEAAAACAAIAAAAQAP7/AAAAAAgAAAAQAP//AAACAAIAAAAQAAAAAAACAAIAAAAQAAEAAAACAAIAAAARAP7/AAAAAAgAAAARAP//AAACAAIAAAARAAAAAAACAAIAAAARAAEAAAACAAIAAAASAP7/AAAAAAgAAAASAP//AAACAAIAAAASAAAAAAACAAIAAAASAAEAAAACAAIAAAATAP7/AAAAAAgAAAATAP//AAACAAIAAAATAAAAAAACAAIAAAATAAEAAAACAAIAAAAUAP7/AAAAAAgAAAAUAP//AAACAAIAAAAUAAAAAAACAAIAAAAUAAEAAAACAAIAAAAVAP7/AAAAAAgAAAAVAP//AAACAAIAAAAVAAAAAAACAAIAAAAVAAEAAAACAAIAAAAWAP7/AAAAAAgAAAAWAP//AAACAAIAAAAWAAAAAAACAAIAAAAWAAEAAAACAAIAAAAXAP7/AAAAAAgAAAAXAP//AAACAAIAAAAXAAAAAAACAAIAAAAXAAEAAAACAAIAAAA=")
 tile_set = SubResource("TileSet_2atm2")
+
+[node name="DepotPropsHutan" type="Node2D" parent="."]
+
+[node name="GudangHutan" type="Sprite2D" parent="DepotPropsHutan"]
+position = Vector2(-410, -16)
+texture = ExtResource("11_gudang")
+offset = Vector2(0, -105.5)
+
+[node name="KantorPertukaranHutan" type="Sprite2D" parent="DepotPropsHutan"]
+position = Vector2(-250, -16)
+texture = ExtResource("12_kantor")
+offset = Vector2(0, -92.5)
+
+[node name="KedaiHutan" type="Sprite2D" parent="DepotPropsHutan"]
+position = Vector2(205, -16)
+texture = ExtResource("13_kedai")
+offset = Vector2(0, -102)
+
+[node name="RumahPedagangHutan" type="Sprite2D" parent="DepotPropsHutan"]
+position = Vector2(470, -16)
+texture = ExtResource("14_pedagang")
+offset = Vector2(0, -97)
+
+[node name="RumahTabibHutan" type="Sprite2D" parent="DepotPropsHutan"]
+position = Vector2(610, -16)
+texture = ExtResource("15_tabib")
+offset = Vector2(0, -74)
 
 [node name="Player_Caravan" parent="." instance=ExtResource("10_hf83x")]
 position = Vector2(-84, -58)
