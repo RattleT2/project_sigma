@@ -1,0 +1,427 @@
+{
+  "rumah_petani_hutan": {
+    "file": "rumah_petani_hutan.png",
+    "w": 162,
+    "h": 149,
+    "pivot": [
+      81,
+      149
+    ],
+    "note": "",
+    "pintu": {
+      "x": 45,
+      "y": 105,
+      "w": 26,
+      "h": 44,
+      "cx": 58
+    },
+    "asap": [
+      {
+        "x": 49,
+        "y": 28
+      }
+    ]
+  },
+  "rumah_warga1_hutan": {
+    "file": "rumah_warga1_hutan.png",
+    "w": 150,
+    "h": 144,
+    "pivot": [
+      75,
+      144
+    ],
+    "note": "",
+    "pintu": {
+      "x": 41,
+      "y": 100,
+      "w": 26,
+      "h": 44,
+      "cx": 54
+    },
+    "asap": [
+      {
+        "x": 93,
+        "y": 24
+      }
+    ]
+  },
+  "rumah_warga2_hutan": {
+    "file": "rumah_warga2_hutan.png",
+    "w": 170,
+    "h": 189,
+    "pivot": [
+      85,
+      189
+    ],
+    "note": "",
+    "pintu": {
+      "x": 67,
+      "y": 145,
+      "w": 26,
+      "h": 44,
+      "cx": 80
+    },
+    "asap": [
+      {
+        "x": 111,
+        "y": 30
+      }
+    ]
+  },
+  "rumah_warga3_hutan": {
+    "file": "rumah_warga3_hutan.png",
+    "w": 194,
+    "h": 199,
+    "pivot": [
+      97,
+      199
+    ],
+    "note": "",
+    "pintu": {
+      "x": 79,
+      "y": 155,
+      "w": 26,
+      "h": 44,
+      "cx": 92
+    },
+    "asap": [
+      {
+        "x": 130,
+        "y": 36
+      }
+    ]
+  },
+  "rumah_penjaga_hutan": {
+    "file": "rumah_penjaga_hutan.png",
+    "w": 166,
+    "h": 187,
+    "pivot": [
+      83,
+      187
+    ],
+    "note": "",
+    "pintu": {
+      "x": 65,
+      "y": 143,
+      "w": 26,
+      "h": 44,
+      "cx": 78
+    },
+    "asap": [
+      {
+        "x": 110,
+        "y": 32
+      }
+    ]
+  },
+  "rumah_pustakawan_hutan": {
+    "file": "rumah_pustakawan_hutan.png",
+    "w": 158,
+    "h": 192,
+    "pivot": [
+      79,
+      192
+    ],
+    "note": "",
+    "pintu": {
+      "x": 61,
+      "y": 148,
+      "w": 26,
+      "h": 44,
+      "cx": 74
+    },
+    "asap": [
+      {
+        "x": 102,
+        "y": 31
+      }
+    ]
+  },
+  "rumah_pedagang_hutan": {
+    "file": "rumah_pedagang_hutan.png",
+    "w": 182,
+    "h": 194,
+    "pivot": [
+      91,
+      194
+    ],
+    "note": "",
+    "pintu": {
+      "x": 73,
+      "y": 150,
+      "w": 26,
+      "h": 44,
+      "cx": 86
+    },
+    "asap": [
+      {
+        "x": 120,
+        "y": 33
+      }
+    ]
+  },
+  "rumah_tukang_roti_hutan": {
+    "file": "rumah_tukang_roti_hutan.png",
+    "w": 170,
+    "h": 189,
+    "pivot": [
+      85,
+      189
+    ],
+    "note": "",
+    "pintu": {
+      "x": 67,
+      "y": 145,
+      "w": 26,
+      "h": 44,
+      "cx": 80
+    },
+    "asap": [
+      {
+        "x": 111,
+        "y": 30
+      }
+    ]
+  },
+  "rumah_penebang_kayu_hutan": {
+    "file": "rumah_penebang_kayu_hutan.png",
+    "w": 162,
+    "h": 149,
+    "pivot": [
+      81,
+      149
+    ],
+    "note": "",
+    "pintu": {
+      "x": 49,
+      "y": 105,
+      "w": 26,
+      "h": 44,
+      "cx": 62
+    },
+    "asap": [
+      {
+        "x": 103,
+        "y": 28
+      }
+    ]
+  },
+  "rumah_pemburu_hutan": {
+    "file": "rumah_pemburu_hutan.png",
+    "w": 162,
+    "h": 149,
+    "pivot": [
+      81,
+      149
+    ],
+    "note": "",
+    "pintu": {
+      "x": 77,
+      "y": 105,
+      "w": 26,
+      "h": 44,
+      "cx": 90
+    },
+    "asap": [
+      {
+        "x": 49,
+        "y": 28
+      }
+    ]
+  },
+  "kedai_hutan": {
+    "file": "kedai_hutan.png",
+    "w": 206,
+    "h": 204,
+    "pivot": [
+      103,
+      204
+    ],
+    "note": "",
+    "pintu": {
+      "x": 79,
+      "y": 160,
+      "w": 26,
+      "h": 44,
+      "cx": 92
+    },
+    "asap": [
+      {
+        "x": 139,
+        "y": 39
+      }
+    ]
+  },
+  "rumah_pencuri_hutan": {
+    "file": "rumah_pencuri_hutan.png",
+    "w": 154,
+    "h": 182,
+    "pivot": [
+      77,
+      182
+    ],
+    "note": "",
+    "pintu": {
+      "x": 75,
+      "y": 138,
+      "w": 26,
+      "h": 44,
+      "cx": 88
+    },
+    "asap": [
+      {
+        "x": 98,
+        "y": 26
+      }
+    ]
+  },
+  "rumah_pandai_besi_hutan": {
+    "file": "rumah_pandai_besi_hutan.png",
+    "w": 170,
+    "h": 153,
+    "pivot": [
+      85,
+      153
+    ],
+    "note": "",
+    "pintu": {
+      "x": 103,
+      "y": 109,
+      "w": 26,
+      "h": 44,
+      "cx": 116
+    },
+    "asap": [
+      {
+        "x": 56,
+        "y": 9
+      }
+    ]
+  },
+  "rumah_tabib_hutan": {
+    "file": "rumah_tabib_hutan.png",
+    "w": 158,
+    "h": 148,
+    "pivot": [
+      79,
+      148
+    ],
+    "note": "",
+    "pintu": {
+      "x": 45,
+      "y": 104,
+      "w": 26,
+      "h": 44,
+      "cx": 58
+    },
+    "asap": [
+      {
+        "x": 102,
+        "y": 29
+      }
+    ]
+  },
+  "depot_kantor_pertukaran_hutan": {
+    "file": "depot_kantor_pertukaran_hutan.png",
+    "w": 162,
+    "h": 185,
+    "pivot": [
+      81,
+      185
+    ],
+    "note": "",
+    "pintu": {
+      "x": 89,
+      "y": 141,
+      "w": 26,
+      "h": 44,
+      "cx": 102
+    },
+    "asap": [
+      {
+        "x": 105,
+        "y": 28
+      }
+    ]
+  },
+  "depot_gudang_hutan": {
+    "file": "depot_gudang_hutan.png",
+    "w": 210,
+    "h": 211,
+    "pivot": [
+      105,
+      211
+    ],
+    "note": "",
+    "pintu": {
+      "x": 41,
+      "y": 167,
+      "w": 26,
+      "h": 44,
+      "cx": 54
+    },
+    "asap": [
+      {
+        "x": 151,
+        "y": 50
+      }
+    ]
+  },
+  "rumah_pendeta_hutan": {
+    "file": "rumah_pendeta_hutan.png",
+    "w": 182,
+    "h": 178,
+    "pivot": [
+      91,
+      178
+    ],
+    "note": "Gereja: menara lonceng berpucuk, sayap atap miring, jendela kaca patri.",
+    "pintu": {
+      "x": 73,
+      "y": 134,
+      "w": 26,
+      "h": 44,
+      "cx": 86
+    }
+  },
+  "rumah_bangsawan_hutan": {
+    "file": "rumah_bangsawan_hutan.png",
+    "w": 232,
+    "h": 202,
+    "pivot": [
+      116,
+      202
+    ],
+    "note": "Rumah bangsawan batu: dua sayap beratap runcing, pilaster dan pintu tengah.",
+    "pintu": {
+      "x": 99,
+      "y": 158,
+      "w": 26,
+      "h": 44,
+      "cx": 112
+    }
+  },
+  "barak_hutan": {
+    "file": "barak_hutan.png",
+    "w": 214,
+    "h": 203,
+    "pivot": [
+      107,
+      203
+    ],
+    "note": "",
+    "pintu": {
+      "x": 89,
+      "y": 159,
+      "w": 26,
+      "h": 44,
+      "cx": 102
+    },
+    "asap": [
+      {
+        "x": 155,
+        "y": 48
+      }
+    ]
+  }
+}

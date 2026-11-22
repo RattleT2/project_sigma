@@ -14,11 +14,14 @@ const WALK_SCENES := {
 	&"village": preload("res://scenes/map/village.tscn"),
 }
 
-const WALK_SECONDS := 4.0
+const WALK_SECONDS := 10.0
+const FOREST_WALK_SECONDS := 15.0
 const FADE_SECONDS := 0.35
 const STOP_FADE_SECONDS := 0.2
 const STOP_VIEW_SECONDS := 2.5
 const MAX_TURNS := 10
+const DEPARTURE_SPEED := 120.0
+const EXIT_MARGIN := 240.0
 
 var current_area_id: StringName = &"depot"
 var turn := 1
@@ -46,10 +49,13 @@ func _on_destination_confirmed(area_id: StringName) -> void:
 	_map.hide()
 	turn += 1
 
+	await _drive_off_screen()
 	await _fade_to(1.0, FADE_SECONDS)
+	var fade_in := FADE_SECONDS
 	if WALK_SCENES.has(area_id):
 		var walk_area := _show_scene(WALK_SCENES[area_id], true)
 		await _fade_to(0.0, FADE_SECONDS)
+<<<<<<< HEAD
 		await get_tree().create_timer(WALK_SECONDS).timeout
 		var walk_player = _find_player(walk_area)
 		if walk_player != null:
@@ -60,6 +66,14 @@ func _on_destination_confirmed(area_id: StringName) -> void:
 	else:
 		_show_scene(STOP_SCENES[area_id], false)
 		await _fade_to(0.0, FADE_SECONDS)
+=======
+		var walk_seconds := FOREST_WALK_SECONDS if area_id == &"forest" else WALK_SECONDS
+		await get_tree().create_timer(walk_seconds).timeout
+		await _fade_to(1.0, STOP_FADE_SECONDS)
+		fade_in = STOP_FADE_SECONDS
+	_show_scene(STOP_SCENES[area_id])
+	await _fade_to(0.0, fade_in)
+>>>>>>> origin/develop/map
 
 	current_area_id = area_id
 	_travelling = false
@@ -67,6 +81,7 @@ func _on_destination_confirmed(area_id: StringName) -> void:
 	_open_map()
 
 
+<<<<<<< HEAD
 func _open_map() -> void:
 	if _travelling:
 		return
@@ -75,6 +90,29 @@ func _open_map() -> void:
 
 
 func _show_scene(scene: PackedScene, traveling: bool) -> Node:
+=======
+func _drive_off_screen() -> void:
+	var scene: Node = _host.get_child(0)
+	var caravan: Node2D = null
+	for node in scene.find_children("*", "CharacterBody2D", true, false):
+		if node.has_method(&"play_run"):
+			caravan = node as Node2D
+			break
+	assert(caravan != null, "Karavan tidak ditemukan di scene aktif.")
+	if caravan == null:
+		return
+
+	caravan.call(&"play_run")
+	var camera := get_viewport().get_camera_2d()
+	var target_x: float = camera.get_screen_center_position().x + get_viewport().get_visible_rect().size.x * 0.5 + EXIT_MARGIN
+	var duration: float = maxf((target_x - caravan.global_position.x) / DEPARTURE_SPEED, 0.01)
+	var tween := create_tween()
+	tween.tween_property(caravan, "global_position:x", target_x, duration)
+	await tween.finished
+
+
+func _show_scene(scene: PackedScene) -> void:
+>>>>>>> origin/develop/map
 	for child in _host.get_children():
 		child.queue_free()
 	var area := scene.instantiate()

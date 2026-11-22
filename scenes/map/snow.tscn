@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://dbc1rymt5qvq2"]
+[gd_scene load_steps=29 format=4 uid="uid://dbc1rymt5qvq2"]
 
 [ext_resource type="Texture2D" uid="uid://dr657qnmqmqhx" path="res://asset/background/craftpix-net-823949-free-nature-backgrounds-pixel-art/nature_6/1.png" id="1_fai1k"]
 [ext_resource type="Texture2D" uid="uid://dt7e34f7s0jur" path="res://asset/background/Pixel_Art_Snow_And_Ice_Tileset_Pack/Pixel Art Snow and Ice Tileset/snowy_rock_block.png" id="1_pevrq"]
@@ -14,6 +14,17 @@
 [ext_resource type="Texture2D" uid="uid://6yd6188fhio6" path="res://asset/background/craftpix-net-995711-free-pixel-art-cloud-and-sky-backgrounds/3. NEW CLOUDS/3.png" id="13_0duhq"]
 [ext_resource type="Script" uid="uid://bu2bi3x743sfn" path="res://scripts/ground_looper.gd" id="14_looper"]
 [ext_resource type="PackedScene" uid="uid://d38t4xdb1wejk" path="res://scenes/player_caravan.tscn" id="16_karavan"]
+[ext_resource type="Texture2D" uid="uid://cy5rl1stcj8sp" path="res://asset/background/Asset-ocean-and-clouds-backgrounds/Ocean_6/2.png" id="15_bulan"]
+[ext_resource type="Script" uid="uid://bmdu4qgtjpyq4" path="res://scripts/house_group_spawner.gd" id="26_rumah"]
+[ext_resource type="Texture2D" uid="uid://cx7nmmy7ew3gt" path="res://asset/assetRumahSnow/pondok_tabib_salju.png" id="27_tabib"]
+[ext_resource type="Texture2D" uid="uid://bk8pf31p0jyya" path="res://asset/assetRumahSnow/rumah_bangsawan_salju.png" id="28_bangsawan"]
+[ext_resource type="Texture2D" uid="uid://dl0sn611bigfd" path="res://asset/assetRumahSnow/rumah_pedagang_salju.png" id="29_pedagang"]
+[ext_resource type="Texture2D" uid="uid://bng8t6jtuov1w" path="res://asset/assetRumahSnow/rumah_penebang_kayu_salju.png" id="30_penebang"]
+[ext_resource type="Texture2D" uid="uid://dy7dqao7wiygp" path="res://asset/assetRumahSnow/rumah_penjaga_salju.png" id="31_penjaga"]
+[ext_resource type="Texture2D" uid="uid://b3j1tmym4v44j" path="res://asset/assetRumahSnow/rumah_petani_salju.png" id="32_petani"]
+[ext_resource type="Texture2D" uid="uid://d0dlkak5g4lyr" path="res://asset/assetRumahSnow/rumah_warga1_salju.png" id="33_warga1"]
+[ext_resource type="Texture2D" uid="uid://b8q6ggvj2ofo3" path="res://asset/assetRumahSnow/rumah_warga2_salju.png" id="34_warga2"]
+[ext_resource type="Texture2D" uid="uid://d38tqjkomhrug" path="res://asset/assetRumahSnow/rumah_warga3_salju.png" id="35_warga3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qdyvf"]
 texture = ExtResource("1_pevrq")
@@ -298,6 +309,16 @@ scale = Vector2(1, 1.3425926)
 texture = ExtResource("1_fai1k")
 centered = false
 
+[node name="Bulan" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0, 0)
+autoscroll = Vector2(-4, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Bulan"]
+position = Vector2(800, 85)
+offset = Vector2(-317, -85)
+texture = ExtResource("15_bulan")
+centered = false
+
 [node name="Gunung" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0, 0)
 repeat_size = Vector2(576, 0)
@@ -333,9 +354,15 @@ position = Vector2(1216, -1)
 tile_map_data = PackedByteArray("AAD9/wAAAwAAAAAAAAD+/wAAAwAAAAAAAAD//wAAAwAAAAAAAAAAAAAAAwAAAAAAAAABAAAAAwAAAAAAAAACAAAAAwAAAAAAAAADAAAAAwAAAAAAAAAEAAAAAwAAAAAAAAD9/wEAAwAAAAAAAAD+/wEAAwAAAAAAAAAAAAEAAgABAAcAAAABAAEAAwAAAAAAAAACAAEAAwAAAAAAAAADAAEAAwAAAAAAAAAEAAEAAwAAAAAAAAD9/wIAAgAAAAEAAAD+/wIAAwABAAUAAAD//wIAAgAAAAEAAAAAAAIAAgAAAAEAAAABAAIAAgAAAAEAAAACAAIAAgAAAAEAAAADAAIAAwABAAUAAAAEAAIAAgAAAAEAAAAFAAEAAgAAAAEAAAAFAAAAAwAAAAAAAAAGAAAAAwAAAAAAAAAHAAAAAwAAAAAAAAAIAAAAAwAAAAAAAAAJAAAAAwAAAAAAAAAKAAAAAwAAAAAAAAAGAAEAAwAAAAAAAAAHAAEAAwAAAAAAAAAIAAIAAwAAAAAAAAAJAAIAAgABAAcAAAAFAAIAAgABAAcAAAAGAAIAAgABAAcAAAAHAAIAAgABAAcAAAAIAAEAAgABAAcAAAAJAAEAAgABAAcAAAAKAAEAAgABAAcAAAD//wEAAgABAAcAAAAKAAIAAgABAAcAAAD8/wIAAgABAAcAAAD7/wEAAgABAAcAAAD8/wEAAwAFAAQAAAD8/wAAAwAFAAQAAAD7/wAAAwAFAAQAAAD6/wAAAwAFAAQAAAD5/wAAAwAFAAQAAAD4/wAAAwAFAAQAAAD3/wAAAwAFAAQAAAD3/wEAAgAAAAcAAAD4/wEAAgAAAAcAAAD5/wIAAgAAAAcAAAD3/wIAAwABAAUAAAD4/wIAAwABAAUAAAD5/wEAAwABAAUAAAD6/wIAAwABAAUAAAD6/wEAAwABAAUAAAD7/wIAAwABAAUAAAD2/wAAAwABAAUAAAD1/wAAAwABAAUAAAD0/wAAAwABAAUAAADz/wAAAwABAAUAAADy/wAAAwABAAUAAADx/wAAAwABAAUAAADw/wAAAwABAAUAAADv/wAAAwABAAUAAAD2/wIAAwABAAUAAAD1/wIAAgABAAcAAAD0/wIAAwABAAUAAADz/wIAAwABAAUAAADy/wIAAgABAAcAAADx/wIAAwABAAUAAADw/wIAAwABAAUAAADv/wIAAgABAAcAAADv/wEAAwABAAUAAADw/wEAAwABAAUAAADx/wEAAgABAAcAAADy/wEAAgABAAcAAADz/wEAAwABAAUAAAD0/wEAAgABAAcAAAD1/wEAAgABAAcAAAD2/wEAAwABAAUAAAALAAAAAwABAAUAAAAMAAAAAwABAAUAAAANAAAAAwABAAUAAAAOAAAAAwABAAUAAAAPAAAAAwABAAUAAAAQAAAAAwABAAUAAAARAAAAAwABAAUAAAASAAAAAwABAAUAAAATAAAAAwABAAUAAAAUAAAAAwABAAUAAAALAAEAAwABAAUAAAAMAAEAAwABAAUAAAANAAEAAgABAAcAAAAOAAEAAwABAAUAAAAPAAEAAwABAAUAAAAQAAEAAwABAAUAAAARAAEAAgABAAcAAAASAAEAAwABAAUAAAATAAEAAwABAAUAAAAUAAEAAwABAAUAAAALAAIAAwABAAUAAAAMAAIAAgABAAcAAAANAAIAAgABAAcAAAAOAAIAAgABAAcAAAAPAAIAAgABAAcAAAAQAAIAAgABAAcAAAARAAIAAwABAAUAAAASAAIAAgABAAcAAAATAAIAAgABAAcAAAAUAAIAAgABAAcAAADv/wMAAgABAAcAAADw/wMAAgABAAcAAADx/wMAAgABAAcAAADy/wMAAgABAAcAAADz/wMAAgABAAcAAAD0/wMAAgABAAcAAAD1/wMAAgABAAcAAAD2/wMAAgABAAcAAAD3/wMAAgABAAcAAAD4/wMAAgABAAcAAAD5/wMAAgABAAcAAAD6/wMAAgABAAcAAAD7/wMAAgABAAcAAAD8/wMAAgABAAcAAAD9/wMAAgABAAcAAAD+/wMAAgABAAcAAAD//wMAAgABAAcAAAAAAAMAAgABAAcAAAABAAMAAgABAAcAAAACAAMAAgABAAcAAAADAAMAAgABAAcAAAAEAAMAAgABAAcAAAAFAAMAAgABAAcAAAAGAAMAAgABAAcAAAAHAAMAAgABAAcAAAAIAAMAAgABAAcAAAAJAAMAAgABAAcAAAAKAAMAAgABAAcAAAALAAMAAgABAAcAAAAMAAMAAgABAAcAAAANAAMAAgABAAcAAAAOAAMAAgABAAcAAAAPAAMAAgABAAcAAAAQAAMAAgABAAcAAAARAAMAAgABAAcAAAASAAMAAgABAAcAAAATAAMAAgABAAcAAAAUAAMAAgABAAcAAAA=")
 tile_set = SubResource("TileSet_ia5h3")
 
+[node name="RumahSpawner" type="Node2D" parent="."]
+script = ExtResource("26_rumah")
+prop_textures = Array[Texture2D]([ExtResource("27_tabib"), ExtResource("28_bangsawan"), ExtResource("29_pedagang"), ExtResource("30_penebang"), ExtResource("31_penjaga"), ExtResource("32_petani"), ExtResource("33_warga1"), ExtResource("34_warga2"), ExtResource("35_warga3")])
+ground_y = 15.0
+
 [node name="GroundPropSpawnerSnow" type="Node2D" parent="."]
 script = ExtResource("5_5v2a2")
 prop_textures = Array[Texture2D]([ExtResource("7_nl27b"), ExtResource("8_bgvsd"), ExtResource("9_bgvsd"), ExtResource("10_fr047")])
+avoid_parent_path = NodePath("../RumahSpawner")
 initial_props = 2
 min_y = 15.0
 max_y = 15.0

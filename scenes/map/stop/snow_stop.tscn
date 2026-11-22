@@ -1,24 +1,30 @@
+<<<<<<< HEAD
 [gd_scene load_steps=21 format=4]
 
 [ext_resource type="PackedScene" path="res://scenes/npc_civilian_women.tscn" id="30_npc_civilian_women"]
 [ext_resource type="PackedScene" path="res://scenes/npc_kitsune.tscn" id="31_npc_kitsune"]
 [ext_resource type="PackedScene" path="res://scenes/npc_civilian_men.tscn" id="32_npc_civilian_men"]
+=======
+[gd_scene load_steps=21 format=4 uid="uid://rxecb8leylwb"]
+>>>>>>> origin/develop/map
 
 [ext_resource type="Texture2D" uid="uid://dr657qnmqmqhx" path="res://asset/background/craftpix-net-823949-free-nature-backgrounds-pixel-art/nature_6/1.png" id="1_fai1k"]
 [ext_resource type="Texture2D" uid="uid://dt7e34f7s0jur" path="res://asset/background/Pixel_Art_Snow_And_Ice_Tileset_Pack/Pixel Art Snow and Ice Tileset/snowy_rock_block.png" id="1_pevrq"]
 [ext_resource type="Texture2D" uid="uid://5x1qb5tl4fn2" path="res://asset/background/Pixel_Art_Snow_And_Ice_Tileset_Pack/Pixel Art Snow and Ice Tileset/snow_block.png" id="2_0tftv"]
 [ext_resource type="Texture2D" uid="uid://dr1xcirrbofad" path="res://asset/background/craftpix-net-823949-free-nature-backgrounds-pixel-art/nature_6/3.png" id="2_5v2a2"]
-[ext_resource type="Script" uid="uid://k34nklt8upxf" path="res://scripts/ground_prop_spawner_snow.gd" id="5_5v2a2"]
-[ext_resource type="Texture2D" uid="uid://cyucqwqaw3nwl" path="res://asset/background/craftpix-net-675652-free-rocks-pixel-art-asset-pack/PNG/snowy_rocks1/snowy_rock4.png" id="7_nl27b"]
-[ext_resource type="Texture2D" uid="uid://lg26h4q1iucc" path="res://asset/background/craftpix-net-675652-free-rocks-pixel-art-asset-pack/PNG/snowy_rocks1/snowy_rock3.png" id="8_bgvsd"]
 [ext_resource type="Texture2D" uid="uid://dg7nlss4kbc78" path="res://asset/background/craftpix-net-168228-free-tree-pixel-art-asset-pack/PNG/winter_conifer_tree_4.png" id="9_bgvsd"]
 [ext_resource type="Texture2D" uid="uid://btvvfm4t0kmyy" path="res://asset/background/craftpix-net-168228-free-tree-pixel-art-asset-pack/PNG/winter_conifer_tree_5.png" id="10_fr047"]
-[ext_resource type="Script" uid="uid://c28heocra7ucc" path="res://scripts/cloud_prop_spawner_snow.gd" id="11_d8hvq"]
-[ext_resource type="Texture2D" uid="uid://cq5p417opnh7h" path="res://asset/background/craftpix-net-995711-free-pixel-art-cloud-and-sky-backgrounds/3. NEW CLOUDS/4.png" id="12_d8hvq"]
-[ext_resource type="Texture2D" uid="uid://6yd6188fhio6" path="res://asset/background/craftpix-net-995711-free-pixel-art-cloud-and-sky-backgrounds/3. NEW CLOUDS/3.png" id="13_0duhq"]
-[ext_resource type="Script" uid="uid://bu2bi3x743sfn" path="res://scripts/ground_looper.gd" id="14_looper"]
-
+[ext_resource type="Texture2D" uid="uid://cy5rl1stcj8sp" path="res://asset/background/Asset-ocean-and-clouds-backgrounds/Ocean_6/2.png" id="15_bulan"]
 [ext_resource type="PackedScene" uid="uid://d38t4xdb1wejk" path="res://scenes/player_caravan.tscn" id="16_karavan"]
+[ext_resource type="Script" uid="uid://c28heocra7ucc" path="res://scripts/cloud_prop_spawner_snow.gd" id="17_cloudsnow"]
+[ext_resource type="Texture2D" uid="uid://cq5p417opnh7h" path="res://asset/background/craftpix-net-995711-free-pixel-art-cloud-and-sky-backgrounds/3. NEW CLOUDS/4.png" id="18_awan4"]
+[ext_resource type="Texture2D" uid="uid://6yd6188fhio6" path="res://asset/background/craftpix-net-995711-free-pixel-art-cloud-and-sky-backgrounds/3. NEW CLOUDS/3.png" id="19_awan3"]
+[ext_resource type="Texture2D" uid="uid://du4y2qljqjlau" path="res://asset/assetRumahSnow/depot_gudang_salju.png" id="20_gudang_salju"]
+[ext_resource type="Texture2D" uid="uid://d3vn07rom4sb6" path="res://asset/assetRumahSnow/depot_kantor_pertukaran_salju.png" id="21_kantor_salju"]
+[ext_resource type="Texture2D" uid="uid://bhrimy2m8rumk" path="res://asset/assetRumahSnow/depot_papan_harga_salju.png" id="22_papan_salju"]
+[ext_resource type="Texture2D" uid="uid://c4uee4w6nw0x1" path="res://asset/assetRumahSnow/depot_tiang_arah_salju.png" id="23_tiang_salju"]
+[ext_resource type="Texture2D" uid="uid://dkep1vsbjci2c" path="res://asset/assetRumahSnow/depot_tumpukan_kotak_salju.png" id="24_kotak_salju"]
+[ext_resource type="Texture2D" uid="uid://cgahsvxme2dpv" path="res://asset/assetRumahSnow/depot_tumpukan_tong_salju.png" id="25_tong_salju"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qdyvf"]
 texture = ExtResource("1_pevrq")
@@ -295,7 +301,6 @@ position = Vector2(0, -111)
 [node name="aurora" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0, 0)
 repeat_size = Vector2(576, 0)
-autoscroll = Vector2(0, 0)
 repeat_times = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="aurora"]
@@ -303,10 +308,18 @@ scale = Vector2(1, 1.3425926)
 texture = ExtResource("1_fai1k")
 centered = false
 
+[node name="Bulan" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Bulan"]
+position = Vector2(800, 85)
+texture = ExtResource("15_bulan")
+centered = false
+offset = Vector2(-317, -85)
+
 [node name="Gunung" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0, 0)
 repeat_size = Vector2(576, 0)
-autoscroll = Vector2(0, 0)
 repeat_times = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="Gunung"]
@@ -315,7 +328,6 @@ texture = ExtResource("2_5v2a2")
 centered = false
 
 [node name="GroundLooper" type="Node2D" parent="."]
-tilemap_width = 608.0
 
 [node name="TileMapLayer" type="TileMapLayer" parent="GroundLooper"]
 position = Vector2(0, -1)
@@ -337,20 +349,53 @@ position = Vector2(1216, -1)
 tile_map_data = PackedByteArray("AAD9/wAAAwAAAAAAAAD+/wAAAwAAAAAAAAD//wAAAwAAAAAAAAAAAAAAAwAAAAAAAAABAAAAAwAAAAAAAAACAAAAAwAAAAAAAAADAAAAAwAAAAAAAAAEAAAAAwAAAAAAAAD9/wEAAwAAAAAAAAD+/wEAAwAAAAAAAAAAAAEAAgABAAcAAAABAAEAAwAAAAAAAAACAAEAAwAAAAAAAAADAAEAAwAAAAAAAAAEAAEAAwAAAAAAAAD9/wIAAgAAAAEAAAD+/wIAAwABAAUAAAD//wIAAgAAAAEAAAAAAAIAAgAAAAEAAAABAAIAAgAAAAEAAAACAAIAAgAAAAEAAAADAAIAAwABAAUAAAAEAAIAAgAAAAEAAAAFAAEAAgAAAAEAAAAFAAAAAwAAAAAAAAAGAAAAAwAAAAAAAAAHAAAAAwAAAAAAAAAIAAAAAwAAAAAAAAAJAAAAAwAAAAAAAAAKAAAAAwAAAAAAAAAGAAEAAwAAAAAAAAAHAAEAAwAAAAAAAAAIAAIAAwAAAAAAAAAJAAIAAgABAAcAAAAFAAIAAgABAAcAAAAGAAIAAgABAAcAAAAHAAIAAgABAAcAAAAIAAEAAgABAAcAAAAJAAEAAgABAAcAAAAKAAEAAgABAAcAAAD//wEAAgABAAcAAAAKAAIAAgABAAcAAAD8/wIAAgABAAcAAAD7/wEAAgABAAcAAAD8/wEAAwAFAAQAAAD8/wAAAwAFAAQAAAD7/wAAAwAFAAQAAAD6/wAAAwAFAAQAAAD5/wAAAwAFAAQAAAD4/wAAAwAFAAQAAAD3/wAAAwAFAAQAAAD3/wEAAgAAAAcAAAD4/wEAAgAAAAcAAAD5/wIAAgAAAAcAAAD3/wIAAwABAAUAAAD4/wIAAwABAAUAAAD5/wEAAwABAAUAAAD6/wIAAwABAAUAAAD6/wEAAwABAAUAAAD7/wIAAwABAAUAAAD2/wAAAwABAAUAAAD1/wAAAwABAAUAAAD0/wAAAwABAAUAAADz/wAAAwABAAUAAADy/wAAAwABAAUAAADx/wAAAwABAAUAAADw/wAAAwABAAUAAADv/wAAAwABAAUAAAD2/wIAAwABAAUAAAD1/wIAAgABAAcAAAD0/wIAAwABAAUAAADz/wIAAwABAAUAAADy/wIAAgABAAcAAADx/wIAAwABAAUAAADw/wIAAwABAAUAAADv/wIAAgABAAcAAADv/wEAAwABAAUAAADw/wEAAwABAAUAAADx/wEAAgABAAcAAADy/wEAAgABAAcAAADz/wEAAwABAAUAAAD0/wEAAgABAAcAAAD1/wEAAgABAAcAAAD2/wEAAwABAAUAAAALAAAAAwABAAUAAAAMAAAAAwABAAUAAAANAAAAAwABAAUAAAAOAAAAAwABAAUAAAAPAAAAAwABAAUAAAAQAAAAAwABAAUAAAARAAAAAwABAAUAAAASAAAAAwABAAUAAAATAAAAAwABAAUAAAAUAAAAAwABAAUAAAALAAEAAwABAAUAAAAMAAEAAwABAAUAAAANAAEAAgABAAcAAAAOAAEAAwABAAUAAAAPAAEAAwABAAUAAAAQAAEAAwABAAUAAAARAAEAAgABAAcAAAASAAEAAwABAAUAAAATAAEAAwABAAUAAAAUAAEAAwABAAUAAAALAAIAAwABAAUAAAAMAAIAAgABAAcAAAANAAIAAgABAAcAAAAOAAIAAgABAAcAAAAPAAIAAgABAAcAAAAQAAIAAgABAAcAAAARAAIAAwABAAUAAAASAAIAAgABAAcAAAATAAIAAgABAAcAAAAUAAIAAgABAAcAAADv/wMAAgABAAcAAADw/wMAAgABAAcAAADx/wMAAgABAAcAAADy/wMAAgABAAcAAADz/wMAAgABAAcAAAD0/wMAAgABAAcAAAD1/wMAAgABAAcAAAD2/wMAAgABAAcAAAD3/wMAAgABAAcAAAD4/wMAAgABAAcAAAD5/wMAAgABAAcAAAD6/wMAAgABAAcAAAD7/wMAAgABAAcAAAD8/wMAAgABAAcAAAD9/wMAAgABAAcAAAD+/wMAAgABAAcAAAD//wMAAgABAAcAAAAAAAMAAgABAAcAAAABAAMAAgABAAcAAAACAAMAAgABAAcAAAADAAMAAgABAAcAAAAEAAMAAgABAAcAAAAFAAMAAgABAAcAAAAGAAMAAgABAAcAAAAHAAMAAgABAAcAAAAIAAMAAgABAAcAAAAJAAMAAgABAAcAAAAKAAMAAgABAAcAAAALAAMAAgABAAcAAAAMAAMAAgABAAcAAAANAAMAAgABAAcAAAAOAAMAAgABAAcAAAAPAAMAAgABAAcAAAAQAAMAAgABAAcAAAARAAMAAgABAAcAAAASAAMAAgABAAcAAAATAAMAAgABAAcAAAAUAAMAAgABAAcAAAA=")
 tile_set = SubResource("TileSet_ia5h3")
 
+[node name="DepotSnowProps" type="Node2D" parent="."]
+
+[node name="GudangSalju" type="Sprite2D" parent="DepotSnowProps"]
+position = Vector2(-480, -147)
+texture = ExtResource("20_gudang_salju")
+centered = false
+
+[node name="KantorPertukaranSalju" type="Sprite2D" parent="DepotSnowProps"]
+position = Vector2(200, -137)
+texture = ExtResource("21_kantor_salju")
+centered = false
+
+[node name="TumpukanKotakSalju" type="Sprite2D" parent="DepotSnowProps"]
+position = Vector2(-476, -39)
+texture = ExtResource("24_kotak_salju")
+centered = false
+
+[node name="TumpukanTongSalju" type="Sprite2D" parent="DepotSnowProps"]
+position = Vector2(-404, -37)
+texture = ExtResource("25_tong_salju")
+centered = false
+
+[node name="PapanHargaSalju" type="Sprite2D" parent="DepotSnowProps"]
+position = Vector2(100, -59)
+texture = ExtResource("22_papan_salju")
+centered = false
+
+[node name="TiangArahSalju" type="Sprite2D" parent="DepotSnowProps"]
+position = Vector2(165, -69)
+texture = ExtResource("23_tiang_salju")
+centered = false
+
 [node name="Player_Caravan" parent="." instance=ExtResource("16_karavan")]
 position = Vector2(-84, -12)
 visual_level = 2
 
 [node name="PropSnowConiferLeft" type="Sprite2D" parent="."]
+position = Vector2(-540, 15)
 texture = ExtResource("10_fr047")
-position = Vector2(-470, 15)
 offset = Vector2(0, -89.5)
 
 [node name="PropSnowConiferRight" type="Sprite2D" parent="."]
+position = Vector2(470, 15)
 texture = ExtResource("9_bgvsd")
-position = Vector2(390, 15)
 offset = Vector2(0, -94)
 
+<<<<<<< HEAD
 [node name="PropSnowRockLeft" type="Sprite2D" parent="."]
 texture = ExtResource("8_bgvsd")
 position = Vector2(-280, 15)
@@ -403,3 +448,11 @@ apply_gravity = false
 [node name="CivilianMen" parent="HubNPCs" instance=ExtResource("32_npc_civilian_men")]
 position = Vector2(380, 15)
 apply_gravity = false
+=======
+[node name="CloudPropSpawnerSnow" type="Node2D" parent="."]
+script = ExtResource("17_cloudsnow")
+prop_textures = Array[Texture2D]([ExtResource("18_awan4"), ExtResource("19_awan3")])
+scroll_speed = 30.0
+min_y = -180.0
+max_y = -180.0
+>>>>>>> origin/develop/map

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=229 format=3 uid="uid://d38t4xdb1wejk"]
+=======
+[gd_scene load_steps=224 format=3 uid="uid://d38t4xdb1wejk"]
+>>>>>>> origin/develop/map
 
 [ext_resource type="Texture2D" uid="uid://dfyos65j3eyuq" path="res://asset/caravan_sprites/gerobak_A_covered_wagon/A_kanopi_belang_merah.png" id="1_08xi1"]
 [ext_resource type="Texture2D" uid="uid://dtmxgmjisuxin" path="res://asset/caravan_sprites/gerobak_A_covered_wagon/A_kanopi_biru.png" id="2_6huml"]
@@ -29,9 +33,13 @@
 [ext_resource type="Texture2D" uid="uid://dr62issrelphy" path="res://asset/caravan_sprites/aksesoris/akses_sekop_beliung.png" id="19_lb17t"]
 [ext_resource type="Texture2D" uid="uid://du6o7lc67hgwc" path="res://asset/caravan_sprites/aksesoris/akses_lentera.png" id="28_o75u1"]
 [ext_resource type="Texture2D" uid="uid://dwynorxvfhiti" path="res://asset/caravan_sprites/aksesoris/akses_tali_gulung.png" id="29_gutrg"]
+<<<<<<< HEAD
 [ext_resource type="AudioStream" uid="uid://bh7ottvwt1ka3" path="res://asset/audio/kudaberjalan_pCcJAhWM.wav" id="30_dhnmv"]
 [ext_resource type="AudioStream" uid="uid://cj8ooxnjhldiw" path="res://asset/audio/freesound-community-horse-snort-95874_TkW04jFA.mp3" id="31_cf114"]
 [ext_resource type="Script" uid="uid://dnx7gp5dne2a" path="res://scripts/player_caravan.gd" id="32_caravan"]
+=======
+[ext_resource type="Script" path="res://scripts/caravan_motion.gd" id="30_motion"]
+>>>>>>> origin/develop/map
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3d18f"]
 atlas = ExtResource("5_efuuo")
@@ -1929,12 +1937,16 @@ scale_max = 2.0
 size = Vector2(220, 33)
 
 [node name="Player_Caravan" type="CharacterBody2D"]
+<<<<<<< HEAD
 script = ExtResource("32_caravan")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(50, 0)
 zoom = Vector2(3, 3)
 position_smoothing_enabled = true
+=======
+script = ExtResource("30_motion")
+>>>>>>> origin/develop/map
 
 [node name="Driver" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

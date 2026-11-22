@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [gd_scene load_steps=29 format=4]
 
 [ext_resource type="PackedScene" path="res://scenes/npc_bangsawan.tscn" id="30_npc_bangsawan"]
@@ -5,8 +6,14 @@
 [ext_resource type="PackedScene" path="res://scenes/npc_bakery.tscn" id="32_npc_bakery"]
 [ext_resource type="PackedScene" path="res://scenes/npc_civilian_men.tscn" id="33_npc_civilian_men"]
 [ext_resource type="PackedScene" path="res://scenes/work_prop_npc_bakery.tscn" id="34_prop_bakery"]
+=======
+[gd_scene load_steps=36 format=4]
+>>>>>>> origin/develop/map
 
-[ext_resource type="Texture2D" uid="uid://cxoocotnux6qn" path="res://asset/background/craftpix-net-823949-free-nature-backgrounds-pixel-art/nature_1/1.png" id="1_70rat"]
+[ext_resource type="Texture2D" uid="uid://bguf8xlp5q3xc" path="res://asset/background/assets-mountain-backgrounds/m1/1.png" id="1_langit"]
+[ext_resource type="Texture2D" uid="uid://cb8uuuxo4spny" path="res://asset/background/assets-mountain-backgrounds/m1/2.png" id="2_awan"]
+[ext_resource type="Texture2D" uid="uid://de3olxjavygm3" path="res://asset/background/assets-mountain-backgrounds/m1/4.png" id="4_gunungjauh"]
+[ext_resource type="Texture2D" uid="uid://ccck8dwm4q6bv" path="res://asset/background/assets-mountain-backgrounds/m1/5.png" id="5_gunungdekat"]
 [ext_resource type="Texture2D" uid="uid://bqg4tr30og0bh" path="res://asset/background/craftpix-net-823949-free-nature-backgrounds-pixel-art/nature_1/8.png" id="1_gh3u5"]
 [ext_resource type="Texture2D" uid="uid://bpliy1pve2p2e" path="res://asset/background/craftpix-net-995711-free-pixel-art-cloud-and-sky-backgrounds/4. NEW CLOUDS/2.png" id="2_7jhvf"]
 [ext_resource type="Texture2D" uid="uid://pm8u8cbnxofl" path="res://asset/villageAssets/rumah_warga_plester.png" id="3_x3ww0"]
@@ -26,6 +33,15 @@
 [ext_resource type="Texture2D" uid="uid://bn72bxivtmset" path="res://asset/Asset_Bangunan/bangunan_kota/rumah_manusia/rumah_bangsawan.png" id="20_bangsawan"]
 [ext_resource type="Texture2D" uid="uid://v4vqvuq568el" path="res://asset/Asset_Bangunan/bangunan_kota/gerbang_pagar_tembok/pagar_kayu.png" id="21_pagar"]
 [ext_resource type="Texture2D" uid="uid://c6qiynoiq1kpa" path="res://asset/Asset_Bangunan/bangunan_kota/gerbang_pagar_tembok/pagar_kayu_gerbang.png" id="22_gerbang"]
+[ext_resource type="Texture2D" uid="uid://cqet0wtd8fe5v" path="res://asset/Asset_Bangunan/bangunan_kota/rumah_manusia/rumah_warga_bata.png" id="24_bata"]
+[ext_resource type="Texture2D" uid="uid://bgxbi3oea156q" path="res://asset/Asset_Bangunan/bangunan_kota/rumah_manusia/bengkel_pandai_besi.png" id="25_bengkel"]
+[ext_resource type="Texture2D" uid="uid://cw3k2vimwjvbo" path="res://asset/Asset_Bangunan/bangunan_kota/rumah_manusia/toko_pedagang.png" id="26_toko"]
+[ext_resource type="Texture2D" uid="uid://nsmp07u4tsq8" path="res://asset/Asset_Bangunan/bangunan_kota/animasi/bengkel_pandai_besi_api_30f.png" id="27_api_bengkel"]
+[ext_resource type="Texture2D" uid="uid://1yqal7vblnrh" path="res://asset/Asset_Bangunan/bangunan_kota/animasi/bengkel_pandai_besi_asap_30f.png" id="28_asap_bengkel"]
+[ext_resource type="Texture2D" uid="uid://ce1xxhhafcmvo" path="res://asset/Asset_Bangunan/bangunan_kota/animasi/toko_pedagang_asap_30f.png" id="29_asap_toko"]
+[ext_resource type="Texture2D" uid="uid://bocp7bagfnqye" path="res://asset/Asset_Bangunan/bangunan_kota/animasi/kedai_penginapan_asap_30f.png" id="30_asap_inn"]
+[ext_resource type="Texture2D" uid="uid://tyr0v5872hnt" path="res://asset/Asset_Bangunan/bangunan_kota/animasi/penggergajian_kayu_asap_30f.png" id="31_asap_gergaji"]
+[ext_resource type="Script" uid="uid://dhuaqsfbvdjy6" path="res://scripts/depot/derek_animator.gd" id="32_animator"]
 
 [ext_resource type="PackedScene" uid="uid://d38t4xdb1wejk" path="res://scenes/player_caravan.tscn" id="23_karavan"]
 
@@ -308,8 +324,49 @@ autoscroll = Vector2(0, 0)
 repeat_times = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="langit"]
-scale = Vector2(1, 1.3425926)
-texture = ExtResource("1_70rat")
+texture = ExtResource("1_langit")
+centered = false
+
+[node name="Awan" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(576, 0)
+autoscroll = Vector2(-18, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Awan"]
+texture = ExtResource("2_awan")
+centered = false
+
+[node name="CloudPropSpawner" type="Node2D" parent="."]
+script = ExtResource("13_cloud")
+prop_textures = Array[Texture2D]([ExtResource("2_7jhvf"), ExtResource("3_xmflw")])
+scroll_speed = 45.0
+spawn_x = 650.0
+despawn_x = -700.0
+min_y = -270.0
+max_y = -160.0
+prop_scale = 0.6
+
+[node name="GunungJauh" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(576, 0)
+autoscroll = Vector2(0, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="GunungJauh"]
+position = Vector2(0, 20)
+texture = ExtResource("4_gunungjauh")
+centered = false
+
+[node name="GunungDekat" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(576, 0)
+autoscroll = Vector2(0, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="GunungDekat"]
+position = Vector2(0, 20)
+texture = ExtResource("5_gunungdekat")
 centered = false
 
 [node name="padangRumput" type="Parallax2D" parent="."]
@@ -345,29 +402,90 @@ position = Vector2(1152, 0)
 tile_map_data = PackedByteArray("AAD4/wAAAAABAAAAAAD5/wAAAAACAAAAAAD6/wAAAAADAAAAAAD7/wAAAAAEAAAAAAD8/wAAAAABAAAAAAD9/wAAAAACAAAAAAD+/wAAAAADAAAAAAD//wAAAAAEAAAAAAAAAAAAAAABAAAAAAABAAAAAAACAAAAAAACAAAAAAADAAAAAAADAAAAAAAEAAAAAAAEAAAAAAABAAAAAAAFAAAAAAACAAAAAAAGAAEAAAACAAIAAAAHAAEAAAACAAIAAAAIAAEAAAACAAIAAAAJAAEAAAACAAIAAAAJAAAAAAACAAAAAAAIAAAAAAABAAAAAAAHAAAAAAAEAAAAAAAGAAAAAAADAAAAAAD4/wEAAAACAAIAAAD4/wIAAAACAAIAAAD4/wMAAAACAAIAAAD5/wMAAAACAAIAAAD5/wIAAAACAAIAAAD5/wEAAAACAAIAAAD6/wEAAAACAAIAAAD6/wIAAAACAAIAAAD6/wMAAAACAAIAAAD8/wMAAAACAAIAAAD8/wIAAAACAAIAAAD7/wIAAAACAAIAAAD9/wMAAAACAAIAAAD7/wMAAAACAAIAAAD7/wEAAAACAAIAAAD8/wEAAAACAAIAAAD9/wEAAAACAAIAAAD+/wEAAAACAAIAAAD//wEAAAACAAIAAAAAAAEAAAACAAIAAAABAAEAAAACAAIAAAACAAEAAAACAAIAAAADAAEAAAACAAIAAAAEAAEAAAACAAIAAAAFAAEAAAACAAIAAAAKAAEAAAACAAIAAAAJAAIAAAACAAIAAAAIAAIAAAACAAIAAAAHAAIAAAACAAIAAAAGAAIAAAACAAIAAAAFAAIAAAACAAIAAAAEAAIAAAACAAIAAAADAAIAAAACAAIAAAACAAIAAAACAAIAAAD//wIAAAACAAIAAAD+/wIAAAACAAIAAAD9/wIAAAACAAIAAAD+/wMAAAACAAIAAAD//wMAAAACAAIAAAAAAAMAAAACAAIAAAAAAAIAAAACAAIAAAABAAIAAAACAAIAAAABAAMAAAACAAIAAAADAAMAAAACAAIAAAAEAAMAAAACAAIAAAACAAMAAAACAAIAAAAFAAMAAAACAAIAAAAGAAMAAAACAAIAAAAHAAMAAAACAAIAAAAIAAMAAAACAAIAAAAJAAMAAAACAAIAAAAKAAIAAAACAAIAAAAKAAMAAAACAAIAAAAKAAAAAAADAAAAAAALAAAAAAAEAAAAAAAMAAAAAAABAAAAAAANAAAAAAACAAAAAAAOAAAAAAADAAAAAAAPAAAAAAAEAAAAAAALAAEAAAACAAIAAAAMAAEAAAACAAIAAAANAAEAAAACAAIAAAAOAAEAAAACAAIAAAAPAAEAAAACAAIAAAAPAAIAAAACAAIAAAAOAAIAAAACAAIAAAAOAAMAAAACAAIAAAANAAMAAAACAAIAAAAMAAMAAAACAAIAAAALAAMAAAACAAIAAAALAAIAAAACAAIAAAAMAAIAAAACAAIAAAANAAIAAAACAAIAAAAPAAMAAAACAAIAAAAQAAAAAAABAAAAAAARAAAAAAACAAAAAAASAAAAAAADAAAAAAATAAAAAAAEAAAAAAAUAAAAAAABAAAAAAAVAAAAAAACAAAAAAAWAAAAAAADAAAAAAAXAAAAAAAEAAAAAAAYAAAAAAABAAAAAAAZAAAAAAACAAAAAAAaAAAAAAADAAAAAAAbAAAAAAAEAAAAAAAQAAEAAAACAAIAAAARAAEAAAACAAIAAAASAAEAAAACAAIAAAATAAEAAAACAAIAAAAUAAEAAAACAAIAAAAVAAEAAAACAAIAAAAWAAEAAAACAAIAAAAXAAEAAAACAAIAAAAYAAEAAAACAAIAAAAZAAEAAAACAAIAAAAaAAEAAAACAAIAAAAbAAEAAAACAAIAAAAQAAIAAAACAAIAAAARAAIAAAACAAIAAAASAAIAAAACAAIAAAATAAIAAAACAAIAAAAUAAIAAAACAAIAAAAVAAIAAAACAAIAAAAWAAIAAAACAAIAAAAXAAIAAAACAAIAAAAYAAIAAAACAAIAAAAZAAIAAAACAAIAAAAaAAIAAAACAAIAAAAbAAIAAAACAAIAAAAQAAMAAAACAAIAAAARAAMAAAACAAIAAAASAAMAAAACAAIAAAATAAMAAAACAAIAAAAUAAMAAAACAAIAAAAVAAMAAAACAAIAAAAWAAMAAAACAAIAAAAXAAMAAAACAAIAAAAYAAMAAAACAAIAAAAZAAMAAAACAAIAAAAaAAMAAAACAAIAAAAbAAMAAAACAAIAAAA=")
 tile_set = SubResource("TileSet_qiowp")
 
+<<<<<<< HEAD
 [node name="Player_Caravan" parent="." instance=ExtResource("23_karavan")]
 position = Vector2(-84, -12)
 visual_level = 2
+=======
+[node name="PropVillageHouseBata" type="Sprite2D" parent="."]
+texture = ExtResource("24_bata")
+position = Vector2(-500, 16)
+offset = Vector2(0, -81.5)
+>>>>>>> origin/develop/map
 
 [node name="PropVillageHousePlester" type="Sprite2D" parent="."]
 texture = ExtResource("3_x3ww0")
-position = Vector2(-450, 16)
+position = Vector2(-405, 16)
 offset = Vector2(0, -82.5)
+
+[node name="PropVillageSawmill" type="Sprite2D" parent="."]
+texture = ExtResource("17_gergaji")
+position = Vector2(-275, 16)
+offset = Vector2(0, -60.5)
+
+[node name="AsapGergaji" type="Sprite2D" parent="."]
+texture = ExtResource("31_asap_gergaji")
+position = Vector2(-351, -149)
+centered = false
+hframes = 30
+script = ExtResource("32_animator")
 
 [node name="PropVillageInn" type="Sprite2D" parent="."]
 texture = ExtResource("16_kedai")
-position = Vector2(-290, 16)
+position = Vector2(-140, 16)
 offset = Vector2(0, -83.5)
 
-[node name="PropVillageGuardPost" type="Sprite2D" parent="."]
-texture = ExtResource("19_pos")
-position = Vector2(280, 16)
-offset = Vector2(0, -79.5)
+[node name="AsapPenginapan" type="Sprite2D" parent="."]
+texture = ExtResource("30_asap_inn")
+position = Vector2(-229, -195)
+centered = false
+hframes = 30
+script = ExtResource("32_animator")
+
+[node name="PropVillageShop" type="Sprite2D" parent="."]
+texture = ExtResource("26_toko")
+position = Vector2(80, 16)
+offset = Vector2(0, -84.5)
+
+[node name="AsapToko" type="Sprite2D" parent="."]
+texture = ExtResource("29_asap_toko")
+position = Vector2(7, -197)
+centered = false
+hframes = 30
+script = ExtResource("32_animator")
+
+[node name="PropVillageBlacksmith" type="Sprite2D" parent="."]
+texture = ExtResource("25_bengkel")
+position = Vector2(250, 16)
+offset = Vector2(0, -71.5)
+
+[node name="ApiBengkel" type="Sprite2D" parent="."]
+texture = ExtResource("27_api_bengkel")
+position = Vector2(175, -127)
+centered = false
+hframes = 30
+script = ExtResource("32_animator")
+
+[node name="AsapBengkel" type="Sprite2D" parent="."]
+texture = ExtResource("28_asap_bengkel")
+position = Vector2(175, -171)
+centered = false
+hframes = 30
+script = ExtResource("32_animator")
 
 [node name="PropVillageTree" type="Sprite2D" parent="."]
 texture = ExtResource("5_8w753")
-position = Vector2(460, 16)
+position = Vector2(480, 16)
 offset = Vector2(0, -128.5)
+
+[node name="PropVillageGuardPost" type="Sprite2D" parent="."]
+texture = ExtResource("19_pos")
+position = Vector2(400, 16)
+offset = Vector2(0, -79.5)
+
+[node name="Player_Caravan" parent="." instance=ExtResource("23_karavan")]
+position = Vector2(-84, -12)
+
 [node name="Driver" parent="Player_Caravan" index="0"]
 animation = &"driver2_idle"
 
@@ -395,6 +513,7 @@ animation = &"horse_level2_idle"
 [node name="Harness" parent="Player_Caravan/Cariagetentcostume/Horse" index="1"]
 animation = &"harnes_idle"
 
+<<<<<<< HEAD
 
 [node name="PropCloudA" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.9)
@@ -435,3 +554,7 @@ z_index = 0
 
 [node name="DoughTable" parent="WorkProps" instance=ExtResource("34_prop_bakery")]
 position = Vector2(150, 16)
+=======
+[node name="horsewalkparticle2" parent="Player_Caravan/Cariagetentcostume/Horse" index="2"]
+emitting = false
+>>>>>>> origin/develop/map

@@ -1,6 +1,9 @@
-[gd_scene load_steps=24 format=4 uid="uid://b5nk7ecxccvil"]
+[gd_scene load_steps=27 format=4 uid="uid://b5nk7ecxccvil"]
 
-[ext_resource type="Texture2D" uid="uid://cxoocotnux6qn" path="res://asset/background/craftpix-net-823949-free-nature-backgrounds-pixel-art/nature_1/1.png" id="1_70rat"]
+[ext_resource type="Texture2D" uid="uid://bguf8xlp5q3xc" path="res://asset/background/assets-mountain-backgrounds/m1/1.png" id="1_langit"]
+[ext_resource type="Texture2D" uid="uid://cb8uuuxo4spny" path="res://asset/background/assets-mountain-backgrounds/m1/2.png" id="2_awan"]
+[ext_resource type="Texture2D" uid="uid://de3olxjavygm3" path="res://asset/background/assets-mountain-backgrounds/m1/4.png" id="4_gunungjauh"]
+[ext_resource type="Texture2D" uid="uid://ccck8dwm4q6bv" path="res://asset/background/assets-mountain-backgrounds/m1/5.png" id="5_gunungdekat"]
 [ext_resource type="Texture2D" uid="uid://bqg4tr30og0bh" path="res://asset/background/craftpix-net-823949-free-nature-backgrounds-pixel-art/nature_1/8.png" id="1_gh3u5"]
 [ext_resource type="Texture2D" uid="uid://bpliy1pve2p2e" path="res://asset/background/craftpix-net-995711-free-pixel-art-cloud-and-sky-backgrounds/4. NEW CLOUDS/2.png" id="2_7jhvf"]
 [ext_resource type="Texture2D" uid="uid://pm8u8cbnxofl" path="res://asset/villageAssets/rumah_warga_plester.png" id="3_x3ww0"]
@@ -302,8 +305,39 @@ autoscroll = Vector2(-10, 0)
 repeat_times = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="langit"]
-scale = Vector2(1, 1.3425926)
-texture = ExtResource("1_70rat")
+texture = ExtResource("1_langit")
+centered = false
+
+[node name="Awan" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(576, 0)
+autoscroll = Vector2(-6, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Awan"]
+texture = ExtResource("2_awan")
+centered = false
+
+[node name="GunungJauh" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(576, 0)
+autoscroll = Vector2(-20, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="GunungJauh"]
+position = Vector2(0, 20)
+texture = ExtResource("4_gunungjauh")
+centered = false
+
+[node name="GunungDekat" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(576, 0)
+autoscroll = Vector2(-30, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="GunungDekat"]
+position = Vector2(0, 20)
+texture = ExtResource("5_gunungdekat")
 centered = false
 
 [node name="padangRumput" type="Parallax2D" parent="."]

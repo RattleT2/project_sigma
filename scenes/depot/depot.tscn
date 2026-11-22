@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [gd_scene load_steps=25 format=4 uid="uid://c0dep0tkarav1"]
 
 [ext_resource type="PackedScene" path="res://scenes/npc_blacksmith.tscn" id="30_npc_blacksmith"]
@@ -9,10 +10,17 @@
 [ext_resource type="PackedScene" path="res://scenes/work_prop_npc_blacksmith.tscn" id="36_prop_blacksmith"]
 [ext_resource type="PackedScene" path="res://scenes/work_prop_npc_bakery.tscn" id="37_prop_bakery"]
 [ext_resource type="PackedScene" path="res://scenes/work_prop_npc_farmer.tscn" id="38_prop_farmer"]
+=======
+[gd_scene load_steps=20 format=4 uid="uid://c0dep0tkarav1"]
+>>>>>>> origin/develop/map
 
-[ext_resource type="Texture2D" uid="uid://cxoocotnux6qn" path="res://asset/background/craftpix-net-823949-free-nature-backgrounds-pixel-art/nature_1/1.png" id="1_sky"]
-[ext_resource type="Texture2D" uid="uid://bpliy1pve2p2e" path="res://asset/background/craftpix-net-995711-free-pixel-art-cloud-and-sky-backgrounds/4. NEW CLOUDS/2.png" id="2_cloud"]
-[ext_resource type="Texture2D" uid="uid://cdl7ylaruc4lf" path="res://asset/background/craftpix-net-995711-free-pixel-art-cloud-and-sky-backgrounds/4. NEW CLOUDS/3.png" id="3_cloud"]
+[ext_resource type="Texture2D" uid="uid://bhpt3vuc0oamh" path="res://asset/background/assets-mountain-backgrounds/m5/2.png" id="1_sky"]
+[ext_resource type="Texture2D" uid="uid://be26wwmjga4i3" path="res://asset/background/assets-mountain-backgrounds/m5/3.png" id="2_awan"]
+[ext_resource type="Texture2D" uid="uid://cavo4u57ucoo1" path="res://asset/background/assets-mountain-backgrounds/m5/4.png" id="3_gunung_jauh"]
+[ext_resource type="Texture2D" uid="uid://dj0ve26gpp8st" path="res://asset/background/assets-mountain-backgrounds/m5/5.png" id="4_gunung_dekat"]
+[ext_resource type="Texture2D" uid="uid://c146smkihxo2c" path="res://asset/Asset_Bangunan/bangunan_kota/rumah_fantasi/pondok_tabib.png" id="16_tabib"]
+[ext_resource type="Texture2D" uid="uid://bgxbi3oea156q" path="res://asset/Asset_Bangunan/bangunan_kota/rumah_manusia/bengkel_pandai_besi.png" id="17_bengkel"]
+[ext_resource type="Texture2D" uid="uid://cw3k2vimwjvbo" path="res://asset/Asset_Bangunan/bangunan_kota/rumah_manusia/toko_pedagang.png" id="18_toko"]
 [ext_resource type="Texture2D" uid="uid://dvwtt1cjvdhyw" path="res://asset/Asset_Bangunan/bangunan_kota/animasi/depot_derek_30f.png" id="4_derek"]
 [ext_resource type="Texture2D" uid="uid://swxduep514t3" path="res://asset/Asset_Bangunan/bangunan_kota/depot_karavan/depot_dermaga_muat.png" id="5_dermaga"]
 [ext_resource type="Texture2D" uid="uid://brim5bfk2k5ds" path="res://asset/Asset_Bangunan/bangunan_kota/depot_karavan/depot_gudang.png" id="6_gudang"]
@@ -37,21 +45,29 @@ position = Vector2(0, -111)
 scale = Vector2(2, 2)
 texture = ExtResource("1_sky")
 
-[node name="Awan1" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.9)
-z_index = -95
-position = Vector2(-430, -340)
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("2_cloud")
+[node name="Awan" type="Parallax2D" parent="."]
+z_index = -99
+scale = Vector2(2, 2)
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(576, 0)
+autoscroll = Vector2(-12, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Awan"]
+texture = ExtResource("2_awan")
 centered = false
 
-[node name="Awan2" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.9)
-z_index = -95
-position = Vector2(190, -300)
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("3_cloud")
-centered = false
+[node name="GunungJauh" type="Sprite2D" parent="."]
+z_index = -98
+position = Vector2(0, -111)
+scale = Vector2(2, 2)
+texture = ExtResource("3_gunung_jauh")
+
+[node name="GunungDekat" type="Sprite2D" parent="."]
+z_index = -97
+position = Vector2(0, -111)
+scale = Vector2(2, 2)
+texture = ExtResource("4_gunung_dekat")
 
 [node name="Tanah" type="ColorRect" parent="."]
 z_index = -50
@@ -129,14 +145,29 @@ centered = false
 
 [node name="TumpukanB" type="Sprite2D" parent="DepotProps"]
 z_index = 3
-position = Vector2(-456, -58)
+position = Vector2(-440, -58)
 texture = ExtResource("12_tumpukan_b")
 centered = false
 
 [node name="TumpukanC" type="Sprite2D" parent="DepotProps"]
 z_index = 3
-position = Vector2(456, -58)
+position = Vector2(-260, -58)
 texture = ExtResource("13_tumpukan_c")
+centered = false
+
+[node name="PondokTabib" type="Sprite2D" parent="DepotProps"]
+position = Vector2(-576, -121)
+texture = ExtResource("16_tabib")
+centered = false
+
+[node name="TokoPedagang" type="Sprite2D" parent="DepotProps"]
+position = Vector2(-30, -169)
+texture = ExtResource("18_toko")
+centered = false
+
+[node name="BengkelPandaiBesi" type="Sprite2D" parent="DepotProps"]
+position = Vector2(426, -143)
+texture = ExtResource("17_bengkel")
 centered = false
 
 [node name="Karavan" parent="DepotProps" instance=ExtResource("15_karavan")]
