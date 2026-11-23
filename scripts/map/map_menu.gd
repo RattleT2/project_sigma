@@ -1,23 +1,12 @@
 extends Control
 
 signal destination_confirmed(area_id: StringName)
+signal close_requested
 
-# shortcut: data placeholder statis; ganti dengan TurnManager/RouteManager/ResourceManager saat wiring.
-const AREA_DATA := {
-	&"village": {"name": "Village & Castle", "stable": true, "iron": 8, "iron_need": 12, "diamond": 3, "diamond_need": 6, "coin": 14, "coin_need": 20, "distance": 6, "cost": 5, "risk": 15},
-	&"snow": {"name": "Snow", "stable": false, "iron": 2, "iron_need": 12, "diamond": 6, "diamond_need": 8, "coin": 5, "coin_need": 20, "distance": 9, "cost": 8, "risk": 25},
-	&"forest": {"name": "Forest", "stable": false, "iron": 5, "iron_need": 10, "diamond": 1, "diamond_need": 6, "coin": 9, "coin_need": 18, "distance": 7, "cost": 6, "risk": 18},
-	&"desert": {"name": "Desert", "stable": false, "iron": 7, "iron_need": 14, "diamond": 4, "diamond_need": 8, "coin": 11, "coin_need": 22, "distance": 5, "cost": 4, "risk": 12},
-	&"depot": {"name": "Depot", "stable": false, "iron": 0, "iron_need": 0, "diamond": 0, "diamond_need": 0, "coin": 0, "coin_need": 0, "distance": 0, "cost": 0, "risk": 0},
-}
-
-const CARAVAN := {"iron": 12, "diamond": 4, "coin": 18, "capacity": 30}
 const LINE_COLOR := Color(1, 1, 1, 0.22)
 const LINE_ACTIVE_COLOR := Color(1, 0.82, 0.35, 0.95)
 const LINE_WIDTH := 6.0
 const LINE_ACTIVE_WIDTH := 10.0
-
-@export var current_area_id: StringName = &"depot"
 
 @onready var _regions: Dictionary = {
 	&"village": $MapBoard/Regions/VillageCastle,
@@ -34,6 +23,7 @@ const LINE_ACTIVE_WIDTH := 10.0
 	&"depot": $MapBoard/RouteLines/ToDepot,
 }
 @onready var _marker: TextureRect = $MapBoard/CaravanMarker
+@onready var _confirm: Button = %ConfirmDestinationButton
 
 var _selected_id: StringName = &""
 
@@ -44,22 +34,26 @@ func _ready() -> void:
 		region.region_hovered.connect(_on_region_hovered)
 		region.region_unhovered.connect(_on_region_unhovered)
 		region.region_selected.connect(_on_region_selected)
-	%ConfirmDestinationButton.pressed.connect(_on_confirm_pressed)
-	%ConfirmDestinationButton.hide()
-	refresh(current_area_id, 1, 10)
+	_confirm.pressed.connect(_on_confirm_pressed)
+	%BackButton.pressed.connect(_on_back_pressed)
+	refresh()
 
 
-func refresh(area_id: StringName, current_turn: int, turns_left: int) -> void:
-	current_area_id = area_id
+func refresh() -> void:
+	if not RunState.has_run():
+		return
 	_selected_id = &""
 	for id in _regions:
 		_regions[id].selected = false
-	%TurnLabel.text = "Turn %d" % current_turn
-	%TurnsLeftLabel.text = "%d turn tersisa" % turns_left
+	_confirm.hide()
+	%TurnLabel.text = "Putaran %d - Turn %d/%d" % [
+		RunState.round_number(), mini(RunState.turn(), RunState.turns_total()), RunState.turns_total()
+	]
+	%TurnsLeftLabel.text = "%d turn tersisa - target %d wilayah stabil" % [RunState.turns_left(), RunState.target_count()]
 	_update_caravan_summary()
 	_update_marker()
 	_update_lines()
-	_set_detail(current_area_id)
+	_set_detail(StringName(RunState.current_area()))
 
 
 func _on_region_hovered(region: Control) -> void:
@@ -68,7 +62,7 @@ func _on_region_hovered(region: Control) -> void:
 
 
 func _on_region_unhovered(region: Control) -> void:
-	_set_detail(_selected_id if _selected_id != &"" else current_area_id)
+	_set_detail(_selected_id if _selected_id != &"" else StringName(RunState.current_area()))
 	_set_line_active(region.area_id, region.area_id == _selected_id)
 
 
@@ -78,66 +72,91 @@ func _on_region_selected(region: Control) -> void:
 		_regions[id].selected = id == _selected_id
 	_set_detail(_selected_id)
 	_update_lines()
-	_on_confirm_pressed()
-
-
-func _set_detail(id: StringName) -> void:
-	var data: Dictionary = AREA_DATA[id]
-	%AreaNameLabel.text = data.name
-	%StableBadge.text = "STABIL" if data.stable else "BELUM STABIL"
-	%StableBadge.modulate = Color(0.55, 0.9, 0.55) if data.stable else Color(0.95, 0.65, 0.45)
-	%IronValue.text = "%d / %d" % [data.iron, data.iron_need]
-	%DiamondValue.text = "%d / %d" % [data.diamond, data.diamond_need]
-	%CoinValue.text = "%d / %d" % [data.coin, data.coin_need]
-	if id == &"depot":
-		%IronValue.text = "-"
-		%DiamondValue.text = "-"
-		%CoinValue.text = "-"
-		%DistanceRow.text = "Depot: isi resource, upgrade, skin"
-		%CostRow.text = "Biaya perjalanan: -"
-		%RiskRow.text = "Risiko bandit: -"
-	else:
-		%DistanceRow.text = "Jarak: %d" % data.distance
-		%CostRow.text = "Biaya perjalanan: %d coin" % data.cost
-		%RiskRow.text = "Risiko bandit: %d%%" % data.risk
-	%ReasonLabel.text = _blocked_reason(id)
+	_confirm.show()
 	_update_confirm_state()
 
 
-func _blocked_reason(id: StringName) -> String:
-	if id == &"":
+func _set_detail(id: StringName) -> void:
+	var key := String(id)
+	if key == "depot":
+		%AreaNameLabel.text = "Depot Utama"
+		%StableBadge.text = "RESUPPLY & BUFF"
+		%StableBadge.modulate = Color(0.7, 0.85, 0.95)
+		%IronValue.text = "-"
+		%DiamondValue.text = "-"
+		%CoinValue.text = "-"
+		%DistanceRow.text = "Pulang ke Depot: gratis, tanpa turn"
+		%CostRow.text = "Depot: resupply & buff"
+		%RiskRow.text = "Risiko bandit: -"
+	else:
+		var data: Dictionary = GameData.REGIONS[key]
+		%AreaNameLabel.text = String(data["name"])
+		var stable := RunState.is_stable(key)
+		%StableBadge.text = "STABIL" if stable else "BELUM STABIL"
+		%StableBadge.modulate = Color(0.55, 0.9, 0.55) if stable else Color(0.95, 0.65, 0.45)
+		%IronValue.text = "%d / %d" % [RunState.stock(key, "iron"), RunState.need(key, "iron")]
+		%DiamondValue.text = "%d / %d" % [RunState.stock(key, "diamond"), RunState.need(key, "diamond")]
+		%CoinValue.text = "%d / %d" % [RunState.stock(key, "gold"), RunState.need(key, "gold")]
+		%DistanceRow.text = "Estimasi drive: %.0f detik" % RunState.estimated_drive_seconds(key)
+		%CostRow.text = "Biaya: 1 turn + serah terima manual"
+		var risk := int(GameData.bandit_risk(key))
+		if int(RunState.run.get("buffs", {}).get("guard", 0)) > 0:
+			risk = 0
+		%RiskRow.text = "Risiko bandit: %d%%" % risk
+	%ReasonLabel.text = _blocked_reason(String(id))
+	_update_confirm_state()
+
+
+func _blocked_reason(id: String) -> String:
+	if id == "":
 		return "Pilih wilayah tujuan dulu."
-	if id == current_area_id:
-		return "Karavan sudah berada di sini."
-	if CARAVAN.coin < AREA_DATA[id].cost:
-		return "Coin karavan tidak cukup untuk biaya perjalanan."
-	return ""
+	var check: Dictionary = RunState.can_travel(id)
+	return String(check.get("reason", ""))
 
 
 func _update_confirm_state() -> void:
-	%ConfirmDestinationButton.disabled = _blocked_reason(_selected_id) != ""
+	var reason := _blocked_reason(String(_selected_id))
+	_confirm.disabled = reason != ""
+	_confirm.text = "KEMBALI KE DEPOT" if _selected_id == &"depot" else "BERANGKAT"
+	if _selected_id != &"":
+		_confirm.show()
+	else:
+		_confirm.hide()
 
 
 func _update_caravan_summary() -> void:
-	%CaravanIron.text = str(CARAVAN.iron)
-	%CaravanDiamond.text = str(CARAVAN.diamond)
-	%CaravanCoin.text = str(CARAVAN.coin)
-	%CaravanCapacity.max_value = CARAVAN.capacity
-	%CaravanCapacity.value = CARAVAN.coin
-	%CaravanCapacityValue.text = "%d / %d" % [CARAVAN.coin, CARAVAN.capacity]
-	%CaravanEffect.text = "Tanpa efek aktif"
+	%CaravanIron.text = str(RunState.carried("iron"))
+	%CaravanDiamond.text = str(RunState.carried("diamond"))
+	%CaravanCoin.text = str(RunState.carried("gold"))
+	%CaravanCapacity.max_value = RunState.capacity()
+	%CaravanCapacity.value = RunState.carried_total()
+	%CaravanCapacityValue.text = "%d / %d" % [RunState.carried_total(), RunState.capacity()]
+	var buffs := RunState.active_buffs()
+	if buffs.is_empty():
+		%CaravanEffect.text = "Tanpa efek aktif"
+	else:
+		var parts: Array[String] = []
+		for buff in buffs:
+			parts.append("%s (%dT)" % [String(buff["name"]), int(buff["turns"])])
+		%CaravanEffect.text = ", ".join(parts)
 
 
 func _update_marker() -> void:
-	var anchor: Marker2D = _regions[current_area_id].get_node("Anchor")
+	var area := StringName(RunState.current_area())
+	if not _regions.has(area):
+		return
+	var anchor: Marker2D = _regions[area].get_node("Anchor")
 	_marker.position = anchor.position - _marker.pivot_offset
 
 
 func _update_lines() -> void:
-	var from: Vector2 = _regions[current_area_id].get_node("Anchor").position
+	var area := StringName(RunState.current_area())
+	if not _regions.has(area):
+		return
+	var from: Vector2 = _regions[area].get_node("Anchor").position
 	for id in _lines:
 		var line: Line2D = _lines[id]
-		line.visible = id != current_area_id
+		line.visible = id != area
 		if not line.visible:
 			continue
 		line.points = PackedVector2Array([from, _regions[id].get_node("Anchor").position])
@@ -153,8 +172,10 @@ func _set_line_active(id: StringName, active: bool) -> void:
 
 
 func _on_confirm_pressed() -> void:
-	if _blocked_reason(_selected_id) != "":
+	if _selected_id == &"" or _blocked_reason(String(_selected_id)) != "":
 		return
-	# shortcut: sampai TravelController ada, konfirmasi hanya di-emit.
 	destination_confirmed.emit(_selected_id)
-	print("Tujuan dikonfirmasi: ", AREA_DATA[_selected_id].name)
+
+
+func _on_back_pressed() -> void:
+	close_requested.emit()

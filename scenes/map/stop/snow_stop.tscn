@@ -1,12 +1,4 @@
-<<<<<<< HEAD
-[gd_scene load_steps=21 format=4]
-
-[ext_resource type="PackedScene" path="res://scenes/npc_civilian_women.tscn" id="30_npc_civilian_women"]
-[ext_resource type="PackedScene" path="res://scenes/npc_kitsune.tscn" id="31_npc_kitsune"]
-[ext_resource type="PackedScene" path="res://scenes/npc_civilian_men.tscn" id="32_npc_civilian_men"]
-=======
 [gd_scene load_steps=21 format=4 uid="uid://rxecb8leylwb"]
->>>>>>> origin/develop/map
 
 [ext_resource type="Texture2D" uid="uid://dr657qnmqmqhx" path="res://asset/background/craftpix-net-823949-free-nature-backgrounds-pixel-art/nature_6/1.png" id="1_fai1k"]
 [ext_resource type="Texture2D" uid="uid://dt7e34f7s0jur" path="res://asset/background/Pixel_Art_Snow_And_Ice_Tileset_Pack/Pixel Art Snow and Ice Tileset/snowy_rock_block.png" id="1_pevrq"]
@@ -383,7 +375,6 @@ centered = false
 
 [node name="Player_Caravan" parent="." instance=ExtResource("16_karavan")]
 position = Vector2(-84, -12)
-visual_level = 2
 
 [node name="PropSnowConiferLeft" type="Sprite2D" parent="."]
 position = Vector2(-540, 15)
@@ -395,64 +386,9 @@ position = Vector2(470, 15)
 texture = ExtResource("9_bgvsd")
 offset = Vector2(0, -94)
 
-<<<<<<< HEAD
-[node name="PropSnowRockLeft" type="Sprite2D" parent="."]
-texture = ExtResource("8_bgvsd")
-position = Vector2(-280, 15)
-offset = Vector2(0, -30.5)
-
-[node name="PropSnowRockRight" type="Sprite2D" parent="."]
-texture = ExtResource("7_nl27b")
-position = Vector2(-170, 15)
-offset = Vector2(0, -19)
-
-[node name="Driver" parent="Player_Caravan" index="0"]
-animation = &"driver2_idle"
-
-[node name="Cariagetentcostume" parent="Player_Caravan" index="1"]
-animation = &"tent_costumeforwagon2only1_idle"
-
-[node name="Wagon" parent="Player_Caravan/Cariagetentcostume" index="0"]
-animation = &"wagon2_idle"
-
-[node name="wheel_front" parent="Player_Caravan/Cariagetentcostume/Wagon" index="1"]
-animation = &"wheel2_level2_idle"
-
-[node name="wheelparticlefront" parent="Player_Caravan/Cariagetentcostume/Wagon" index="2"]
-emitting = false
-
-[node name="wheel_back" parent="Player_Caravan/Cariagetentcostume/Wagon" index="3"]
-animation = &"wheel2_level2_idle"
-
-[node name="wheelparticleback" parent="Player_Caravan/Cariagetentcostume/Wagon" index="4"]
-emitting = false
-
-[node name="Horse" parent="Player_Caravan/Cariagetentcostume" index="1"]
-animation = &"horse_level2_idle"
-
-[node name="Harness" parent="Player_Caravan/Cariagetentcostume/Horse" index="1"]
-animation = &"harnes_idle"
-
-
-[node name="HubNPCs" type="Node2D" parent="."]
-z_index = 1
-
-[node name="CivilianWomen" parent="HubNPCs" instance=ExtResource("30_npc_civilian_women")]
-position = Vector2(-140, 15)
-apply_gravity = false
-
-[node name="Kitsune" parent="HubNPCs" instance=ExtResource("31_npc_kitsune")]
-position = Vector2(240, 15)
-apply_gravity = false
-
-[node name="CivilianMen" parent="HubNPCs" instance=ExtResource("32_npc_civilian_men")]
-position = Vector2(380, 15)
-apply_gravity = false
-=======
 [node name="CloudPropSpawnerSnow" type="Node2D" parent="."]
 script = ExtResource("17_cloudsnow")
 prop_textures = Array[Texture2D]([ExtResource("18_awan4"), ExtResource("19_awan3")])
 scroll_speed = 30.0
 min_y = -180.0
 max_y = -180.0
->>>>>>> origin/develop/map

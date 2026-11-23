@@ -1,14 +1,4 @@
-<<<<<<< HEAD
-[gd_scene load_steps=29 format=4]
-
-[ext_resource type="PackedScene" path="res://scenes/npc_bangsawan.tscn" id="30_npc_bangsawan"]
-[ext_resource type="PackedScene" path="res://scenes/npc_civilian_women.tscn" id="31_npc_civilian_women"]
-[ext_resource type="PackedScene" path="res://scenes/npc_bakery.tscn" id="32_npc_bakery"]
-[ext_resource type="PackedScene" path="res://scenes/npc_civilian_men.tscn" id="33_npc_civilian_men"]
-[ext_resource type="PackedScene" path="res://scenes/work_prop_npc_bakery.tscn" id="34_prop_bakery"]
-=======
 [gd_scene load_steps=36 format=4]
->>>>>>> origin/develop/map
 
 [ext_resource type="Texture2D" uid="uid://bguf8xlp5q3xc" path="res://asset/background/assets-mountain-backgrounds/m1/1.png" id="1_langit"]
 [ext_resource type="Texture2D" uid="uid://cb8uuuxo4spny" path="res://asset/background/assets-mountain-backgrounds/m1/2.png" id="2_awan"]
@@ -402,16 +392,10 @@ position = Vector2(1152, 0)
 tile_map_data = PackedByteArray("AAD4/wAAAAABAAAAAAD5/wAAAAACAAAAAAD6/wAAAAADAAAAAAD7/wAAAAAEAAAAAAD8/wAAAAABAAAAAAD9/wAAAAACAAAAAAD+/wAAAAADAAAAAAD//wAAAAAEAAAAAAAAAAAAAAABAAAAAAABAAAAAAACAAAAAAACAAAAAAADAAAAAAADAAAAAAAEAAAAAAAEAAAAAAABAAAAAAAFAAAAAAACAAAAAAAGAAEAAAACAAIAAAAHAAEAAAACAAIAAAAIAAEAAAACAAIAAAAJAAEAAAACAAIAAAAJAAAAAAACAAAAAAAIAAAAAAABAAAAAAAHAAAAAAAEAAAAAAAGAAAAAAADAAAAAAD4/wEAAAACAAIAAAD4/wIAAAACAAIAAAD4/wMAAAACAAIAAAD5/wMAAAACAAIAAAD5/wIAAAACAAIAAAD5/wEAAAACAAIAAAD6/wEAAAACAAIAAAD6/wIAAAACAAIAAAD6/wMAAAACAAIAAAD8/wMAAAACAAIAAAD8/wIAAAACAAIAAAD7/wIAAAACAAIAAAD9/wMAAAACAAIAAAD7/wMAAAACAAIAAAD7/wEAAAACAAIAAAD8/wEAAAACAAIAAAD9/wEAAAACAAIAAAD+/wEAAAACAAIAAAD//wEAAAACAAIAAAAAAAEAAAACAAIAAAABAAEAAAACAAIAAAACAAEAAAACAAIAAAADAAEAAAACAAIAAAAEAAEAAAACAAIAAAAFAAEAAAACAAIAAAAKAAEAAAACAAIAAAAJAAIAAAACAAIAAAAIAAIAAAACAAIAAAAHAAIAAAACAAIAAAAGAAIAAAACAAIAAAAFAAIAAAACAAIAAAAEAAIAAAACAAIAAAADAAIAAAACAAIAAAACAAIAAAACAAIAAAD//wIAAAACAAIAAAD+/wIAAAACAAIAAAD9/wIAAAACAAIAAAD+/wMAAAACAAIAAAD//wMAAAACAAIAAAAAAAMAAAACAAIAAAAAAAIAAAACAAIAAAABAAIAAAACAAIAAAABAAMAAAACAAIAAAADAAMAAAACAAIAAAAEAAMAAAACAAIAAAACAAMAAAACAAIAAAAFAAMAAAACAAIAAAAGAAMAAAACAAIAAAAHAAMAAAACAAIAAAAIAAMAAAACAAIAAAAJAAMAAAACAAIAAAAKAAIAAAACAAIAAAAKAAMAAAACAAIAAAAKAAAAAAADAAAAAAALAAAAAAAEAAAAAAAMAAAAAAABAAAAAAANAAAAAAACAAAAAAAOAAAAAAADAAAAAAAPAAAAAAAEAAAAAAALAAEAAAACAAIAAAAMAAEAAAACAAIAAAANAAEAAAACAAIAAAAOAAEAAAACAAIAAAAPAAEAAAACAAIAAAAPAAIAAAACAAIAAAAOAAIAAAACAAIAAAAOAAMAAAACAAIAAAANAAMAAAACAAIAAAAMAAMAAAACAAIAAAALAAMAAAACAAIAAAALAAIAAAACAAIAAAAMAAIAAAACAAIAAAANAAIAAAACAAIAAAAPAAMAAAACAAIAAAAQAAAAAAABAAAAAAARAAAAAAACAAAAAAASAAAAAAADAAAAAAATAAAAAAAEAAAAAAAUAAAAAAABAAAAAAAVAAAAAAACAAAAAAAWAAAAAAADAAAAAAAXAAAAAAAEAAAAAAAYAAAAAAABAAAAAAAZAAAAAAACAAAAAAAaAAAAAAADAAAAAAAbAAAAAAAEAAAAAAAQAAEAAAACAAIAAAARAAEAAAACAAIAAAASAAEAAAACAAIAAAATAAEAAAACAAIAAAAUAAEAAAACAAIAAAAVAAEAAAACAAIAAAAWAAEAAAACAAIAAAAXAAEAAAACAAIAAAAYAAEAAAACAAIAAAAZAAEAAAACAAIAAAAaAAEAAAACAAIAAAAbAAEAAAACAAIAAAAQAAIAAAACAAIAAAARAAIAAAACAAIAAAASAAIAAAACAAIAAAATAAIAAAACAAIAAAAUAAIAAAACAAIAAAAVAAIAAAACAAIAAAAWAAIAAAACAAIAAAAXAAIAAAACAAIAAAAYAAIAAAACAAIAAAAZAAIAAAACAAIAAAAaAAIAAAACAAIAAAAbAAIAAAACAAIAAAAQAAMAAAACAAIAAAARAAMAAAACAAIAAAASAAMAAAACAAIAAAATAAMAAAACAAIAAAAUAAMAAAACAAIAAAAVAAMAAAACAAIAAAAWAAMAAAACAAIAAAAXAAMAAAACAAIAAAAYAAMAAAACAAIAAAAZAAMAAAACAAIAAAAaAAMAAAACAAIAAAAbAAMAAAACAAIAAAA=")
 tile_set = SubResource("TileSet_qiowp")
 
-<<<<<<< HEAD
-[node name="Player_Caravan" parent="." instance=ExtResource("23_karavan")]
-position = Vector2(-84, -12)
-visual_level = 2
-=======
 [node name="PropVillageHouseBata" type="Sprite2D" parent="."]
 texture = ExtResource("24_bata")
 position = Vector2(-500, 16)
 offset = Vector2(0, -81.5)
->>>>>>> origin/develop/map
 
 [node name="PropVillageHousePlester" type="Sprite2D" parent="."]
 texture = ExtResource("3_x3ww0")
@@ -489,72 +473,11 @@ position = Vector2(-84, -12)
 [node name="Driver" parent="Player_Caravan" index="0"]
 animation = &"driver2_idle"
 
-[node name="Cariagetentcostume" parent="Player_Caravan" index="1"]
-animation = &"tent_costumeforwagon2only1_idle"
-
-[node name="Wagon" parent="Player_Caravan/Cariagetentcostume" index="0"]
-animation = &"wagon2_idle"
-
-[node name="wheel_front" parent="Player_Caravan/Cariagetentcostume/Wagon" index="1"]
-animation = &"wheel2_level2_idle"
-
 [node name="wheelparticlefront" parent="Player_Caravan/Cariagetentcostume/Wagon" index="2"]
 emitting = false
-
-[node name="wheel_back" parent="Player_Caravan/Cariagetentcostume/Wagon" index="3"]
-animation = &"wheel2_level2_idle"
 
 [node name="wheelparticleback" parent="Player_Caravan/Cariagetentcostume/Wagon" index="4"]
 emitting = false
 
-[node name="Horse" parent="Player_Caravan/Cariagetentcostume" index="1"]
-animation = &"horse_level2_idle"
-
 [node name="Harness" parent="Player_Caravan/Cariagetentcostume/Horse" index="1"]
 animation = &"harnes_idle"
-
-<<<<<<< HEAD
-
-[node name="PropCloudA" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.9)
-position = Vector2(-320, -150)
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("2_7jhvf")
-offset = Vector2(0, -162)
-
-[node name="PropCloudB" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.9)
-position = Vector2(330, -170)
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("3_xmflw")
-offset = Vector2(0, -162)
-
-[node name="HubNPCs" type="Node2D" parent="."]
-z_index = 1
-
-[node name="Bangsawan" parent="HubNPCs" instance=ExtResource("30_npc_bangsawan")]
-position = Vector2(-290, 16)
-apply_gravity = false
-
-[node name="CivilianWomen" parent="HubNPCs" instance=ExtResource("31_npc_civilian_women")]
-position = Vector2(-100, 16)
-apply_gravity = false
-
-[node name="Baker" parent="HubNPCs" instance=ExtResource("32_npc_bakery")]
-position = Vector2(150, 16)
-apply_gravity = false
-target_prop_path = NodePath("../../WorkProps/DoughTable")
-
-[node name="CivilianMen" parent="HubNPCs" instance=ExtResource("33_npc_civilian_men")]
-position = Vector2(350, 16)
-apply_gravity = false
-
-[node name="WorkProps" type="Node2D" parent="."]
-z_index = 0
-
-[node name="DoughTable" parent="WorkProps" instance=ExtResource("34_prop_bakery")]
-position = Vector2(150, 16)
-=======
-[node name="horsewalkparticle2" parent="Player_Caravan/Cariagetentcostume/Horse" index="2"]
-emitting = false
->>>>>>> origin/develop/map

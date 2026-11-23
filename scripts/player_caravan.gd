@@ -2,8 +2,17 @@ extends CharacterBody2D
 
 enum State { IDLE, WALK, BOOST, STOPPING }
 
+const ACCESSORY_NODES := {
+	"capacity": "accessory_capacity_for_wagon1",
+	"chest": "accessory_chest_buff_capacity_for_costume_tent_wagon1",
+	"tools": "accessory_tools_buff_stamina_for_costume_tent_wagon1",
+	"lantern": "accessory_lantern_buff_speed_for_wagon2",
+	"sack": "accessory_sack_buff_income_earn_for_wagon2",
+}
+
 @export var input_enabled := true
-@export_enum("Auto", "Level 1", "Level 2") var visual_level: int = 0
+@export var preview_mode := false
+@export_enum("Auto", "Level 1", "Level 2") var visual_level: int = 1
 @export var external_travel := false
 @export var walk_speed := 90.0
 @export var boost_speed := 220.0
@@ -38,6 +47,14 @@ enum State { IDLE, WALK, BOOST, STOPPING }
 @onready var lantern_accessory: AnimatedSprite2D = $Cariagetentcostume/Wagon/accessory_lantern_buff_speed_for_wagon2
 
 var state: State = State.IDLE
+var cart_level := 1
+var accessories := {
+	"capacity": false,
+	"chest": false,
+	"tools": false,
+	"lantern": false,
+	"sack": false,
+}
 var _move_requested := false
 var _boost_requested := false
 var _input_right_held := false
@@ -54,15 +71,21 @@ var _lantern_noise := FastNoiseLite.new()
 
 
 func _ready() -> void:
-	add_to_group("player_caravan")
+	if preview_mode:
+		input_enabled = false
+		external_travel = true
+		for node in find_children("*", "AudioStreamPlayer2D", true, false):
+			(node as AudioStreamPlayer2D).volume_db = -80.0
+	else:
+		add_to_group("player_caravan")
+		_setup_move_sound()
+		snort_timer.one_shot = true
+		snort_timer.timeout.connect(_on_snort_timer_timeout)
+		horse.animation_finished.connect(_on_horse_animation_finished)
 	_collect_accessories()
-	_setup_move_sound()
-	snort_timer.one_shot = true
-	snort_timer.timeout.connect(_on_snort_timer_timeout)
-	horse.animation_finished.connect(_on_horse_animation_finished)
-	_set_visual_profile(_resolve_visual_level())
-	_apply_state_animations()
-	_schedule_next_snort()
+	set_customization(_resolve_visual_level(), accessories)
+	if not preview_mode:
+		_schedule_next_snort()
 	_lantern_base_energy = lantern_light.energy
 	_lantern_noise.noise_type = FastNoiseLite.TYPE_SIMPLEX_SMOOTH
 	_lantern_noise.frequency = 1.0
@@ -108,6 +131,10 @@ func set_traveling(traveling: bool) -> void:
 	_set_state(State.WALK if traveling else State.IDLE)
 
 
+func play_run() -> void:
+	set_traveling(true)
+
+
 func set_boost(enabled: bool) -> void:
 	_boost_requested = enabled
 
@@ -115,9 +142,9 @@ func set_boost(enabled: bool) -> void:
 func _update_test_input() -> void:
 	if not input_enabled:
 		return
-	if Input.is_physical_key_pressed(KEY_RIGHT):
+	if Input.is_physical_key_pressed(KEY_RIGHT) or Input.is_physical_key_pressed(KEY_D):
 		_move_requested = true
-		_boost_requested = Input.is_physical_key_pressed(KEY_SPACE)
+		_boost_requested = Input.is_physical_key_pressed(KEY_SPACE) or Input.is_physical_key_pressed(KEY_SHIFT)
 		_input_right_held = true
 	elif _input_right_held:
 		_move_requested = false
@@ -149,13 +176,35 @@ func _set_state(new_state: State) -> void:
 		_schedule_next_snort()
 
 
+func set_customization(cart_level_value: int, owned_accessories: Dictionary) -> void:
+	cart_level = clampi(cart_level_value, 1, 2)
+	visual_level = 1 if cart_level == 1 else 2
+	for accessory_id in ACCESSORY_NODES.keys():
+		var id := String(accessory_id)
+		accessories[id] = bool(owned_accessories.get(id, false))
+	_set_visual_profile(visual_level)
+	_apply_accessory_visibility()
+	_apply_state_animations()
+
+
 func _resolve_visual_level() -> int:
-	if visual_level == 1 or visual_level == 2:
-		return visual_level
-	# shortcut: auto-deteksi dari animasi awal scene; set visual_level 1/2 untuk override.
-	if String(costume.animation).contains("wagon2only") or String(horse.animation).contains("level2"):
-		return 2
-	return 1
+	return 1 if visual_level != 2 else 2
+
+
+func _apply_accessory_visibility() -> void:
+	for child in wagon.get_children():
+		if child is AnimatedSprite2D and String(child.animation).begins_with("accessory_"):
+			var key := _accessory_key_for_node(String(child.name))
+			child.visible = key != "" and bool(accessories.get(key, false))
+	lantern_light.visible = lantern_accessory.visible
+
+
+func _accessory_key_for_node(node_name: String) -> String:
+	for accessory_id in ACCESSORY_NODES.keys():
+		var id := String(accessory_id)
+		if String(ACCESSORY_NODES[id]) == node_name:
+			return id
+	return ""
 
 
 func _set_visual_profile(level: int) -> void:

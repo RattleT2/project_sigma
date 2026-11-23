@@ -322,4 +322,3 @@ max_y = -180.0
 
 [node name="Player_Caravan" parent="." instance=ExtResource("12_karavan")]
 position = Vector2(-84, -12)
-visual_level = 2
