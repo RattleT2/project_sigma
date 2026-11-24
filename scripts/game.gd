@@ -17,16 +17,21 @@ const WALK_SCENES := {
 
 const FADE_SECONDS := 0.35
 const STOP_FADE_SECONDS := 0.2
+const SKIP_FADE_IN := 1.5
+const SKIP_HOLD := 3.0
+const SKIP_FADE_OUT := 1.5
 const EXIT_MARGIN := 240.0
 const BASE_BOOST_SPEED := 220.0
 
 var departure_speed := 420.0
 var _travelling := false
+var _skip_animating := false
 
 @onready var _host: Node2D = $AreaHost
 @onready var _map = $UI/MapMenu
 @onready var _hud = $UI/HUD
 @onready var _fade: ColorRect = $UI/Fade
+@onready var _skip_text: Label = $UI/SkipText
 
 
 func _ready() -> void:
@@ -37,6 +42,7 @@ func _ready() -> void:
 	_map.destination_confirmed.connect(_on_destination_confirmed)
 	_map.close_requested.connect(_close_map)
 	_hud.map_requested.connect(_open_map)
+	_hud.end_turn_requested.connect(_on_end_turn_requested)
 	RunState.changed.connect(_sync_player_customization)
 	_show_scene(_current_stop_scene(), false)
 	_hud.refresh()
@@ -83,6 +89,40 @@ func _close_map() -> void:
 	_hud.refresh()
 
 
+func _on_end_turn_requested() -> void:
+	if _travelling or _skip_animating or RunState.is_at_depot() or RunState.is_awaiting_delivery() or RunState.pending_result() != "":
+		return
+	_skip_animating = true
+	_hud.set_busy(true)
+	var result := await _play_skip_transition()
+	_skip_animating = false
+	if result == "":
+		_hud.set_busy(false)
+		_hud.refresh()
+		_hud.show_toast("Turn diakhiri. %d turn tersisa." % RunState.turns_left())
+	else:
+		await _resolve_result(result)
+
+
+func _play_skip_transition() -> String:
+	_skip_text.text = "Waktu Turn Di Skip 1"
+	_skip_text.modulate.a = 0.0
+	_skip_text.show()
+	var tween := create_tween().set_parallel(true)
+	tween.tween_property(_fade, "modulate:a", 1.0, SKIP_FADE_IN)
+	tween.tween_property(_skip_text, "modulate:a", 1.0, SKIP_FADE_IN)
+	await tween.finished
+	var result := RunState.end_turn()
+	await get_tree().create_timer(SKIP_HOLD).timeout
+	tween = create_tween().set_parallel(true)
+	tween.tween_property(_fade, "modulate:a", 0.0, SKIP_FADE_OUT)
+	tween.tween_property(_skip_text, "modulate:a", 0.0, SKIP_FADE_OUT)
+	await tween.finished
+	_skip_text.hide()
+	_skip_text.modulate.a = 0.0
+	return result
+
+
 func _on_destination_confirmed(area_id: StringName) -> void:
 	if _travelling:
 		return
@@ -115,6 +155,8 @@ func _travel_to_region(area: String) -> void:
 	var speed_scale := RunState.drive_speed_scale()
 	player.set("input_enabled", true)
 	player.set("external_travel", false)
+	player.set("auto_run", true)
+	player.call("reset_boost")
 	player.set("walk_speed", GameData.BASE_DRIVE_SPEED * speed_scale)
 	player.set("boost_speed", BASE_BOOST_SPEED * speed_scale)
 	player.call("stop_move")
@@ -133,7 +175,7 @@ func _travel_to_region(area: String) -> void:
 	var bandit_event: Dictionary = {}
 	var bandit_at := randf_range(0.45, 0.7)
 	_hud.show_travel_progress(area)
-	_hud.show_toast("Panah kanan / D untuk jalan, Space untuk boost.")
+	_hud.show_toast("Karavan berjalan otomatis. Tahan Space/Shift untuk boost.")
 
 	while player.global_position.x < target_x:
 		await get_tree().process_frame
@@ -141,6 +183,7 @@ func _travel_to_region(area: String) -> void:
 			continue
 		var progress := clampf((player.global_position.x - start_x) / distance, 0.0, 1.0)
 		_hud.set_travel_progress(progress)
+		_hud.set_boost_ratio(float(player.call("boost_ratio")), bool(player.call("boost_locked")))
 		if bandit_event.is_empty() and progress >= bandit_at:
 			bandit_event = RunState.roll_bandit(area)
 			if not bandit_event.is_empty():
@@ -156,6 +199,7 @@ func _travel_to_region(area: String) -> void:
 	_hud.hide_travel_progress()
 	player.set("input_enabled", false)
 	player.set("external_travel", true)
+	player.set("auto_run", false)
 	player.call("stop_move")
 	player.call("set_traveling", false)
 
@@ -251,8 +295,22 @@ func _show_scene(scene: PackedScene, traveling := false) -> Node:
 		child.queue_free()
 	var area := scene.instantiate()
 	_host.add_child(area)
+	_play_area_bgm(area)
 	_configure_player(area, traveling)
 	return area
+
+
+func _play_area_bgm(area: Node) -> void:
+	var bgm := area.get_node_or_null("Audio/BGM") as AudioStreamPlayer
+	if bgm == null or bgm.stream == null:
+		return
+	if bgm.stream is AudioStreamWAV:
+		var wav := bgm.stream as AudioStreamWAV
+		# Loop tanpa titik loop = diputar 1 frame kosong terus, jadi isi loop_end dulu.
+		wav.loop_begin = 0
+		wav.loop_end = int(wav.get_length() * wav.mix_rate) - 1
+		wav.loop_mode = AudioStreamWAV.LOOP_FORWARD
+	bgm.play()
 
 
 func _find_player(area: Node) -> Node:

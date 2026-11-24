@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="PackedScene" uid="uid://bjl8uhkikpul7" path="res://scenes/npc_lumberjack_men.tscn" id="1_lumberjack"]
+[ext_resource type="PackedScene" uid="uid://c1oavkbqgkq2i" path="res://scenes/npc_civilian_men.tscn" id="2_man"]
+[ext_resource type="PackedScene" uid="uid://cqjj24xgl70sw" path="res://scenes/npc_kitsune.tscn" id="3_kitsune"]
+[ext_resource type="PackedScene" uid="uid://dk2fd32a8pgcu" path="res://scenes/npc_farmer_men.tscn" id="4_farmer"]
+[ext_resource type="PackedScene" uid="uid://dbaxykic1cp52" path="res://scenes/work_prop_npc_lumberjack.tscn" id="5_log"]
+
+[node name="ForestStopNpcs" type="Node2D"]
+
+[node name="WorkPropLumberjack" parent="." instance=ExtResource("5_log")]
+position = Vector2(-195, 0)
+
+[node name="NpcLumberjack" parent="." instance=ExtResource("1_lumberjack")]
+position = Vector2(-230, 0)
+apply_gravity = false
+patrol_range = 18.0
+target_prop_path = NodePath("../WorkPropLumberjack")
+
+[node name="NpcMerchant" parent="." instance=ExtResource("2_man")]
+position = Vector2(430, 0)
+apply_gravity = false
+patrol_range = 30.0
+
+[node name="NpcKitsune" parent="." instance=ExtResource("3_kitsune")]
+position = Vector2(570, 0)
+apply_gravity = false
+patrol_range = 22.0
+
+[node name="NpcFarmer" parent="." instance=ExtResource("4_farmer")]
+position = Vector2(160, 0)
+apply_gravity = false
+patrol_range = 24.0

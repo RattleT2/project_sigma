@@ -1,4 +1,6 @@
-[gd_scene load_steps=19 format=4 uid="uid://bop2y22w8lkt4"]
+[gd_scene load_steps=20 format=4 uid="uid://bop2y22w8lkt4"]
+
+[ext_resource type="PackedScene" path="res://scenes/npc_packs/forest_stop_npcs.tscn" id="90_npcs"]
 
 [ext_resource type="Texture2D" uid="uid://cxoocotnux6qn" path="res://asset/background/craftpix-net-823949-free-nature-backgrounds-pixel-art/nature_1/1.png" id="1_78idh"]
 [ext_resource type="Texture2D" uid="uid://bpliy1pve2p2e" path="res://asset/background/craftpix-net-995711-free-pixel-art-cloud-and-sky-backgrounds/4. NEW CLOUDS/2.png" id="1_awan2"]
@@ -437,6 +439,9 @@ position = Vector2(610, -16)
 texture = ExtResource("15_tabib")
 offset = Vector2(0, -74)
 
+[node name="Npcs" parent="." instance=ExtResource("90_npcs")]
+position = Vector2(0, -16)
+
 [node name="Player_Caravan" parent="." instance=ExtResource("10_hf83x")]
 position = Vector2(-84, -58)
 
@@ -464,3 +469,8 @@ position = Vector2(430, -16)
 texture = ExtResource("5_0fenw")
 offset = Vector2(0, -19)
 flip_h = true
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="BGM" type="AudioStreamPlayer" parent="Audio"]
+volume_db = -6.0

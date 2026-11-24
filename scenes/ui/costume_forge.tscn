@@ -1,127 +1,63 @@
-[gd_scene load_steps=18 format=3]
+[gd_scene load_steps=15 format=3 uid="uid://cf1cl0v5shr1g"]
 
-[ext_resource type="Script" path="res://scripts/ui/costume_forge.gd" id="1_forge"]
+[ext_resource type="Script" uid="uid://dpvxi2n7b2kwp" path="res://scripts/ui/costume_forge.gd" id="1_forge"]
 [ext_resource type="PackedScene" path="res://scenes/ui/caravan_preview.tscn" id="2_preview"]
-[ext_resource type="Texture2D" path="res://asset/caravan_sprites/aksesoris/akses_roda_cadangan.png" id="3_capacity"]
-[ext_resource type="Texture2D" path="res://asset/caravan_sprites/aksesoris/akses_peti_ayam.png" id="4_chest"]
-[ext_resource type="Texture2D" path="res://asset/caravan_sprites/aksesoris/akses_sekop_beliung.png" id="5_tools"]
-[ext_resource type="Texture2D" path="res://asset/caravan_sprites/aksesoris/akses_lentera.png" id="6_lantern"]
-[ext_resource type="Texture2D" path="res://asset/caravan_sprites/aksesoris/akses_karung_atap.png" id="7_sack"]
-[ext_resource type="Texture2D" path="res://asset/papan_kosong_untuk_jurnal_dan_forge.png" id="8_board"]
-
-[ext_resource type="Texture2D" path="res://asset/quest_ui_hd/07_icons/icon_scroll_quill@4x.png" id="9_quill"]
-[ext_resource type="Texture2D" path="res://asset/quest_ui_hd/10_tanpa_teks/tombol_kosong@4x.png" id="10_button"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button"]
-bg_color = Color(0.22, 0.12, 0.065, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.62, 0.43, 0.22, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-content_margin_left = 6.0
-content_margin_top = 2.0
-content_margin_right = 6.0
-content_margin_bottom = 2.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button_hover"]
-bg_color = Color(0.3, 0.17, 0.09, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.92, 0.68, 0.3, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-content_margin_left = 6.0
-content_margin_top = 2.0
-content_margin_right = 6.0
-content_margin_bottom = 2.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button_pressed"]
-bg_color = Color(0.14, 0.075, 0.04, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.48, 0.32, 0.16, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-content_margin_left = 6.0
-content_margin_top = 2.0
-content_margin_right = 6.0
-content_margin_bottom = 2.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button_disabled"]
-bg_color = Color(0.16, 0.11, 0.08, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.33, 0.25, 0.18, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-content_margin_left = 6.0
-content_margin_top = 2.0
-content_margin_right = 6.0
-content_margin_bottom = 2.0
+[ext_resource type="Texture2D" uid="uid://c3jtw6nvpkldg" path="res://asset/caravan_sprites/aksesoris/akses_roda_cadangan.png" id="3_capacity"]
+[ext_resource type="Texture2D" uid="uid://c3slegg1j711v" path="res://asset/caravan_sprites/aksesoris/akses_peti_ayam.png" id="4_chest"]
+[ext_resource type="Texture2D" uid="uid://dr62issrelphy" path="res://asset/caravan_sprites/aksesoris/akses_sekop_beliung.png" id="5_tools"]
+[ext_resource type="Texture2D" uid="uid://du6o7lc67hgwc" path="res://asset/caravan_sprites/aksesoris/akses_lentera.png" id="6_lantern"]
+[ext_resource type="Texture2D" uid="uid://bmk88nhtq6q01" path="res://asset/caravan_sprites/aksesoris/akses_karung_atap.png" id="7_sack"]
+[ext_resource type="Texture2D" uid="uid://clmtp8bwnoyra" path="res://asset/papan_kosong_untuk_jurnal_dan_forge.png" id="8_board"]
+[ext_resource type="Texture2D" uid="uid://lpk5hrtrp8x7" path="res://asset/quest_ui_hd/07_icons/icon_scroll_quill@4x.png" id="9_quill"]
+[ext_resource type="Texture2D" uid="uid://bgi8cbvn56u8r" path="res://asset/quest_ui_hd/10_tanpa_teks/tombol_kosong@4x.png" id="10_button"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_button"]
+content_margin_left = 14.0
+content_margin_top = 2.0
+content_margin_right = 14.0
+content_margin_bottom = 2.0
 texture = ExtResource("10_button")
 texture_margin_left = 12.0
 texture_margin_top = 8.0
 texture_margin_right = 12.0
 texture_margin_bottom = 8.0
-content_margin_left = 14.0
-content_margin_top = 2.0
-content_margin_right = 14.0
-content_margin_bottom = 2.0
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_button_hover"]
-texture = ExtResource("10_button")
-texture_margin_left = 12.0
-texture_margin_top = 8.0
-texture_margin_right = 12.0
-texture_margin_bottom = 8.0
-content_margin_left = 14.0
-content_margin_top = 2.0
-content_margin_right = 14.0
-content_margin_bottom = 2.0
-modulate_color = Color(1.08, 1.06, 0.95, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_button_pressed"]
+content_margin_left = 14.0
+content_margin_top = 2.0
+content_margin_right = 14.0
+content_margin_bottom = 2.0
 texture = ExtResource("10_button")
 texture_margin_left = 12.0
 texture_margin_top = 8.0
 texture_margin_right = 12.0
 texture_margin_bottom = 8.0
-content_margin_left = 14.0
-content_margin_top = 2.0
-content_margin_right = 14.0
-content_margin_bottom = 2.0
 modulate_color = Color(0.82, 0.78, 0.68, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_button_disabled"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_button_hover"]
+content_margin_left = 14.0
+content_margin_top = 2.0
+content_margin_right = 14.0
+content_margin_bottom = 2.0
 texture = ExtResource("10_button")
 texture_margin_left = 12.0
 texture_margin_top = 8.0
 texture_margin_right = 12.0
 texture_margin_bottom = 8.0
+modulate_color = Color(1.08, 1.06, 0.95, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_button_disabled"]
 content_margin_left = 14.0
 content_margin_top = 2.0
 content_margin_right = 14.0
 content_margin_bottom = 2.0
+texture = ExtResource("10_button")
+texture_margin_left = 12.0
+texture_margin_top = 8.0
+texture_margin_right = 12.0
+texture_margin_bottom = 8.0
 modulate_color = Color(0.5, 0.46, 0.4, 1)
+
 [node name="CostumeForge" type="Control"]
 custom_minimum_size = Vector2(720, 405)
 layout_mode = 3
@@ -130,7 +66,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 0
 script = ExtResource("1_forge")
 
 [node name="Board" type="TextureRect" parent="."]
@@ -143,7 +78,6 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("8_board")
 expand_mode = 1
-stretch_mode = 0
 
 [node name="TitleIcon" type="TextureRect" parent="."]
 layout_mode = 0
@@ -184,8 +118,8 @@ unique_name_in_owner = true
 layout_mode = 0
 offset_left = 58.0
 offset_top = 84.0
-offset_right = 308.0
-offset_bottom = 300.0
+offset_right = 398.0
+offset_bottom = 255.0
 
 [node name="PreviewLabel" type="Label" parent="Content"]
 unique_name_in_owner = true
@@ -250,8 +184,8 @@ theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(0.55, 0.48, 0.4, 1)
 theme_override_font_sizes/font_size = 12
 theme_override_styles/normal = SubResource("StyleBoxTexture_button")
-theme_override_styles/hover = SubResource("StyleBoxTexture_button_hover")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_button_pressed")
+theme_override_styles/hover = SubResource("StyleBoxTexture_button_hover")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_button_disabled")
 text = "UPGRADE 500"
 
@@ -303,8 +237,8 @@ theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(0.55, 0.48, 0.4, 1)
 theme_override_font_sizes/font_size = 11
 theme_override_styles/normal = SubResource("StyleBoxTexture_button")
-theme_override_styles/hover = SubResource("StyleBoxTexture_button_hover")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_button_pressed")
+theme_override_styles/hover = SubResource("StyleBoxTexture_button_hover")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_button_disabled")
 text = "BELI 150"
 
@@ -350,8 +284,8 @@ theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(0.55, 0.48, 0.4, 1)
 theme_override_font_sizes/font_size = 11
 theme_override_styles/normal = SubResource("StyleBoxTexture_button")
-theme_override_styles/hover = SubResource("StyleBoxTexture_button_hover")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_button_pressed")
+theme_override_styles/hover = SubResource("StyleBoxTexture_button_hover")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_button_disabled")
 text = "BELI 200"
 
@@ -397,8 +331,8 @@ theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(0.55, 0.48, 0.4, 1)
 theme_override_font_sizes/font_size = 11
 theme_override_styles/normal = SubResource("StyleBoxTexture_button")
-theme_override_styles/hover = SubResource("StyleBoxTexture_button_hover")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_button_pressed")
+theme_override_styles/hover = SubResource("StyleBoxTexture_button_hover")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_button_disabled")
 text = "BELI 250"
 
@@ -444,8 +378,8 @@ theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(0.55, 0.48, 0.4, 1)
 theme_override_font_sizes/font_size = 11
 theme_override_styles/normal = SubResource("StyleBoxTexture_button")
-theme_override_styles/hover = SubResource("StyleBoxTexture_button_hover")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_button_pressed")
+theme_override_styles/hover = SubResource("StyleBoxTexture_button_hover")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_button_disabled")
 text = "BELI 300"
 
@@ -491,8 +425,8 @@ theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(0.55, 0.48, 0.4, 1)
 theme_override_font_sizes/font_size = 11
 theme_override_styles/normal = SubResource("StyleBoxTexture_button")
-theme_override_styles/hover = SubResource("StyleBoxTexture_button_hover")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_button_pressed")
+theme_override_styles/hover = SubResource("StyleBoxTexture_button_hover")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_button_disabled")
 text = "BELI 250"
 

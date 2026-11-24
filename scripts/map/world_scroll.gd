@@ -5,6 +5,7 @@ extends Node
 
 var _parallax_base: Dictionary = {}
 var _speed_base: Dictionary = {}
+var _follow_nodes: Array[Node2D] = []
 
 
 func _ready() -> void:
@@ -15,10 +16,15 @@ func _ready() -> void:
 		parallax.autoscroll = Vector2.ZERO
 	for node in map.find_children("*", "Node", true, false):
 		var path := _script_path(node)
-		if not (path.contains("ground_looper") or path.contains("prop_spawn") or path.contains("house_group_spawner")):
+		if not (path.contains("ground_looper") or path.contains("prop_spawn") or path.contains("house_group_spawner") or path.contains("npc_travel_spawner")):
 			continue
 		_speed_base[node] = float(node.get("scroll_speed"))
 		node.set("scroll_speed", 0.0)
+		# GroundLooper wrap sendiri di sekitar karavan; spawner lain cukup ikut posisi karavan.
+		if not path.contains("ground_looper"):
+			var follow := node as Node2D
+			if follow != null:
+				_follow_nodes.append(follow)
 
 
 func _process(_delta: float) -> void:
@@ -33,6 +39,10 @@ func _process(_delta: float) -> void:
 		parallax.autoscroll = Vector2(base.x * ratio, base.y * ratio)
 	for node in _speed_base:
 		node.set("scroll_speed", float(_speed_base[node]) * ratio)
+	if player != null:
+		var anchor: float = (player as Node2D).global_position.x
+		for node in _follow_nodes:
+			node.position.x = anchor
 
 
 func _script_path(node: Node) -> String:

@@ -1,4 +1,6 @@
-[gd_scene load_steps=21 format=4 uid="uid://rxecb8leylwb"]
+[gd_scene load_steps=22 format=4 uid="uid://rxecb8leylwb"]
+
+[ext_resource type="PackedScene" path="res://scenes/npc_packs/snow_stop_npcs.tscn" id="90_npcs"]
 
 [ext_resource type="Texture2D" uid="uid://dr657qnmqmqhx" path="res://asset/background/craftpix-net-823949-free-nature-backgrounds-pixel-art/nature_6/1.png" id="1_fai1k"]
 [ext_resource type="Texture2D" uid="uid://dt7e34f7s0jur" path="res://asset/background/Pixel_Art_Snow_And_Ice_Tileset_Pack/Pixel Art Snow and Ice Tileset/snowy_rock_block.png" id="1_pevrq"]
@@ -373,6 +375,9 @@ position = Vector2(165, -69)
 texture = ExtResource("23_tiang_salju")
 centered = false
 
+[node name="Npcs" parent="." instance=ExtResource("90_npcs")]
+position = Vector2(0, 15)
+
 [node name="Player_Caravan" parent="." instance=ExtResource("16_karavan")]
 position = Vector2(-84, -12)
 
@@ -392,3 +397,8 @@ prop_textures = Array[Texture2D]([ExtResource("18_awan4"), ExtResource("19_awan3
 scroll_speed = 0.0
 min_y = -180.0
 max_y = -180.0
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="BGM" type="AudioStreamPlayer" parent="Audio"]
+volume_db = -6.0

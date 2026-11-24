@@ -55,9 +55,12 @@ func refresh() -> void:
 		return
 	var cart := RunState.cart_level
 	var speed_percent := int(round(RunState.speed_bonus() * 100.0))
+	var boost_seconds := float(GameData.cart_data(cart)["boost_seconds"])
 	_preview.call("show_customization", cart, RunState.accessories)
 	_preview_label.text = "Level %d - %s" % [cart, RunState.cart_name()]
-	_stats_info.text = "Kapasitas %d - Speed +%d%%\nKoin menu %d" % [RunState.capacity(), speed_percent, RunState.menu_coins]
+	_stats_info.text = "Kapasitas %d - Speed +%d%% - Boost %.1f dtk\nKoin menu %d" % [
+		RunState.capacity(), speed_percent, boost_seconds, RunState.menu_coins
+	]
 	_cart_name.text = "Gerobak Level %d/%d" % [cart, GameData.MAX_CART_LEVEL]
 
 	if cart >= GameData.MAX_CART_LEVEL:
@@ -66,8 +69,9 @@ func refresh() -> void:
 		_cart_button.disabled = true
 	else:
 		var next_data := GameData.cart_data(cart + 1)
-		_cart_effect.text = "Upgrade: +%d kapasitas, +%d%% speed" % [
-			int(next_data["capacity"]), int(round(float(next_data["speed"]) * 100.0))
+		_cart_effect.text = "Upgrade: +%d kapasitas, +%d%% speed\nBoost %.1f -> %.1f dtk" % [
+			int(next_data["capacity"]), int(round(float(next_data["speed"]) * 100.0)),
+			boost_seconds, float(next_data["boost_seconds"])
 		]
 		_cart_button.text = "UPGRADE %d" % GameData.CART_UPGRADE_COST
 		_cart_button.disabled = RunState.menu_coins < GameData.CART_UPGRADE_COST or _blocked_in_game()

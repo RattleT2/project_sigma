@@ -1,4 +1,6 @@
-[gd_scene load_steps=23 format=4]
+[gd_scene load_steps=24 format=4]
+
+[ext_resource type="PackedScene" path="res://scenes/npc_packs/desert_stop_npcs.tscn" id="90_npcs"]
 
 [ext_resource type="Texture2D" uid="uid://deot0g0j24wt7" path="res://asset/background/Desert Tiles-v2/Desert_/Tiles/Tiles.png" id="1_502h4"]
 [ext_resource type="Texture2D" uid="uid://b6u6kuvlk7i4y" path="res://asset/background/craftpix-net-995711-free-pixel-art-cloud-and-sky-backgrounds/1. NEW CLOUDS/1.png" id="1_uue3q"]
@@ -347,6 +349,9 @@ position = Vector2(-180, 16)
 texture = ExtResource("15_tiang")
 offset = Vector2(0, -42)
 
+[node name="Npcs" parent="." instance=ExtResource("90_npcs")]
+position = Vector2(0, 16)
+
 [node name="Player_Caravan" parent="." instance=ExtResource("12_karavan")]
 position = Vector2(-84, -12)
 
@@ -361,3 +366,8 @@ emitting = false
 
 [node name="Harness" parent="Player_Caravan/Cariagetentcostume/Horse" index="1"]
 animation = &"harnes_idle"
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="BGM" type="AudioStreamPlayer" parent="Audio"]
+volume_db = -6.0

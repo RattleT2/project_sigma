@@ -3,6 +3,7 @@ extends Control
 ## HUD in-game: topbar, nav bawah, panel Depot/Forge/Jurnal, modal bandit & hasil.
 
 signal map_requested
+signal end_turn_requested
 signal _modal_choice(primary: bool)
 signal _delivery_done(result: Dictionary)
 
@@ -51,6 +52,8 @@ signal _delivery_done(result: Dictionary)
 @onready var _delivery_skip: Button = $PanelHost/Margin/Stack/DeliveryPanel/Buttons/Skip
 
 @onready var _travel_progress: ProgressBar = %TravelProgress
+@onready var _boost_row: HBoxContainer = %BoostRow
+@onready var _boost_bar: ProgressBar = %BoostBar
 @onready var _travel_label: Label = %TravelLabel
 @onready var _toast: Label = %Toast
 @onready var _modal_layer: Control = %ModalLayer
@@ -63,6 +66,7 @@ signal _delivery_done(result: Dictionary)
 @onready var _map_button: TextureButton = %MapButton
 @onready var _forge_button: TextureButton = %ForgeButton
 @onready var _journal_button: TextureButton = %JournalButton
+@onready var _end_turn_button: Button = %EndTurnButton
 
 var _sliders: Dictionary = {}
 var _qty_labels: Dictionary = {}
@@ -86,6 +90,7 @@ func _ready() -> void:
 	_forge_button.pressed.connect(_show_panel.bind("forge"))
 	_journal_button.pressed.connect(_show_panel.bind("journal"))
 	_map_button.pressed.connect(_on_map_pressed)
+	_end_turn_button.pressed.connect(_on_end_turn_pressed)
 	_journal_panel.connect("map_requested", _on_map_pressed)
 	_journal_panel.connect("close_requested", close_panels)
 	_buy_button.pressed.connect(_on_buy_pressed)
@@ -125,6 +130,7 @@ func refresh() -> void:
 	_area_label.text = "DEPOT" if area == "depot" else GameData.region_name(area).to_upper()
 	_refresh_shop()
 	_refresh_journal()
+	_update_end_turn_button()
 
 
 func set_busy(busy: bool) -> void:
@@ -133,6 +139,7 @@ func set_busy(busy: bool) -> void:
 		button.disabled = busy
 	if busy:
 		close_panels()
+	_update_end_turn_button()
 
 
 func show_travel_progress(region_id: String) -> void:
@@ -140,14 +147,23 @@ func show_travel_progress(region_id: String) -> void:
 	_travel_label.show()
 	_travel_progress.value = 0.0
 	_travel_progress.show()
+	_boost_bar.value = 100.0
+	_boost_bar.modulate = Color.WHITE
+	_boost_row.show()
 
 
 func set_travel_progress(value: float) -> void:
 	_travel_progress.value = clampf(value, 0.0, 1.0) * 100.0
 
 
+func set_boost_ratio(ratio: float, locked: bool) -> void:
+	_boost_bar.value = clampf(ratio, 0.0, 1.0) * 100.0
+	_boost_bar.modulate = Color(1.0, 0.55, 0.5) if locked else Color.WHITE
+
+
 func hide_travel_progress() -> void:
 	_travel_progress.hide()
+	_boost_row.hide()
 	_travel_label.hide()
 
 
@@ -163,6 +179,7 @@ func close_panels() -> void:
 	_delivery_panel.hide()
 	_panel_host.hide()
 	_board_layer.hide()
+	_update_end_turn_button()
 
 
 func show_toast(text: String) -> void:
@@ -270,6 +287,21 @@ func _on_map_pressed() -> void:
 	map_requested.emit()
 
 
+func _on_end_turn_pressed() -> void:
+	end_turn_requested.emit()
+
+
+func _update_end_turn_button() -> void:
+	_end_turn_button.visible = (
+		RunState.has_run()
+		and not RunState.is_at_depot()
+		and not RunState.is_awaiting_delivery()
+		and RunState.pending_result() == ""
+		and not _busy
+		and _panel_name == ""
+	)
+
+
 func _on_slider_changed(_value: float, resource_id: String) -> void:
 	var available := maxi(RunState.capacity() - RunState.carried_total(), 0)
 	var total := _planned_total()
@@ -363,17 +395,31 @@ func _refresh_journal() -> void:
 	for region_id in GameData.REGION_ORDER:
 		var rid := String(region_id)
 		var status := "STABIL" if RunState.is_stable(rid) else "BELUM"
-		var demands: Array[String] = []
-		for resource_id in GameData.RESOURCES.keys():
-			var id := String(resource_id)
-			demands.append("%s %d/%d" % [GameData.resource_short(id), RunState.stock(rid, id), RunState.need(rid, id)])
-		lines.append("%s [%s]\n%s" % [GameData.region_name(rid), status, ", ".join(demands)])
+		lines.append("%s [%s] Iron %d/%d, Emas %d/%d, Diamond %d/%d" % [
+			GameData.region_name(rid), status,
+			RunState.stock(rid, "iron"), RunState.need(rid, "iron"),
+			RunState.stock(rid, "gold"), RunState.need(rid, "gold"),
+			RunState.stock(rid, "diamond"), RunState.need(rid, "diamond"),
+		])
+	var quest_lines: Array[String] = ["TUGAS"]
+	for quest_id in GameData.QUEST_ORDER:
+		var id := String(quest_id)
+		var data: Dictionary = GameData.QUESTS[id]
+		var reward := int(data["reward"])
+		if RunState.is_quest_done(id):
+			quest_lines.append("- %s: SELESAI (+%d coin)" % [String(data["name"]), reward])
+		else:
+			var target := int(data["target"])
+			var progress := mini(RunState.quest_progress(id), target)
+			quest_lines.append("- %s: %d/%d (+%d coin)" % [String(data["name"]), progress, target, reward])
 	var log_entries := RunState.log_entries()
-	var log_start := maxi(0, log_entries.size() - 6)
+	var log_start := maxi(0, log_entries.size() - 4)
 	var log_lines: Array[String] = []
 	for i in range(log_start, log_entries.size()):
 		log_lines.append("- %s" % String(log_entries[i]))
-	_journal_panel.call("set_content", summary, "%s\n\nRIWAYAT\n%s" % ["\n".join(lines), "\n".join(log_lines)])
+	_journal_panel.call("set_content", summary, "%s\n\n%s\n\nRIWAYAT\n%s" % [
+		"\n".join(lines), "\n".join(quest_lines), "\n".join(log_lines)
+	])
 
 
 func ask_delivery(region_id: String) -> Dictionary:

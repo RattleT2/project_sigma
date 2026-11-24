@@ -15,10 +15,6 @@ run/main_scene="res://scenes/ui/main_menu.tscn"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
-[gui]
-
-theme/custom_font="res://asset/fonts/PixelifySans.tres"
-
 [autoload]
 
 RunState="*res://scripts/autoload/run_state.gd"
@@ -26,6 +22,10 @@ RunState="*res://scripts/autoload/run_state.gd"
 [dotnet]
 
 project/assembly_name="Caravan Explore"
+
+[gui]
+
+theme/custom_font="res://asset/fonts/PixelifySans.tres"
 
 [rendering]
 

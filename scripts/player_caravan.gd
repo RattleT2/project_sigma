@@ -11,6 +11,7 @@ const ACCESSORY_NODES := {
 }
 
 @export var input_enabled := true
+@export var auto_run := false
 @export var preview_mode := false
 @export_enum("Auto", "Level 1", "Level 2") var visual_level: int = 1
 @export var external_travel := false
@@ -48,6 +49,10 @@ const ACCESSORY_NODES := {
 
 var state: State = State.IDLE
 var cart_level := 1
+var boost_max := 3.0
+var boost_stamina := 3.0
+var _boost_locked := false
+var _boost_recover_wait := 0.0
 var accessories := {
 	"capacity": false,
 	"chest": false,
@@ -84,6 +89,7 @@ func _ready() -> void:
 		horse.animation_finished.connect(_on_horse_animation_finished)
 	_collect_accessories()
 	set_customization(_resolve_visual_level(), accessories)
+	boost_stamina = boost_max
 	if not preview_mode:
 		_schedule_next_snort()
 	_lantern_base_energy = lantern_light.energy
@@ -110,6 +116,7 @@ func _update_lantern(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	if not external_travel:
 		_update_test_input()
+	_update_boost_stamina(delta)
 	_update_movement(delta)
 	velocity.y = 0.0
 	move_and_slide()
@@ -142,6 +149,11 @@ func set_boost(enabled: bool) -> void:
 func _update_test_input() -> void:
 	if not input_enabled:
 		return
+	if auto_run:
+		_move_requested = true
+		_boost_requested = Input.is_physical_key_pressed(KEY_SPACE) or Input.is_physical_key_pressed(KEY_SHIFT)
+		_input_right_held = false
+		return
 	if Input.is_physical_key_pressed(KEY_RIGHT) or Input.is_physical_key_pressed(KEY_D):
 		_move_requested = true
 		_boost_requested = Input.is_physical_key_pressed(KEY_SPACE) or Input.is_physical_key_pressed(KEY_SHIFT)
@@ -157,13 +169,46 @@ func _update_movement(delta: float) -> void:
 		velocity.x = 0.0
 		return
 	if _move_requested:
-		var target_speed := boost_speed if _boost_requested else walk_speed
+		var can_boost := _boost_requested and not _boost_locked and boost_stamina > 0.0
+		var target_speed := boost_speed if can_boost else walk_speed
 		velocity.x = move_toward(velocity.x, target_speed, acceleration * delta)
-		_set_state(State.BOOST if _boost_requested else State.WALK)
+		_set_state(State.BOOST if can_boost else State.WALK)
 	else:
 		if state == State.WALK or state == State.BOOST:
 			_set_state(State.STOPPING)
 		velocity.x = move_toward(velocity.x, 0.0, deceleration * delta)
+
+
+func _update_boost_stamina(delta: float) -> void:
+	if external_travel:
+		return
+	var boosting := _move_requested and _boost_requested and not _boost_locked and boost_stamina > 0.0
+	if boosting:
+		boost_stamina = maxf(boost_stamina - delta, 0.0)
+		_boost_recover_wait = GameData.BOOST_RECOVER_DELAY
+		if boost_stamina <= 0.0:
+			_boost_locked = true
+		return
+	_boost_recover_wait = maxf(_boost_recover_wait - delta, 0.0)
+	if _boost_recover_wait > 0.0:
+		return
+	boost_stamina = minf(boost_stamina + boost_max * delta / GameData.BOOST_RECOVER_SECONDS, boost_max)
+	if _boost_locked and boost_stamina >= boost_max * GameData.BOOST_RELOCK_RATIO:
+		_boost_locked = false
+
+
+func boost_ratio() -> float:
+	return boost_stamina / boost_max if boost_max > 0.0 else 0.0
+
+
+func boost_locked() -> bool:
+	return _boost_locked
+
+
+func reset_boost() -> void:
+	boost_stamina = boost_max
+	_boost_locked = false
+	_boost_recover_wait = 0.0
 
 
 func _set_state(new_state: State) -> void:
@@ -178,6 +223,8 @@ func _set_state(new_state: State) -> void:
 
 func set_customization(cart_level_value: int, owned_accessories: Dictionary) -> void:
 	cart_level = clampi(cart_level_value, 1, 2)
+	boost_max = float(GameData.cart_data(cart_level)["boost_seconds"])
+	boost_stamina = minf(boost_stamina, boost_max)
 	visual_level = 1 if cart_level == 1 else 2
 	for accessory_id in ACCESSORY_NODES.keys():
 		var id := String(accessory_id)

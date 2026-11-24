@@ -1,21 +1,26 @@
-[gd_scene load_steps=30 format=4 uid="uid://dbc1rymt5qvq2"]
+[gd_scene load_steps=34 format=4 uid="uid://dbc1rymt5qvq2"]
 
-[ext_resource type="Texture2D" uid="uid://dr657qnmqmqhx" path="res://asset/background/craftpix-net-823949-free-nature-backgrounds-pixel-art/nature_6/1.png" id="1_fai1k"]
+[ext_resource type="Script" path="res://scripts/npc_travel_spawner.gd" id="91_npcspawn"]
+[ext_resource type="PackedScene" uid="uid://c1oavkbqgkq2i" path="res://scenes/npc_civilian_men.tscn" id="92_man"]
+[ext_resource type="PackedScene" uid="uid://oaxwe1i7qis" path="res://scenes/npc_civilian_women.tscn" id="93_woman"]
+
+[ext_resource type="Texture2D" uid="uid://bdc03vmsstjmh" path="res://asset/background/craftpix-net-823949-free-nature-backgrounds-pixel-art/nature_6/1.png" id="1_fai1k"]
 [ext_resource type="Texture2D" uid="uid://dt7e34f7s0jur" path="res://asset/background/Pixel_Art_Snow_And_Ice_Tileset_Pack/Pixel Art Snow and Ice Tileset/snowy_rock_block.png" id="1_pevrq"]
 [ext_resource type="Texture2D" uid="uid://5x1qb5tl4fn2" path="res://asset/background/Pixel_Art_Snow_And_Ice_Tileset_Pack/Pixel Art Snow and Ice Tileset/snow_block.png" id="2_0tftv"]
-[ext_resource type="Texture2D" uid="uid://dr1xcirrbofad" path="res://asset/background/craftpix-net-823949-free-nature-backgrounds-pixel-art/nature_6/3.png" id="2_5v2a2"]
+[ext_resource type="Texture2D" uid="uid://q1ij24xn5g4h" path="res://asset/background/craftpix-net-823949-free-nature-backgrounds-pixel-art/nature_6/3.png" id="2_5v2a2"]
 [ext_resource type="Script" uid="uid://k34nklt8upxf" path="res://scripts/ground_prop_spawner_snow.gd" id="5_5v2a2"]
-[ext_resource type="Texture2D" uid="uid://cyucqwqaw3nwl" path="res://asset/background/craftpix-net-675652-free-rocks-pixel-art-asset-pack/PNG/snowy_rocks1/snowy_rock4.png" id="7_nl27b"]
-[ext_resource type="Texture2D" uid="uid://lg26h4q1iucc" path="res://asset/background/craftpix-net-675652-free-rocks-pixel-art-asset-pack/PNG/snowy_rocks1/snowy_rock3.png" id="8_bgvsd"]
-[ext_resource type="Texture2D" uid="uid://dg7nlss4kbc78" path="res://asset/background/craftpix-net-168228-free-tree-pixel-art-asset-pack/PNG/winter_conifer_tree_4.png" id="9_bgvsd"]
-[ext_resource type="Texture2D" uid="uid://btvvfm4t0kmyy" path="res://asset/background/craftpix-net-168228-free-tree-pixel-art-asset-pack/PNG/winter_conifer_tree_5.png" id="10_fr047"]
+[ext_resource type="Texture2D" uid="uid://bc2h2b5jft1f0" path="res://asset/background/craftpix-net-675652-free-rocks-pixel-art-asset-pack/PNG/snowy_rocks1/snowy_rock4.png" id="7_nl27b"]
+[ext_resource type="Texture2D" uid="uid://cdtdngvaq5muv" path="res://asset/background/craftpix-net-675652-free-rocks-pixel-art-asset-pack/PNG/snowy_rocks1/snowy_rock3.png" id="8_bgvsd"]
+[ext_resource type="Texture2D" uid="uid://c01uv6dikded2" path="res://asset/background/craftpix-net-168228-free-tree-pixel-art-asset-pack/PNG/winter_conifer_tree_4.png" id="9_bgvsd"]
+[ext_resource type="Texture2D" uid="uid://obario5e73t7" path="res://asset/background/craftpix-net-168228-free-tree-pixel-art-asset-pack/PNG/winter_conifer_tree_5.png" id="10_fr047"]
 [ext_resource type="Script" uid="uid://c28heocra7ucc" path="res://scripts/cloud_prop_spawner_snow.gd" id="11_d8hvq"]
-[ext_resource type="Texture2D" uid="uid://cq5p417opnh7h" path="res://asset/background/craftpix-net-995711-free-pixel-art-cloud-and-sky-backgrounds/3. NEW CLOUDS/4.png" id="12_d8hvq"]
-[ext_resource type="Texture2D" uid="uid://6yd6188fhio6" path="res://asset/background/craftpix-net-995711-free-pixel-art-cloud-and-sky-backgrounds/3. NEW CLOUDS/3.png" id="13_0duhq"]
+[ext_resource type="Texture2D" uid="uid://b74miskxkf5m0" path="res://asset/background/craftpix-net-995711-free-pixel-art-cloud-and-sky-backgrounds/3. NEW CLOUDS/4.png" id="12_d8hvq"]
+[ext_resource type="Texture2D" uid="uid://dqu1bllvp5y7v" path="res://asset/background/craftpix-net-995711-free-pixel-art-cloud-and-sky-backgrounds/3. NEW CLOUDS/3.png" id="13_0duhq"]
 [ext_resource type="Script" uid="uid://bu2bi3x743sfn" path="res://scripts/ground_looper.gd" id="14_looper"]
-[ext_resource type="PackedScene" uid="uid://d38t4xdb1wejk" path="res://scenes/player_caravan.tscn" id="16_karavan"]
 [ext_resource type="Texture2D" uid="uid://cy5rl1stcj8sp" path="res://asset/background/Asset-ocean-and-clouds-backgrounds/Ocean_6/2.png" id="15_bulan"]
+[ext_resource type="PackedScene" uid="uid://d38t4xdb1wejk" path="res://scenes/player_caravan.tscn" id="16_karavan"]
 [ext_resource type="Script" uid="uid://bmdu4qgtjpyq4" path="res://scripts/house_group_spawner.gd" id="26_rumah"]
+[ext_resource type="AudioStream" uid="uid://btgly24dkcvne" path="res://asset/audio/tema_perkotaan.wav" id="27_s5ouj"]
 [ext_resource type="Texture2D" uid="uid://cx7nmmy7ew3gt" path="res://asset/assetRumahSnow/pondok_tabib_salju.png" id="27_tabib"]
 [ext_resource type="Texture2D" uid="uid://bk8pf31p0jyya" path="res://asset/assetRumahSnow/rumah_bangsawan_salju.png" id="28_bangsawan"]
 [ext_resource type="Texture2D" uid="uid://dl0sn611bigfd" path="res://asset/assetRumahSnow/rumah_pedagang_salju.png" id="29_pedagang"]
@@ -25,8 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://d0dlkak5g4lyr" path="res://asset/assetRumahSnow/rumah_warga1_salju.png" id="33_warga1"]
 [ext_resource type="Texture2D" uid="uid://b8q6ggvj2ofo3" path="res://asset/assetRumahSnow/rumah_warga2_salju.png" id="34_warga2"]
 [ext_resource type="Texture2D" uid="uid://d38tqjkomhrug" path="res://asset/assetRumahSnow/rumah_warga3_salju.png" id="35_warga3"]
-
-[ext_resource type="Script" path="res://scripts/map/world_scroll.gd" id="90_worldscroll"]
+[ext_resource type="Script" uid="uid://bcsuxxtutr1ti" path="res://scripts/map/world_scroll.gd" id="90_worldscroll"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qdyvf"]
 texture = ExtResource("1_pevrq")
@@ -317,9 +321,9 @@ autoscroll = Vector2(-4, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Bulan"]
 position = Vector2(800, 85)
-offset = Vector2(-317, -85)
 texture = ExtResource("15_bulan")
 centered = false
+offset = Vector2(-317, -85)
 
 [node name="Gunung" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0, 0)
@@ -357,17 +361,19 @@ tile_map_data = PackedByteArray("AAD9/wAAAwAAAAAAAAD+/wAAAwAAAAAAAAD//wAAAwAAAAA
 tile_set = SubResource("TileSet_ia5h3")
 
 [node name="RumahSpawner" type="Node2D" parent="."]
+z_index = 1
 script = ExtResource("26_rumah")
 prop_textures = Array[Texture2D]([ExtResource("27_tabib"), ExtResource("28_bangsawan"), ExtResource("29_pedagang"), ExtResource("30_penebang"), ExtResource("31_penjaga"), ExtResource("32_petani"), ExtResource("33_warga1"), ExtResource("34_warga2"), ExtResource("35_warga3")])
 ground_y = 15.0
 
 [node name="GroundPropSpawnerSnow" type="Node2D" parent="."]
+z_index = 1
 script = ExtResource("5_5v2a2")
 prop_textures = Array[Texture2D]([ExtResource("7_nl27b"), ExtResource("8_bgvsd"), ExtResource("9_bgvsd"), ExtResource("10_fr047")])
-avoid_parent_path = NodePath("../RumahSpawner")
-initial_props = 2
 min_y = 15.0
 max_y = 15.0
+avoid_parent_path = NodePath("../RumahSpawner")
+initial_props = 2
 
 [node name="CloudPropSpawnerSnow" type="Node2D" parent="."]
 script = ExtResource("11_d8hvq")
@@ -376,8 +382,25 @@ scroll_speed = 30.0
 min_y = -180.0
 max_y = -180.0
 
+[node name="NpcTravelSpawner" type="Node2D" parent="."]
+z_index = 1
+script = ExtResource("91_npcspawn")
+npc_scenes = Array[PackedScene]([ExtResource("92_man"), ExtResource("93_woman")])
+ground_y = 15.0
+ground_offset = -3.0
+min_distance = 900.0
+max_distance = 1500.0
+initial_npc = 1
+
 [node name="Player_Caravan" parent="." instance=ExtResource("16_karavan")]
+z_index = 2
 position = Vector2(-84, -12)
 
 [node name="WorldScroll" type="Node" parent="."]
 script = ExtResource("90_worldscroll")
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="BGM" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("27_s5ouj")
+volume_db = 4.0

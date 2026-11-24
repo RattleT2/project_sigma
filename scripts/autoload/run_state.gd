@@ -90,11 +90,11 @@ func drive_speed_scale() -> float:
 
 
 func drive_distance(region_id: String) -> float:
-	return GameData.drive_distance(region_id) * drive_distance_scale
+	return GameData.route_seconds(current_area(), region_id) * GameData.BASE_DRIVE_SPEED * drive_distance_scale
 
 
 func estimated_drive_seconds(region_id: String) -> float:
-	return drive_distance(region_id) / maxf(GameData.BASE_DRIVE_SPEED * drive_speed_scale(), 1.0)
+	return GameData.route_seconds(current_area(), region_id) / maxf(drive_speed_scale(), 0.01)
 
 
 func cart_name() -> String:
@@ -184,6 +184,7 @@ func resupply_price(resource_id: String) -> int:
 func new_run() -> void:
 	run = _default_run()
 	active = true
+	_seed_regions()
 	await_save()
 	changed.emit()
 
@@ -199,6 +200,7 @@ func continue_round() -> void:
 	run["area"] = "depot"
 	run["awaiting_delivery"] = false
 	run["pending_result"] = ""
+	_seed_regions()
 	_log("Putaran %d dimulai: target %d wilayah stabil." % [next_round, int(run["target"])])
 	await_save()
 	changed.emit()
@@ -361,7 +363,9 @@ func arrive_at_region(region_id: String) -> void:
 		return
 	run["area"] = String(region_id)
 	run["awaiting_delivery"] = true
+	run["visited"][String(region_id)] = true
 	_log("Tiba di %s. Pilih resource yang diserahkan." % GameData.region_name(region_id))
+	_check_quests()
 	await_save()
 	changed.emit()
 
@@ -389,8 +393,11 @@ func deliver_selected(quantities: Dictionary) -> Dictionary:
 	run["coins"] = coin_balance() + revenue
 	run["awaiting_delivery"] = false
 	_log("Menyerahkan %d unit ke %s (+%d coin)." % [_units(delivered), GameData.region_name(area), revenue])
+	if is_stable(area):
+		run["ever_stable"][area] = true
 	var keep_region := area if is_stable(area) else ""
 	var turn_result := _advance_turn(keep_region)
+	_check_quests()
 	await_save()
 	changed.emit()
 	return _result_payload(delivered, revenue, String(turn_result.get("result", "")))
@@ -403,9 +410,21 @@ func skip_delivery() -> Dictionary:
 	run["awaiting_delivery"] = false
 	_log("Tidak ada resource yang diserahkan di %s." % GameData.region_name(area))
 	var turn_result := _advance_turn("")
+	_check_quests()
 	await_save()
 	changed.emit()
 	return _result_payload({}, 0, String(turn_result.get("result", "")))
+
+
+func end_turn() -> String:
+	if not has_run() or is_at_depot() or is_awaiting_delivery() or pending_result() != "":
+		return ""
+	_log("Turn diakhiri di %s." % GameData.region_name(current_area()))
+	var turn_result := _advance_turn("")
+	_check_quests()
+	await_save()
+	changed.emit()
+	return String(turn_result.get("result", ""))
 
 
 func return_to_depot() -> void:
@@ -431,6 +450,29 @@ func result_summary() -> Dictionary:
 
 func log_entries() -> Array:
 	return run.get("log", [])
+
+
+func is_quest_done(quest_id: String) -> bool:
+	if not has_run():
+		return false
+	var done = run.get("quests_done", [])
+	return typeof(done) == TYPE_ARRAY and done.has(quest_id)
+
+
+func quest_progress(quest_id: String) -> int:
+	if not has_run() or not GameData.QUESTS.has(quest_id):
+		return 0
+	var data: Dictionary = GameData.QUESTS[quest_id]
+	match String(data["type"]):
+		"delivered":
+			return int(run.get("delivered", 0))
+		"visited":
+			return _flag_count(run.get("visited", {}))
+		"stable":
+			return _flag_count(run.get("ever_stable", {}))
+		"rounds":
+			return int(run.get("rounds_won", 0))
+	return 0
 
 
 func active_buffs() -> Array:
@@ -519,10 +561,25 @@ func _default_run() -> Dictionary:
 		"area": "depot",
 		"awaiting_delivery": false,
 		"delivered": 0,
+		"visited": _empty_region_flags(),
+		"ever_stable": _empty_region_flags(),
+		"rounds_won": 0,
+		"quests_done": [],
 		"score": 0,
 		"pending_result": "",
 		"log": ["Perjalanan dimulai di Depot."],
 	}
+
+
+func _seed_regions() -> void:
+	if not has_run():
+		return
+	for region_id in GameData.REGION_ORDER:
+		var rid := String(region_id)
+		for resource_id in GameData.RESOURCES.keys():
+			var id := String(resource_id)
+			var floor_stock := GameData.round_start_stock(rid, round_number(), id)
+			run["regions"][rid][id] = maxi(stock(rid, id), floor_stock)
 
 
 func _normalize_run(source: Dictionary) -> Dictionary:
@@ -563,6 +620,31 @@ func _normalize_run(source: Dictionary) -> Dictionary:
 				var id := String(resource_id)
 				base["regions"][rid][id] = maxi(int(region_source.get(id, 0)), 0)
 
+	base["visited"] = _empty_region_flags()
+	var visited_source = source.get("visited", {})
+	if typeof(visited_source) == TYPE_DICTIONARY:
+		var visited: Dictionary = visited_source
+		for region_id in GameData.REGION_ORDER:
+			var rid := String(region_id)
+			base["visited"][rid] = bool(visited.get(rid, false))
+
+	base["ever_stable"] = _empty_region_flags()
+	var stable_source = source.get("ever_stable", {})
+	if typeof(stable_source) == TYPE_DICTIONARY:
+		var stable_flags: Dictionary = stable_source
+		for region_id in GameData.REGION_ORDER:
+			var rid := String(region_id)
+			base["ever_stable"][rid] = bool(stable_flags.get(rid, false))
+
+	base["rounds_won"] = maxi(int(base.get("rounds_won", 0)), 0)
+	base["quests_done"] = []
+	var quests_source = source.get("quests_done", [])
+	if typeof(quests_source) == TYPE_ARRAY:
+		for quest_id in quests_source:
+			var qid := String(quest_id)
+			if GameData.QUESTS.has(qid) and not base["quests_done"].has(qid):
+				base["quests_done"].append(qid)
+
 	var buffs_source = source.get("buffs", {})
 	base["buffs"] = {"guard": 0, "speed": 0, "bargain": 0}
 	if typeof(buffs_source) == TYPE_DICTIONARY:
@@ -585,6 +667,8 @@ func _advance_turn(supplied_region: String = "") -> Dictionary:
 	if int(run["turn"]) > turns_total():
 		result = "win" if target_met() else "lose"
 		run["pending_result"] = result
+		if result == "win":
+			run["rounds_won"] = int(run.get("rounds_won", 0)) + 1
 		run["score"] = score()
 	else:
 		# Wilayah yang baru disuplai tidak langsung decay di turn yang sama.
@@ -669,6 +753,41 @@ func _new_regions() -> Dictionary:
 	for region_id in GameData.REGION_ORDER:
 		result[String(region_id)] = _empty_resources()
 	return result
+
+
+func _empty_region_flags() -> Dictionary:
+	var result := {}
+	for region_id in GameData.REGION_ORDER:
+		result[String(region_id)] = false
+	return result
+
+
+func _flag_count(source) -> int:
+	if typeof(source) != TYPE_DICTIONARY:
+		return 0
+	var flags: Dictionary = source
+	var count := 0
+	for region_id in GameData.REGION_ORDER:
+		if bool(flags.get(String(region_id), false)):
+			count += 1
+	return count
+
+
+func _check_quests() -> void:
+	if not has_run():
+		return
+	for quest_id in GameData.QUEST_ORDER:
+		var id := String(quest_id)
+		if is_quest_done(id):
+			continue
+		var data: Dictionary = GameData.QUESTS[id]
+		if quest_progress(id) < int(data["target"]):
+			continue
+		var done: Array = run.get("quests_done", [])
+		done.append(id)
+		run["quests_done"] = done
+		run["coins"] = coin_balance() + int(data["reward"])
+		_log("Quest selesai: %s (+%d coin)." % [String(data["name"]), int(data["reward"])])
 
 
 func _units(quantities: Dictionary) -> int:

@@ -5,6 +5,7 @@ const GAME_SCENE := "res://scenes/game.tscn"
 
 @onready var _bgm: AudioStreamPlayer = $Audio/BGM_Menu
 @onready var _sfx: AudioStreamPlayer = $Audio/SFX_Click
+@onready var _hover_sfx: AudioStreamPlayer = $Audio/SFX_Hover
 @onready var _play: TextureButton = $BottomBar/MenuButtons/BtnPlay
 @onready var _settings: TextureButton = $BottomBar/MenuButtons/BtnSettings
 @onready var _quit: TextureButton = $BottomBar/MenuButtons/BtnQuit
@@ -36,6 +37,8 @@ func _ready() -> void:
 	_continue_button.pressed.connect(_on_continue_game)
 	_new_game_button.pressed.connect(_on_new_game)
 	_cancel_button.pressed.connect(_on_cancel_continue)
+	for button in find_children("*", "BaseButton", true, false):
+		(button as BaseButton).mouse_entered.connect(_play_hover)
 
 	_volume.value = clampf(db_to_linear(AudioServer.get_bus_volume_db(0)) * 100.0, 0.0, 100.0)
 	_fullscreen.set_pressed_no_signal(DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN)
@@ -66,9 +69,12 @@ func _sync_live_costume() -> void:
 
 
 func _setup_audio() -> void:
-	var stream := _bgm.stream
-	if stream is AudioStreamWAV:
-		stream.loop_mode = AudioStreamWAV.LOOP_FORWARD
+	if _bgm.stream is AudioStreamWAV:
+		var wav := _bgm.stream as AudioStreamWAV
+		# Loop tanpa titik loop = diputar 1 frame kosong terus, jadi isi loop_end dulu.
+		wav.loop_begin = 0
+		wav.loop_end = int(wav.get_length() * wav.mix_rate) - 1
+		wav.loop_mode = AudioStreamWAV.LOOP_FORWARD
 	_bgm.finished.connect(_on_bgm_finished)
 	_bgm.play()
 
@@ -81,6 +87,11 @@ func _mute_audio(node: Node) -> void:
 func _play_click() -> void:
 	if _sfx.stream != null:
 		_sfx.play()
+
+
+func _play_hover() -> void:
+	if _hover_sfx.stream != null:
+		_hover_sfx.play()
 
 
 func _on_bgm_finished() -> void:

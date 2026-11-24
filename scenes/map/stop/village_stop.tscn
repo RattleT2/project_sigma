@@ -1,4 +1,6 @@
-[gd_scene load_steps=36 format=4]
+[gd_scene load_steps=37 format=4]
+
+[ext_resource type="PackedScene" path="res://scenes/npc_packs/village_stop_npcs.tscn" id="90_npcs"]
 
 [ext_resource type="Texture2D" uid="uid://bguf8xlp5q3xc" path="res://asset/background/assets-mountain-backgrounds/m1/1.png" id="1_langit"]
 [ext_resource type="Texture2D" uid="uid://cb8uuuxo4spny" path="res://asset/background/assets-mountain-backgrounds/m1/2.png" id="2_awan"]
@@ -467,6 +469,9 @@ texture = ExtResource("19_pos")
 position = Vector2(400, 16)
 offset = Vector2(0, -79.5)
 
+[node name="Npcs" parent="." instance=ExtResource("90_npcs")]
+position = Vector2(0, 16)
+
 [node name="Player_Caravan" parent="." instance=ExtResource("23_karavan")]
 position = Vector2(-84, -12)
 
@@ -481,3 +486,8 @@ emitting = false
 
 [node name="Harness" parent="Player_Caravan/Cariagetentcostume/Horse" index="1"]
 animation = &"harnes_idle"
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="BGM" type="AudioStreamPlayer" parent="Audio"]
+volume_db = -6.0

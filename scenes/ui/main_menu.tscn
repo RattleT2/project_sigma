@@ -1,63 +1,53 @@
-[gd_scene load_steps=29 format=3]
+[gd_scene load_steps=30 format=3 uid="uid://qhjytasdoekd"]
 
-[ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_menu"]
-[ext_resource type="Texture2D" path="res://asset/horse_caravan_ui_parts/menu/title_sign.png" id="2_title"]
-[ext_resource type="PackedScene" path="res://scenes/map/forest.tscn" id="3_map"]
-[ext_resource type="Texture2D" path="res://asset/horse_caravan_ui_parts/menu/btn_play_sheet.png" id="4_play"]
-[ext_resource type="Texture2D" path="res://asset/horse_caravan_ui_parts/menu/btn_settings_sheet.png" id="5_settings"]
-[ext_resource type="Texture2D" path="res://asset/horse_caravan_ui_parts/menu/btn_quit_sheet.png" id="6_quit"]
-[ext_resource type="AudioStream" path="res://asset/audio/bgm-mainMenu.wav" id="7_bgm"]
-[ext_resource type="Texture2D" path="res://asset/horse_caravan_ui_parts/buttons_square/nav_forge_sheet.png" id="8_forge"]
-[ext_resource type="Texture2D" path="res://asset/horse_caravan_ui_parts/icons/icon_coin.png" id="9_coin"]
+[ext_resource type="Script" uid="uid://dogk3rjwsmski" path="res://scripts/ui/main_menu.gd" id="1_menu"]
+[ext_resource type="Texture2D" uid="uid://bjjd4kirchwni" path="res://asset/horse_caravan_ui_parts/menu/title_sign.png" id="2_title"]
+[ext_resource type="PackedScene" uid="uid://py660c4wbay1" path="res://scenes/map/forest.tscn" id="3_map"]
+[ext_resource type="Texture2D" uid="uid://dyq5ijx52uvo5" path="res://asset/horse_caravan_ui_parts/menu/btn_play_sheet.png" id="4_play"]
+[ext_resource type="Texture2D" uid="uid://dkxcdwrwagh2y" path="res://asset/horse_caravan_ui_parts/menu/btn_settings_sheet.png" id="5_settings"]
+[ext_resource type="Texture2D" uid="uid://d1i6ifw7coc5t" path="res://asset/horse_caravan_ui_parts/menu/btn_quit_sheet.png" id="6_quit"]
+[ext_resource type="AudioStream" uid="uid://23umfwuijj47" path="res://asset/audio/bgm-mainMenu.wav" id="7_bgm"]
+[ext_resource type="Texture2D" uid="uid://dsj771muo15e2" path="res://asset/horse_caravan_ui_parts/buttons_square/nav_forge_sheet.png" id="8_forge"]
+[ext_resource type="Texture2D" uid="uid://d4b6gof8b2q72" path="res://asset/horse_caravan_ui_parts/icons/icon_coin.png" id="9_coin"]
 [ext_resource type="PackedScene" path="res://scenes/ui/upgrade_panel.tscn" id="10_upgrade"]
+[ext_resource type="AudioStream" uid="uid://bhi76qmh2q0dd" path="res://asset/audio/universfield-menu-click-147357.mp3" id="11_otr3d"]
+[ext_resource type="AudioStream" uid="uid://cd2s1mpgtxobg" path="res://asset/audio/creatorshome-digital-click-357350.mp3" id="12_8ekit"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_play_normal"]
 atlas = ExtResource("4_play")
 region = Rect2(0, 0, 1176, 332)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_play_hover"]
-atlas = ExtResource("4_play")
-region = Rect2(1176, 0, 1176, 332)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_play_pressed"]
 atlas = ExtResource("4_play")
 region = Rect2(2352, 0, 1176, 332)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_play_hover"]
+atlas = ExtResource("4_play")
+region = Rect2(1176, 0, 1176, 332)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_settings_normal"]
 atlas = ExtResource("5_settings")
 region = Rect2(0, 0, 1178, 312)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_settings_hover"]
-atlas = ExtResource("5_settings")
-region = Rect2(1178, 0, 1178, 312)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_settings_pressed"]
 atlas = ExtResource("5_settings")
 region = Rect2(2356, 0, 1178, 312)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_settings_hover"]
+atlas = ExtResource("5_settings")
+region = Rect2(1178, 0, 1178, 312)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_quit_normal"]
 atlas = ExtResource("6_quit")
 region = Rect2(0, 0, 1176, 326)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_quit_hover"]
-atlas = ExtResource("6_quit")
-region = Rect2(1176, 0, 1176, 326)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_quit_pressed"]
 atlas = ExtResource("6_quit")
 region = Rect2(2352, 0, 1176, 326)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_forge_normal"]
-atlas = ExtResource("8_forge")
-region = Rect2(0, 0, 538, 570)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_forge_hover"]
-atlas = ExtResource("8_forge")
-region = Rect2(538, 0, 538, 570)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_forge_pressed"]
-atlas = ExtResource("8_forge")
-region = Rect2(1076, 0, 538, 570)
+[sub_resource type="AtlasTexture" id="AtlasTexture_quit_hover"]
+atlas = ExtResource("6_quit")
+region = Rect2(1176, 0, 1176, 326)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_settings"]
 bg_color = Color(0.13, 0.09, 0.06, 0.97)
@@ -83,7 +73,23 @@ corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_forge_normal"]
+atlas = ExtResource("8_forge")
+region = Rect2(0, 0, 538, 570)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_forge_pressed"]
+atlas = ExtResource("8_forge")
+region = Rect2(1076, 0, 538, 570)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_forge_hover"]
+atlas = ExtResource("8_forge")
+region = Rect2(538, 0, 538, 570)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button"]
+content_margin_left = 10.0
+content_margin_top = 6.0
+content_margin_right = 10.0
+content_margin_bottom = 6.0
 bg_color = Color(0.22, 0.12, 0.065, 1)
 border_width_left = 2
 border_width_top = 2
@@ -94,28 +100,12 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
-content_margin_left = 10.0
-content_margin_top = 6.0
-content_margin_right = 10.0
-content_margin_bottom = 6.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button_hover"]
-bg_color = Color(0.3, 0.17, 0.09, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.92, 0.68, 0.3, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-content_margin_left = 10.0
-content_margin_top = 6.0
-content_margin_right = 10.0
-content_margin_bottom = 6.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button_pressed"]
+content_margin_left = 10.0
+content_margin_top = 6.0
+content_margin_right = 10.0
+content_margin_bottom = 6.0
 bg_color = Color(0.14, 0.075, 0.04, 1)
 border_width_left = 2
 border_width_top = 2
@@ -126,26 +116,22 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button_hover"]
 content_margin_left = 10.0
 content_margin_top = 6.0
 content_margin_right = 10.0
 content_margin_bottom = 6.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button_disabled"]
-bg_color = Color(0.16, 0.11, 0.08, 1)
+bg_color = Color(0.3, 0.17, 0.09, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color(0.33, 0.25, 0.18, 1)
+border_color = Color(0.92, 0.68, 0.3, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
-content_margin_left = 10.0
-content_margin_top = 6.0
-content_margin_right = 10.0
-content_margin_bottom = 6.0
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -163,8 +149,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-stretch = true
 mouse_filter = 2
+stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="LiveMap"]
 handle_input_locally = false
@@ -219,8 +205,8 @@ custom_minimum_size = Vector2(240, 70)
 layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = SubResource("AtlasTexture_play_normal")
-texture_hover = SubResource("AtlasTexture_play_hover")
 texture_pressed = SubResource("AtlasTexture_play_pressed")
+texture_hover = SubResource("AtlasTexture_play_hover")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -229,8 +215,8 @@ custom_minimum_size = Vector2(240, 70)
 layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = SubResource("AtlasTexture_settings_normal")
-texture_hover = SubResource("AtlasTexture_settings_hover")
 texture_pressed = SubResource("AtlasTexture_settings_pressed")
+texture_hover = SubResource("AtlasTexture_settings_hover")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -239,8 +225,8 @@ custom_minimum_size = Vector2(240, 70)
 layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = SubResource("AtlasTexture_quit_normal")
-texture_hover = SubResource("AtlasTexture_quit_hover")
 texture_pressed = SubResource("AtlasTexture_quit_pressed")
+texture_hover = SubResource("AtlasTexture_quit_hover")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -252,7 +238,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 0
 
 [node name="SettingsDim" type="ColorRect" parent="SettingsOverlay"]
 layout_mode = 1
@@ -300,9 +285,6 @@ text = "Volume"
 [node name="VolumeSlider" type="HSlider" parent="SettingsOverlay/SettingsCenter/SettingsPanel/Margin/VBox"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
-min_value = 0.0
-max_value = 100.0
-step = 1.0
 value = 80.0
 
 [node name="FullscreenCheck" type="CheckButton" parent="SettingsOverlay/SettingsCenter/SettingsPanel/Margin/VBox"]
@@ -369,8 +351,8 @@ custom_minimum_size = Vector2(44, 46)
 layout_mode = 2
 tooltip_text = "Forge: upgrade karavan"
 texture_normal = SubResource("AtlasTexture_forge_normal")
-texture_hover = SubResource("AtlasTexture_forge_hover")
 texture_pressed = SubResource("AtlasTexture_forge_pressed")
+texture_hover = SubResource("AtlasTexture_forge_hover")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -383,7 +365,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 0
 
 [node name="Dim" type="ColorRect" parent="ContinueOverlay"]
 layout_mode = 1
@@ -443,8 +424,8 @@ theme_override_colors/font_color = Color(0.98, 0.92, 0.8, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 15
 theme_override_styles/normal = SubResource("StyleBoxFlat_button")
-theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_button_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 text = "LANJUTKAN"
 
 [node name="BtnNewGame" type="Button" parent="ContinueOverlay/Center/Panel/Margin/VBox"]
@@ -455,8 +436,8 @@ theme_override_colors/font_color = Color(0.98, 0.92, 0.8, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 15
 theme_override_styles/normal = SubResource("StyleBoxFlat_button")
-theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_button_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 text = "MULAI BARU"
 
 [node name="BtnCancel" type="Button" parent="ContinueOverlay/Center/Panel/Margin/VBox"]
@@ -467,11 +448,12 @@ theme_override_colors/font_color = Color(0.9, 0.84, 0.72, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_button")
-theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_button_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 text = "BATAL"
 
 [node name="UpgradePanel" parent="." instance=ExtResource("10_upgrade")]
+layout_mode = 1
 
 [node name="Audio" type="Node" parent="."]
 
@@ -480,3 +462,7 @@ stream = ExtResource("7_bgm")
 volume_db = -6.0
 
 [node name="SFX_Click" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("11_otr3d")
+
+[node name="SFX_Hover" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("12_8ekit")

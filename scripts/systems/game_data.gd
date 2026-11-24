@@ -18,15 +18,33 @@ const RESOURCES := {
 const REGION_ORDER := ["snow", "forest", "desert", "village"]
 
 const REGIONS := {
-	"snow": {"name": "Salju", "risk": 25.0, "drive": 1050.0,
+	"snow": {"name": "Salju", "risk": 25.0,
 		"needs": {"iron": 6, "gold": 6, "diamond": 16}},
-	"forest": {"name": "Forest", "risk": 18.0, "drive": 900.0,
+	"forest": {"name": "Forest", "risk": 18.0,
 		"needs": {"iron": 6, "gold": 16, "diamond": 6}},
-	"desert": {"name": "Desert", "risk": 12.0, "drive": 600.0,
+	"desert": {"name": "Desert", "risk": 12.0,
 		"needs": {"iron": 16, "gold": 6, "diamond": 6}},
-	"village": {"name": "Village", "risk": 15.0, "drive": 750.0,
+	"village": {"name": "Village", "risk": 15.0,
 		"needs": {"iron": 10, "gold": 10, "diamond": 10}},
 }
+
+## Durasi rute nominal (detik) pada kecepatan dasar. Simetris untuk dua arah.
+const ROUTE_SECONDS := {
+	"depot|desert": 36.0,
+	"desert|snow": 58.0,
+	"depot|snow": 35.0,
+	"depot|forest": 50.0,
+	"depot|village": 40.0,
+	"desert|forest": 42.0,
+	"desert|village": 36.0,
+	"forest|snow": 60.0,
+	"forest|village": 66.0,
+	"snow|village": 63.0,
+}
+const DEFAULT_ROUTE_SECONDS := 40.0
+
+## Sebagian kebutuhan wilayah sudah terisi di awal tiap putaran.
+const ROUND_START_FILL := 0.35
 
 const BUFFS := {
 	"guard": {"name": "Penjaga", "cost": 80, "turns": 2,
@@ -37,14 +55,28 @@ const BUFFS := {
 		"desc": "Harga resupply -20%."},
 }
 
+## Quest per run. Progres tidak reset tiap putaran, hanya saat run baru/kalah.
+const QUEST_ORDER := ["deliver_20", "deliver_60", "visit_all", "stabilize_1", "clear_round"]
+
+const QUESTS := {
+	"deliver_20": {"name": "Antar Perdana", "type": "delivered", "target": 20, "reward": 100},
+	"deliver_60": {"name": "Kurir Andal", "type": "delivered", "target": 60, "reward": 250},
+	"visit_all": {"name": "Keliling Wilayah", "type": "visited", "target": 4, "reward": 200},
+	"stabilize_1": {"name": "Penstabil", "type": "stable", "target": 1, "reward": 200},
+	"clear_round": {"name": "Putaran Selesai", "type": "rounds", "target": 1, "reward": 300},
+}
+
 const BASE_CAPACITY := 30
 const BASE_DRIVE_SPEED := 90.0
+const BOOST_RECOVER_SECONDS := 12.0
+const BOOST_RECOVER_DELAY := 1.0
+const BOOST_RELOCK_RATIO := 0.3
 const MAX_CART_LEVEL := 2
 const CART_UPGRADE_COST := 500
 
 const CART_LEVELS := {
-	1: {"name": "Gerobak Dasar", "body": 1, "capacity": 0, "speed": 0.0},
-	2: {"name": "Gerobak Ekspedisi", "body": 2, "capacity": 6, "speed": 0.05},
+	1: {"name": "Gerobak Dasar", "body": 1, "capacity": 0, "speed": 0.0, "boost_seconds": 3.0},
+	2: {"name": "Gerobak Ekspedisi", "body": 2, "capacity": 6, "speed": 0.05, "boost_seconds": 5.0},
 }
 
 const ACCESSORY_ORDER := ["capacity", "chest", "tools", "lantern", "sack"]
@@ -100,8 +132,18 @@ static func target_regions(round_number: int) -> int:
 	return mini(round_number, 4)
 
 
-static func drive_distance(region_id: String) -> float:
-	return float(REGIONS[region_id]["drive"])
+static func route_seconds(from_id: String, to_id: String) -> float:
+	var key := "%s|%s" % [from_id, to_id]
+	if ROUTE_SECONDS.has(key):
+		return float(ROUTE_SECONDS[key])
+	var reverse := "%s|%s" % [to_id, from_id]
+	if ROUTE_SECONDS.has(reverse):
+		return float(ROUTE_SECONDS[reverse])
+	return DEFAULT_ROUTE_SECONDS
+
+
+static func round_start_stock(region_id: String, round_number: int, resource_id: String) -> int:
+	return maxi(1, int(ceil(float(need_for(region_id, round_number, resource_id)) * ROUND_START_FILL)))
 
 
 static func bandit_risk(region_id: String) -> float:

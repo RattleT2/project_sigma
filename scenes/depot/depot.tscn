@@ -1,13 +1,12 @@
-[gd_scene load_steps=20 format=4 uid="uid://c0dep0tkarav1"]
+[gd_scene load_steps=22 format=3 uid="uid://c0dep0tkarav1"]
+
+[ext_resource type="PackedScene" path="res://scenes/npc_packs/depot_npcs.tscn" id="90_npcs"]
 
 [ext_resource type="Texture2D" uid="uid://bhpt3vuc0oamh" path="res://asset/background/assets-mountain-backgrounds/m5/2.png" id="1_sky"]
 [ext_resource type="Texture2D" uid="uid://be26wwmjga4i3" path="res://asset/background/assets-mountain-backgrounds/m5/3.png" id="2_awan"]
 [ext_resource type="Texture2D" uid="uid://cavo4u57ucoo1" path="res://asset/background/assets-mountain-backgrounds/m5/4.png" id="3_gunung_jauh"]
-[ext_resource type="Texture2D" uid="uid://dj0ve26gpp8st" path="res://asset/background/assets-mountain-backgrounds/m5/5.png" id="4_gunung_dekat"]
-[ext_resource type="Texture2D" uid="uid://c146smkihxo2c" path="res://asset/Asset_Bangunan/bangunan_kota/rumah_fantasi/pondok_tabib.png" id="16_tabib"]
-[ext_resource type="Texture2D" uid="uid://bgxbi3oea156q" path="res://asset/Asset_Bangunan/bangunan_kota/rumah_manusia/bengkel_pandai_besi.png" id="17_bengkel"]
-[ext_resource type="Texture2D" uid="uid://cw3k2vimwjvbo" path="res://asset/Asset_Bangunan/bangunan_kota/rumah_manusia/toko_pedagang.png" id="18_toko"]
 [ext_resource type="Texture2D" uid="uid://dvwtt1cjvdhyw" path="res://asset/Asset_Bangunan/bangunan_kota/animasi/depot_derek_30f.png" id="4_derek"]
+[ext_resource type="Texture2D" uid="uid://dj0ve26gpp8st" path="res://asset/background/assets-mountain-backgrounds/m5/5.png" id="4_gunung_dekat"]
 [ext_resource type="Texture2D" uid="uid://swxduep514t3" path="res://asset/Asset_Bangunan/bangunan_kota/depot_karavan/depot_dermaga_muat.png" id="5_dermaga"]
 [ext_resource type="Texture2D" uid="uid://brim5bfk2k5ds" path="res://asset/Asset_Bangunan/bangunan_kota/depot_karavan/depot_gudang.png" id="6_gudang"]
 [ext_resource type="Texture2D" uid="uid://koyc1iel0p0g" path="res://asset/Asset_Bangunan/bangunan_kota/depot_karavan/depot_kantor_tukar.png" id="7_kantor"]
@@ -19,6 +18,10 @@
 [ext_resource type="Texture2D" uid="uid://cvs6wtes1j61s" path="res://asset/Asset_Bangunan/bangunan_kota/depot_karavan/depot_tumpukan_c.png" id="13_tumpukan_c"]
 [ext_resource type="Script" uid="uid://dhuaqsfbvdjy6" path="res://scripts/depot/derek_animator.gd" id="14_derek_script"]
 [ext_resource type="PackedScene" uid="uid://d38t4xdb1wejk" path="res://scenes/player_caravan.tscn" id="15_karavan"]
+[ext_resource type="Texture2D" uid="uid://c146smkihxo2c" path="res://asset/Asset_Bangunan/bangunan_kota/rumah_fantasi/pondok_tabib.png" id="16_tabib"]
+[ext_resource type="Texture2D" uid="uid://bgxbi3oea156q" path="res://asset/Asset_Bangunan/bangunan_kota/rumah_manusia/bengkel_pandai_besi.png" id="17_bengkel"]
+[ext_resource type="Texture2D" uid="uid://cw3k2vimwjvbo" path="res://asset/Asset_Bangunan/bangunan_kota/rumah_manusia/toko_pedagang.png" id="18_toko"]
+[ext_resource type="AudioStream" uid="uid://nnm16mxsxe4u" path="res://asset/audio/tema_pedesaan.wav" id="20_jurqq"]
 
 [node name="Depot" type="Node2D"]
 
@@ -58,7 +61,6 @@ texture = ExtResource("4_gunung_dekat")
 [node name="Tanah" type="ColorRect" parent="."]
 z_index = -50
 offset_left = -576.0
-offset_top = 0.0
 offset_right = 576.0
 offset_bottom = 240.0
 mouse_filter = 2
@@ -67,7 +69,6 @@ color = Color(0.839216, 0.698039, 0.529412, 1)
 [node name="BatasTanah" type="ColorRect" parent="."]
 z_index = -49
 offset_left = -576.0
-offset_top = 0.0
 offset_right = 576.0
 offset_bottom = 2.0
 mouse_filter = 2
@@ -160,8 +161,10 @@ centered = false
 z_index = 4
 position = Vector2(-31, -28)
 
-[node name="Driver" parent="DepotProps/Karavan" index="0"]
-animation = &"driver2_idle"
+[node name="Audio" type="Node" parent="."]
 
-[node name="Harness" parent="DepotProps/Karavan/Cariagetentcostume/Horse" index="1"]
-animation = &"harnes_idle"
+[node name="BGM" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("20_jurqq")
+volume_db = 4.0
+
+[node name="Npcs" parent="." instance=ExtResource("90_npcs")]
