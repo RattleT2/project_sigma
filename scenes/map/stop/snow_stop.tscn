@@ -389,6 +389,6 @@ offset = Vector2(0, -94)
 [node name="CloudPropSpawnerSnow" type="Node2D" parent="."]
 script = ExtResource("17_cloudsnow")
 prop_textures = Array[Texture2D]([ExtResource("18_awan4"), ExtResource("19_awan3")])
-scroll_speed = 30.0
+scroll_speed = 0.0
 min_y = -180.0
 max_y = -180.0

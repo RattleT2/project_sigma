@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://py660c4wbay1"]
+[gd_scene load_steps=15 format=4 uid="uid://py660c4wbay1"]
 
 [ext_resource type="Texture2D" uid="uid://bf86ojx2b32vp" path="res://asset/background/asset-forest-backgrounds/1/1.png" id="1_langit"]
 [ext_resource type="Texture2D" uid="uid://bpliy1pve2p2e" path="res://asset/background/craftpix-net-995711-free-pixel-art-cloud-and-sky-backgrounds/4. NEW CLOUDS/2.png" id="2_awan"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://bg0vqkitgaohl" path="res://asset/background/craftpix-net-672461-free-swamp-game-tileset-pixel-art/1 Tiles/Tileset.png" id="7_y2o20"]
 [ext_resource type="Script" uid="uid://bu2bi3x743sfn" path="res://scripts/ground_looper.gd" id="9_0fenw"]
 [ext_resource type="PackedScene" uid="uid://d38t4xdb1wejk" path="res://scenes/player_caravan.tscn" id="10_hf83x"]
+
+[ext_resource type="Script" path="res://scripts/map/world_scroll.gd" id="90_worldscroll"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7aeu7"]
 texture = ExtResource("7_y2o20")
@@ -398,3 +400,6 @@ position = Vector2(-84, -58)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(100, -144)
+
+[node name="WorldScroll" type="Node" parent="."]
+script = ExtResource("90_worldscroll")

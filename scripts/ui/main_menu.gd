@@ -56,7 +56,7 @@ func _setup_live_map() -> void:
 	player.call("set_customization", RunState.cart_level, RunState.accessories)
 	player.set("input_enabled", false)
 	player.set("external_travel", true)
-	player.call("set_traveling", true)
+	player.call("set_traveling", false)
 
 
 func _sync_live_costume() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://bnv6bdejarv5o"]
+[gd_scene load_steps=20 format=4 uid="uid://bnv6bdejarv5o"]
 
 [ext_resource type="Texture2D" uid="uid://deot0g0j24wt7" path="res://asset/background/Desert Tiles-v2/Desert_/Tiles/Tiles.png" id="1_502h4"]
 [ext_resource type="Texture2D" uid="uid://b6u6kuvlk7i4y" path="res://asset/background/craftpix-net-995711-free-pixel-art-cloud-and-sky-backgrounds/1. NEW CLOUDS/1.png" id="1_uue3q"]
@@ -17,6 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://b7s12j7nrfib7" path="res://asset/background/assets-mountain-backgrounds/m2/5.png" id="16_m2_5"]
 
 [ext_resource type="PackedScene" uid="uid://d38t4xdb1wejk" path="res://scenes/player_caravan.tscn" id="12_karavan"]
+
+[ext_resource type="Script" path="res://scripts/map/world_scroll.gd" id="90_worldscroll"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fw8il"]
 texture = ExtResource("1_502h4")
@@ -322,3 +324,6 @@ max_y = -180.0
 
 [node name="Player_Caravan" parent="." instance=ExtResource("12_karavan")]
 position = Vector2(-84, -12)
+
+[node name="WorldScroll" type="Node" parent="."]
+script = ExtResource("90_worldscroll")

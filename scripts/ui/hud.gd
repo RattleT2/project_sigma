@@ -14,9 +14,10 @@ signal _delivery_done(result: Dictionary)
 @onready var _area_label: Label = %AreaLabel
 
 @onready var _panel_host: PanelContainer = %PanelHost
+@onready var _board_layer: Control = %BoardLayer
 @onready var _shop_panel: VBoxContainer = %ShopPanel
-@onready var _forge_panel: VBoxContainer = %ForgePanel
-@onready var _journal_panel: VBoxContainer = %JournalPanel
+@onready var _forge_panel: Control = %ForgePanel
+@onready var _journal_panel: Control = %JournalPanel
 @onready var _shop_hint: Label = %ShopHint
 @onready var _buy_button: Button = %BuyButton
 @onready var _total_cost: Label = %TotalCost
@@ -25,9 +26,6 @@ signal _delivery_done(result: Dictionary)
 @onready var _buff_guard: Button = %BuffGuard
 @onready var _buff_speed: Button = %BuffSpeed
 @onready var _buff_bargain: Button = %BuffBargain
-@onready var _journal_summary: Label = %JournalSummary
-@onready var _journal_text: RichTextLabel = %JournalText
-@onready var _journal_map_button: Button = %JournalMapButton
 
 @onready var _delivery_panel: VBoxContainer = $PanelHost/Margin/Stack/DeliveryPanel
 @onready var _delivery_title: Label = $PanelHost/Margin/Stack/DeliveryPanel/DeliveryTitle
@@ -88,7 +86,8 @@ func _ready() -> void:
 	_forge_button.pressed.connect(_show_panel.bind("forge"))
 	_journal_button.pressed.connect(_show_panel.bind("journal"))
 	_map_button.pressed.connect(_on_map_pressed)
-	_journal_map_button.pressed.connect(_on_map_pressed)
+	_journal_panel.connect("map_requested", _on_map_pressed)
+	_journal_panel.connect("close_requested", close_panels)
 	_buy_button.pressed.connect(_on_buy_pressed)
 	_buff_guard.pressed.connect(_buy_buff.bind("guard"))
 	_buff_speed.pressed.connect(_buy_buff.bind("speed"))
@@ -102,6 +101,7 @@ func _ready() -> void:
 
 	RunState.changed.connect(refresh)
 	_panel_host.hide()
+	_board_layer.hide()
 	_delivery_panel.hide()
 	_modal_layer.hide()
 	_travel_progress.hide()
@@ -162,6 +162,7 @@ func close_panels() -> void:
 	_journal_panel.hide()
 	_delivery_panel.hide()
 	_panel_host.hide()
+	_board_layer.hide()
 
 
 func show_toast(text: String) -> void:
@@ -242,17 +243,23 @@ func _on_modal_secondary() -> void:
 func _show_panel(name: String) -> void:
 	if _busy:
 		return
-	if _panel_name == name and _panel_host.visible:
+	if _panel_name == name and (_panel_host.visible or _board_layer.visible):
 		close_panels()
 		return
 	_panel_name = name
 	_delivery_panel.hide()
-	_shop_panel.visible = name == "shop"
-	_forge_panel.visible = name == "forge"
-	_journal_panel.visible = name == "journal"
-	_panel_host.show()
-	if name == "forge":
-		_forge_panel.call("open")
+	if name == "shop":
+		_board_layer.hide()
+		_shop_panel.show()
+		_panel_host.show()
+	else:
+		_shop_panel.hide()
+		_forge_panel.visible = name == "forge"
+		_journal_panel.visible = name == "journal"
+		_panel_host.hide()
+		_board_layer.show()
+		if name == "forge":
+			_forge_panel.call("open")
 	refresh()
 
 
@@ -348,9 +355,9 @@ func _buy_buff(buff_id: String) -> void:
 
 
 func _refresh_journal() -> void:
-	_journal_summary.text = "Putaran %d - Turn %d/%d - Target %d wilayah stabil - Score %d" % [
+	var summary := "Putaran %d\nTurn %d/%d\nTarget %d wilayah\nStabil %d/%d\nScore %d" % [
 		RunState.round_number(), mini(RunState.turn(), RunState.turns_total()), RunState.turns_total(),
-		RunState.target_count(), RunState.score()
+		RunState.target_count(), RunState.stable_count(), RunState.target_count(), RunState.score()
 	]
 	var lines: Array[String] = []
 	for region_id in GameData.REGION_ORDER:
@@ -360,13 +367,13 @@ func _refresh_journal() -> void:
 		for resource_id in GameData.RESOURCES.keys():
 			var id := String(resource_id)
 			demands.append("%s %d/%d" % [GameData.resource_short(id), RunState.stock(rid, id), RunState.need(rid, id)])
-		lines.append("%s [%s]  %s" % [GameData.region_name(rid), status, " | ".join(demands)])
+		lines.append("%s [%s]\n%s" % [GameData.region_name(rid), status, ", ".join(demands)])
 	var log_entries := RunState.log_entries()
 	var log_start := maxi(0, log_entries.size() - 6)
 	var log_lines: Array[String] = []
 	for i in range(log_start, log_entries.size()):
 		log_lines.append("- %s" % String(log_entries[i]))
-	_journal_text.text = "%s\n\nRIWAYAT\n%s" % ["\n".join(lines), "\n".join(log_lines)]
+	_journal_panel.call("set_content", summary, "%s\n\nRIWAYAT\n%s" % ["\n".join(lines), "\n".join(log_lines)])
 
 
 func ask_delivery(region_id: String) -> Dictionary:

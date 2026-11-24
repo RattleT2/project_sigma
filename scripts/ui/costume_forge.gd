@@ -1,4 +1,4 @@
-extends VBoxContainer
+extends Control
 
 ## Preview + pembelian gerobak/aksesoris. Dipakai HUD (Depot) dan main menu.
 
@@ -57,7 +57,7 @@ func refresh() -> void:
 	var speed_percent := int(round(RunState.speed_bonus() * 100.0))
 	_preview.call("show_customization", cart, RunState.accessories)
 	_preview_label.text = "Level %d - %s" % [cart, RunState.cart_name()]
-	_stats_info.text = "Kapasitas %d - Speed +%d%% - Koin menu %d" % [RunState.capacity(), speed_percent, RunState.menu_coins]
+	_stats_info.text = "Kapasitas %d - Speed +%d%%\nKoin menu %d" % [RunState.capacity(), speed_percent, RunState.menu_coins]
 	_cart_name.text = "Gerobak Level %d/%d" % [cart, GameData.MAX_CART_LEVEL]
 
 	if cart >= GameData.MAX_CART_LEVEL:

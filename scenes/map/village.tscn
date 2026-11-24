@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://b5nk7ecxccvil"]
+[gd_scene load_steps=28 format=4 uid="uid://b5nk7ecxccvil"]
 
 [ext_resource type="Texture2D" uid="uid://bguf8xlp5q3xc" path="res://asset/background/assets-mountain-backgrounds/m1/1.png" id="1_langit"]
 [ext_resource type="Texture2D" uid="uid://cb8uuuxo4spny" path="res://asset/background/assets-mountain-backgrounds/m1/2.png" id="2_awan"]
@@ -25,6 +25,8 @@
 [ext_resource type="Texture2D" uid="uid://c6qiynoiq1kpa" path="res://asset/Asset_Bangunan/bangunan_kota/gerbang_pagar_tembok/pagar_kayu_gerbang.png" id="22_gerbang"]
 
 [ext_resource type="PackedScene" uid="uid://d38t4xdb1wejk" path="res://scenes/player_caravan.tscn" id="23_karavan"]
+
+[ext_resource type="Script" path="res://scripts/map/world_scroll.gd" id="90_worldscroll"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7csja"]
 texture = ExtResource("11_58d1n")
@@ -401,3 +403,6 @@ tile_set = SubResource("TileSet_qiowp")
 
 [node name="Player_Caravan" parent="." instance=ExtResource("23_karavan")]
 position = Vector2(-84, -12)
+
+[node name="WorldScroll" type="Node" parent="."]
+script = ExtResource("90_worldscroll")

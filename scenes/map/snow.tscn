@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://dbc1rymt5qvq2"]
+[gd_scene load_steps=30 format=4 uid="uid://dbc1rymt5qvq2"]
 
 [ext_resource type="Texture2D" uid="uid://dr657qnmqmqhx" path="res://asset/background/craftpix-net-823949-free-nature-backgrounds-pixel-art/nature_6/1.png" id="1_fai1k"]
 [ext_resource type="Texture2D" uid="uid://dt7e34f7s0jur" path="res://asset/background/Pixel_Art_Snow_And_Ice_Tileset_Pack/Pixel Art Snow and Ice Tileset/snowy_rock_block.png" id="1_pevrq"]
@@ -25,6 +25,8 @@
 [ext_resource type="Texture2D" uid="uid://d0dlkak5g4lyr" path="res://asset/assetRumahSnow/rumah_warga1_salju.png" id="33_warga1"]
 [ext_resource type="Texture2D" uid="uid://b8q6ggvj2ofo3" path="res://asset/assetRumahSnow/rumah_warga2_salju.png" id="34_warga2"]
 [ext_resource type="Texture2D" uid="uid://d38tqjkomhrug" path="res://asset/assetRumahSnow/rumah_warga3_salju.png" id="35_warga3"]
+
+[ext_resource type="Script" path="res://scripts/map/world_scroll.gd" id="90_worldscroll"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qdyvf"]
 texture = ExtResource("1_pevrq")
@@ -376,3 +378,6 @@ max_y = -180.0
 
 [node name="Player_Caravan" parent="." instance=ExtResource("16_karavan")]
 position = Vector2(-84, -12)
+
+[node name="WorldScroll" type="Node" parent="."]
+script = ExtResource("90_worldscroll")

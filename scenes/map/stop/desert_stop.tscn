@@ -235,7 +235,7 @@ centered = false
 [node name="AwanDebu" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0, 0)
 repeat_size = Vector2(576, 0)
-autoscroll = Vector2(-34, 0)
+autoscroll = Vector2(0, 0)
 repeat_times = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="AwanDebu"]

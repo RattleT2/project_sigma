@@ -21,6 +21,8 @@ func _ready() -> void:
 	_spawn_group(200.0)
 
 func _process(delta: float) -> void:
+	if scroll_speed <= 0.0:
+		return
 	var step: float = scroll_speed * delta
 	for child in get_children():
 		if child is Sprite2D:

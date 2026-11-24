@@ -320,7 +320,7 @@ centered = false
 [node name="Awan" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0, 0)
 repeat_size = Vector2(576, 0)
-autoscroll = Vector2(-18, 0)
+autoscroll = Vector2(0, 0)
 repeat_times = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="Awan"]
@@ -330,7 +330,7 @@ centered = false
 [node name="CloudPropSpawner" type="Node2D" parent="."]
 script = ExtResource("13_cloud")
 prop_textures = Array[Texture2D]([ExtResource("2_7jhvf"), ExtResource("3_xmflw")])
-scroll_speed = 45.0
+scroll_speed = 0.0
 spawn_x = 650.0
 despawn_x = -700.0
 min_y = -270.0

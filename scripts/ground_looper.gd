@@ -5,5 +5,7 @@ extends Node2D
 
 func _process(delta: float) -> void:
 	position.x -= scroll_speed * delta
-	if position.x <= -tilemap_width:
+	while position.x <= -tilemap_width:
 		position.x += tilemap_width
+	while position.x >= tilemap_width:
+		position.x -= tilemap_width
