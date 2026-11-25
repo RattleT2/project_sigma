@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cee0ruu2oweqv"]
+
+[ext_resource type="Script" path="res://scripts/work_prop.gd" id="99_work_prop"]
+
+[ext_resource type="Texture2D" uid="uid://colekdcueyi4s" path="res://asset/npc/npc_sprites/props/prop_landasan.png" id="1_4j5hj"]
+
+[node name="WorkProp_NPC_Blacksmith" type="Node2D"]
+script = ExtResource("99_work_prop")
+
+[node name="prop_anvil" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -6)
+texture = ExtResource("1_4j5hj")
+
+[node name="WorkSpot_for_npc_standing_facing_right" type="Marker2D" parent="."]
+position = Vector2(28, 0)
+
+[node name="WorkSpot_for_npc_standing_facing_left" type="Marker2D" parent="."]
+position = Vector2(-28, 0)
+
+[node name="anvil_sound" type="AudioStreamPlayer2D" parent="."]

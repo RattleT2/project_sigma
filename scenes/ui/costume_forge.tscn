@@ -1,0 +1,439 @@
+[gd_scene load_steps=15 format=3 uid="uid://cf1cl0v5shr1g"]
+
+[ext_resource type="Script" uid="uid://dpvxi2n7b2kwp" path="res://scripts/ui/costume_forge.gd" id="1_forge"]
+[ext_resource type="PackedScene" path="res://scenes/ui/caravan_preview.tscn" id="2_preview"]
+[ext_resource type="Texture2D" uid="uid://c3jtw6nvpkldg" path="res://asset/caravan_sprites/aksesoris/akses_roda_cadangan.png" id="3_capacity"]
+[ext_resource type="Texture2D" uid="uid://c3slegg1j711v" path="res://asset/caravan_sprites/aksesoris/akses_peti_ayam.png" id="4_chest"]
+[ext_resource type="Texture2D" uid="uid://dr62issrelphy" path="res://asset/caravan_sprites/aksesoris/akses_sekop_beliung.png" id="5_tools"]
+[ext_resource type="Texture2D" uid="uid://du6o7lc67hgwc" path="res://asset/caravan_sprites/aksesoris/akses_lentera.png" id="6_lantern"]
+[ext_resource type="Texture2D" uid="uid://bmk88nhtq6q01" path="res://asset/caravan_sprites/aksesoris/akses_karung_atap.png" id="7_sack"]
+[ext_resource type="Texture2D" uid="uid://clmtp8bwnoyra" path="res://asset/papan_kosong_untuk_jurnal_dan_forge.png" id="8_board"]
+[ext_resource type="Texture2D" uid="uid://lpk5hrtrp8x7" path="res://asset/quest_ui_hd/07_icons/icon_scroll_quill@4x.png" id="9_quill"]
+[ext_resource type="Texture2D" uid="uid://bgi8cbvn56u8r" path="res://asset/quest_ui_hd/10_tanpa_teks/tombol_kosong@4x.png" id="10_button"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_button"]
+content_margin_left = 14.0
+content_margin_top = 2.0
+content_margin_right = 14.0
+content_margin_bottom = 2.0
+texture = ExtResource("10_button")
+texture_margin_left = 12.0
+texture_margin_top = 8.0
+texture_margin_right = 12.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_button_pressed"]
+content_margin_left = 14.0
+content_margin_top = 2.0
+content_margin_right = 14.0
+content_margin_bottom = 2.0
+texture = ExtResource("10_button")
+texture_margin_left = 12.0
+texture_margin_top = 8.0
+texture_margin_right = 12.0
+texture_margin_bottom = 8.0
+modulate_color = Color(0.82, 0.78, 0.68, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_button_hover"]
+content_margin_left = 14.0
+content_margin_top = 2.0
+content_margin_right = 14.0
+content_margin_bottom = 2.0
+texture = ExtResource("10_button")
+texture_margin_left = 12.0
+texture_margin_top = 8.0
+texture_margin_right = 12.0
+texture_margin_bottom = 8.0
+modulate_color = Color(1.08, 1.06, 0.95, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_button_disabled"]
+content_margin_left = 14.0
+content_margin_top = 2.0
+content_margin_right = 14.0
+content_margin_bottom = 2.0
+texture = ExtResource("10_button")
+texture_margin_left = 12.0
+texture_margin_top = 8.0
+texture_margin_right = 12.0
+texture_margin_bottom = 8.0
+modulate_color = Color(0.5, 0.46, 0.4, 1)
+
+[node name="CostumeForge" type="Control"]
+custom_minimum_size = Vector2(720, 405)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_forge")
+
+[node name="Board" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("8_board")
+expand_mode = 1
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 235.0
+offset_top = 25.0
+offset_right = 487.0
+offset_bottom = 61.0
+theme_override_colors/font_color = Color(1, 0.86, 0.6, 1)
+theme_override_colors/font_outline_color = Color(0.08, 0.04, 0.02, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 18
+text = "FORGE KARAVAN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TitleIcon" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 259.0
+offset_top = 26.0
+offset_right = 291.0
+offset_bottom = 58.0
+mouse_filter = 2
+texture = ExtResource("9_quill")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Content" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="CaravanPreview" parent="Content" instance=ExtResource("2_preview")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 58.0
+offset_top = 84.0
+offset_right = 398.0
+offset_bottom = 255.0
+
+[node name="PreviewLabel" type="Label" parent="Content"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 58.0
+offset_top = 306.0
+offset_right = 308.0
+offset_bottom = 334.0
+theme_override_colors/font_color = Color(0.95, 0.88, 0.75, 1)
+theme_override_colors/font_outline_color = Color(0.08, 0.04, 0.02, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 13
+text = "Level 1 - Gerobak Dasar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InfoColumn" type="VBoxContainer" parent="Content"]
+layout_mode = 0
+offset_left = 334.0
+offset_top = 80.0
+offset_right = 658.0
+offset_bottom = 346.0
+theme_override_constants/separation = 3
+
+[node name="StatsInfo" type="Label" parent="Content/InfoColumn"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.22, 0.11, 0.06, 1)
+theme_override_font_sizes/font_size = 13
+text = "Kapasitas 30 - Speed +0% - Koin menu 0"
+
+[node name="CartRow" type="HBoxContainer" parent="Content/InfoColumn"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="CartText" type="VBoxContainer" parent="Content/InfoColumn/CartRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="CartName" type="Label" parent="Content/InfoColumn/CartRow/CartText"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.22, 0.11, 0.06, 1)
+theme_override_font_sizes/font_size = 13
+text = "Gerobak Level 1/2"
+
+[node name="CartEffect" type="Label" parent="Content/InfoColumn/CartRow/CartText"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.38, 0.24, 0.14, 1)
+theme_override_font_sizes/font_size = 12
+text = "Upgrade: +6 kapasitas, +5% speed"
+
+[node name="CartUpgradeButton" type="Button" parent="Content/InfoColumn/CartRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(96, 26)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.98, 0.92, 0.8, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.55, 0.48, 0.4, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxTexture_button")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_button_pressed")
+theme_override_styles/hover = SubResource("StyleBoxTexture_button_hover")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_button_disabled")
+text = "UPGRADE 500"
+
+[node name="AccessoryTitle" type="Label" parent="Content/InfoColumn"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.38, 0.24, 0.14, 1)
+theme_override_font_sizes/font_size = 12
+text = "AKSESORIS"
+
+[node name="AccessoryCapacity" type="HBoxContainer" parent="Content/InfoColumn"]
+custom_minimum_size = Vector2(0, 26)
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Icon" type="TextureRect" parent="Content/InfoColumn/AccessoryCapacity"]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("3_capacity")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Name" type="Label" parent="Content/InfoColumn/AccessoryCapacity"]
+custom_minimum_size = Vector2(78, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.22, 0.11, 0.06, 1)
+theme_override_font_sizes/font_size = 12
+text = "Rak Kargo"
+
+[node name="Effect" type="Label" parent="Content/InfoColumn/AccessoryCapacity"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.38, 0.24, 0.14, 1)
+theme_override_font_sizes/font_size = 11
+text = "+2 cap"
+
+[node name="Status" type="Label" parent="Content/InfoColumn/AccessoryCapacity"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.42, 0.28, 0.16, 1)
+theme_override_font_sizes/font_size = 10
+text = "TERKUNCI"
+
+[node name="Buy" type="Button" parent="Content/InfoColumn/AccessoryCapacity"]
+custom_minimum_size = Vector2(96, 26)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.98, 0.92, 0.8, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.55, 0.48, 0.4, 1)
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxTexture_button")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_button_pressed")
+theme_override_styles/hover = SubResource("StyleBoxTexture_button_hover")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_button_disabled")
+text = "BELI 150"
+
+[node name="AccessoryChest" type="HBoxContainer" parent="Content/InfoColumn"]
+custom_minimum_size = Vector2(0, 26)
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Icon" type="TextureRect" parent="Content/InfoColumn/AccessoryChest"]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("4_chest")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Name" type="Label" parent="Content/InfoColumn/AccessoryChest"]
+custom_minimum_size = Vector2(78, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.22, 0.11, 0.06, 1)
+theme_override_font_sizes/font_size = 12
+text = "Peti Kargo"
+
+[node name="Effect" type="Label" parent="Content/InfoColumn/AccessoryChest"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.38, 0.24, 0.14, 1)
+theme_override_font_sizes/font_size = 11
+text = "+2 cap"
+
+[node name="Status" type="Label" parent="Content/InfoColumn/AccessoryChest"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.42, 0.28, 0.16, 1)
+theme_override_font_sizes/font_size = 10
+text = "TERKUNCI"
+
+[node name="Buy" type="Button" parent="Content/InfoColumn/AccessoryChest"]
+custom_minimum_size = Vector2(96, 26)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.98, 0.92, 0.8, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.55, 0.48, 0.4, 1)
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxTexture_button")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_button_pressed")
+theme_override_styles/hover = SubResource("StyleBoxTexture_button_hover")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_button_disabled")
+text = "BELI 200"
+
+[node name="AccessoryTools" type="HBoxContainer" parent="Content/InfoColumn"]
+custom_minimum_size = Vector2(0, 26)
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Icon" type="TextureRect" parent="Content/InfoColumn/AccessoryTools"]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("5_tools")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Name" type="Label" parent="Content/InfoColumn/AccessoryTools"]
+custom_minimum_size = Vector2(78, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.22, 0.11, 0.06, 1)
+theme_override_font_sizes/font_size = 12
+text = "Perkakas"
+
+[node name="Effect" type="Label" parent="Content/InfoColumn/AccessoryTools"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.38, 0.24, 0.14, 1)
+theme_override_font_sizes/font_size = 11
+text = "+5% speed"
+
+[node name="Status" type="Label" parent="Content/InfoColumn/AccessoryTools"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.42, 0.28, 0.16, 1)
+theme_override_font_sizes/font_size = 10
+text = "TERKUNCI"
+
+[node name="Buy" type="Button" parent="Content/InfoColumn/AccessoryTools"]
+custom_minimum_size = Vector2(96, 26)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.98, 0.92, 0.8, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.55, 0.48, 0.4, 1)
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxTexture_button")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_button_pressed")
+theme_override_styles/hover = SubResource("StyleBoxTexture_button_hover")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_button_disabled")
+text = "BELI 250"
+
+[node name="AccessoryLantern" type="HBoxContainer" parent="Content/InfoColumn"]
+custom_minimum_size = Vector2(0, 26)
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Icon" type="TextureRect" parent="Content/InfoColumn/AccessoryLantern"]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("6_lantern")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Name" type="Label" parent="Content/InfoColumn/AccessoryLantern"]
+custom_minimum_size = Vector2(78, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.22, 0.11, 0.06, 1)
+theme_override_font_sizes/font_size = 12
+text = "Lentera"
+
+[node name="Effect" type="Label" parent="Content/InfoColumn/AccessoryLantern"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.38, 0.24, 0.14, 1)
+theme_override_font_sizes/font_size = 11
+text = "+5% speed"
+
+[node name="Status" type="Label" parent="Content/InfoColumn/AccessoryLantern"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.42, 0.28, 0.16, 1)
+theme_override_font_sizes/font_size = 10
+text = "TERKUNCI"
+
+[node name="Buy" type="Button" parent="Content/InfoColumn/AccessoryLantern"]
+custom_minimum_size = Vector2(96, 26)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.98, 0.92, 0.8, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.55, 0.48, 0.4, 1)
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxTexture_button")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_button_pressed")
+theme_override_styles/hover = SubResource("StyleBoxTexture_button_hover")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_button_disabled")
+text = "BELI 300"
+
+[node name="AccessorySack" type="HBoxContainer" parent="Content/InfoColumn"]
+custom_minimum_size = Vector2(0, 26)
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Icon" type="TextureRect" parent="Content/InfoColumn/AccessorySack"]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("7_sack")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Name" type="Label" parent="Content/InfoColumn/AccessorySack"]
+custom_minimum_size = Vector2(78, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.22, 0.11, 0.06, 1)
+theme_override_font_sizes/font_size = 12
+text = "Karung"
+
+[node name="Effect" type="Label" parent="Content/InfoColumn/AccessorySack"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.38, 0.24, 0.14, 1)
+theme_override_font_sizes/font_size = 11
+text = "+2 cap"
+
+[node name="Status" type="Label" parent="Content/InfoColumn/AccessorySack"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.42, 0.28, 0.16, 1)
+theme_override_font_sizes/font_size = 10
+text = "TERKUNCI"
+
+[node name="Buy" type="Button" parent="Content/InfoColumn/AccessorySack"]
+custom_minimum_size = Vector2(96, 26)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.98, 0.92, 0.8, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.55, 0.48, 0.4, 1)
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxTexture_button")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_button_pressed")
+theme_override_styles/hover = SubResource("StyleBoxTexture_button_hover")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_button_disabled")
+text = "BELI 250"
+
+[node name="ForgeHint" type="Label" parent="Content/InfoColumn"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.38, 0.24, 0.14, 1)
+theme_override_font_sizes/font_size = 12
+text = "Upgrade hanya di Depot atau main menu."
+autowrap_mode = 2

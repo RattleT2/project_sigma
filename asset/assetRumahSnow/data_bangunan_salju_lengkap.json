@@ -1,0 +1,617 @@
+{
+  "rumah_petani_salju": {
+    "file": "rumah_petani_salju.png",
+    "w": 186,
+    "h": 150,
+    "pivot": [
+      93,
+      150
+    ],
+    "note": "",
+    "pintu": {
+      "x": 74,
+      "y": 106,
+      "w": 26,
+      "h": 44,
+      "cx": 87
+    }
+  },
+  "rumah_warga1_salju": {
+    "file": "rumah_warga1_salju.png",
+    "w": 132,
+    "h": 140,
+    "pivot": [
+      66,
+      140
+    ],
+    "note": "",
+    "pintu": {
+      "x": 53,
+      "y": 96,
+      "w": 26,
+      "h": 44,
+      "cx": 66
+    }
+  },
+  "rumah_warga2_salju": {
+    "file": "rumah_warga2_salju.png",
+    "w": 160,
+    "h": 148,
+    "pivot": [
+      80,
+      148
+    ],
+    "note": "",
+    "pintu": {
+      "x": 67,
+      "y": 104,
+      "w": 26,
+      "h": 44,
+      "cx": 80
+    }
+  },
+  "rumah_warga3_salju": {
+    "file": "rumah_warga3_salju.png",
+    "w": 140,
+    "h": 178,
+    "pivot": [
+      70,
+      178
+    ],
+    "note": "",
+    "pintu": {
+      "x": 57,
+      "y": 134,
+      "w": 26,
+      "h": 44,
+      "cx": 70
+    }
+  },
+  "rumah_penjaga_salju": {
+    "file": "rumah_penjaga_salju.png",
+    "w": 148,
+    "h": 150,
+    "pivot": [
+      74,
+      150
+    ],
+    "note": "",
+    "pintu": {
+      "x": 61,
+      "y": 106,
+      "w": 26,
+      "h": 44,
+      "cx": 74
+    }
+  },
+  "rumah_pandai_besi_salju": {
+    "file": "rumah_pandai_besi_salju.png",
+    "w": 176,
+    "h": 148,
+    "pivot": [
+      88,
+      148
+    ],
+    "note": "",
+    "pintu": {
+      "x": 67,
+      "y": 104,
+      "w": 26,
+      "h": 44,
+      "cx": 80
+    },
+    "asap": [
+      {
+        "x": 122,
+        "y": 6
+      }
+    ]
+  },
+  "rumah_pustakawan_salju": {
+    "file": "rumah_pustakawan_salju.png",
+    "w": 152,
+    "h": 186,
+    "pivot": [
+      76,
+      186
+    ],
+    "note": "",
+    "pintu": {
+      "x": 63,
+      "y": 142,
+      "w": 26,
+      "h": 44,
+      "cx": 76
+    }
+  },
+  "rumah_pedagang_salju": {
+    "file": "rumah_pedagang_salju.png",
+    "w": 186,
+    "h": 148,
+    "pivot": [
+      93,
+      148
+    ],
+    "note": "",
+    "pintu": {
+      "x": 80,
+      "y": 104,
+      "w": 26,
+      "h": 44,
+      "cx": 93
+    }
+  },
+  "rumah_pendeta_salju": {
+    "file": "rumah_pendeta_salju.png",
+    "w": 160,
+    "h": 176,
+    "pivot": [
+      80,
+      176
+    ],
+    "note": "",
+    "pintu": {
+      "x": 67,
+      "y": 132,
+      "w": 26,
+      "h": 44,
+      "cx": 80
+    }
+  },
+  "rumah_tukang_roti_salju": {
+    "file": "rumah_tukang_roti_salju.png",
+    "w": 148,
+    "h": 146,
+    "pivot": [
+      74,
+      146
+    ],
+    "note": "",
+    "pintu": {
+      "x": 61,
+      "y": 102,
+      "w": 26,
+      "h": 44,
+      "cx": 74
+    },
+    "asap": [
+      {
+        "x": 98,
+        "y": 6
+      }
+    ]
+  },
+  "rumah_penebang_kayu_salju": {
+    "file": "rumah_penebang_kayu_salju.png",
+    "w": 156,
+    "h": 140,
+    "pivot": [
+      78,
+      140
+    ],
+    "note": "",
+    "pintu": {
+      "x": 65,
+      "y": 96,
+      "w": 26,
+      "h": 44,
+      "cx": 78
+    }
+  },
+  "rumah_pemburu_salju": {
+    "file": "rumah_pemburu_salju.png",
+    "w": 148,
+    "h": 142,
+    "pivot": [
+      74,
+      142
+    ],
+    "note": "",
+    "pintu": {
+      "x": 61,
+      "y": 98,
+      "w": 26,
+      "h": 44,
+      "cx": 74
+    }
+  },
+  "rumah_bangsawan_salju": {
+    "file": "rumah_bangsawan_salju.png",
+    "w": 232,
+    "h": 190,
+    "pivot": [
+      116,
+      190
+    ],
+    "note": "",
+    "pintu": {
+      "x": 103,
+      "y": 146,
+      "w": 26,
+      "h": 44,
+      "cx": 116
+    },
+    "asap": [
+      {
+        "x": 62,
+        "y": 6
+      },
+      {
+        "x": 162,
+        "y": 6
+      }
+    ]
+  },
+  "kedai_salju": {
+    "file": "kedai_salju.png",
+    "w": 212,
+    "h": 166,
+    "pivot": [
+      106,
+      166
+    ],
+    "note": "",
+    "pintu": {
+      "x": 87,
+      "y": 122,
+      "w": 26,
+      "h": 44,
+      "cx": 100
+    },
+    "asap": [
+      {
+        "x": 158,
+        "y": 6
+      }
+    ]
+  },
+  "barak_salju": {
+    "file": "barak_salju.png",
+    "w": 246,
+    "h": 138,
+    "pivot": [
+      123,
+      138
+    ],
+    "note": "",
+    "pintu": {
+      "x": 114,
+      "y": 94,
+      "w": 26,
+      "h": 44,
+      "cx": 127
+    }
+  },
+  "rumah_pencuri_salju": {
+    "file": "rumah_pencuri_salju.png",
+    "w": 136,
+    "h": 138,
+    "pivot": [
+      68,
+      138
+    ],
+    "note": "",
+    "pintu": {
+      "x": 67,
+      "y": 94,
+      "w": 26,
+      "h": 44,
+      "cx": 80
+    }
+  },
+  "rumah_pohon_elf_salju": {
+    "file": "rumah_pohon_elf_salju.png",
+    "w": 168,
+    "h": 224,
+    "pivot": [
+      84,
+      224
+    ],
+    "note": "Pohon cemara raksasa dengan rumah elf di batang, balkon dan jendela bulat.",
+    "pintu": {
+      "x": 71,
+      "y": 180,
+      "w": 26,
+      "h": 44,
+      "cx": 84
+    }
+  },
+  "menara_penyihir_salju": {
+    "file": "menara_penyihir_salju.png",
+    "w": 116,
+    "h": 240,
+    "pivot": [
+      58,
+      240
+    ],
+    "note": "Menara batu atap kerucut bersalju, jendela ungu, bintang dan bulan.",
+    "pintu": {
+      "x": 45,
+      "y": 196,
+      "w": 26,
+      "h": 44,
+      "cx": 58
+    }
+  },
+  "kuil_peramal_salju": {
+    "file": "kuil_peramal_salju.png",
+    "w": 144,
+    "h": 150,
+    "pivot": [
+      72,
+      150
+    ],
+    "note": "Kuil kubah es dengan bola kristal besar di puncak.",
+    "pintu": {
+      "x": 59,
+      "y": 106,
+      "w": 26,
+      "h": 44,
+      "cx": 72
+    }
+  },
+  "tambang_kurcaci_salju": {
+    "file": "tambang_kurcaci_salju.png",
+    "w": 184,
+    "h": 136,
+    "pivot": [
+      92,
+      136
+    ],
+    "note": "Gunung batu dengan pintu tambang berbingkai kayu, rel dan gerobak bijih.",
+    "pintu": {
+      "x": 75,
+      "y": 92,
+      "w": 26,
+      "h": 44,
+      "cx": 88
+    }
+  },
+  "pondok_orc_salju": {
+    "file": "pondok_orc_salju.png",
+    "w": 152,
+    "h": 138,
+    "pivot": [
+      76,
+      138
+    ],
+    "note": "Pondok kerucut kulit dan tulang, tengkorak di puncak, duri pagar, api unggun.",
+    "pintu": {
+      "x": 63,
+      "y": 94,
+      "w": 26,
+      "h": 44,
+      "cx": 76
+    }
+  },
+  "menara_alkemis_salju": {
+    "file": "menara_alkemis_salju.png",
+    "w": 128,
+    "h": 200,
+    "pivot": [
+      64,
+      200
+    ],
+    "note": "Menara alkemis: kubah kaca berisi cairan ungu, dua cerobong tembaga, tong ramuan.",
+    "pintu": {
+      "x": 51,
+      "y": 156,
+      "w": 26,
+      "h": 44,
+      "cx": 64
+    },
+    "asap": [
+      {
+        "x": 35,
+        "y": -4
+      },
+      {
+        "x": 97,
+        "y": -4
+      }
+    ]
+  },
+  "pondok_tabib_salju": {
+    "file": "pondok_tabib_salju.png",
+    "w": 144,
+    "h": 142,
+    "pivot": [
+      72,
+      142
+    ],
+    "note": "",
+    "pintu": {
+      "x": 71,
+      "y": 98,
+      "w": 26,
+      "h": 44,
+      "cx": 84
+    }
+  },
+  "depot_gudang_salju": {
+    "file": "depot_gudang_salju.png",
+    "w": 248,
+    "h": 162,
+    "pivot": [
+      124,
+      162
+    ],
+    "note": "",
+    "pintu": {
+      "x": 59,
+      "y": 118,
+      "w": 26,
+      "h": 44,
+      "cx": 72
+    }
+  },
+  "depot_kantor_pertukaran_salju": {
+    "file": "depot_kantor_pertukaran_salju.png",
+    "w": 186,
+    "h": 152,
+    "pivot": [
+      93,
+      152
+    ],
+    "note": "",
+    "pintu": {
+      "x": 46,
+      "y": 108,
+      "w": 26,
+      "h": 44,
+      "cx": 59
+    },
+    "asap": [
+      {
+        "x": 45,
+        "y": 6
+      }
+    ]
+  },
+  "depot_dermaga_muat_salju": {
+    "file": "depot_dermaga_muat_salju.png",
+    "w": 190,
+    "h": 50,
+    "pivot": [
+      95,
+      50
+    ],
+    "note": "Dermaga muat setinggi 32 px dari tanah (deck_y). Parkirkan gerobak dengan bagian belakang di ujung kanan.",
+    "deck_y": 18,
+    "tinggi_dari_tanah": 32,
+    "tangga_x": [
+      4,
+      44
+    ]
+  },
+  "depot_derek_salju": {
+    "file": "depot_derek_salju.png",
+    "w": 160,
+    "h": 164,
+    "pivot": [
+      80,
+      164
+    ],
+    "note": "Derek muat; lihat sheet animasi untuk gerakan berayun (30 fps)."
+  },
+  "depot_derek_salju_sheet": {
+    "file": "depot_derek_salju_sheet.png",
+    "frame_w": 160,
+    "frame_h": 164,
+    "frames": 24,
+    "fps": 30,
+    "note": "Animasi derek berayun, loop."
+  },
+  "depot_tumpukan_kotak_salju": {
+    "file": "depot_tumpukan_kotak_salju.png",
+    "w": 64,
+    "h": 54,
+    "pivot": [
+      32,
+      54
+    ],
+    "note": "Tumpukan kotak piramida."
+  },
+  "depot_tumpukan_tong_salju": {
+    "file": "depot_tumpukan_tong_salju.png",
+    "w": 80,
+    "h": 52,
+    "pivot": [
+      40,
+      52
+    ],
+    "note": "Tumpukan tong (salju) atau guci (gurun) dengan karung."
+  },
+  "depot_tumpukan_karung_salju": {
+    "file": "depot_tumpukan_karung_salju.png",
+    "w": 84,
+    "h": 46,
+    "pivot": [
+      42,
+      46
+    ],
+    "note": "Tumpukan karung dan gulungan kain/kulit."
+  },
+  "depot_timbangan_salju": {
+    "file": "depot_timbangan_salju.png",
+    "w": 48,
+    "h": 58,
+    "pivot": [
+      24,
+      58
+    ],
+    "note": "Timbangan dagang dua piring."
+  },
+  "depot_papan_harga_salju": {
+    "file": "depot_papan_harga_salju.png",
+    "w": 64,
+    "h": 74,
+    "pivot": [
+      32,
+      74
+    ],
+    "note": "Papan harga (ikon koin dan tanda hitung, tanpa teks)."
+  },
+  "depot_tiang_arah_salju": {
+    "file": "depot_tiang_arah_salju.png",
+    "w": 52,
+    "h": 84,
+    "pivot": [
+      26,
+      84
+    ],
+    "note": "Tiang penunjuk arah tiga papan."
+  },
+  "depot_gerbang_samping_belakang_salju": {
+    "file": "depot_gerbang_samping_belakang_salju.png",
+    "w": 328,
+    "h": 206,
+    "pivot": [
+      164,
+      206
+    ],
+    "lorong": {
+      "x": 40,
+      "y": 88,
+      "w": 248,
+      "h": 118
+    },
+    "tinggi_lorong": 118,
+    "lapis": "belakang (gambar di bawah NPC/karavan)",
+    "note": "Gerbang depot dilalui menyamping (kiri-kanan). Gambar lapis belakang, lalu NPC/karavan, lalu lapis depan."
+  },
+  "depot_gerbang_samping_depan_salju": {
+    "file": "depot_gerbang_samping_depan_salju.png",
+    "w": 328,
+    "h": 206,
+    "pivot": [
+      164,
+      206
+    ],
+    "lorong": {
+      "x": 40,
+      "y": 88,
+      "w": 248,
+      "h": 118
+    },
+    "tinggi_lorong": 118,
+    "lapis": "depan (gambar di atas NPC/karavan)",
+    "note": "Gerbang depot dilalui menyamping (kiri-kanan). Gambar lapis belakang, lalu NPC/karavan, lalu lapis depan."
+  },
+  "depot_gerbang_samping_salju": {
+    "file": "depot_gerbang_samping_salju.png",
+    "w": 328,
+    "h": 206,
+    "pivot": [
+      164,
+      206
+    ],
+    "lorong": {
+      "x": 40,
+      "y": 88,
+      "w": 248,
+      "h": 118
+    },
+    "note": "Gabungan belakang+depan (untuk dipakai statis tanpa lapisan)."
+  }
+}

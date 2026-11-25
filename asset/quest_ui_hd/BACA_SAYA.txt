@@ -1,0 +1,27 @@
+QUEST & TASKS UI - POTONGAN HD
+==============================
+Sumber: Gemini_Generated_Image_n1ai28n1ai28n1ai.jpg (2576 x 1438)
+
+Isi folder
+  00_full_ui          Seluruh UI, latar kotak-kotak dihapus (2x)
+  01_window           Bingkai jendela, banner judul, panel daftar, panel detail
+  02_buttons          Tombol close (2 versi), panah atas/bawah, ACCEPT, ABANDON, checkbox
+  03_tabs             Tab Active / Completed / Daily
+  04_scrollbar        Scrollbar utuh, panah atas/bawah, thumb
+  05_rewards          Kotak reward, koin, gems, bintang
+  06_status_icons     Ikon ! ? dan centang hijau
+  07_icons            Ikon gulungan+pena, gulungan teks, kompas, peta, kantong, bulu
+  08_quest_rows       Baris quest 1-7 + baris ke-8 (terpotong), dengan teks asli
+  10_tanpa_teks       Baris quest, tab, tombol, dan banner judul KOSONG (tanpa teks)
+                      untuk dipakai sebagai background tombol/label di Godot
+
+Catatan
+  - Akhiran @4x / @2x = faktor pembesaran dari gambar asli.
+  - Elemen yang berdiri sendiri (ikon, tombol, tab, banner) berlatar transparan.
+    Panel, baris quest, dan scrollbar tetap persegi karena menempel pada bingkai.
+  - Pembesaran memakai Lanczos + penajaman ringan, bukan redraw pixel-per-pixel.
+    Sumbernya sudah agak blur (hasil AI), jadi tepi pixel art terlihat halus,
+    bukan kotak-kotak tajam.
+  - Tab bagian kirinya memang menyatu dengan bingkai jendela di gambar asli.
+  - Teks di panel detail (lorem ipsum, "Deliver 5 Cargo Supplies...", Koin/Gems/Poin)
+    masih menempel di panel; versi tanpa teks hanya dibuat untuk baris, tab, tombol, dan banner.

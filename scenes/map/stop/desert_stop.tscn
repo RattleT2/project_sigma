@@ -1,0 +1,373 @@
+[gd_scene load_steps=24 format=4]
+
+[ext_resource type="PackedScene" path="res://scenes/npc_packs/desert_stop_npcs.tscn" id="90_npcs"]
+
+[ext_resource type="Texture2D" uid="uid://deot0g0j24wt7" path="res://asset/background/Desert Tiles-v2/Desert_/Tiles/Tiles.png" id="1_502h4"]
+[ext_resource type="Texture2D" uid="uid://b6u6kuvlk7i4y" path="res://asset/background/craftpix-net-995711-free-pixel-art-cloud-and-sky-backgrounds/1. NEW CLOUDS/1.png" id="1_uue3q"]
+[ext_resource type="Texture2D" uid="uid://dwxthibacvaop" path="res://asset/background/Desert Tiles-v2/Desert_/Background_/desert_2.png" id="2_u1oh5"]
+[ext_resource type="Script" uid="uid://bwwfiachg17jn" path="res://scripts/ground_prop_spawn_desert.gd" id="4_b601d"]
+[ext_resource type="Script" uid="uid://cswkf6bpsswlt" path="res://scripts/cloud_prop_spawner_desert.gd" id="5_gi5ff"]
+[ext_resource type="Texture2D" uid="uid://b4vurwk2ons5r" path="res://asset/assetRumahGurun/depot_dermaga_muat_gurun.png" id="11_dermaga"]
+[ext_resource type="Texture2D" uid="uid://ijm5dd4c3j0e" path="res://asset/assetRumahGurun/depot_gudang_gurun.png" id="12_gudang"]
+[ext_resource type="Texture2D" uid="uid://fnarwgb640fg" path="res://asset/assetRumahGurun/depot_kantor_pertukaran_gurun.png" id="13_kantor"]
+[ext_resource type="Texture2D" uid="uid://dcdikwb2mplma" path="res://asset/assetRumahGurun/depot_papan_harga_gurun.png" id="14_papan"]
+[ext_resource type="Texture2D" uid="uid://cw3dp4e4v8cni" path="res://asset/assetRumahGurun/depot_tiang_arah_gurun.png" id="15_tiang"]
+[ext_resource type="Texture2D" uid="uid://dt2hwc6cc1u5v" path="res://asset/assetRumahGurun/depot_tumpukan_karung_gurun.png" id="16_karung"]
+[ext_resource type="Texture2D" uid="uid://dmsg3cnnrbiu1" path="res://asset/assetRumahGurun/kedai_gurun.png" id="17_kedai"]
+[ext_resource type="Texture2D" uid="uid://cvdeexndcbi2w" path="res://asset/background/craftpix-net-995711-free-pixel-art-cloud-and-sky-backgrounds/1. NEW CLOUDS/2.png" id="9_llf1e"]
+[ext_resource type="Texture2D" uid="uid://b8fw5ymfd6twh" path="res://asset/background/craftpix-net-995711-free-pixel-art-cloud-and-sky-backgrounds/1. NEW CLOUDS/3.png" id="10_fncu6"]
+[ext_resource type="Script" uid="uid://bu2bi3x743sfn" path="res://scripts/ground_looper.gd" id="11_looper"]
+[ext_resource type="Texture2D" uid="uid://ulvt304sgubw" path="res://asset/background/assets-mountain-backgrounds/m2/2.png" id="13_m2_2"]
+[ext_resource type="Texture2D" uid="uid://m3tqc0hdh3s3" path="res://asset/background/assets-mountain-backgrounds/m2/3.png" id="14_m2_3"]
+[ext_resource type="Texture2D" uid="uid://c7q8q6kv8hmqq" path="res://asset/background/assets-mountain-backgrounds/m2/4.png" id="15_m2_4"]
+[ext_resource type="Texture2D" uid="uid://b7s12j7nrfib7" path="res://asset/background/assets-mountain-backgrounds/m2/5.png" id="16_m2_5"]
+
+[ext_resource type="PackedScene" uid="uid://d38t4xdb1wejk" path="res://scenes/player_caravan.tscn" id="12_karavan"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fw8il"]
+texture = ExtResource("1_502h4")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:2/0 = 0
+6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+14:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+14:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+11:5/0 = 0
+12:5/0 = 0
+13:5/0 = 0
+14:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+10:6/0 = 0
+11:6/0 = 0
+12:6/0 = 0
+13:6/0 = 0
+14:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+9:7/0 = 0
+10:7/0 = 0
+11:7/0 = 0
+12:7/0 = 0
+13:7/0 = 0
+14:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+9:8/0 = 0
+10:8/0 = 0
+11:8/0 = 0
+12:8/0 = 0
+13:8/0 = 0
+14:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+8:9/0 = 0
+9:9/0 = 0
+11:9/0 = 0
+12:9/0 = 0
+13:9/0 = 0
+14:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+5:10/0 = 0
+6:10/0 = 0
+7:10/0 = 0
+8:10/0 = 0
+9:10/0 = 0
+10:10/0 = 0
+11:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+6:11/0 = 0
+7:11/0 = 0
+8:11/0 = 0
+9:11/0 = 0
+10:11/0 = 0
+11:11/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_uue3q"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_fw8il")
+
+[node name="Desert" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -111)
+
+[node name="langit" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(576, 0)
+autoscroll = Vector2(0, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="langit"]
+scale = Vector2(1, 1.3425926)
+texture = ExtResource("1_uue3q")
+centered = false
+
+[node name="GunungJauh" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(576, 0)
+autoscroll = Vector2(0, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="GunungJauh"]
+position = Vector2(0, 126)
+texture = ExtResource("13_m2_2")
+centered = false
+
+[node name="AwanDebu" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(576, 0)
+autoscroll = Vector2(0, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="AwanDebu"]
+position = Vector2(0, 100)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("14_m2_3")
+centered = false
+
+[node name="GunungBesar" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(576, 0)
+autoscroll = Vector2(0, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="GunungBesar"]
+position = Vector2(0, 126)
+texture = ExtResource("15_m2_4")
+centered = false
+
+[node name="GunungDekat" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(576, 0)
+autoscroll = Vector2(0, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="GunungDekat"]
+position = Vector2(0, 126)
+texture = ExtResource("16_m2_5")
+centered = false
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(576, 0)
+autoscroll = Vector2(0, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
+position = Vector2(0, 75)
+scale = Vector2(2, 2)
+texture = ExtResource("2_u1oh5")
+centered = false
+
+[node name="GroundLooper" type="Node2D" parent="."]
+tilemap_width = 352.0
+
+[node name="TileMapLayer" type="TileMapLayer" parent="GroundLooper"]
+tile_map_data = PackedByteArray("AAD8/wAAAAACAAMAAAD9/wAAAAACAAMAAAD+/wAAAAACAAMAAAD//wAAAAACAAMAAAAAAAAAAAACAAMAAAABAAAAAAACAAMAAAACAAAAAAACAAMAAAADAAAAAAACAAMAAAD8/wEAAAAFAAIAAAD8/wIAAAAFAAIAAAD9/wIAAAAFAAIAAAD9/wEAAAAFAAIAAAD+/wEAAAAFAAIAAAD+/wIAAAAFAAIAAAD//wIAAAAFAAIAAAD//wEAAAAFAAIAAAAAAAEAAAAFAAIAAAABAAIAAAAFAAIAAAABAAEAAAAFAAIAAAACAAEAAAAFAAIAAAACAAIAAAAFAAIAAAADAAIAAAAFAAIAAAADAAEAAAAFAAIAAAAAAAIAAAAFAAIAAAD7/wEAAAAFAAIAAAD6/wEAAAAFAAIAAAD5/wEAAAAFAAIAAAD4/wEAAAAFAAIAAAD3/wEAAAAFAAIAAAD3/wIAAAAFAAIAAAD4/wIAAAAFAAIAAAD5/wIAAAAFAAIAAAD6/wIAAAAFAAIAAAD7/wIAAAAFAAIAAAAEAAEAAAAFAAIAAAAFAAEAAAAFAAIAAAAGAAEAAAAFAAIAAAAHAAEAAAAFAAIAAAAIAAEAAAAFAAIAAAAJAAEAAAAFAAIAAAAKAAEAAAAFAAIAAAAKAAIAAAAFAAIAAAAJAAIAAAAFAAIAAAAIAAIAAAAFAAIAAAAHAAIAAAAFAAIAAAAGAAIAAAAFAAIAAAAFAAIAAAAFAAIAAAAEAAIAAAAFAAIAAAD2/wEAAAAFAAIAAAD1/wEAAAAFAAIAAAD1/wIAAAAFAAIAAAD2/wIAAAAFAAIAAAD7/wAAAAACAAMAAAD6/wAAAAACAAMAAAD5/wAAAAACAAMAAAD4/wAAAAACAAMAAAD3/wAAAAACAAMAAAD2/wAAAAACAAMAAAD1/wAAAAACAAMAAAAEAAAAAAACAAMAAAAFAAAAAAACAAMAAAAGAAAAAAACAAMAAAAHAAAAAAACAAMAAAAIAAAAAAACAAMAAAAJAAAAAAACAAMAAAAKAAAAAAACAAMAAAA=")
+tile_set = SubResource("TileSet_uue3q")
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="GroundLooper"]
+position = Vector2(-352, 0)
+tile_map_data = PackedByteArray("AAD8/wAAAAACAAMAAAD9/wAAAAACAAMAAAD+/wAAAAACAAMAAAD//wAAAAACAAMAAAAAAAAAAAACAAMAAAABAAAAAAACAAMAAAACAAAAAAACAAMAAAADAAAAAAACAAMAAAD8/wEAAAAFAAIAAAD8/wIAAAAFAAIAAAD9/wIAAAAFAAIAAAD9/wEAAAAFAAIAAAD+/wEAAAAFAAIAAAD+/wIAAAAFAAIAAAD//wIAAAAFAAIAAAD//wEAAAAFAAIAAAAAAAEAAAAFAAIAAAABAAIAAAAFAAIAAAABAAEAAAAFAAIAAAACAAEAAAAFAAIAAAACAAIAAAAFAAIAAAADAAIAAAAFAAIAAAADAAEAAAAFAAIAAAAAAAIAAAAFAAIAAAD7/wEAAAAFAAIAAAD6/wEAAAAFAAIAAAD5/wEAAAAFAAIAAAD4/wEAAAAFAAIAAAD3/wEAAAAFAAIAAAD3/wIAAAAFAAIAAAD4/wIAAAAFAAIAAAD5/wIAAAAFAAIAAAD6/wIAAAAFAAIAAAD7/wIAAAAFAAIAAAAEAAEAAAAFAAIAAAAFAAEAAAAFAAIAAAAGAAEAAAAFAAIAAAAHAAEAAAAFAAIAAAAIAAEAAAAFAAIAAAAJAAEAAAAFAAIAAAAKAAEAAAAFAAIAAAAKAAIAAAAFAAIAAAAJAAIAAAAFAAIAAAAIAAIAAAAFAAIAAAAHAAIAAAAFAAIAAAAGAAIAAAAFAAIAAAAFAAIAAAAFAAIAAAAEAAIAAAAFAAIAAAD2/wEAAAAFAAIAAAD1/wEAAAAFAAIAAAD1/wIAAAAFAAIAAAD2/wIAAAAFAAIAAAD7/wAAAAACAAMAAAD6/wAAAAACAAMAAAD5/wAAAAACAAMAAAD4/wAAAAACAAMAAAD3/wAAAAACAAMAAAD2/wAAAAACAAMAAAD1/wAAAAACAAMAAAAEAAAAAAACAAMAAAAFAAAAAAACAAMAAAAGAAAAAAACAAMAAAAHAAAAAAACAAMAAAAIAAAAAAACAAMAAAAJAAAAAAACAAMAAAAKAAAAAAACAAMAAAA=")
+tile_set = SubResource("TileSet_uue3q")
+
+[node name="TileMapLayer3" type="TileMapLayer" parent="GroundLooper"]
+position = Vector2(352, 0)
+tile_map_data = PackedByteArray("AAD8/wAAAAACAAMAAAD9/wAAAAACAAMAAAD+/wAAAAACAAMAAAD//wAAAAACAAMAAAAAAAAAAAACAAMAAAABAAAAAAACAAMAAAACAAAAAAACAAMAAAADAAAAAAACAAMAAAD8/wEAAAAFAAIAAAD8/wIAAAAFAAIAAAD9/wIAAAAFAAIAAAD9/wEAAAAFAAIAAAD+/wEAAAAFAAIAAAD+/wIAAAAFAAIAAAD//wIAAAAFAAIAAAD//wEAAAAFAAIAAAAAAAEAAAAFAAIAAAABAAIAAAAFAAIAAAABAAEAAAAFAAIAAAACAAEAAAAFAAIAAAACAAIAAAAFAAIAAAADAAIAAAAFAAIAAAADAAEAAAAFAAIAAAAAAAIAAAAFAAIAAAD7/wEAAAAFAAIAAAD6/wEAAAAFAAIAAAD5/wEAAAAFAAIAAAD4/wEAAAAFAAIAAAD3/wEAAAAFAAIAAAD3/wIAAAAFAAIAAAD4/wIAAAAFAAIAAAD5/wIAAAAFAAIAAAD6/wIAAAAFAAIAAAD7/wIAAAAFAAIAAAAEAAEAAAAFAAIAAAAFAAEAAAAFAAIAAAAGAAEAAAAFAAIAAAAHAAEAAAAFAAIAAAAIAAEAAAAFAAIAAAAJAAEAAAAFAAIAAAAKAAEAAAAFAAIAAAAKAAIAAAAFAAIAAAAJAAIAAAAFAAIAAAAIAAIAAAAFAAIAAAAHAAIAAAAFAAIAAAAGAAIAAAAFAAIAAAAFAAIAAAAFAAIAAAAEAAIAAAAFAAIAAAD2/wEAAAAFAAIAAAD1/wEAAAAFAAIAAAD1/wIAAAAFAAIAAAD2/wIAAAAFAAIAAAD7/wAAAAACAAMAAAD6/wAAAAACAAMAAAD5/wAAAAACAAMAAAD4/wAAAAACAAMAAAD3/wAAAAACAAMAAAD2/wAAAAACAAMAAAD1/wAAAAACAAMAAAAEAAAAAAACAAMAAAAFAAAAAAACAAMAAAAGAAAAAAACAAMAAAAHAAAAAAACAAMAAAAIAAAAAAACAAMAAAAJAAAAAAACAAMAAAAKAAAAAAACAAMAAAA=")
+tile_set = SubResource("TileSet_uue3q")
+
+[node name="TileMapLayer4" type="TileMapLayer" parent="GroundLooper"]
+position = Vector2(-704, 0)
+tile_map_data = PackedByteArray("AAD8/wAAAAACAAMAAAD9/wAAAAACAAMAAAD+/wAAAAACAAMAAAD//wAAAAACAAMAAAAAAAAAAAACAAMAAAABAAAAAAACAAMAAAACAAAAAAACAAMAAAADAAAAAAACAAMAAAD8/wEAAAAFAAIAAAD8/wIAAAAFAAIAAAD9/wIAAAAFAAIAAAD9/wEAAAAFAAIAAAD+/wEAAAAFAAIAAAD+/wIAAAAFAAIAAAD//wIAAAAFAAIAAAD//wEAAAAFAAIAAAAAAAEAAAAFAAIAAAABAAIAAAAFAAIAAAABAAEAAAAFAAIAAAACAAEAAAAFAAIAAAACAAIAAAAFAAIAAAADAAIAAAAFAAIAAAADAAEAAAAFAAIAAAAAAAIAAAAFAAIAAAD7/wEAAAAFAAIAAAD6/wEAAAAFAAIAAAD5/wEAAAAFAAIAAAD4/wEAAAAFAAIAAAD3/wEAAAAFAAIAAAD3/wIAAAAFAAIAAAD4/wIAAAAFAAIAAAD5/wIAAAAFAAIAAAD6/wIAAAAFAAIAAAD7/wIAAAAFAAIAAAAEAAEAAAAFAAIAAAAFAAEAAAAFAAIAAAAGAAEAAAAFAAIAAAAHAAEAAAAFAAIAAAAIAAEAAAAFAAIAAAAJAAEAAAAFAAIAAAAKAAEAAAAFAAIAAAAKAAIAAAAFAAIAAAAJAAIAAAAFAAIAAAAIAAIAAAAFAAIAAAAHAAIAAAAFAAIAAAAGAAIAAAAFAAIAAAAFAAIAAAAFAAIAAAAEAAIAAAAFAAIAAAD2/wEAAAAFAAIAAAD1/wEAAAAFAAIAAAD1/wIAAAAFAAIAAAD2/wIAAAAFAAIAAAD7/wAAAAACAAMAAAD6/wAAAAACAAMAAAD5/wAAAAACAAMAAAD4/wAAAAACAAMAAAD3/wAAAAACAAMAAAD2/wAAAAACAAMAAAD1/wAAAAACAAMAAAAEAAAAAAACAAMAAAAFAAAAAAACAAMAAAAGAAAAAAACAAMAAAAHAAAAAAACAAMAAAAIAAAAAAACAAMAAAAJAAAAAAACAAMAAAAKAAAAAAACAAMAAAA=")
+tile_set = SubResource("TileSet_uue3q")
+
+[node name="TileMapLayer5" type="TileMapLayer" parent="GroundLooper"]
+position = Vector2(704, 0)
+tile_map_data = PackedByteArray("AAD8/wAAAAACAAMAAAD9/wAAAAACAAMAAAD+/wAAAAACAAMAAAD//wAAAAACAAMAAAAAAAAAAAACAAMAAAABAAAAAAACAAMAAAACAAAAAAACAAMAAAADAAAAAAACAAMAAAD8/wEAAAAFAAIAAAD8/wIAAAAFAAIAAAD9/wIAAAAFAAIAAAD9/wEAAAAFAAIAAAD+/wEAAAAFAAIAAAD+/wIAAAAFAAIAAAD//wIAAAAFAAIAAAD//wEAAAAFAAIAAAAAAAEAAAAFAAIAAAABAAIAAAAFAAIAAAABAAEAAAAFAAIAAAACAAEAAAAFAAIAAAACAAIAAAAFAAIAAAADAAIAAAAFAAIAAAADAAEAAAAFAAIAAAAAAAIAAAAFAAIAAAD7/wEAAAAFAAIAAAD6/wEAAAAFAAIAAAD5/wEAAAAFAAIAAAD4/wEAAAAFAAIAAAD3/wEAAAAFAAIAAAD3/wIAAAAFAAIAAAD4/wIAAAAFAAIAAAD5/wIAAAAFAAIAAAD6/wIAAAAFAAIAAAD7/wIAAAAFAAIAAAAEAAEAAAAFAAIAAAAFAAEAAAAFAAIAAAAGAAEAAAAFAAIAAAAHAAEAAAAFAAIAAAAIAAEAAAAFAAIAAAAJAAEAAAAFAAIAAAAKAAEAAAAFAAIAAAAKAAIAAAAFAAIAAAAJAAIAAAAFAAIAAAAIAAIAAAAFAAIAAAAHAAIAAAAFAAIAAAAGAAIAAAAFAAIAAAAFAAIAAAAFAAIAAAAEAAIAAAAFAAIAAAD2/wEAAAAFAAIAAAD1/wEAAAAFAAIAAAD1/wIAAAAFAAIAAAD2/wIAAAAFAAIAAAD7/wAAAAACAAMAAAD6/wAAAAACAAMAAAD5/wAAAAACAAMAAAD4/wAAAAACAAMAAAD3/wAAAAACAAMAAAD2/wAAAAACAAMAAAD1/wAAAAACAAMAAAAEAAAAAAACAAMAAAAFAAAAAAACAAMAAAAGAAAAAAACAAMAAAAHAAAAAAACAAMAAAAIAAAAAAACAAMAAAAJAAAAAAACAAMAAAAKAAAAAAACAAMAAAA=")
+tile_set = SubResource("TileSet_uue3q")
+
+[node name="TileMapLayer6" type="TileMapLayer" parent="GroundLooper"]
+position = Vector2(1056, 0)
+tile_map_data = PackedByteArray("AAD8/wAAAAACAAMAAAD9/wAAAAACAAMAAAD+/wAAAAACAAMAAAD//wAAAAACAAMAAAAAAAAAAAACAAMAAAABAAAAAAACAAMAAAACAAAAAAACAAMAAAADAAAAAAACAAMAAAD8/wEAAAAFAAIAAAD8/wIAAAAFAAIAAAD9/wIAAAAFAAIAAAD9/wEAAAAFAAIAAAD+/wEAAAAFAAIAAAD+/wIAAAAFAAIAAAD//wIAAAAFAAIAAAD//wEAAAAFAAIAAAAAAAEAAAAFAAIAAAABAAIAAAAFAAIAAAABAAEAAAAFAAIAAAACAAEAAAAFAAIAAAACAAIAAAAFAAIAAAADAAIAAAAFAAIAAAADAAEAAAAFAAIAAAAAAAIAAAAFAAIAAAD7/wEAAAAFAAIAAAD6/wEAAAAFAAIAAAD5/wEAAAAFAAIAAAD4/wEAAAAFAAIAAAD3/wEAAAAFAAIAAAD3/wIAAAAFAAIAAAD4/wIAAAAFAAIAAAD5/wIAAAAFAAIAAAD6/wIAAAAFAAIAAAD7/wIAAAAFAAIAAAAEAAEAAAAFAAIAAAAFAAEAAAAFAAIAAAAGAAEAAAAFAAIAAAAHAAEAAAAFAAIAAAAIAAEAAAAFAAIAAAAJAAEAAAAFAAIAAAAKAAEAAAAFAAIAAAAKAAIAAAAFAAIAAAAJAAIAAAAFAAIAAAAIAAIAAAAFAAIAAAAHAAIAAAAFAAIAAAAGAAIAAAAFAAIAAAAFAAIAAAAFAAIAAAAEAAIAAAAFAAIAAAD2/wEAAAAFAAIAAAD1/wEAAAAFAAIAAAD1/wIAAAAFAAIAAAD2/wIAAAAFAAIAAAD7/wAAAAACAAMAAAD6/wAAAAACAAMAAAD5/wAAAAACAAMAAAD4/wAAAAACAAMAAAD3/wAAAAACAAMAAAD2/wAAAAACAAMAAAD1/wAAAAACAAMAAAAEAAAAAAACAAMAAAAFAAAAAAACAAMAAAAGAAAAAAACAAMAAAAHAAAAAAACAAMAAAAIAAAAAAACAAMAAAAJAAAAAAACAAMAAAAKAAAAAAACAAMAAAA=")
+tile_set = SubResource("TileSet_uue3q")
+
+[node name="DepotPropsGurun" type="Node2D" parent="."]
+
+[node name="GudangGurun" type="Sprite2D" parent="DepotPropsGurun"]
+position = Vector2(-420, 16)
+texture = ExtResource("12_gudang")
+offset = Vector2(0, -81)
+
+[node name="DermagaMuatGurun" type="Sprite2D" parent="DepotPropsGurun"]
+position = Vector2(-460, 16)
+texture = ExtResource("11_dermaga")
+offset = Vector2(0, -25)
+
+[node name="KantorPertukaranGurun" type="Sprite2D" parent="DepotPropsGurun"]
+position = Vector2(180, 16)
+texture = ExtResource("13_kantor")
+offset = Vector2(0, -76)
+
+[node name="KedaiGurun" type="Sprite2D" parent="DepotPropsGurun"]
+position = Vector2(420, 16)
+texture = ExtResource("17_kedai")
+offset = Vector2(0, -83)
+
+[node name="TumpukanKarungGurun" type="Sprite2D" parent="DepotPropsGurun"]
+position = Vector2(-300, 16)
+texture = ExtResource("16_karung")
+offset = Vector2(0, -23)
+
+[node name="PapanHargaGurun" type="Sprite2D" parent="DepotPropsGurun"]
+position = Vector2(300, 16)
+texture = ExtResource("14_papan")
+offset = Vector2(0, -37)
+
+[node name="TiangArahGurun" type="Sprite2D" parent="DepotPropsGurun"]
+position = Vector2(-180, 16)
+texture = ExtResource("15_tiang")
+offset = Vector2(0, -42)
+
+[node name="Npcs" parent="." instance=ExtResource("90_npcs")]
+position = Vector2(0, 16)
+
+[node name="Player_Caravan" parent="." instance=ExtResource("12_karavan")]
+position = Vector2(-84, -12)
+
+[node name="Driver" parent="Player_Caravan" index="0"]
+animation = &"driver2_idle"
+
+[node name="wheelparticlefront" parent="Player_Caravan/Cariagetentcostume/Wagon" index="2"]
+emitting = false
+
+[node name="wheelparticleback" parent="Player_Caravan/Cariagetentcostume/Wagon" index="4"]
+emitting = false
+
+[node name="Harness" parent="Player_Caravan/Cariagetentcostume/Horse" index="1"]
+animation = &"harnes_idle"
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="BGM" type="AudioStreamPlayer" parent="Audio"]
+volume_db = -6.0

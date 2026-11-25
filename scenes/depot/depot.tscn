@@ -1,0 +1,170 @@
+[gd_scene load_steps=22 format=3 uid="uid://c0dep0tkarav1"]
+
+[ext_resource type="PackedScene" path="res://scenes/npc_packs/depot_npcs.tscn" id="90_npcs"]
+
+[ext_resource type="Texture2D" uid="uid://bhpt3vuc0oamh" path="res://asset/background/assets-mountain-backgrounds/m5/2.png" id="1_sky"]
+[ext_resource type="Texture2D" uid="uid://be26wwmjga4i3" path="res://asset/background/assets-mountain-backgrounds/m5/3.png" id="2_awan"]
+[ext_resource type="Texture2D" uid="uid://cavo4u57ucoo1" path="res://asset/background/assets-mountain-backgrounds/m5/4.png" id="3_gunung_jauh"]
+[ext_resource type="Texture2D" uid="uid://dvwtt1cjvdhyw" path="res://asset/Asset_Bangunan/bangunan_kota/animasi/depot_derek_30f.png" id="4_derek"]
+[ext_resource type="Texture2D" uid="uid://dj0ve26gpp8st" path="res://asset/background/assets-mountain-backgrounds/m5/5.png" id="4_gunung_dekat"]
+[ext_resource type="Texture2D" uid="uid://swxduep514t3" path="res://asset/Asset_Bangunan/bangunan_kota/depot_karavan/depot_dermaga_muat.png" id="5_dermaga"]
+[ext_resource type="Texture2D" uid="uid://brim5bfk2k5ds" path="res://asset/Asset_Bangunan/bangunan_kota/depot_karavan/depot_gudang.png" id="6_gudang"]
+[ext_resource type="Texture2D" uid="uid://koyc1iel0p0g" path="res://asset/Asset_Bangunan/bangunan_kota/depot_karavan/depot_kantor_tukar.png" id="7_kantor"]
+[ext_resource type="Texture2D" uid="uid://6e12r327d0ap" path="res://asset/Asset_Bangunan/bangunan_kota/depot_karavan/depot_papan_harga.png" id="8_papan"]
+[ext_resource type="Texture2D" uid="uid://bwssf5hg2ks7s" path="res://asset/Asset_Bangunan/bangunan_kota/depot_karavan/depot_tanda_arah.png" id="9_tanda"]
+[ext_resource type="Texture2D" uid="uid://cexqlj4d3oewf" path="res://asset/Asset_Bangunan/bangunan_kota/depot_karavan/depot_timbangan.png" id="10_timbangan"]
+[ext_resource type="Texture2D" uid="uid://qwn0apebwx77" path="res://asset/Asset_Bangunan/bangunan_kota/depot_karavan/depot_tumpukan_a.png" id="11_tumpukan_a"]
+[ext_resource type="Texture2D" uid="uid://44gmkpvjbasw" path="res://asset/Asset_Bangunan/bangunan_kota/depot_karavan/depot_tumpukan_b.png" id="12_tumpukan_b"]
+[ext_resource type="Texture2D" uid="uid://cvs6wtes1j61s" path="res://asset/Asset_Bangunan/bangunan_kota/depot_karavan/depot_tumpukan_c.png" id="13_tumpukan_c"]
+[ext_resource type="Script" uid="uid://dhuaqsfbvdjy6" path="res://scripts/depot/derek_animator.gd" id="14_derek_script"]
+[ext_resource type="PackedScene" uid="uid://d38t4xdb1wejk" path="res://scenes/player_caravan.tscn" id="15_karavan"]
+[ext_resource type="Texture2D" uid="uid://c146smkihxo2c" path="res://asset/Asset_Bangunan/bangunan_kota/rumah_fantasi/pondok_tabib.png" id="16_tabib"]
+[ext_resource type="Texture2D" uid="uid://bgxbi3oea156q" path="res://asset/Asset_Bangunan/bangunan_kota/rumah_manusia/bengkel_pandai_besi.png" id="17_bengkel"]
+[ext_resource type="Texture2D" uid="uid://cw3k2vimwjvbo" path="res://asset/Asset_Bangunan/bangunan_kota/rumah_manusia/toko_pedagang.png" id="18_toko"]
+[ext_resource type="AudioStream" uid="uid://nnm16mxsxe4u" path="res://asset/audio/tema_pedesaan.wav" id="20_jurqq"]
+
+[node name="Depot" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -111)
+
+[node name="Langit" type="Sprite2D" parent="."]
+z_index = -100
+position = Vector2(0, -111)
+scale = Vector2(2, 2)
+texture = ExtResource("1_sky")
+
+[node name="Awan" type="Parallax2D" parent="."]
+z_index = -99
+scale = Vector2(2, 2)
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(576, 0)
+autoscroll = Vector2(-12, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Awan"]
+texture = ExtResource("2_awan")
+centered = false
+
+[node name="GunungJauh" type="Sprite2D" parent="."]
+z_index = -98
+position = Vector2(0, -111)
+scale = Vector2(2, 2)
+texture = ExtResource("3_gunung_jauh")
+
+[node name="GunungDekat" type="Sprite2D" parent="."]
+z_index = -97
+position = Vector2(0, -111)
+scale = Vector2(2, 2)
+texture = ExtResource("4_gunung_dekat")
+
+[node name="Tanah" type="ColorRect" parent="."]
+z_index = -50
+offset_left = -576.0
+offset_right = 576.0
+offset_bottom = 240.0
+mouse_filter = 2
+color = Color(0.839216, 0.698039, 0.529412, 1)
+
+[node name="BatasTanah" type="ColorRect" parent="."]
+z_index = -49
+offset_left = -576.0
+offset_right = 576.0
+offset_bottom = 2.0
+mouse_filter = 2
+color = Color(0.47, 0.345, 0.235, 1)
+
+[node name="DepotProps" type="Node2D" parent="."]
+
+[node name="Gudang" type="Sprite2D" parent="DepotProps"]
+position = Vector2(-250, -179)
+texture = ExtResource("6_gudang")
+centered = false
+
+[node name="KantorTukar" type="Sprite2D" parent="DepotProps"]
+position = Vector2(246, -167)
+texture = ExtResource("7_kantor")
+centered = false
+
+[node name="Derek" type="Sprite2D" parent="DepotProps"]
+z_index = 1
+position = Vector2(-360, -156)
+texture = ExtResource("4_derek")
+centered = false
+hframes = 30
+script = ExtResource("14_derek_script")
+
+[node name="Dermaga" type="Sprite2D" parent="DepotProps"]
+z_index = 1
+position = Vector2(-214, -44)
+texture = ExtResource("5_dermaga")
+centered = false
+
+[node name="TumpukanA" type="Sprite2D" parent="DepotProps"]
+z_index = 2
+position = Vector2(-198, -90)
+texture = ExtResource("11_tumpukan_a")
+centered = false
+
+[node name="PapanHarga" type="Sprite2D" parent="DepotProps"]
+z_index = 1
+position = Vector2(168, -70)
+texture = ExtResource("8_papan")
+centered = false
+
+[node name="TandaArah" type="Sprite2D" parent="DepotProps"]
+z_index = 2
+position = Vector2(118, -74)
+texture = ExtResource("9_tanda")
+centered = false
+
+[node name="Timbangan" type="Sprite2D" parent="DepotProps"]
+z_index = 2
+position = Vector2(226, -50)
+texture = ExtResource("10_timbangan")
+centered = false
+
+[node name="TandaArahKeluar" type="Sprite2D" parent="DepotProps"]
+z_index = 1
+position = Vector2(396, -74)
+texture = ExtResource("9_tanda")
+centered = false
+
+[node name="TumpukanB" type="Sprite2D" parent="DepotProps"]
+z_index = 3
+position = Vector2(-440, -58)
+texture = ExtResource("12_tumpukan_b")
+centered = false
+
+[node name="TumpukanC" type="Sprite2D" parent="DepotProps"]
+z_index = 3
+position = Vector2(-260, -58)
+texture = ExtResource("13_tumpukan_c")
+centered = false
+
+[node name="PondokTabib" type="Sprite2D" parent="DepotProps"]
+position = Vector2(-576, -121)
+texture = ExtResource("16_tabib")
+centered = false
+
+[node name="TokoPedagang" type="Sprite2D" parent="DepotProps"]
+position = Vector2(-30, -169)
+texture = ExtResource("18_toko")
+centered = false
+
+[node name="BengkelPandaiBesi" type="Sprite2D" parent="DepotProps"]
+position = Vector2(426, -143)
+texture = ExtResource("17_bengkel")
+centered = false
+
+[node name="Karavan" parent="DepotProps" instance=ExtResource("15_karavan")]
+z_index = 4
+position = Vector2(-31, -28)
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="BGM" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("20_jurqq")
+volume_db = 4.0
+
+[node name="Npcs" parent="." instance=ExtResource("90_npcs")]

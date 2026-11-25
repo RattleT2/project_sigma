@@ -1,0 +1,151 @@
+[gd_scene load_steps=10 format=3 uid="uid://bg0k6lmlksjow"]
+
+[ext_resource type="Script" uid="uid://byndl5o23ouv7" path="res://scripts/ui/journal_board.gd" id="0_script"]
+[ext_resource type="Texture2D" uid="uid://clmtp8bwnoyra" path="res://asset/papan_kosong_untuk_jurnal_dan_forge.png" id="1_board"]
+[ext_resource type="Texture2D" uid="uid://8nmlliu54s7b" path="res://asset/quest_ui_hd/07_icons/icon_compass@4x.png" id="2_compass"]
+[ext_resource type="Texture2D" uid="uid://bo3h4qurivxt4" path="res://asset/quest_ui_hd/07_icons/icon_scroll_text@4x.png" id="3_scroll"]
+[ext_resource type="Texture2D" uid="uid://bvy5nqf2iavhc" path="res://asset/quest_ui_hd/02_buttons/close_button_a@4x.png" id="4_close"]
+[ext_resource type="Texture2D" uid="uid://bgi8cbvn56u8r" path="res://asset/quest_ui_hd/10_tanpa_teks/tombol_kosong@4x.png" id="5_button"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_button"]
+content_margin_left = 10.0
+content_margin_top = 3.0
+content_margin_right = 10.0
+content_margin_bottom = 3.0
+texture = ExtResource("5_button")
+texture_margin_left = 18.0
+texture_margin_top = 9.0
+texture_margin_right = 18.0
+texture_margin_bottom = 9.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_button_pressed"]
+content_margin_left = 10.0
+content_margin_top = 3.0
+content_margin_right = 10.0
+content_margin_bottom = 3.0
+texture = ExtResource("5_button")
+texture_margin_left = 18.0
+texture_margin_top = 9.0
+texture_margin_right = 18.0
+texture_margin_bottom = 9.0
+modulate_color = Color(0.82, 0.78, 0.68, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_button_hover"]
+content_margin_left = 10.0
+content_margin_top = 3.0
+content_margin_right = 10.0
+content_margin_bottom = 3.0
+texture = ExtResource("5_button")
+texture_margin_left = 18.0
+texture_margin_top = 9.0
+texture_margin_right = 18.0
+texture_margin_bottom = 9.0
+modulate_color = Color(1.08, 1.06, 0.95, 1)
+
+[node name="JournalBoard" type="Control"]
+custom_minimum_size = Vector2(720, 405)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("0_script")
+
+[node name="Board" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_board")
+expand_mode = 1
+
+[node name="TitleIcon" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 251.0
+offset_top = 24.0
+offset_right = 283.0
+offset_bottom = 56.0
+mouse_filter = 2
+texture = ExtResource("3_scroll")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 254.0
+offset_top = 24.0
+offset_right = 506.0
+offset_bottom = 60.0
+theme_override_colors/font_color = Color(1, 0.86, 0.6, 1)
+theme_override_colors/font_outline_color = Color(0.08, 0.04, 0.02, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 18
+text = "JURNAL PERJALANAN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BigIcon" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 126.0
+offset_top = 92.0
+offset_right = 236.0
+offset_bottom = 202.0
+mouse_filter = 2
+texture = ExtResource("2_compass")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="JournalSummary" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 58.0
+offset_top = 216.0
+offset_right = 304.0
+offset_bottom = 330.0
+theme_override_colors/font_color = Color(0.96, 0.88, 0.72, 1)
+theme_override_colors/font_outline_color = Color(0.08, 0.04, 0.02, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 14
+text = "Putaran 1 - Turn 1/5"
+autowrap_mode = 2
+
+[node name="JournalText" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 334.0
+offset_top = 80.0
+offset_right = 658.0
+offset_bottom = 310.0
+theme_override_colors/default_color = Color(0.2, 0.11, 0.06, 1)
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+
+[node name="JournalMapButton" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 334.0
+offset_top = 320.0
+offset_right = 658.0
+offset_bottom = 354.0
+theme_override_colors/font_color = Color(0.98, 0.92, 0.8, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxTexture_button")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_button_pressed")
+theme_override_styles/hover = SubResource("StyleBoxTexture_button_hover")
+text = "BUKA PETA"
+
+[node name="JournalClose" type="TextureButton" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 672.0
+offset_top = 12.0
+offset_right = 708.0
+offset_bottom = 48.0
+texture_normal = ExtResource("4_close")
+ignore_texture_size = true
+stretch_mode = 5

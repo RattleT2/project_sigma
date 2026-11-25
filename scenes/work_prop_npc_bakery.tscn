@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://b48rhs4uf8l47"]
+
+[ext_resource type="Texture2D" uid="uid://dg8u16jd7ps7m" path="res://asset/npc/npc_sprites/props/prop_meja_adonan.png" id="1_th2hs"]
+[ext_resource type="Script" uid="uid://d3dvml3ebs4rp" path="res://scripts/work_prop.gd" id="99_work_prop"]
+
+[node name="WorkProp_NPC_bakery" type="Node2D"]
+script = ExtResource("99_work_prop")
+
+[node name="Dough_on_a_table" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -8)
+texture = ExtResource("1_th2hs")
+
+[node name="WorkSpot_for_npc_standing_facing_right" type="Marker2D" parent="."]
+position = Vector2(28, 0)
+
+[node name="WorkSpot_for_npc_standing_facing_left" type="Marker2D" parent="."]
+position = Vector2(-28, 0)
+
+[node name="mixing_dough_sound" type="AudioStreamPlayer2D" parent="."]

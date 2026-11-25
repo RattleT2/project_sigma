@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="PackedScene" uid="uid://drcwwskvq1nwp" path="res://scenes/npc_blacksmith.tscn" id="1_blacksmith"]
+[ext_resource type="PackedScene" uid="uid://c1oavkbqgkq2i" path="res://scenes/npc_civilian_men.tscn" id="2_man"]
+[ext_resource type="PackedScene" uid="uid://oaxwe1i7qis" path="res://scenes/npc_civilian_women.tscn" id="3_woman"]
+[ext_resource type="PackedScene" uid="uid://cqjj24xgl70sw" path="res://scenes/npc_kitsune.tscn" id="4_kitsune"]
+[ext_resource type="PackedScene" uid="uid://cee0ruu2oweqv" path="res://scenes/work_prop_npc_blacksmith.tscn" id="5_anvil"]
+
+[node name="DepotNpcs" type="Node2D"]
+
+[node name="WorkPropBlacksmith" parent="." instance=ExtResource("5_anvil")]
+position = Vector2(400, 0)
+
+[node name="NpcBlacksmith" parent="." instance=ExtResource("1_blacksmith")]
+position = Vector2(366, 0)
+apply_gravity = false
+patrol_range = 24.0
+target_prop_path = NodePath("../WorkPropBlacksmith")
+
+[node name="NpcMerchant" parent="." instance=ExtResource("2_man")]
+position = Vector2(180, 0)
+apply_gravity = false
+patrol_range = 40.0
+
+[node name="NpcKitsune" parent="." instance=ExtResource("4_kitsune")]
+position = Vector2(-400, 0)
+apply_gravity = false
+patrol_range = 30.0
+
+[node name="NpcTrader" parent="." instance=ExtResource("3_woman")]
+position = Vector2(60, 0)
+apply_gravity = false
+patrol_range = 30.0
