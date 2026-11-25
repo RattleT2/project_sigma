@@ -979,7 +979,7 @@ script = ExtResource("99_npc_controller")
 
 [node name="civilian_women" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, -25)
+position = Vector2(0, -28)
 sprite_frames = SubResource("SpriteFrames_b8off")
 animation = &"npc_civilian_women_with_basket"
 frame_progress = 0.8331465

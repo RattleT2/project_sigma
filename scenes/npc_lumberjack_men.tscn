@@ -979,7 +979,7 @@ script = ExtResource("99_npc_controller")
 
 [node name="lumberjack_movement" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, -25)
+position = Vector2(0, -28)
 sprite_frames = SubResource("SpriteFrames_4vlp4")
 animation = &"npc_lumberjack_walk"
 frame_progress = 0.07972991

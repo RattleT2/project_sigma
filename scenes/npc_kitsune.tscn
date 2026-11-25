@@ -840,7 +840,7 @@ script = ExtResource("99_npc_controller")
 
 [node name="kitsune_movement" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, -25)
+position = Vector2(0, -28)
 sprite_frames = SubResource("SpriteFrames_pypp7")
 animation = &"npc_kitsune_talking"
 frame_progress = 0.053856622

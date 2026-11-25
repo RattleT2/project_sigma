@@ -165,8 +165,8 @@ func _travel_to_region(area: String) -> void:
 	if area_camera != null:
 		area_camera.enabled = false
 	if player_camera != null:
+		player_camera.zoom = Vector2.ONE
 		player_camera.enabled = true
-		player_camera.zoom = Vector2(2.4, 2.4)
 		player_camera.make_current()
 
 	var start_x: float = player.global_position.x

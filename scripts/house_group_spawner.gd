@@ -3,8 +3,8 @@ extends Node2D
 # Spawn 1-3 rumah per grup dengan jarak, lalu tunggu sampai grup keluar layar.
 @export var prop_textures: Array[Texture2D] = []
 @export var scroll_speed: float = 120.0
-@export var spawn_x: float = 700.0
-@export var despawn_x: float = -700.0
+@export var spawn_x: float = 1000.0
+@export var despawn_x: float = -1000.0
 @export var ground_y: float = 16.0
 @export var min_houses: int = 1
 @export var max_houses: int = 3

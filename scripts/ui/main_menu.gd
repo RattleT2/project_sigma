@@ -59,7 +59,10 @@ func _setup_live_map() -> void:
 	player.call("set_customization", RunState.cart_level, RunState.accessories)
 	player.set("input_enabled", false)
 	player.set("external_travel", true)
-	player.call("set_traveling", false)
+	var world_scroll := player.get_parent().get_node_or_null("WorldScroll")
+	if world_scroll != null:
+		world_scroll.call("set_forced_speed", float(player.get("walk_speed")))
+	player.call("set_traveling", true)
 
 
 func _sync_live_costume() -> void:

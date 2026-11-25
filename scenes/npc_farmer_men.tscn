@@ -951,7 +951,7 @@ script = ExtResource("99_npc_controller")
 
 [node name="farmer_movement" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, -25)
+position = Vector2(0, -28)
 sprite_frames = SubResource("SpriteFrames_fupih")
 animation = &"npc_farmer_idle"
 

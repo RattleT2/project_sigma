@@ -5,13 +5,13 @@ extends Node2D
 
 @export var npc_scenes: Array[PackedScene] = []
 @export var scroll_speed := 120.0
-@export var spawn_x := 700.0
-@export var despawn_x := -700.0
+@export var spawn_x := 1000.0
+@export var despawn_x := -1000.0
 @export var min_distance := 900.0
 @export var max_distance := 1500.0
 @export var ground_y := 16.0
-## Koreksi naik/turun agar kaki NPC menapak tepat di garis tanah (negatif = naik).
-@export var ground_offset := -3.0
+## Koreksi naik/turun opsional untuk kaki NPC (negatif = naik).
+@export var ground_offset := 0.0
 @export var initial_npc := 1
 
 var _distance := 0.0

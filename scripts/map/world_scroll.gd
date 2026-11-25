@@ -6,6 +6,12 @@ extends Node
 var _parallax_base: Dictionary = {}
 var _speed_base: Dictionary = {}
 var _follow_nodes: Array[Node2D] = []
+## > 0 = abaikan velocity karavan (dipakai main menu untuk scroll terus-menerus).
+var forced_speed := 0.0
+
+
+func set_forced_speed(value: float) -> void:
+	forced_speed = value
 
 
 func _ready() -> void:
@@ -29,8 +35,8 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	var player = get_tree().get_first_node_in_group("player_caravan")
-	var speed := 0.0
-	if player != null and not bool(player.get("external_travel")):
+	var speed := forced_speed
+	if is_zero_approx(forced_speed) and player != null and not bool(player.get("external_travel")):
 		speed = float(player.velocity.x)
 	var ratio := clampf(speed / GameData.BASE_DRIVE_SPEED, -4.0, 4.0)
 	for node in _parallax_base:

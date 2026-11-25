@@ -11,8 +11,8 @@ extends Node2D
 @export var max_distance: float = 400.0
 
 # Koordinat posisi spawn (sesuaikan dengan ukuran layar/viewport kamu)
-@export var spawn_x: float = 450.0    # Di luar batas kanan layar
-@export var despawn_x: float = -350.0 # Di luar batas kiri layar
+@export var spawn_x: float = 1000.0    # Di luar batas kanan layar
+@export var despawn_x: float = -1000.0 # Di luar batas kiri layar
 @export var min_y: float = -16.0      # Tinggi permukaan tanah di scene kamu
 @export var max_y: float = -16.0      # Samakan untuk objek tanah; bedakan untuk awan (misal -240 s/d -160)
 

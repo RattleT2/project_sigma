@@ -395,84 +395,99 @@ tile_map_data = PackedByteArray("AAD4/wAAAAABAAAAAAD5/wAAAAACAAAAAAD6/wAAAAADAAA
 tile_set = SubResource("TileSet_qiowp")
 
 [node name="PropVillageHouseBata" type="Sprite2D" parent="."]
+z_index = 1
 texture = ExtResource("24_bata")
-position = Vector2(-500, 16)
+position = Vector2(-500, 0)
 offset = Vector2(0, -81.5)
 
 [node name="PropVillageHousePlester" type="Sprite2D" parent="."]
+z_index = 1
 texture = ExtResource("3_x3ww0")
-position = Vector2(-405, 16)
+position = Vector2(-405, 0)
 offset = Vector2(0, -82.5)
 
 [node name="PropVillageSawmill" type="Sprite2D" parent="."]
+z_index = 1
 texture = ExtResource("17_gergaji")
-position = Vector2(-275, 16)
+position = Vector2(-275, 0)
 offset = Vector2(0, -60.5)
 
 [node name="AsapGergaji" type="Sprite2D" parent="."]
+z_index = 2
 texture = ExtResource("31_asap_gergaji")
-position = Vector2(-351, -149)
+position = Vector2(-351, -165)
 centered = false
 hframes = 30
 script = ExtResource("32_animator")
 
 [node name="PropVillageInn" type="Sprite2D" parent="."]
+z_index = 1
 texture = ExtResource("16_kedai")
-position = Vector2(-140, 16)
+position = Vector2(-140, 0)
 offset = Vector2(0, -83.5)
 
 [node name="AsapPenginapan" type="Sprite2D" parent="."]
+z_index = 2
 texture = ExtResource("30_asap_inn")
-position = Vector2(-229, -195)
+position = Vector2(-229, -211)
 centered = false
 hframes = 30
 script = ExtResource("32_animator")
 
 [node name="PropVillageShop" type="Sprite2D" parent="."]
+z_index = 1
 texture = ExtResource("26_toko")
-position = Vector2(80, 16)
+position = Vector2(80, 0)
 offset = Vector2(0, -84.5)
 
 [node name="AsapToko" type="Sprite2D" parent="."]
+z_index = 2
 texture = ExtResource("29_asap_toko")
-position = Vector2(7, -197)
+position = Vector2(7, -213)
 centered = false
 hframes = 30
 script = ExtResource("32_animator")
 
 [node name="PropVillageBlacksmith" type="Sprite2D" parent="."]
+z_index = 1
 texture = ExtResource("25_bengkel")
-position = Vector2(250, 16)
+position = Vector2(250, 0)
 offset = Vector2(0, -71.5)
 
 [node name="ApiBengkel" type="Sprite2D" parent="."]
+z_index = 2
 texture = ExtResource("27_api_bengkel")
-position = Vector2(175, -127)
+position = Vector2(175, -143)
 centered = false
 hframes = 30
 script = ExtResource("32_animator")
 
 [node name="AsapBengkel" type="Sprite2D" parent="."]
+z_index = 2
 texture = ExtResource("28_asap_bengkel")
-position = Vector2(175, -171)
+position = Vector2(175, -187)
 centered = false
 hframes = 30
 script = ExtResource("32_animator")
 
 [node name="PropVillageTree" type="Sprite2D" parent="."]
+z_index = 1
 texture = ExtResource("5_8w753")
-position = Vector2(480, 16)
+position = Vector2(480, 0)
 offset = Vector2(0, -128.5)
 
 [node name="PropVillageGuardPost" type="Sprite2D" parent="."]
+z_index = 1
 texture = ExtResource("19_pos")
-position = Vector2(400, 16)
+position = Vector2(400, 0)
 offset = Vector2(0, -79.5)
 
 [node name="Npcs" parent="." instance=ExtResource("90_npcs")]
-position = Vector2(0, 16)
+z_index = 1
+position = Vector2(0, 0)
 
 [node name="Player_Caravan" parent="." instance=ExtResource("23_karavan")]
+z_index = 2
 position = Vector2(-84, -12)
 
 [node name="Driver" parent="Player_Caravan" index="0"]

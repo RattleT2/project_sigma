@@ -1042,7 +1042,7 @@ script = ExtResource("99_npc_controller")
 
 [node name="blacksmith_movement" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, -25)
+position = Vector2(0, -28)
 sprite_frames = SubResource("SpriteFrames_8p8ql")
 animation = &"blacksmith_npc_forge"
 frame_progress = 0.45593965
