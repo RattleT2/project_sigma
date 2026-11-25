@@ -22,6 +22,12 @@ const SKIP_HOLD := 3.0
 const SKIP_FADE_OUT := 1.5
 const EXIT_MARGIN := 240.0
 const BASE_BOOST_SPEED := 220.0
+const TRAVEL_CAMERA_CENTER_Y := {
+	&"forest": -144.0,
+	&"snow": -111.0,
+	&"desert": -111.0,
+	&"village": -111.0,
+}
 
 var departure_speed := 420.0
 var _travelling := false
@@ -162,10 +168,12 @@ func _travel_to_region(area: String) -> void:
 	player.call("stop_move")
 	var area_camera := walk_area.get_node_or_null("Camera2D") as Camera2D
 	var player_camera := player.get_node_or_null("Camera2D") as Camera2D
+	var camera_center_y: float = TRAVEL_CAMERA_CENTER_Y.get(StringName(area), -111.0)
 	if area_camera != null:
 		area_camera.enabled = false
 	if player_camera != null:
 		player_camera.zoom = Vector2.ONE
+		player_camera.offset = Vector2(0, camera_center_y - player.global_position.y)
 		player_camera.enabled = true
 		player_camera.make_current()
 
@@ -181,6 +189,8 @@ func _travel_to_region(area: String) -> void:
 		await get_tree().process_frame
 		if get_tree().paused:
 			continue
+		if player_camera != null:
+			player_camera.offset.y = camera_center_y - player.global_position.y
 		var progress := clampf((player.global_position.x - start_x) / distance, 0.0, 1.0)
 		_hud.set_travel_progress(progress)
 		_hud.set_boost_ratio(float(player.call("boost_ratio")), bool(player.call("boost_locked")))
