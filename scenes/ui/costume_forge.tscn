@@ -87,8 +87,8 @@ offset_right = 487.0
 offset_bottom = 61.0
 theme_override_colors/font_color = Color(1, 0.86, 0.6, 1)
 theme_override_colors/font_outline_color = Color(0.08, 0.04, 0.02, 1)
-theme_override_constants/outline_size = 4
-theme_override_font_sizes/font_size = 18
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 15
 text = "FORGE KARAVAN"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -130,8 +130,8 @@ offset_right = 308.0
 offset_bottom = 334.0
 theme_override_colors/font_color = Color(0.95, 0.88, 0.75, 1)
 theme_override_colors/font_outline_color = Color(0.08, 0.04, 0.02, 1)
-theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 13
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 10
 text = "Level 1 - Gerobak Dasar"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -148,7 +148,7 @@ theme_override_constants/separation = 3
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.22, 0.11, 0.06, 1)
-theme_override_font_sizes/font_size = 13
+theme_override_font_sizes/font_size = 10
 text = "Kapasitas 30 - Speed +0% - Koin menu 0"
 
 [node name="CartRow" type="HBoxContainer" parent="Content/InfoColumn"]
@@ -165,14 +165,14 @@ theme_override_constants/separation = 0
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.22, 0.11, 0.06, 1)
-theme_override_font_sizes/font_size = 13
+theme_override_font_sizes/font_size = 10
 text = "Gerobak Level 1/2"
 
 [node name="CartEffect" type="Label" parent="Content/InfoColumn/CartRow/CartText"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.38, 0.24, 0.14, 1)
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 10
 text = "Upgrade: +6 kapasitas, +5% speed"
 
 [node name="CartUpgradeButton" type="Button" parent="Content/InfoColumn/CartRow"]
@@ -182,7 +182,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.98, 0.92, 0.8, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(0.55, 0.48, 0.4, 1)
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxTexture_button")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_button_pressed")
 theme_override_styles/hover = SubResource("StyleBoxTexture_button_hover")
@@ -192,7 +192,7 @@ text = "UPGRADE 500"
 [node name="AccessoryTitle" type="Label" parent="Content/InfoColumn"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.38, 0.24, 0.14, 1)
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 10
 text = "AKSESORIS"
 
 [node name="AccessoryCapacity" type="HBoxContainer" parent="Content/InfoColumn"]
@@ -212,14 +212,14 @@ stretch_mode = 5
 custom_minimum_size = Vector2(78, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.22, 0.11, 0.06, 1)
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 10
 text = "Rak Kargo"
 
 [node name="Effect" type="Label" parent="Content/InfoColumn/AccessoryCapacity"]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.38, 0.24, 0.14, 1)
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 10
 text = "+2 cap"
 
 [node name="Status" type="Label" parent="Content/InfoColumn/AccessoryCapacity"]
@@ -235,7 +235,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.98, 0.92, 0.8, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(0.55, 0.48, 0.4, 1)
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxTexture_button")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_button_pressed")
 theme_override_styles/hover = SubResource("StyleBoxTexture_button_hover")
@@ -259,14 +259,14 @@ stretch_mode = 5
 custom_minimum_size = Vector2(78, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.22, 0.11, 0.06, 1)
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 10
 text = "Peti Kargo"
 
 [node name="Effect" type="Label" parent="Content/InfoColumn/AccessoryChest"]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.38, 0.24, 0.14, 1)
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 10
 text = "+2 cap"
 
 [node name="Status" type="Label" parent="Content/InfoColumn/AccessoryChest"]
@@ -282,7 +282,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.98, 0.92, 0.8, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(0.55, 0.48, 0.4, 1)
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxTexture_button")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_button_pressed")
 theme_override_styles/hover = SubResource("StyleBoxTexture_button_hover")
@@ -306,14 +306,14 @@ stretch_mode = 5
 custom_minimum_size = Vector2(78, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.22, 0.11, 0.06, 1)
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 10
 text = "Perkakas"
 
 [node name="Effect" type="Label" parent="Content/InfoColumn/AccessoryTools"]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.38, 0.24, 0.14, 1)
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 10
 text = "+5% speed"
 
 [node name="Status" type="Label" parent="Content/InfoColumn/AccessoryTools"]
@@ -329,7 +329,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.98, 0.92, 0.8, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(0.55, 0.48, 0.4, 1)
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxTexture_button")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_button_pressed")
 theme_override_styles/hover = SubResource("StyleBoxTexture_button_hover")
@@ -353,14 +353,14 @@ stretch_mode = 5
 custom_minimum_size = Vector2(78, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.22, 0.11, 0.06, 1)
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 10
 text = "Lentera"
 
 [node name="Effect" type="Label" parent="Content/InfoColumn/AccessoryLantern"]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.38, 0.24, 0.14, 1)
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 10
 text = "+5% speed"
 
 [node name="Status" type="Label" parent="Content/InfoColumn/AccessoryLantern"]
@@ -376,7 +376,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.98, 0.92, 0.8, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(0.55, 0.48, 0.4, 1)
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxTexture_button")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_button_pressed")
 theme_override_styles/hover = SubResource("StyleBoxTexture_button_hover")
@@ -400,14 +400,14 @@ stretch_mode = 5
 custom_minimum_size = Vector2(78, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.22, 0.11, 0.06, 1)
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 10
 text = "Karung"
 
 [node name="Effect" type="Label" parent="Content/InfoColumn/AccessorySack"]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.38, 0.24, 0.14, 1)
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 10
 text = "+2 cap"
 
 [node name="Status" type="Label" parent="Content/InfoColumn/AccessorySack"]
@@ -423,7 +423,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.98, 0.92, 0.8, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(0.55, 0.48, 0.4, 1)
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxTexture_button")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_button_pressed")
 theme_override_styles/hover = SubResource("StyleBoxTexture_button_hover")
@@ -434,6 +434,6 @@ text = "BELI 250"
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.38, 0.24, 0.14, 1)
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 10
 text = "Upgrade hanya di Depot atau main menu."
 autowrap_mode = 2

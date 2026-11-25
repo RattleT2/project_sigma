@@ -166,8 +166,8 @@ offset_right = 688.0
 offset_bottom = 1070.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.06, 0.05, 0.08, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 44
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 36
 text = "Village & Castle"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -202,8 +202,8 @@ offset_right = 1050.0
 offset_bottom = 1370.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.06, 0.05, 0.08, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 44
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 36
 text = "Desert"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -238,8 +238,8 @@ offset_right = 1670.0
 offset_bottom = 1550.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.06, 0.05, 0.08, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 44
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 36
 text = "Forest"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -274,8 +274,8 @@ offset_right = 1594.0
 offset_bottom = 570.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.06, 0.05, 0.08, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 44
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 36
 text = "Snow"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -310,8 +310,8 @@ offset_right = 1244.0
 offset_bottom = 888.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.06, 0.05, 0.08, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 44
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 36
 text = "Depot"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -384,14 +384,14 @@ theme_override_constants/separation = 0
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.98, 0.94, 0.86, 1)
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "Turn 1"
 
 [node name="TurnsLeftLabel" type="Label" parent="TopBar/BarRow/TurnSummary"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.85, 0.78, 0.64, 1)
-theme_override_font_sizes/font_size = 13
+theme_override_font_sizes/font_size = 10
 text = "12 turn tersisa"
 
 [node name="SpacerLeft" type="Control" parent="TopBar/BarRow"]
@@ -401,7 +401,7 @@ size_flags_horizontal = 3
 [node name="TitleLabel" type="Label" parent="TopBar/BarRow"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.88, 0.62, 1)
-theme_override_font_sizes/font_size = 22
+theme_override_font_sizes/font_size = 18
 text = "PILIH TUJUAN"
 vertical_alignment = 1
 
@@ -431,14 +431,14 @@ theme_override_constants/separation = 8
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.9, 0.68, 1)
-theme_override_font_sizes/font_size = 26
+theme_override_font_sizes/font_size = 21
 text = "Depot"
 autowrap_mode = 2
 
 [node name="StableBadge" type="Label" parent="AreaDetailPanel/PanelBox"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 12
 text = "BELUM STABIL"
 
 [node name="SeparatorTop" type="HSeparator" parent="AreaDetailPanel/PanelBox"]
@@ -463,14 +463,14 @@ stretch_mode = 5
 [node name="IronLabel" type="Label" parent="AreaDetailPanel/PanelBox/ResourceRows/IronRow"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.9, 0.88, 0.82, 1)
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 12
 text = "Iron"
 
 [node name="IronValue" type="Label" parent="AreaDetailPanel/PanelBox/ResourceRows/IronRow"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 12
 text = "0 / 0"
 horizontal_alignment = 2
 
@@ -489,14 +489,14 @@ stretch_mode = 5
 [node name="DiamondLabel" type="Label" parent="AreaDetailPanel/PanelBox/ResourceRows/DiamondRow"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.9, 0.88, 0.82, 1)
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 12
 text = "Diamond"
 
 [node name="DiamondValue" type="Label" parent="AreaDetailPanel/PanelBox/ResourceRows/DiamondRow"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 12
 text = "0 / 0"
 horizontal_alignment = 2
 
@@ -515,14 +515,14 @@ stretch_mode = 5
 [node name="CoinLabel" type="Label" parent="AreaDetailPanel/PanelBox/ResourceRows/CoinRow"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.9, 0.88, 0.82, 1)
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 12
 text = "Koin Emas"
 
 [node name="CoinValue" type="Label" parent="AreaDetailPanel/PanelBox/ResourceRows/CoinRow"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 12
 text = "0 / 0"
 horizontal_alignment = 2
 
@@ -537,28 +537,28 @@ theme_override_constants/separation = 4
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.88, 0.86, 0.8, 1)
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 12
 text = "Jarak: 0"
 
 [node name="CostRow" type="Label" parent="AreaDetailPanel/PanelBox/TravelRows"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.88, 0.86, 0.8, 1)
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 12
 text = "Biaya perjalanan: 0 coin"
 
 [node name="RiskRow" type="Label" parent="AreaDetailPanel/PanelBox/TravelRows"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.88, 0.86, 0.8, 1)
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 12
 text = "Risiko bandit: 0%"
 
 [node name="ReasonLabel" type="Label" parent="AreaDetailPanel/PanelBox"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.98, 0.72, 0.45, 1)
-theme_override_font_sizes/font_size = 14
+theme_override_font_sizes/font_size = 11
 text = "Pilih wilayah tujuan dulu."
 autowrap_mode = 2
 
@@ -573,7 +573,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.98, 0.94, 0.86, 1)
 theme_override_colors/font_hover_color = Color(1, 0.97, 0.9, 1)
 theme_override_colors/font_disabled_color = Color(0.6, 0.56, 0.5, 1)
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 15
 theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
 theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
@@ -607,7 +607,7 @@ stretch_mode = 5
 [node name="CaravanIron" type="Label" parent="CaravanSummary/PanelBox/ResourceRow"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 12
 text = "0"
 
 [node name="DiamondIcon" type="TextureRect" parent="CaravanSummary/PanelBox/ResourceRow"]
@@ -621,7 +621,7 @@ stretch_mode = 5
 [node name="CaravanDiamond" type="Label" parent="CaravanSummary/PanelBox/ResourceRow"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 12
 text = "0"
 
 [node name="CoinIcon" type="TextureRect" parent="CaravanSummary/PanelBox/ResourceRow"]
@@ -635,7 +635,7 @@ stretch_mode = 5
 [node name="CaravanCoin" type="Label" parent="CaravanSummary/PanelBox/ResourceRow"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 12
 text = "0"
 
 [node name="CapacityRow" type="HBoxContainer" parent="CaravanSummary/PanelBox"]
@@ -645,7 +645,7 @@ theme_override_constants/separation = 8
 [node name="CapacityLabel" type="Label" parent="CaravanSummary/PanelBox/CapacityRow"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.85, 0.78, 0.64, 1)
-theme_override_font_sizes/font_size = 13
+theme_override_font_sizes/font_size = 10
 text = "Kapasitas"
 
 [node name="CaravanCapacity" type="ProgressBar" parent="CaravanSummary/PanelBox/CapacityRow"]
@@ -662,14 +662,14 @@ show_percentage = false
 [node name="CaravanCapacityValue" type="Label" parent="CaravanSummary/PanelBox/CapacityRow"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 13
+theme_override_font_sizes/font_size = 10
 text = "0 / 0"
 
 [node name="CaravanEffect" type="Label" parent="CaravanSummary/PanelBox"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.72, 0.68, 0.6, 1)
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 10
 text = "Tanpa efek aktif"
 
 [node name="BackButton" type="Button" parent="."]
@@ -683,7 +683,7 @@ offset_top = -56.0
 offset_right = 136.0
 offset_bottom = -16.0
 grow_vertical = 0
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 12
 theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
 theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")

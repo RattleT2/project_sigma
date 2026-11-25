@@ -236,14 +236,14 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.9, 0.62, 1)
 theme_override_colors/font_outline_color = Color(0.08, 0.04, 0.02, 1)
-theme_override_constants/outline_size = 4
-theme_override_font_sizes/font_size = 19
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 18
 text = "500"
 
 [node name="CoinCaption" type="Label" parent="TopBar/HeaderMargin/HeaderRow/LeftPanel/Margin/Row"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.8, 0.7, 0.55, 1)
-theme_override_font_sizes/font_size = 11
+theme_override_colors/font_color = Color(0.95, 0.86, 0.68, 1)
+theme_override_font_sizes/font_size = 12
 text = "coin"
 
 [node name="Divider" type="VSeparator" parent="TopBar/HeaderMargin/HeaderRow/LeftPanel/Margin/Row"]
@@ -252,8 +252,8 @@ size_flags_vertical = 4
 
 [node name="CargoCaption" type="Label" parent="TopBar/HeaderMargin/HeaderRow/LeftPanel/Margin/Row"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.8, 0.7, 0.55, 1)
-theme_override_font_sizes/font_size = 11
+theme_override_colors/font_color = Color(0.95, 0.86, 0.68, 1)
+theme_override_font_sizes/font_size = 12
 text = "KARGO"
 
 [node name="CargoValue" type="Label" parent="TopBar/HeaderMargin/HeaderRow/LeftPanel/Margin/Row"]
@@ -261,8 +261,8 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.9, 0.62, 1)
 theme_override_colors/font_outline_color = Color(0.08, 0.04, 0.02, 1)
-theme_override_constants/outline_size = 4
-theme_override_font_sizes/font_size = 19
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 18
 text = "0/30"
 
 [node name="CenterPanel" type="PanelContainer" parent="TopBar/HeaderMargin/HeaderRow"]
@@ -296,8 +296,8 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.78, 0.35, 1)
 theme_override_colors/font_outline_color = Color(0.08, 0.04, 0.02, 1)
-theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 12
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 13
 text = "PUTARAN 1"
 
 [node name="TurnLabel" type="Label" parent="TopBar/HeaderMargin/HeaderRow/CenterPanel/Margin/Box/RoundTurnRow"]
@@ -305,8 +305,8 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.98, 0.93, 0.82, 1)
 theme_override_colors/font_outline_color = Color(0.08, 0.04, 0.02, 1)
-theme_override_constants/outline_size = 4
-theme_override_font_sizes/font_size = 14
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 15
 text = "TURN 1/5"
 
 [node name="TravelProgress" type="ProgressBar" parent="TopBar/HeaderMargin/HeaderRow/CenterPanel/Margin/Box"]
@@ -328,8 +328,8 @@ theme_override_constants/separation = 4
 layout_mode = 2
 theme_override_colors/font_color = Color(0.62, 0.9, 0.68, 1)
 theme_override_colors/font_outline_color = Color(0.08, 0.04, 0.02, 1)
-theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 9
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 12
 text = "BOOST"
 vertical_alignment = 1
 
@@ -350,8 +350,8 @@ visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(0.95, 0.88, 0.72, 1)
 theme_override_colors/font_outline_color = Color(0.08, 0.04, 0.02, 1)
-theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 10
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 12
 text = "MENUJU"
 horizontal_alignment = 1
 
@@ -384,7 +384,7 @@ alignment = 1
 [node name="Caption" type="Label" parent="TopBar/HeaderMargin/HeaderRow/RightPanel/Margin/Box/StableRow"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.8, 0.7, 0.55, 1)
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 12
 text = "STABIL"
 
 [node name="StableValue" type="Label" parent="TopBar/HeaderMargin/HeaderRow/RightPanel/Margin/Box/StableRow"]
@@ -392,8 +392,8 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.9, 0.62, 1)
 theme_override_colors/font_outline_color = Color(0.08, 0.04, 0.02, 1)
-theme_override_constants/outline_size = 4
-theme_override_font_sizes/font_size = 17
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 16
 text = "0/1"
 
 [node name="AreaLabel" type="Label" parent="TopBar/HeaderMargin/HeaderRow/RightPanel/Margin/Box"]
@@ -412,7 +412,7 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -200.0
-offset_top = -108.0
+offset_top = -118.0
 offset_right = 200.0
 offset_bottom = -8.0
 grow_horizontal = 2
@@ -421,7 +421,7 @@ theme_override_constants/separation = 12
 alignment = 1
 
 [node name="ShopItem" type="VBoxContainer" parent="NavBar"]
-custom_minimum_size = Vector2(88, 100)
+custom_minimum_size = Vector2(88, 110)
 layout_mode = 2
 theme_override_constants/separation = 1
 
@@ -438,15 +438,15 @@ stretch_mode = 5
 
 [node name="Label" type="Label" parent="NavBar/ShopItem"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.95, 0.87, 0.7, 1)
+theme_override_colors/font_color = Color(1, 0.96, 0.86, 1)
 theme_override_colors/font_outline_color = Color(0.08, 0.04, 0.02, 1)
 theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 14
 text = "SHOP"
 horizontal_alignment = 1
 
 [node name="MapItem" type="VBoxContainer" parent="NavBar"]
-custom_minimum_size = Vector2(88, 100)
+custom_minimum_size = Vector2(88, 110)
 layout_mode = 2
 theme_override_constants/separation = 1
 
@@ -463,15 +463,15 @@ stretch_mode = 5
 
 [node name="Label" type="Label" parent="NavBar/MapItem"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.95, 0.87, 0.7, 1)
+theme_override_colors/font_color = Color(1, 0.96, 0.86, 1)
 theme_override_colors/font_outline_color = Color(0.08, 0.04, 0.02, 1)
 theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 14
 text = "PETA"
 horizontal_alignment = 1
 
 [node name="ForgeItem" type="VBoxContainer" parent="NavBar"]
-custom_minimum_size = Vector2(88, 100)
+custom_minimum_size = Vector2(88, 110)
 layout_mode = 2
 theme_override_constants/separation = 1
 
@@ -488,15 +488,15 @@ stretch_mode = 5
 
 [node name="Label" type="Label" parent="NavBar/ForgeItem"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.95, 0.87, 0.7, 1)
+theme_override_colors/font_color = Color(1, 0.96, 0.86, 1)
 theme_override_colors/font_outline_color = Color(0.08, 0.04, 0.02, 1)
 theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 14
 text = "FORGE"
 horizontal_alignment = 1
 
 [node name="JournalItem" type="VBoxContainer" parent="NavBar"]
-custom_minimum_size = Vector2(88, 100)
+custom_minimum_size = Vector2(88, 110)
 layout_mode = 2
 theme_override_constants/separation = 1
 
@@ -513,10 +513,10 @@ stretch_mode = 5
 
 [node name="Label" type="Label" parent="NavBar/JournalItem"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.95, 0.87, 0.7, 1)
+theme_override_colors/font_color = Color(1, 0.96, 0.86, 1)
 theme_override_colors/font_outline_color = Color(0.08, 0.04, 0.02, 1)
 theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 14
 text = "JURNAL"
 horizontal_alignment = 1
 
@@ -530,9 +530,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -390.0
-offset_top = -430.0
+offset_top = -462.0
 offset_right = 390.0
-offset_bottom = -124.0
+offset_bottom = -134.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_plate")
@@ -564,19 +564,19 @@ theme_override_constants/separation = 5
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.85, 0.55, 1)
 theme_override_colors/font_outline_color = Color(0.08, 0.04, 0.02, 1)
-theme_override_constants/outline_size = 4
-theme_override_font_sizes/font_size = 22
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 18
 text = "DEPOT UTAMA"
 
 [node name="ShopHint" type="Label" parent="PanelHost/Margin/Stack/ShopPanel"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_color = Color(0.85, 0.76, 0.62, 1)
+theme_override_colors/font_color = Color(0.95, 0.86, 0.68, 1)
 theme_override_font_sizes/font_size = 12
 text = "Resupply hanya di Depot."
 
 [node name="IronRow" type="HBoxContainer" parent="PanelHost/Margin/Stack/ShopPanel"]
-custom_minimum_size = Vector2(0, 28)
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 theme_override_constants/separation = 8
 
@@ -592,7 +592,7 @@ stretch_mode = 5
 custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.95, 0.88, 0.75, 1)
-theme_override_font_sizes/font_size = 14
+theme_override_font_sizes/font_size = 12
 text = "Iron"
 
 [node name="IronSlider" type="HSlider" parent="PanelHost/Margin/Stack/ShopPanel/IronRow"]
@@ -605,7 +605,7 @@ max_value = 30.0
 
 [node name="IronQty" type="Label" parent="PanelHost/Margin/Stack/ShopPanel/IronRow"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(34, 0)
+custom_minimum_size = Vector2(42, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.9, 0.62, 1)
 theme_override_font_sizes/font_size = 14
@@ -614,15 +614,15 @@ horizontal_alignment = 2
 
 [node name="IronCost" type="Label" parent="PanelHost/Margin/Stack/ShopPanel/IronRow"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(76, 0)
+custom_minimum_size = Vector2(96, 0)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.82, 0.74, 0.6, 1)
-theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(1, 0.92, 0.7, 1)
+theme_override_font_sizes/font_size = 13
 text = "0 coin"
 horizontal_alignment = 2
 
 [node name="GoldRow" type="HBoxContainer" parent="PanelHost/Margin/Stack/ShopPanel"]
-custom_minimum_size = Vector2(0, 28)
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 theme_override_constants/separation = 8
 
@@ -638,7 +638,7 @@ stretch_mode = 5
 custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.95, 0.88, 0.75, 1)
-theme_override_font_sizes/font_size = 14
+theme_override_font_sizes/font_size = 12
 text = "Koin Emas"
 
 [node name="GoldSlider" type="HSlider" parent="PanelHost/Margin/Stack/ShopPanel/GoldRow"]
@@ -651,7 +651,7 @@ max_value = 30.0
 
 [node name="GoldQty" type="Label" parent="PanelHost/Margin/Stack/ShopPanel/GoldRow"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(34, 0)
+custom_minimum_size = Vector2(42, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.9, 0.62, 1)
 theme_override_font_sizes/font_size = 14
@@ -660,15 +660,15 @@ horizontal_alignment = 2
 
 [node name="GoldCost" type="Label" parent="PanelHost/Margin/Stack/ShopPanel/GoldRow"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(76, 0)
+custom_minimum_size = Vector2(96, 0)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.82, 0.74, 0.6, 1)
-theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(1, 0.92, 0.7, 1)
+theme_override_font_sizes/font_size = 13
 text = "0 coin"
 horizontal_alignment = 2
 
 [node name="DiamondRow" type="HBoxContainer" parent="PanelHost/Margin/Stack/ShopPanel"]
-custom_minimum_size = Vector2(0, 28)
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 theme_override_constants/separation = 8
 
@@ -684,7 +684,7 @@ stretch_mode = 5
 custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.95, 0.88, 0.75, 1)
-theme_override_font_sizes/font_size = 14
+theme_override_font_sizes/font_size = 12
 text = "Diamond"
 
 [node name="DiamondSlider" type="HSlider" parent="PanelHost/Margin/Stack/ShopPanel/DiamondRow"]
@@ -697,7 +697,7 @@ max_value = 30.0
 
 [node name="DiamondQty" type="Label" parent="PanelHost/Margin/Stack/ShopPanel/DiamondRow"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(34, 0)
+custom_minimum_size = Vector2(42, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.9, 0.62, 1)
 theme_override_font_sizes/font_size = 14
@@ -706,10 +706,10 @@ horizontal_alignment = 2
 
 [node name="DiamondCost" type="Label" parent="PanelHost/Margin/Stack/ShopPanel/DiamondRow"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(76, 0)
+custom_minimum_size = Vector2(96, 0)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.82, 0.74, 0.6, 1)
-theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(1, 0.92, 0.7, 1)
+theme_override_font_sizes/font_size = 13
 text = "0 coin"
 horizontal_alignment = 2
 
@@ -719,7 +719,7 @@ theme_override_constants/separation = 14
 
 [node name="CostCaption" type="Label" parent="PanelHost/Margin/Stack/ShopPanel/Summary"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.8, 0.7, 0.55, 1)
+theme_override_colors/font_color = Color(0.95, 0.86, 0.68, 1)
 theme_override_font_sizes/font_size = 12
 text = "BIAYA"
 
@@ -727,12 +727,12 @@ text = "BIAYA"
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.9, 0.62, 1)
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 14
 text = "0 coin"
 
 [node name="CargoCaption" type="Label" parent="PanelHost/Margin/Stack/ShopPanel/Summary"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.8, 0.7, 0.55, 1)
+theme_override_colors/font_color = Color(0.95, 0.86, 0.68, 1)
 theme_override_font_sizes/font_size = 12
 text = "KARGO"
 
@@ -740,12 +740,12 @@ text = "KARGO"
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.9, 0.62, 1)
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 14
 text = "0/30"
 
 [node name="CoinCaption" type="Label" parent="PanelHost/Margin/Stack/ShopPanel/Summary"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.8, 0.7, 0.55, 1)
+theme_override_colors/font_color = Color(0.95, 0.86, 0.68, 1)
 theme_override_font_sizes/font_size = 12
 text = "COIN"
 
@@ -753,7 +753,7 @@ text = "COIN"
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.9, 0.62, 1)
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 14
 text = "500"
 
 [node name="Spacer" type="Control" parent="PanelHost/Margin/Stack/ShopPanel"]
@@ -762,7 +762,7 @@ size_flags_vertical = 3
 
 [node name="BuyButton" type="Button" parent="PanelHost/Margin/Stack/ShopPanel"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 36)
+custom_minimum_size = Vector2(0, 42)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.98, 0.92, 0.8, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
@@ -780,14 +780,14 @@ theme_override_constants/separation = 8
 
 [node name="BuffGuard" type="Button" parent="PanelHost/Margin/Stack/ShopPanel/BuffRow"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 34)
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_horizontal = 3
 tooltip_text = "Penjaga: bandit tidak bisa mencuri selama 2 turn."
 theme_override_colors/font_color = Color(0.98, 0.92, 0.8, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/font_disabled_color = Color(0.55, 0.48, 0.4, 1)
-theme_override_font_sizes/font_size = 12
+theme_override_colors/font_disabled_color = Color(0.7, 0.62, 0.52, 1)
+theme_override_font_sizes/font_size = 13
 theme_override_styles/normal = SubResource("StyleBoxFlat_button")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_button_pressed")
 theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
@@ -796,14 +796,14 @@ text = "PENJAGA 80"
 
 [node name="BuffSpeed" type="Button" parent="PanelHost/Margin/Stack/ShopPanel/BuffRow"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 34)
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_horizontal = 3
 tooltip_text = "Cepat: waktu travel -30% selama 2 turn."
 theme_override_colors/font_color = Color(0.98, 0.92, 0.8, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/font_disabled_color = Color(0.55, 0.48, 0.4, 1)
-theme_override_font_sizes/font_size = 12
+theme_override_colors/font_disabled_color = Color(0.7, 0.62, 0.52, 1)
+theme_override_font_sizes/font_size = 13
 theme_override_styles/normal = SubResource("StyleBoxFlat_button")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_button_pressed")
 theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
@@ -812,14 +812,14 @@ text = "CEPAT 60"
 
 [node name="BuffBargain" type="Button" parent="PanelHost/Margin/Stack/ShopPanel/BuffRow"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 34)
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_horizontal = 3
 tooltip_text = "Tawar: harga resupply -20% selama 2 turn."
 theme_override_colors/font_color = Color(0.98, 0.92, 0.8, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/font_disabled_color = Color(0.55, 0.48, 0.4, 1)
-theme_override_font_sizes/font_size = 12
+theme_override_colors/font_disabled_color = Color(0.7, 0.62, 0.52, 1)
+theme_override_font_sizes/font_size = 13
 theme_override_styles/normal = SubResource("StyleBoxFlat_button")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_button_pressed")
 theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
@@ -840,18 +840,18 @@ theme_override_constants/separation = 5
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.85, 0.55, 1)
 theme_override_colors/font_outline_color = Color(0.08, 0.04, 0.02, 1)
-theme_override_constants/outline_size = 4
-theme_override_font_sizes/font_size = 20
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 18
 text = "SERAH TERIMA"
 
 [node name="DeliveryHint" type="Label" parent="PanelHost/Margin/Stack/DeliveryPanel"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.85, 0.76, 0.62, 1)
+theme_override_colors/font_color = Color(0.95, 0.86, 0.68, 1)
 theme_override_font_sizes/font_size = 12
 text = "Pilih jumlah resource yang diserahkan. Sisa kargo tetap dibawa."
 
 [node name="IronRow" type="HBoxContainer" parent="PanelHost/Margin/Stack/DeliveryPanel"]
-custom_minimum_size = Vector2(0, 28)
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 theme_override_constants/separation = 8
 
@@ -864,17 +864,17 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Name" type="Label" parent="PanelHost/Margin/Stack/DeliveryPanel/IronRow"]
-custom_minimum_size = Vector2(80, 0)
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.95, 0.88, 0.75, 1)
 theme_override_font_sizes/font_size = 14
 text = "Iron"
 
 [node name="Info" type="Label" parent="PanelHost/Margin/Stack/DeliveryPanel/IronRow"]
-custom_minimum_size = Vector2(150, 0)
+custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.82, 0.74, 0.6, 1)
-theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0.95, 0.88, 0.75, 1)
+theme_override_font_sizes/font_size = 13
 text = "Bawa 0 / butuh 0"
 
 [node name="Slider" type="HSlider" parent="PanelHost/Margin/Stack/DeliveryPanel/IronRow"]
@@ -885,15 +885,15 @@ size_flags_vertical = 4
 max_value = 1.0
 
 [node name="Revenue" type="Label" parent="PanelHost/Margin/Stack/DeliveryPanel/IronRow"]
-custom_minimum_size = Vector2(72, 0)
+custom_minimum_size = Vector2(84, 0)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.82, 0.74, 0.6, 1)
-theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(1, 0.92, 0.7, 1)
+theme_override_font_sizes/font_size = 13
 text = "0 coin"
 horizontal_alignment = 2
 
 [node name="GoldRow" type="HBoxContainer" parent="PanelHost/Margin/Stack/DeliveryPanel"]
-custom_minimum_size = Vector2(0, 28)
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 theme_override_constants/separation = 8
 
@@ -906,17 +906,17 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Name" type="Label" parent="PanelHost/Margin/Stack/DeliveryPanel/GoldRow"]
-custom_minimum_size = Vector2(80, 0)
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.95, 0.88, 0.75, 1)
 theme_override_font_sizes/font_size = 14
 text = "Koin Emas"
 
 [node name="Info" type="Label" parent="PanelHost/Margin/Stack/DeliveryPanel/GoldRow"]
-custom_minimum_size = Vector2(150, 0)
+custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.82, 0.74, 0.6, 1)
-theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0.95, 0.88, 0.75, 1)
+theme_override_font_sizes/font_size = 13
 text = "Bawa 0 / butuh 0"
 
 [node name="Slider" type="HSlider" parent="PanelHost/Margin/Stack/DeliveryPanel/GoldRow"]
@@ -927,15 +927,15 @@ size_flags_vertical = 4
 max_value = 1.0
 
 [node name="Revenue" type="Label" parent="PanelHost/Margin/Stack/DeliveryPanel/GoldRow"]
-custom_minimum_size = Vector2(72, 0)
+custom_minimum_size = Vector2(84, 0)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.82, 0.74, 0.6, 1)
-theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(1, 0.92, 0.7, 1)
+theme_override_font_sizes/font_size = 13
 text = "0 coin"
 horizontal_alignment = 2
 
 [node name="DiamondRow" type="HBoxContainer" parent="PanelHost/Margin/Stack/DeliveryPanel"]
-custom_minimum_size = Vector2(0, 28)
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 theme_override_constants/separation = 8
 
@@ -948,17 +948,17 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Name" type="Label" parent="PanelHost/Margin/Stack/DeliveryPanel/DiamondRow"]
-custom_minimum_size = Vector2(80, 0)
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.95, 0.88, 0.75, 1)
 theme_override_font_sizes/font_size = 14
 text = "Diamond"
 
 [node name="Info" type="Label" parent="PanelHost/Margin/Stack/DeliveryPanel/DiamondRow"]
-custom_minimum_size = Vector2(150, 0)
+custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.82, 0.74, 0.6, 1)
-theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0.95, 0.88, 0.75, 1)
+theme_override_font_sizes/font_size = 13
 text = "Bawa 0 / butuh 0"
 
 [node name="Slider" type="HSlider" parent="PanelHost/Margin/Stack/DeliveryPanel/DiamondRow"]
@@ -969,10 +969,10 @@ size_flags_vertical = 4
 max_value = 1.0
 
 [node name="Revenue" type="Label" parent="PanelHost/Margin/Stack/DeliveryPanel/DiamondRow"]
-custom_minimum_size = Vector2(72, 0)
+custom_minimum_size = Vector2(84, 0)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.82, 0.74, 0.6, 1)
-theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(1, 0.92, 0.7, 1)
+theme_override_font_sizes/font_size = 13
 text = "0 coin"
 horizontal_alignment = 2
 
@@ -982,26 +982,26 @@ theme_override_constants/separation = 14
 
 [node name="RevenueCaption" type="Label" parent="PanelHost/Margin/Stack/DeliveryPanel/Summary"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.8, 0.7, 0.55, 1)
+theme_override_colors/font_color = Color(0.95, 0.86, 0.68, 1)
 theme_override_font_sizes/font_size = 12
 text = "PENDAPATAN"
 
 [node name="RevenueValue" type="Label" parent="PanelHost/Margin/Stack/DeliveryPanel/Summary"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.9, 0.62, 1)
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 14
 text = "0 coin"
 
 [node name="CargoCaption" type="Label" parent="PanelHost/Margin/Stack/DeliveryPanel/Summary"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.8, 0.7, 0.55, 1)
+theme_override_colors/font_color = Color(0.95, 0.86, 0.68, 1)
 theme_override_font_sizes/font_size = 12
 text = "SISA KARGO"
 
 [node name="CargoValue" type="Label" parent="PanelHost/Margin/Stack/DeliveryPanel/Summary"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.9, 0.62, 1)
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 14
 text = "0"
 
 [node name="Spacer" type="Control" parent="PanelHost/Margin/Stack/DeliveryPanel"]
@@ -1013,7 +1013,7 @@ layout_mode = 2
 theme_override_constants/separation = 10
 
 [node name="Confirm" type="Button" parent="PanelHost/Margin/Stack/DeliveryPanel/Buttons"]
-custom_minimum_size = Vector2(0, 36)
+custom_minimum_size = Vector2(0, 42)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.98, 0.92, 0.8, 1)
@@ -1027,12 +1027,12 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_button_disabled")
 text = "SERAHKAN"
 
 [node name="Skip" type="Button" parent="PanelHost/Margin/Stack/DeliveryPanel/Buttons"]
-custom_minimum_size = Vector2(0, 36)
+custom_minimum_size = Vector2(0, 42)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.9, 0.84, 0.72, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 13
+theme_override_font_sizes/font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_button")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_button_pressed")
 theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
@@ -1085,7 +1085,7 @@ grow_vertical = 0
 tooltip_text = "Habiskan 1 turn tanpa perjalanan"
 theme_override_colors/font_color = Color(0.98, 0.92, 0.8, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 12
 theme_override_styles/normal = SubResource("StyleBoxFlat_button")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_button_pressed")
 theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
@@ -1141,8 +1141,8 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.85, 0.55, 1)
 theme_override_colors/font_outline_color = Color(0.08, 0.04, 0.02, 1)
-theme_override_constants/outline_size = 4
-theme_override_font_sizes/font_size = 24
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 20
 text = "BANDIT!"
 horizontal_alignment = 1
 
@@ -1150,7 +1150,7 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.95, 0.88, 0.75, 1)
-theme_override_font_sizes/font_size = 14
+theme_override_font_sizes/font_size = 11
 text = "Bandit menghadang."
 horizontal_alignment = 1
 autowrap_mode = 2
@@ -1167,7 +1167,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.98, 0.92, 0.8, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(0.55, 0.48, 0.4, 1)
-theme_override_font_sizes/font_size = 14
+theme_override_font_sizes/font_size = 11
 theme_override_styles/normal = SubResource("StyleBoxFlat_button")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_button_pressed")
 theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
@@ -1180,7 +1180,7 @@ custom_minimum_size = Vector2(210, 46)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.98, 0.92, 0.8, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 14
+theme_override_font_sizes/font_size = 11
 theme_override_styles/normal = SubResource("StyleBoxFlat_button")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_button_pressed")
 theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
@@ -1200,6 +1200,6 @@ offset_bottom = 158.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(1, 0.92, 0.7, 1)
 theme_override_colors/font_outline_color = Color(0.08, 0.04, 0.02, 1)
-theme_override_constants/outline_size = 5
-theme_override_font_sizes/font_size = 16
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 12
 horizontal_alignment = 1

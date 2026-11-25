@@ -31,7 +31,8 @@ project/assembly_name="Caravan Explore"
 
 [gui]
 
-theme/custom_font="res://asset/fonts/PixelifySans.tres"
+theme/custom_font="res://asset/fonts/Silkscreen.tres"
+theme/default_font_size=14
 
 [rendering]
 
