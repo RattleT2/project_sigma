@@ -441,7 +441,7 @@ func ask_delivery(region_id: String) -> Dictionary:
 	_panel_host.show()
 	_update_delivery_totals()
 	var result: Dictionary = await _delivery_done
-	_delivery_panel.hide()
+	close_panels()
 	return result
 
 

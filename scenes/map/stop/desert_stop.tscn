@@ -1,4 +1,6 @@
-[gd_scene load_steps=24 format=4]
+[gd_scene load_steps=25 format=4]
+
+[ext_resource type="AudioStream" uid="uid://daeitaxbcuk3j" path="res://asset/audio/tema_gurun.wav" id="91_bgm"]
 
 [ext_resource type="PackedScene" path="res://scenes/npc_packs/desert_stop_npcs.tscn" id="90_npcs"]
 
@@ -373,4 +375,5 @@ animation = &"harnes_idle"
 [node name="Audio" type="Node" parent="."]
 
 [node name="BGM" type="AudioStreamPlayer" parent="Audio"]
-volume_db = -6.0
+stream = ExtResource("91_bgm")
+volume_db = 4.0

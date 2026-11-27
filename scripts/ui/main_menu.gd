@@ -2,6 +2,7 @@ extends Control
 ## Main menu: live forest map + tombol Play/Settings/Quit.
 
 const GAME_SCENE := "res://scenes/game.tscn"
+const WINDOWED_SIZE := Vector2i(1600, 900)
 
 @onready var _bgm: AudioStreamPlayer = $Audio/BGM_Menu
 @onready var _sfx: AudioStreamPlayer = $Audio/SFX_Click
@@ -173,9 +174,36 @@ func _on_volume_changed(value: float) -> void:
 
 
 func _on_fullscreen_toggled(toggled_on: bool) -> void:
-	DisplayServer.window_set_mode(
-		DisplayServer.WINDOW_MODE_FULLSCREEN if toggled_on else DisplayServer.WINDOW_MODE_WINDOWED
-	)
+	if toggled_on:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		return
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	await get_tree().process_frame
+	if DisplayServer.window_get_mode() != DisplayServer.WINDOW_MODE_WINDOWED:
+		return
+	_apply_windowed_size()
+
+
+func _windowed_size() -> Vector2i:
+	var screen := DisplayServer.window_get_current_screen()
+	var usable := DisplayServer.screen_get_usable_rect(screen)
+	if usable.size.x <= 0 or usable.size.y <= 0:
+		return WINDOWED_SIZE
+	var max_width := int(float(usable.size.x) * 0.9)
+	var max_height := int(float(usable.size.y) * 0.9)
+	var scale := minf(1.0, minf(
+		float(max_width) / float(WINDOWED_SIZE.x),
+		float(max_height) / float(WINDOWED_SIZE.y)
+	))
+	return Vector2i(int(float(WINDOWED_SIZE.x) * scale), int(float(WINDOWED_SIZE.y) * scale))
+
+
+func _apply_windowed_size() -> void:
+	var size := _windowed_size()
+	DisplayServer.window_set_size(size)
+	var screen := DisplayServer.window_get_current_screen()
+	var usable := DisplayServer.screen_get_usable_rect(screen)
+	DisplayServer.window_set_position(usable.position + (usable.size - size) / 2)
 
 
 func _unhandled_input(event: InputEvent) -> void:

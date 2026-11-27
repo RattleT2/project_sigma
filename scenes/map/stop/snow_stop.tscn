@@ -1,4 +1,6 @@
-[gd_scene load_steps=22 format=4 uid="uid://rxecb8leylwb"]
+[gd_scene load_steps=23 format=4 uid="uid://rxecb8leylwb"]
+
+[ext_resource type="AudioStream" uid="uid://btgly24dkcvne" path="res://asset/audio/tema_perkotaan.wav" id="91_bgm"]
 
 [ext_resource type="PackedScene" path="res://scenes/npc_packs/snow_stop_npcs.tscn" id="90_npcs"]
 
@@ -406,4 +408,5 @@ max_y = -180.0
 [node name="Audio" type="Node" parent="."]
 
 [node name="BGM" type="AudioStreamPlayer" parent="Audio"]
-volume_db = -6.0
+stream = ExtResource("91_bgm")
+volume_db = 4.0

@@ -1,4 +1,6 @@
-[gd_scene load_steps=20 format=4 uid="uid://bop2y22w8lkt4"]
+[gd_scene load_steps=21 format=4 uid="uid://bop2y22w8lkt4"]
+
+[ext_resource type="AudioStream" uid="uid://8myqocyqaofm" path="res://asset/audio/tema_hutan.wav" id="91_bgm"]
 
 [ext_resource type="PackedScene" path="res://scenes/npc_packs/forest_stop_npcs.tscn" id="90_npcs"]
 
@@ -480,4 +482,5 @@ flip_h = true
 [node name="Audio" type="Node" parent="."]
 
 [node name="BGM" type="AudioStreamPlayer" parent="Audio"]
-volume_db = -6.0
+stream = ExtResource("91_bgm")
+volume_db = 4.0

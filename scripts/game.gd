@@ -181,6 +181,7 @@ func _travel_to_region(area: String) -> void:
 	var distance := maxf(RunState.drive_distance(area), 1.0)
 	var target_x := start_x + distance
 	var bandit_event: Dictionary = {}
+	var bandit_checked := false
 	var bandit_at := randf_range(0.45, 0.7)
 	_hud.show_travel_progress(area)
 	_hud.show_toast("Karavan berjalan otomatis. Tahan Space/Shift untuk boost.")
@@ -194,7 +195,8 @@ func _travel_to_region(area: String) -> void:
 		var progress := clampf((player.global_position.x - start_x) / distance, 0.0, 1.0)
 		_hud.set_travel_progress(progress)
 		_hud.set_boost_ratio(float(player.call("boost_ratio")), bool(player.call("boost_locked")))
-		if bandit_event.is_empty() and progress >= bandit_at:
+		if not bandit_checked and progress >= bandit_at:
+			bandit_checked = true
 			bandit_event = RunState.roll_bandit(area)
 			if not bandit_event.is_empty():
 				if bool(bandit_event.get("blocked", false)):

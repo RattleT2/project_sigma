@@ -1,4 +1,6 @@
-[gd_scene load_steps=28 format=4 uid="uid://0x0yn45psuf3"]
+[gd_scene load_steps=29 format=4 uid="uid://0x0yn45psuf3"]
+
+[ext_resource type="AudioStream" uid="uid://cu2bvlcww50kf" path="res://asset/audio/tema_padang_rumput.wav" id="91_bgm"]
 
 [ext_resource type="Texture2D" uid="uid://bibm2ew03e3ix" path="res://asset/background/craftpix-net-823949-free-nature-backgrounds-pixel-art/nature_1/8.png" id="1_gh3u5"]
 [ext_resource type="Texture2D" uid="uid://bguf8xlp5q3xc" path="res://asset/background/assets-mountain-backgrounds/m1/1.png" id="1_langit"]
@@ -475,4 +477,5 @@ position = Vector2(-84, -12)
 [node name="Audio" type="Node" parent="."]
 
 [node name="BGM" type="AudioStreamPlayer" parent="Audio"]
-volume_db = -6.0
+stream = ExtResource("91_bgm")
+volume_db = 4.0

@@ -18,13 +18,13 @@ const RESOURCES := {
 const REGION_ORDER := ["snow", "forest", "desert", "village"]
 
 const REGIONS := {
-	"snow": {"name": "Salju", "risk": 25.0,
+	"snow": {"name": "Salju", "risk": 15.0,
 		"needs": {"iron": 6, "gold": 6, "diamond": 16}},
-	"forest": {"name": "Forest", "risk": 18.0,
+	"forest": {"name": "Forest", "risk": 11.0,
 		"needs": {"iron": 6, "gold": 16, "diamond": 6}},
-	"desert": {"name": "Desert", "risk": 12.0,
+	"desert": {"name": "Desert", "risk": 8.0,
 		"needs": {"iron": 16, "gold": 6, "diamond": 6}},
-	"village": {"name": "Village", "risk": 15.0,
+	"village": {"name": "Village", "risk": 10.0,
 		"needs": {"iron": 10, "gold": 10, "diamond": 10}},
 }
 
