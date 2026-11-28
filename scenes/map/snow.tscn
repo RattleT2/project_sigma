@@ -1,4 +1,6 @@
-[gd_scene load_steps=34 format=4 uid="uid://dbc1rymt5qvq2"]
+[gd_scene load_steps=35 format=4 uid="uid://dbc1rymt5qvq2"]
+
+[ext_resource type="Script" uid="uid://dhffwjxqwifsc" path="res://addons/weather_fx/weather_system.gd" id="99_weather"]
 
 [ext_resource type="Script" path="res://scripts/npc_travel_spawner.gd" id="91_npcspawn"]
 [ext_resource type="PackedScene" uid="uid://c1oavkbqgkq2i" path="res://scenes/npc_civilian_men.tscn" id="92_man"]
@@ -397,6 +399,12 @@ position = Vector2(-84, -12)
 
 [node name="WorldScroll" type="Node" parent="."]
 script = ExtResource("90_worldscroll")
+
+[node name="Weather" type="Node2D" parent="."]
+z_index = 100
+script = ExtResource("99_weather")
+weather = "snow"
+ground = 0.65
 
 [node name="Audio" type="Node" parent="."]
 

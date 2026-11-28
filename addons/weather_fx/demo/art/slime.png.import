@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://mpg5josvds6b"
-path="res://.godot/imported/slime.png-e1b7f9f34b3cefe4f41565931ecdb28d.ctex"
+path="res://.godot/imported/slime.png-600b006498a55b0d0e6c83cc3a9a0825.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/background/weather_fx/demo/art/slime.png"
-dest_files=["res://.godot/imported/slime.png-e1b7f9f34b3cefe4f41565931ecdb28d.ctex"]
+source_file="res://addons/weather_fx/demo/art/slime.png"
+dest_files=["res://.godot/imported/slime.png-600b006498a55b0d0e6c83cc3a9a0825.ctex"]
 
 [params]
 

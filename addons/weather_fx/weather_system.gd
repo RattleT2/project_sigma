@@ -36,7 +36,7 @@ const STATES := {
 	"snow": {"snow": {density = 0.45},
 		"clouds": {coverage = 0.75, color = Color(0.92, 0.93, 0.96), shade = Color(0.7, 0.74, 0.84)}},
 	"blizzard": {"blizzard": {}, "fog": {density = 0.3}},
-	"fog": {"fog": {density = 0.55}, "mist": {density = 0.5}},
+	"fog": {"fog": {density = 0.12, ground_fog = 0.15}, "mist": {density = 0.5}},
 	"windy": {"wind": {density = 0.5}, "leaves": {density = 0.25, wind = 0.9}, "clouds": {coverage = 0.35, wind = 1.2}},
 	"sandstorm": {"sandstorm": {}, "wind": {density = 0.35, color = Color(1.0, 0.9, 0.7, 0.5)}},
 	"heatwave": {"heat_haze": {}, "sun": {}},

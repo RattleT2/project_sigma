@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhg7mbult6jt7"
-path="res://.godot/imported/mushroom.png-e6086409b1eaaaf4df0369d3ff0e085b.ctex"
+uid="uid://cwykmbvhgfl5w"
+path="res://.godot/imported/chest.png-677480d49bd29ac89151f7a25681df11.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/background/weather_fx/demo/art/mushroom.png"
-dest_files=["res://.godot/imported/mushroom.png-e6086409b1eaaaf4df0369d3ff0e085b.ctex"]
+source_file="res://addons/weather_fx/demo/art/chest.png"
+dest_files=["res://.godot/imported/chest.png-677480d49bd29ac89151f7a25681df11.ctex"]
 
 [params]
 

@@ -1,4 +1,6 @@
-[gd_scene load_steps=29 format=4 uid="uid://0x0yn45psuf3"]
+[gd_scene load_steps=30 format=4 uid="uid://0x0yn45psuf3"]
+
+[ext_resource type="Script" uid="uid://dhffwjxqwifsc" path="res://addons/weather_fx/weather_system.gd" id="99_weather"]
 
 [ext_resource type="AudioStream" uid="uid://cu2bvlcww50kf" path="res://asset/audio/tema_padang_rumput.wav" id="91_bgm"]
 
@@ -473,6 +475,11 @@ z_index = 1
 [node name="Player_Caravan" parent="." instance=ExtResource("23_karavan")]
 z_index = 2
 position = Vector2(-84, -12)
+
+[node name="Weather" type="Node2D" parent="."]
+z_index = 100
+script = ExtResource("99_weather")
+weather = "fog"
 
 [node name="Audio" type="Node" parent="."]
 

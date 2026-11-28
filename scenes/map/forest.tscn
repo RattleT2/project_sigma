@@ -1,4 +1,6 @@
-[gd_scene load_steps=20 format=4 uid="uid://py660c4wbay1"]
+[gd_scene load_steps=21 format=4 uid="uid://py660c4wbay1"]
+
+[ext_resource type="Script" uid="uid://dhffwjxqwifsc" path="res://addons/weather_fx/weather_system.gd" id="99_weather"]
 
 [ext_resource type="Script" path="res://scripts/npc_travel_spawner.gd" id="91_npcspawn"]
 [ext_resource type="PackedScene" uid="uid://bjl8uhkikpul7" path="res://scenes/npc_lumberjack_men.tscn" id="92_lumberjack"]
@@ -420,6 +422,12 @@ offset = Vector2(100, -144)
 
 [node name="WorldScroll" type="Node" parent="."]
 script = ExtResource("90_worldscroll")
+
+[node name="Weather" type="Node2D" parent="."]
+z_index = 100
+script = ExtResource("99_weather")
+weather = "drizzle"
+ground = 0.65
 
 [node name="Audio" type="Node" parent="."]
 

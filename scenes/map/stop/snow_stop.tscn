@@ -1,4 +1,6 @@
-[gd_scene load_steps=23 format=4 uid="uid://rxecb8leylwb"]
+[gd_scene load_steps=24 format=4 uid="uid://rxecb8leylwb"]
+
+[ext_resource type="Script" uid="uid://dhffwjxqwifsc" path="res://addons/weather_fx/weather_system.gd" id="99_weather"]
 
 [ext_resource type="Texture2D" uid="uid://c6qee12smbwkd" path="res://asset/background/craftpix-net-823949-free-nature-backgrounds-pixel-art/nature_6/1.png" id="1_fai1k"]
 [ext_resource type="Texture2D" uid="uid://dt7e34f7s0jur" path="res://asset/background/Pixel_Art_Snow_And_Ice_Tileset_Pack/Pixel Art Snow and Ice Tileset/snowy_rock_block.png" id="1_pevrq"]
@@ -402,6 +404,12 @@ prop_textures = Array[Texture2D]([ExtResource("18_awan4"), ExtResource("19_awan3
 scroll_speed = 0.0
 min_y = -180.0
 max_y = -180.0
+
+[node name="Weather" type="Node2D" parent="."]
+z_index = 100
+script = ExtResource("99_weather")
+weather = "snow"
+ground = 0.65
 
 [node name="Audio" type="Node" parent="."]
 
