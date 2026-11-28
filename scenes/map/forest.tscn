@@ -1,25 +1,23 @@
 [gd_scene load_steps=21 format=4 uid="uid://py660c4wbay1"]
 
-[ext_resource type="Script" uid="uid://dhffwjxqwifsc" path="res://addons/weather_fx/weather_system.gd" id="99_weather"]
-
-[ext_resource type="Script" path="res://scripts/npc_travel_spawner.gd" id="91_npcspawn"]
-[ext_resource type="PackedScene" uid="uid://bjl8uhkikpul7" path="res://scenes/npc_lumberjack_men.tscn" id="92_lumberjack"]
-[ext_resource type="PackedScene" uid="uid://c1oavkbqgkq2i" path="res://scenes/npc_civilian_men.tscn" id="93_man"]
-[ext_resource type="PackedScene" uid="uid://dk2fd32a8pgcu" path="res://scenes/npc_farmer_men.tscn" id="94_farmer"]
-
-[ext_resource type="Texture2D" uid="uid://bf86ojx2b32vp" path="res://asset/background/asset-forest-backgrounds/1/1.png" id="1_langit"]
-[ext_resource type="Texture2D" uid="uid://qh6peop3wggj" path="res://asset/background/craftpix-net-995711-free-pixel-art-cloud-and-sky-backgrounds/4. NEW CLOUDS/2.png" id="2_awan"]
+[ext_resource type="Texture2D" uid="uid://dsbe3vsobe8dt" path="res://asset/background/asset-forest-backgrounds/2/1.png" id="1_enhx6"]
+[ext_resource type="Texture2D" uid="uid://c415mb8ch1583" path="res://asset/background/craftpix-net-995711-free-pixel-art-cloud-and-sky-backgrounds/4. NEW CLOUDS/2.png" id="2_awan"]
 [ext_resource type="Texture2D" uid="uid://c31lworb8owok" path="res://asset/background/asset-forest-backgrounds/1/2.png" id="2_pohonjauh"]
-[ext_resource type="Texture2D" uid="uid://cc6u46lt7p0ki" path="res://asset/background/craftpix-net-995711-free-pixel-art-cloud-and-sky-backgrounds/4. NEW CLOUDS/3.png" id="3_awan"]
+[ext_resource type="Texture2D" uid="uid://ykdcsdmyp45f" path="res://asset/background/craftpix-net-995711-free-pixel-art-cloud-and-sky-backgrounds/4. NEW CLOUDS/3.png" id="3_awan"]
 [ext_resource type="Texture2D" uid="uid://dnwsosk2cnleb" path="res://asset/background/asset-forest-backgrounds/1/3.png" id="3_pohondekat"]
 [ext_resource type="Texture2D" uid="uid://dux7je6ok62ps" path="res://asset/background/asset-forest-backgrounds/1/4.png" id="4_rumput"]
-[ext_resource type="Texture2D" uid="uid://dlr3e3yf3vi1a" path="res://asset/background/craftpix-net-675652-free-rocks-pixel-art-asset-pack/PNG/middle_lane_rocks2/middle_lane_rock2_4.png" id="5_0fenw"]
+[ext_resource type="Texture2D" uid="uid://dk5tbcbcywm1s" path="res://asset/background/craftpix-net-675652-free-rocks-pixel-art-asset-pack/PNG/middle_lane_rocks2/middle_lane_rock2_4.png" id="5_0fenw"]
 [ext_resource type="Script" uid="uid://b6efecwlsfbg7" path="res://scripts/ground_prop_spawner.gd" id="5_hf83x"]
 [ext_resource type="Texture2D" uid="uid://bg0vqkitgaohl" path="res://asset/background/craftpix-net-672461-free-swamp-game-tileset-pixel-art/1 Tiles/Tileset.png" id="7_y2o20"]
 [ext_resource type="Script" uid="uid://bu2bi3x743sfn" path="res://scripts/ground_looper.gd" id="9_0fenw"]
 [ext_resource type="PackedScene" uid="uid://d38t4xdb1wejk" path="res://scenes/player_caravan.tscn" id="10_hf83x"]
 [ext_resource type="AudioStream" uid="uid://8myqocyqaofm" path="res://asset/audio/tema_hutan.wav" id="13_y2o20"]
 [ext_resource type="Script" uid="uid://bcsuxxtutr1ti" path="res://scripts/map/world_scroll.gd" id="90_worldscroll"]
+[ext_resource type="Script" uid="uid://uumypn7pxy5k" path="res://scripts/npc_travel_spawner.gd" id="91_npcspawn"]
+[ext_resource type="PackedScene" uid="uid://bjl8uhkikpul7" path="res://scenes/npc_lumberjack_men.tscn" id="92_lumberjack"]
+[ext_resource type="PackedScene" uid="uid://c1oavkbqgkq2i" path="res://scenes/npc_civilian_men.tscn" id="93_man"]
+[ext_resource type="PackedScene" uid="uid://dk2fd32a8pgcu" path="res://scenes/npc_farmer_men.tscn" id="94_farmer"]
+[ext_resource type="Script" uid="uid://dhffwjxqwifsc" path="res://addons/weather_fx/weather_system.gd" id="99_weather"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7aeu7"]
 texture = ExtResource("7_y2o20")
@@ -305,7 +303,7 @@ repeat_times = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="ForestSet/Langit"]
 scale = Vector2(1, 1.3425926)
-texture = ExtResource("1_langit")
+texture = ExtResource("1_enhx6")
 centered = false
 
 [node name="AwanJauh" type="Parallax2D" parent="ForestSet"]
@@ -377,7 +375,6 @@ centered = false
 z_index = 1
 script = ExtResource("5_hf83x")
 prop_textures = Array[Texture2D]([ExtResource("5_0fenw")])
-despawn_x = -1000.0
 min_y = -32.0
 max_y = -32.0
 
@@ -409,9 +406,6 @@ z_index = 1
 script = ExtResource("91_npcspawn")
 npc_scenes = Array[PackedScene]([ExtResource("92_lumberjack"), ExtResource("93_man"), ExtResource("94_farmer")])
 ground_y = -32.0
-min_distance = 900.0
-max_distance = 1500.0
-initial_npc = 1
 
 [node name="Player_Caravan" parent="." instance=ExtResource("10_hf83x")]
 z_index = 2
